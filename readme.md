@@ -1,4 +1,4 @@
-<h1 align="center">Mad Math - It's all about speed! </h1>
+<h1 align="center"></h1>
 <img src="#logo">
 
 <img src="#mockup">
@@ -8,7 +8,6 @@
 ---
 
 ## Introduction
-This web app quiz is built as an extra resource to math tutors and a fun past time for enthusiasts. The quiz is all about speed! Apart from earning points answering multi choice math questions with progressive level of difficulty, the player's points are multiplied depending on how fast the questions are answered. All game scores are then saved and displayed, providing a fun competition for all players.
 
 ---
 
