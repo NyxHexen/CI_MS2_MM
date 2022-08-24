@@ -46,4 +46,42 @@ modalContainer.addEventListener('click', (e) => {
 });
 
 // Carousel - index.html
+const carousel = document.getElementById('carousel');
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const carouselTabs = document.querySelectorAll('.tab');
+
+const carouselColorOne = getComputedStyle(document.documentElement).getPropertyValue('--carousel-clr-1');
+const carouselColorTwo = getComputedStyle(document.documentElement).getPropertyValue('--carousel-clr-2');
+const carouselColorThree = getComputedStyle(document.documentElement).getPropertyValue('--carousel-clr-3');
+const carouselColors = [carouselColorOne, carouselColorTwo, carouselColorThree];
+
+let i = 0;
+
+const slideNext = () => {
+    if (i === carouselSlides.length -1 ){
+        i = 0;
+    } else {
+        i++;
+    }
+    let activeSlide = carouselSlides[i];
+    activeSlide.classList.toggle('anim-slide');
+    setTimeout(()=> {
+        activeSlide.classList.toggle('anim-slide');
+    }, 900);
+
+    let activeTab = carouselTabs[i];
+
+    activeTab.classList.toggle('active');
+    setTimeout(()=>{
+        activeTab.classList.toggle('active');
+    }, 900);
+}
+
+let carouselTimer = setInterval(slideNext, 2000);
+carousel.addEventListener('mouseenter',(e)=>{
+    clearInterval(carouselTimer);
+});
+carousel.addEventListener('mouseleave', (e) => {
+    carouselTimer = setInterval(slideNext, 2000);
+});
 
