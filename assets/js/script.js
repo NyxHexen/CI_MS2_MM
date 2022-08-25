@@ -64,19 +64,15 @@ const slideNext = () => {
         i++;
     }
     let activeSlide = carouselSlides[i];
-    activeSlide.classList.toggle('anim-slide');
-    setTimeout(()=> {
-        activeSlide.classList.toggle('anim-slide');
-    }, 900);
 
     let activeTab = carouselTabs[i];
-
     activeTab.classList.toggle('active');
     setTimeout(()=>{
         activeTab.classList.toggle('active');
-    }, 900);
+    }, 2000);
 }
 
+// On hover stop the automatic behavior
 let carouselTimer = setInterval(slideNext, 2000);
 carousel.addEventListener('mouseenter',(e)=>{
     clearInterval(carouselTimer);

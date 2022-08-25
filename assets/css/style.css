@@ -323,13 +323,9 @@ header {
     flex-direction: row;
 }
 
-.carousel-slide.anim-slide {
-    animation: next-slide 100ms ease-in forwards;
-}
-
 .carousel-slide {
     position: absolute;
-    left: -33.3rem;
+    left: -9.8rem;
     width: 98vw;
     height: 15rem;
 
@@ -339,8 +335,6 @@ header {
     margin-top: -1.5rem;
     margin-bottom: -1rem;
     z-index: 3;
-
-    transform: translateX(200%);
 }
 
 .carousel-slide h2,
@@ -631,14 +625,5 @@ footer {
 
     100% {
         transform: scale(0);
-    }
-}
-
-@keyframes next-slide {
-    0% {
-        transform: translateX(200%);
-    }
-    100% {
-        transform: translateX(0%);
     }
 }
