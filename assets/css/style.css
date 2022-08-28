@@ -538,6 +538,16 @@ footer {
     z-index: 10;
 }
 
+.legal-text-container {
+    margin-top: 1rem;
+    max-height: calc(100% - 2rem);
+    overflow-y: scroll;
+}
+
+.legal-button {
+    cursor: pointer;
+}
+
 #modal-container .modal-background {
     display: flex;
     flex-direction: column;
@@ -559,12 +569,6 @@ footer {
 
 #modal-container h2 {
     text-align: center;
-}
-
-.legal-text-container {
-    margin-top: 1rem;
-    max-height: calc(100% - 2rem);
-    overflow-y: scroll;
 }
 
 #modal-container.active {
