@@ -5,8 +5,14 @@
     --accent-clr: #0056ff;
     --prm-gradient: linear-gradient(25deg, rgba(252, 89, 12, 1) 0%, rgba(247, 147, 30, 1) 100%);
     --carousel-clr-1: #ff0000;
-    --carousel-clr-2: #6bc500;
+    --carousel-clr-2: #8cff00;
     --carousel-clr-3: #0056ff;
+    --carousel-img-1: url("../images/background-1.png");
+    --carousel-img-2: url("../images/rut-miit-hpRGrfOIybc-unsplash.jpg");
+    --carousel-img-3: url("../images/moren-hsu-VLaKsTkmVhk-unsplash.jpg");
+    --method-img-1: url(../images/antoine-dautry-_zsL306fDck-unsplash.jpg);
+    --method-img-2: url(../images/matt-ragland-02z1I7gv4ao-unsplash.jpg);
+    --method-img-3: url(../images/towfiqu-barbhuiya-5u6bz2tYhX8-unsplash.jpg);
     --h-font: 600 1rem "Lexend", sans-serif;
     --t-font: 500 1rem "Montserrat", sans-serif;
 }
@@ -343,14 +349,14 @@ header {
 }
 
 .slide-1 {
-    background-image: url("../images/background-1.png");
+    background-image: var(--carousel-img-1);
     border: 3px solid var(--carousel-clr-1);
     z-index: 3;
 }
 
 .slide-1::before {
     content: '';
-    background: linear-gradient(0deg, rgba(252,12,12,1) 0%, rgba(252,12,12,0.70) 75%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgba(252, 12, 12, 1) 0%, rgba(252, 12, 12, 0.70) 75%, rgba(255, 255, 255, 0) 100%);
     width: 130%;
     height: 130%;
     position: absolute;
@@ -359,14 +365,14 @@ header {
     left: -20%;
 }
 
-.slide-2 { 
+.slide-2 {
     border: 3px solid var(--carousel-clr-2);
-    background-image: url("../images/joshua-hoehne-iggWDxHTAUQ-unsplash.jpg");
+    background-image: var(--carousel-img-2);
 }
 
 .slide-2::before {
     content: '';
-    background: linear-gradient(0deg, rgba(107, 197, 0,1) 0%, rgba(107, 197, 0,0.70) 75%, rgba(107, 197, 0,0) 100%);
+    background: linear-gradient(0deg, rgba(107, 197, 0, 1) 0%, rgba(107, 197, 0, 0.70) 75%, rgba(107, 197, 0, 0) 100%);
     width: 130%;
     height: 130%;
     position: absolute;
@@ -377,12 +383,12 @@ header {
 
 .slide-3 {
     border: 3px solid var(--carousel-clr-3);
-    background-image: url("../images/moren-hsu-VLaKsTkmVhk-unsplash.jpg");
+    background-image: var(--carousel-img-3);
 }
 
 .slide-3::before {
     content: '';
-    background: linear-gradient(0deg, rgba(0, 86, 255,1) 0%, rgba(0, 86, 255,0.70) 75%, rgba(0, 86, 255,0) 100%);
+    background: linear-gradient(0deg, rgba(0, 86, 255, 1) 0%, rgba(0, 86, 255, 0.70) 75%, rgba(0, 86, 255, 0) 100%);
     width: 130%;
     height: 130%;
     position: absolute;
@@ -409,57 +415,79 @@ header {
     font-size: 1.3rem;
 }
 
+/* -------------------------------------------------------- Methodology */
+
 #methodology {
     background-color: var(--prm-clr);
+    margin: 0 .2rem;
     padding: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 -2px 5px rgba(88, 88, 88, 0.459),
-    0 2px 5px rgba(88, 88, 88, 0.459);
+        0 2px 5px rgba(88, 88, 88, 0.459);
     border-radius: 20px;
-}
-
-#methodology h2 {
-    font-size: 1.5rem;
-    text-align: center;
+    
     color: white;
 }
 
+#methodology h2 {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
 .method {
+    position: relative;
     height: 15rem;
-    background: white;
     display: flex;
     border-radius: 20px;
     margin: 1rem 0;
+
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
 }
 
-.method h3 {
-    font-size: 1.2rem;
-}
-
-.method-image {
-    position: relative;
-}
-
-.method-image-text {
-    white-space: nowrap;
+.method-cover {
     position: absolute;
+    white-space: nowrap;
     bottom: 0;
-    margin: 1rem;
+    margin: 1rem -.5rem;
+    padding: .5rem 2rem;
+    border-radius: 0 20px 20px 0;
+
+    background: var(--prm-clr);
+}
+
+.method-cover h3 {
+    font-size: 1.5rem;
+}
+
+.method-cover p {
+    font-size: 1.25rem;
+}
+
+.method-1 {
+    background-image: var(--method-img-1);
+}
+
+.method-2 {
+    background-image: var(--method-img-2);
+}
+
+.method-3 {
+    background-image: var(--method-img-3);
 }
 
 .method-info {
+    width: 100%;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.863);
     border-radius: 20px;
     opacity: 0;
-    color: white;
-}
-
-.method:nth-child(3) .method-info p {
-    font-size: .88rem;
 }
 
 .method.active .method-info {
@@ -468,7 +496,7 @@ header {
     z-index: 1;
 }
 
-.method.active .method-image {
+.method.active .method-cover {
     filter: blur(4px);
 }
 
