@@ -66,7 +66,6 @@ for (let i = 0; i < carouselTabs.length; i++) {
             carouselSlides[j].removeAttribute('style');
         }
         carouselIndex = i;
-        console.log('You clicked on ' + carouselTabs[i]);
         carouselTabs[carouselIndex].classList.toggle('active');
         carouselSlides[carouselIndex].style.setProperty("z-index", "4");
     })
