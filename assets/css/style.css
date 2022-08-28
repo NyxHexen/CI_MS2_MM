@@ -272,7 +272,7 @@ header {
 
 /* Carousel */
 #carousel {
-    min-height: 15rem;
+    min-height: 16rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -290,7 +290,7 @@ header {
 .tab {
     width: calc(99vw / 3);
     margin-right: -.2rem;
-    height: 3rem;
+    height: 4rem;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     filter: opacity(.5);
@@ -314,7 +314,7 @@ header {
 
 .tab-3 {
     background-color: var(--carousel-clr-3);
-    z-index: -1;
+    z-index: 0;
 }
 
 .carousel-slides {
@@ -329,28 +329,84 @@ header {
     width: 98vw;
     height: 15rem;
 
-    border: 3px solid red;
+    color: white;
+
+    border: 3px solid #fff;
     border-radius: 14px;
-    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin-top: -1.5rem;
     margin-bottom: -1rem;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.slide-1 {
+    background-image: url("../images/background-1.png");
+    border: 3px solid var(--carousel-clr-1);
     z-index: 3;
+}
+
+.slide-1::before {
+    content: '';
+    background: linear-gradient(0deg, rgba(252,12,12,1) 0%, rgba(252,12,12,0.70) 75%, rgba(255,255,255,0) 100%);
+    width: 130%;
+    height: 130%;
+    position: absolute;
+    transform: rotate(21deg);
+    top: 0%;
+    left: -20%;
+}
+
+.slide-2 { 
+    border: 3px solid var(--carousel-clr-2);
+    background-image: url("../images/joshua-hoehne-iggWDxHTAUQ-unsplash.jpg");
+}
+
+.slide-2::before {
+    content: '';
+    background: linear-gradient(0deg, rgba(107, 197, 0,1) 0%, rgba(107, 197, 0,0.70) 75%, rgba(107, 197, 0,0) 100%);
+    width: 130%;
+    height: 130%;
+    position: absolute;
+    transform: rotate(21deg);
+    top: 0%;
+    left: -20%;
+}
+
+.slide-3 {
+    border: 3px solid var(--carousel-clr-3);
+    background-image: url("../images/moren-hsu-VLaKsTkmVhk-unsplash.jpg");
+}
+
+.slide-3::before {
+    content: '';
+    background: linear-gradient(0deg, rgba(0, 86, 255,1) 0%, rgba(0, 86, 255,0.70) 75%, rgba(0, 86, 255,0) 100%);
+    width: 130%;
+    height: 130%;
+    position: absolute;
+    transform: rotate(21deg);
+    top: 0%;
+    left: -20%;
 }
 
 .carousel-slide h2,
 .carousel-slide p {
     position: absolute;
+    line-height: 108%;
 }
 
 .carousel-slide h2 {
     left: 1rem;
     top: 40%;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 .carousel-slide p {
     bottom: 1rem;
     left: 1rem;
+    font-size: 1.3rem;
 }
 
 #methodology {
