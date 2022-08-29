@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz game for tutors and enthusiasts.">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Math Masters Academy - The Best Online Math Courses</title>
+    <script src="https://kit.fontawesome.com/f05b6615ad.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 563.62 634">
+                <defs>
+                    <linearGradient id="linear-gradient" x1="33.66" y1="484.73" x2="544.66" y2="32.11"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#f30" />
+                        <stop offset="1" stop-color="#f7931e" />
+                    </linearGradient>
+                </defs>
+                <g id="logo-bg">
+                    <rect class="cls-1" x="6.62" y="12" width="557" height="500" rx="58.46" />
+                </g>
+                <g id="logo"><text class="cls-2" transform="translate(23.46 459.61) scale(0.8 1)">M</text><text
+                        class="cls-3" transform="translate(375.31 283.61) scale(0.94 1)">²</text></g>
+            </svg>
+        </div>
+        <nav id="nav" class="nav-links-container" aria-label="Navigation links">
+            <button class="hamburger-menu-button" aria-label="Menu Button">
+                <div class="menu-icon-wrapper">
+                    <div class="menu-icon-line half first"></div>
+                    <div class="menu-icon-line"></div>
+                    <div class="menu-icon-line half last"></div>
+                </div>
+            </button>
+            <ul class="hamburger-menu-list">
+                <li class="hamburger-menu-item"><a href="index.html" class="nav-button">Home</a></li>
+                <li class="hamburger-menu-item"><a href="quiz.html" class="nav-button">Take the Quiz</a></li>
+                <li class="hamburger-menu-item"><a href="#" class="nav-button">Book an Activity</a></li>
+                <li class="hamburger-menu-item"><a href="#" class="nav-button">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="quiz-start-container">
+        <div class="quiz-start-box">
+            <h2>How to Play</h2>
+            <p class="instructions">Take a wild guess...</p>
+            <input type="text" name="quiz-name" id="quiz-name">
+            <button type="submit">LETS GO!</button>
+        </div>
+    </div>
+    <section class="quiz-container">
+        <div class="hud timer">30</div>
+        <div class="hud score">Score: <span>0</span></div>
+        <div class="hud multiplier">Multiplier: <span>x1</span></div>
+        <div class="hud question-counter"><span>0</span> / <span>50</span></div>
+        <div class="question">
+            <h2>Question Text Goes Here</h2>
+        </div>
+        <div class="answers">
+            <button class="answer answer-1"><span>Answer 1</span></button>
+            <button class="answer answer-2"><span>Answer 2</span></button>
+            <button class="answer answer-3"><span>Answer 3</span></button>
+            <button class="answer answer-3"><span>Answer 4</span></button>
+        </div>
+    </section>
+    <footer>
+        <div id="full-logo">
+            <div class="logo-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 563.62 634">
+                    <defs>
+                        <linearGradient id="linear-gradient" x1="33.66" y1="484.73" x2="544.66" y2="32.11"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#f30" />
+                            <stop offset="1" stop-color="#f7931e" />
+                        </linearGradient>
+                    </defs>
+                    <g id="logo-bg">
+                        <rect class="cls-1" x="6.62" y="12" width="557" height="500" rx="58.46" />
+                    </g>
+                    <g id="logo"><text class="cls-2" transform="translate(23.46 459.61) scale(0.8 1)">M</text><text
+                            class="cls-3" transform="translate(375.31 283.61) scale(0.94 1)">²</text></g>
+                </svg></div>
+            <div class="logo-text">
+                <span>Math</span><br>
+                <span>Masters</span><br>
+                <span>Academy</span>
+            </div>
+        </div>
+        <div id="social-media">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+        <div id="legal">
+            <div id="tnc" class="legal-button">Terms & Conditions</div>
+            <span> | </span>
+            <div id="privacy" class="legal-button">Privacy Policy</div>
+        </div>
+        <div id="modal-container">
+            <div class="modal-background">
+                <div class="modal">
+                    <h2>Uh oh! Something went wrong.</h2>
+                    <div class="legal-text-container">
+                        <p>Well... this is awkward...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

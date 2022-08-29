@@ -34,6 +34,7 @@ h5 {
     font: var(--h-font);
 }
 
+div,
 p,
 span {
     font: var(--t-font);
@@ -58,6 +59,7 @@ header {
 
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(88, 88, 88, 0.459);
+    z-index: 5;
 }
 
 #logo {
@@ -94,7 +96,7 @@ header {
 
 .cls-4 {
     font-size: 104.56px;
-    fill: #f30;
+    fill: #ff3300;
 }
 
 /* ------------------------------ Hamburger Menu */
@@ -419,7 +421,7 @@ header {
 
 #methodology {
     background-color: var(--prm-clr);
-    margin: 0 .2rem;
+    margin: 0 .2rem 2rem;
     padding: 1rem;
     position: relative;
     display: flex;
@@ -428,7 +430,7 @@ header {
     box-shadow: 0 -2px 5px rgba(88, 88, 88, 0.459),
         0 2px 5px rgba(88, 88, 88, 0.459);
     border-radius: 20px;
-    
+
     color: white;
 }
 
@@ -502,7 +504,6 @@ header {
 
 /* Footer */
 footer {
-    margin-top: 2rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -634,6 +635,184 @@ footer {
 #modal-container.active.out .modal h2,
 #modal-container.active.out .modal p {
     animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* ------------------------------------------------------ QUIZ */
+.quiz-start-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 104%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.quiz-start-box {
+    width: 70%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+}
+
+.quiz-start-box > * {
+    margin: 1rem 1rem;
+}
+
+.quiz-container {
+    position: relative;
+    height: 90vh;
+    width: 96%;
+
+    margin: 2.5rem auto;
+    filter: blur(20px);
+
+    overflow: hidden;
+}
+
+.hud {
+    z-index: 1;
+}
+
+.timer {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 3rem;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+}
+
+.score {
+    position: absolute;
+    top: 4%;
+    left: 39%;
+}
+
+.multiplier {
+    position: absolute;
+    top: 0;
+    right: 33%;
+}
+
+.question {
+    position: relative;
+    width: 90%;
+    height: 10rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2rem auto 1rem;
+
+    background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
+    background-position: 5% 45%;
+    background-color: white;
+    
+    box-shadow: 1px 1px 2px rgb(105, 105, 105);
+
+    border: 1px solid rgb(125, 125, 125);
+}
+
+.question::after {
+    content: '';
+
+    position: absolute;
+    top: -.25rem;
+    left: .20rem;
+
+    height: 100%;
+    width: calc(100% + 1px);
+
+    border: 1px solid rgb(125, 125, 125);
+    box-shadow: 1px 1px 2px rgb(105, 105, 105);
+
+    background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
+    background-color: white;
+
+    z-index: -1;
+}
+
+.question::before {
+    content: '';
+
+    position: absolute;
+    top: -.455rem;
+    left: .425rem;
+
+    height: 100%;
+    width: 100%;
+
+    background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
+    background-color: white;
+
+    border: 1px solid rgb(125, 125, 125);
+    box-shadow: 1px 1px 2px rgb(105, 105, 105);
+
+    z-index: -1;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width: 100%;
+}
+
+.answer {
+    position: relative;
+    width: 18.5rem;
+    height: 3.5rem;
+
+    margin: .25rem -2.5rem .25rem 0;
+    font-family: var(--h-font);
+    font-size: 2rem;
+
+    background: var(--prm-gradient);
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 10px;
+
+    box-shadow: 1px 1px 2px black;
+    transform: skew(25deg);
+}
+
+.answer span {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+
+    color: white;
+    font: var(--h-font);
+    font-size: 2rem;
+    transform: skew(-25deg);
+}
+
+.answer:hover,
+.answer:active {
+    background: var(--accent-clr);
+
+    transform: skew(25deg) scale(1.05);
+    transform-origin: bottom right;
+    transition: .1s all;
 }
 
 /* Keyframes */
