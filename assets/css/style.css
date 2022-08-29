@@ -663,10 +663,28 @@ footer {
     align-items: center;
 
     background-color: white;
+    box-shadow: 0px 2px 12px 4px rgba(0, 0, 0, 0.25),
+    0px -2px 12px 4px rgba(0, 0, 0, 0.25);;
 }
 
 .quiz-start-box > * {
     margin: 1rem 1rem;
+}
+
+.quiz-start-box button {
+    padding: .5rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--prm-gradient);
+    box-shadow: 1px 1px 5px rgb(105, 105, 105);
+    color: white;
+    font-family: var(--h-font);
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.quiz-start-box button:disabled {
+    background: rgb(125, 125, 125);
 }
 
 .quiz-container {
