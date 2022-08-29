@@ -52,7 +52,7 @@ const carouselTabs = document.querySelectorAll('.tab');
 
 var carouselIndex = 0;
 
-let toggleActive = () => {
+const toggleActive = () => {
     carouselTabs[carouselIndex].classList.toggle('active');
     carouselSlides[carouselIndex].removeAttribute('style');
 }
