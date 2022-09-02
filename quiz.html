@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/f05b6615ad.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="quiz">
     <header>
         <div id="logo">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 563.62 634">
@@ -54,10 +54,11 @@
             <h2>How to Play</h2>
             <p class="instructions">Take a wild guess...</p>
             <input type="text" name="quiz-name" id="quiz-name">
-            <button type="submit" disabled>LETS GO!</button>
+            <button type="submit" class="quiz-submit" disabled>LETS GO!</button>
         </div>
     </div>
     <section class="quiz-container">
+        <div id="countdown"></div>
         <div class="hud timer">30</div>
         <div class="hud score">Score: <span>0</span></div>
         <div class="hud multiplier">Multiplier: <span>x1</span></div>
