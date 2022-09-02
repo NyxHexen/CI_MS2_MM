@@ -102,9 +102,60 @@ const quizInput = document.querySelector('#quiz-name');
 const quizSubmit = document.querySelector('.quiz-submit');
 const quizContainer = document.querySelector('.quiz-container');
 const countdownDiv = document.querySelector('#countdown');
+const questions = [{
+    question: "What is 2 + 2?",
+    answers: [{
+        correct: true,
+        answer: "4"
+    }, {
+        answer: "3"
+    }, {
+        answer: "2"
+    }, {
+        answer: "1"
+    }]
+}, {
+    question: "What is the correct formula for finding the circumference of a circle",
+    answers: [{
+        correct: true,
+        answer: "C = 2 π r"
+    }, {
+        answer: "23"
+    }, {
+        answer: "32"
+    }, {
+        answer: "24"
+    }]
+}, {
+    question: "What is 10 + 10?",
+    answers: [{
+        correct: true,
+        answer: "20"
+    }, {
+        answer: "23"
+    }, {
+        answer: "62"
+    }, {
+        answer: "42"
+    }]
+}, {
+    question: "What is the correct formula for finding the area of an equilateral triangle?",
+    answers: [{
+        correct: true,
+        answer: "A = (√3)/4 x side"
+    }, {
+        answer: "What is a triangle?"
+    }, {
+        answer: "34"
+    }, {
+        answer: "24"
+    }]
+}]
+
 const player = {
     name: 0,
     score: 0,
+    multiplier: 1,
     guesses: 0
 }
 
@@ -148,9 +199,9 @@ function quizStart() {
         let numDiv = null;
         var interval = setInterval(count, 1000);
     }
-    countdown(countdownDiv, function(){
+    countdown(countdownDiv, function () {
         countdownDiv.innerHTML = '<p class="num hide">START!</p>';
-        setTimeout(()=>{
+        setTimeout(() => {
             countdownDiv.style.transform = "scaleY(0)";
         }, 1500);
     })
