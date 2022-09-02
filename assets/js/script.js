@@ -102,7 +102,9 @@ const quizInput = document.querySelector('#quiz-name');
 const quizSubmit = document.querySelector('.quiz-submit');
 const quizContainer = document.querySelector('.quiz-container');
 const countdownDiv = document.querySelector('#countdown');
-const questions = [{
+const quizQuestion = document.querySelector('.question');
+const quizAnswers = document.querySelectorAll('.answer span');
+const availQuestions = [{
     question: "What is 2 + 2?",
     answers: [{
         correct: true,
@@ -205,4 +207,13 @@ function quizStart() {
             countdownDiv.style.transform = "scaleY(0)";
         }, 1500);
     })
+    showQuestion();
 };
+
+function showQuestion(){
+    let currentQuestion = availQuestions.shift();
+    quizQuestion.innerText = currentQuestion.question;
+    for (let i = 0; i < quizAnswers.length; i++){
+        quizAnswers[i].innerText = currentQuestion.answers[i].answer;
+    }
+}
