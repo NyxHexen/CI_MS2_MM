@@ -44,7 +44,6 @@ body {
     background-color: #ddd;
     overflow-x: hidden;
     min-height: 100%;
-    height: 100%;
 }
 
 header {
@@ -642,7 +641,7 @@ footer {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 104%;
+    height: calc(100% + 1.5rem);
 
     display: flex;
     flex-direction: column;
@@ -651,6 +650,15 @@ footer {
 
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.45);
+}
+
+.quiz-start-container.active {
+    opacity: 0;
+    display: none;
+}
+
+.quiz-start-container.active~.quiz-container {
+    filter: none;
 }
 
 .quiz-start-box {
@@ -664,10 +672,11 @@ footer {
 
     background-color: white;
     box-shadow: 0px 2px 12px 4px rgba(0, 0, 0, 0.25),
-    0px -2px 12px 4px rgba(0, 0, 0, 0.25);;
+        0px -2px 12px 4px rgba(0, 0, 0, 0.25);
+    ;
 }
 
-.quiz-start-box > * {
+.quiz-start-box>* {
     margin: 1rem 1rem;
 }
 
@@ -690,12 +699,35 @@ footer {
 .quiz-container {
     position: relative;
     height: 90vh;
-    width: 96%;
-
-    margin: 2.5rem auto;
+    margin: 2.5rem 0;
     filter: blur(20px);
 
     overflow: hidden;
+}
+
+#countdown {
+    position: absolute;
+    top: 33%;
+    width: 100%;
+    z-index: 2;
+    margin: 0 auto;
+    background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
+}
+
+.num {
+    color: #eee;
+    font-family: var(--h-font);
+    font-size: 5.5rem;
+    font-weight: 800;
+    text-align: center;
+
+    animation: count 0.1s cubic-bezier(0.1, 0.1, 1, 1);
+    text-shadow: -3px -3px var(--prm-clr), 3px 3px var(--accent-clr);
+}
+
+.num.hide {
+    transform-origin: 50% 50%;
+    animation: hideCountdown .5s 1s ease-out forwards;
 }
 
 .hud {
@@ -743,7 +775,7 @@ footer {
     background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
     background-position: 5% 45%;
     background-color: white;
-    
+
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
 
     border: 1px solid rgb(125, 125, 125);
@@ -908,6 +940,35 @@ footer {
         transform: scale(1);
     }
 
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes count {
+    0% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hideCountdown {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes hideCountdownDiv {
+    0% {
+        transform: scale(1);
+    }
     100% {
         transform: scale(0);
     }
