@@ -46,48 +46,112 @@ modalContainer.addEventListener('click', (e) => {
 });
 
 // Carousel - index.html
-const carousel = document.getElementById('carousel');
-const carouselSlides = document.querySelectorAll('.carousel-slide');
-const carouselTabs = document.querySelectorAll('.tab');
+if (window.location.pathname == '/index.html') {
+    const carousel = document.getElementById('carousel');
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const carouselTabs = document.querySelectorAll('.tab');
 
-var carouselIndex = 0;
+    var carouselIndex = 0;
 
-const toggleActive = () => {
-    carouselTabs[carouselIndex].classList.toggle('active');
-    carouselSlides[carouselIndex].removeAttribute('style');
-}
+    const toggleActive = () => {
+        carouselTabs[carouselIndex].classList.toggle('active');
+        carouselSlides[carouselIndex].removeAttribute('style');
+    }
 
-let activeTimeout = setInterval(toggleActive, 2000);
+    let activeTimeout = setInterval(toggleActive, 2000);
 
-for (let i = 0; i < carouselTabs.length; i++) {
-    carouselTabs[i].addEventListener("click", () => {
-        for (let j = 0; j < carouselTabs.length; j++) {
-            carouselTabs[j].classList.remove('active');
-            carouselSlides[j].removeAttribute('style');
+    for (let i = 0; i < carouselTabs.length; i++) {
+        carouselTabs[i].addEventListener("click", () => {
+            for (let j = 0; j < carouselTabs.length; j++) {
+                carouselTabs[j].classList.remove('active');
+                carouselSlides[j].removeAttribute('style');
+            }
+            carouselIndex = i;
+            carouselTabs[carouselIndex].classList.toggle('active');
+            carouselSlides[carouselIndex].style.setProperty("z-index", "4");
+        })
+    }
+
+    const slideNext = () => {
+        if (carouselIndex === carouselSlides.length - 1) {
+            carouselIndex = 0;
+        } else {
+            carouselIndex++;
         }
-        carouselIndex = i;
         carouselTabs[carouselIndex].classList.toggle('active');
         carouselSlides[carouselIndex].style.setProperty("z-index", "4");
-    })
-}
-
-const slideNext = () => {
-    if (carouselIndex === carouselSlides.length - 1) {
-        carouselIndex = 0;
-    } else {
-        carouselIndex++;
     }
-    carouselTabs[carouselIndex].classList.toggle('active');
-    carouselSlides[carouselIndex].style.setProperty("z-index", "4");
+
+    // On hover stop the timers
+    let carouselTimer = setInterval(slideNext, 2000);
+    carousel.addEventListener('mouseenter', (e) => {
+        clearInterval(activeTimeout);
+        clearInterval(carouselTimer);
+    });
+    carousel.addEventListener('mouseleave', (e) => {
+        activeTimeout = setInterval(toggleActive, 2000);
+        carouselTimer = setInterval(slideNext, 2000);
+    });
+
 }
 
-// On hover stop the timers
-let carouselTimer = setInterval(slideNext, 2000);
-carousel.addEventListener('mouseenter', (e) => {
-    clearInterval(activeTimeout);
-    clearInterval(carouselTimer);
+// ------ QUIZ PAGE ------
+const quizModalContainer = document.querySelector('.quiz-start-container');
+const quizModal = document.querySelector('.quiz-start-box');
+const quizInput = document.querySelector('#quiz-name');
+const quizSubmit = document.querySelector('.quiz-submit');
+const quizContainer = document.querySelector('.quiz-container');
+const countdownDiv = document.querySelector('#countdown');
+const player = {
+    name: 0,
+    score: 0,
+    guesses: 0
+}
+
+quizInput.addEventListener('input', (e) => {
+    if (quizInput.value.length > 2) {
+        quizSubmit.disabled = false;
+    }
 });
-carousel.addEventListener('mouseleave', (e) => {
-    activeTimeout = setInterval(toggleActive, 2000);
-    carouselTimer = setInterval(slideNext, 2000);
-});
+
+quizSubmit.addEventListener('click', (e) => {
+    player.name = quizInput.value;
+    quizModalContainer.classList.add('active');
+    setTimeout(quizStart, 1000);
+})
+
+function quizStart() {
+    player.score = 0;
+    player.guesses = 0;
+
+    //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
+    function countdown(parent, callback) {
+        function count() {
+            if (numDiv) {
+                numDiv.remove();
+            }
+
+            if (numbers.length === 0) {
+                clearInterval(interval);
+                callback();
+                return;
+            }
+
+            let number = numbers.shift();
+            numDiv = document.createElement('p');
+            numDiv.textContent = number;
+            numDiv.className = "num";
+
+            parent.appendChild(numDiv);
+        }
+        let numbers = [3, 2, 1];
+        let numDiv = null;
+        var interval = setInterval(count, 1000);
+    }
+    countdown(countdownDiv, function(){
+        countdownDiv.innerHTML = '<p class="num hide">START!</p>';
+        setTimeout(()=>{
+            countdownDiv.style.transform = "scaleY(0)";
+        }, 1500);
+    })
+};
