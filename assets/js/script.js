@@ -205,9 +205,9 @@ function quizStart() {
         countdownDiv.innerHTML = '<p class="num hide">START!</p>';
         setTimeout(() => {
             countdownDiv.style.transform = "scaleY(0)";
+            showQuestion();
         }, 1500);
-    })
-    showQuestion();
+    });
 };
 
 function showQuestion(){
@@ -215,5 +215,12 @@ function showQuestion(){
     quizQuestion.innerText = currentQuestion.question;
     for (let i = 0; i < quizAnswers.length; i++){
         quizAnswers[i].innerText = currentQuestion.answers[i].answer;
+        quizAnswers[i].parentElement.classList.remove('unset');
+        quizAnswers[i].parentElement.classList.add('set');
+
+        setTimeout(()=>{
+            // quizAnswers[i].parentElement.classList.remove('set');
+            quizAnswers[i].parentElement.classList.add('unset');
+        },5000)
     }
 }
