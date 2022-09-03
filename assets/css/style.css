@@ -888,14 +888,24 @@ footer {
     font: var(--h-font);
     font-size: 2rem;
     transform: skew(-25deg);
+    pointer-events: none;
 }
 
 .answer:hover {
     background: var(--accent-clr);
+}
 
-    transform: skew(25deg) scale(1.05);
-    transform-origin: bottom right;
-    transition: .1s all;
+.answer.disabled {
+    background: rgb(125, 125, 125);
+    pointer-events: none;
+}
+
+.answer.correct {
+    background: green !important;
+}
+
+.answer.incorrect {
+    background: red !important;
 }
 
 /* Keyframes */

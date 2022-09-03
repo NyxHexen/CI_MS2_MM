@@ -5,8 +5,11 @@ const quizSubmit = document.querySelector('.quiz-submit');
 const quizContainer = document.querySelector('.quiz-container');
 const countdownDiv = document.querySelector('#countdown');
 const quizQuestion = document.querySelector('.question');
-const quizAnswers = document.querySelectorAll('.answer span');
-let currentQuestion = null;
+const quizAnswersBtn = document.querySelectorAll('.answer');
+const quizAnswersText = document.querySelectorAll('.answer span');
+
+let shuffledQuestions, shuffledAnswers, currentQuestion;
+let answeredQuestions = [];
 const availQuestions = [{
     question: "What is 2 + 2?",
     answers: [{
@@ -113,16 +116,69 @@ function quizStart() {
     });
 };
 
-function showQuestion() {
-    currentQuestion = availQuestions.shift();
-    quizQuestion.innerText = currentQuestion.question;
-    setAnswers();
+function shuffle(array) {
+    array.sort(() => Math.random() - .5);
+    return array;
 }
 
-const setAnswers = () => {
-    for (let i = 0; i < quizAnswers.length; i++) {
-        quizAnswers[i].innerText = currentQuestion.answers[i].answer;
-        quizAnswers[i].parentElement.classList.remove('unset');
-        quizAnswers[i].parentElement.classList.add('set');
+function showQuestion() {
+    shuffledQuestions = shuffle(availQuestions);
+    currentQuestion = shuffledQuestions.shift();
+    answeredQuestions.push(currentQuestion);
+    quizQuestion.innerText = currentQuestion.question;
+
+    shuffledAnswers = shuffle(currentQuestion.answers);
+
+    clearStatusClass(quizAnswersBtn);
+    for (let i = 0; i < quizAnswersText.length; i++) {
+        quizAnswersText[i].innerText = shuffledAnswers[i].answer;
+        if (shuffledAnswers[i].hasOwnProperty('correct')) {
+            quizAnswersText[i].parentElement.dataset.correct = true;
+        }
+        quizAnswersText[i].parentElement.classList.add('set');
+        quizAnswersText[i].parentElement.addEventListener('click', selectAnswer);
     }
+}
+
+function setNextQuestion() {
+    showQuestion();
+}
+
+function selectSiblings(array, skipThis) {
+    let arr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] != skipThis) {
+            arr.push(array[i]);
+        }
+    }
+    return arr;
+}
+
+function selectAnswer(e) {
+    const selectedAnswer = e.target;
+    selectSiblings(quizAnswersBtn, selectedAnswer).forEach(btn => {
+        btn.classList.add('disabled');
+    })
+    if (selectedAnswer.dataset.correct) {
+        selectedAnswer.classList.add('correct');
+    } else {
+        selectedAnswer.classList.add('incorrect');
+    }
+    setTimeout(() => {
+        quizAnswersBtn.forEach(btn => {
+            btn.classList.add('unset');
+        })
+        setTimeout(showQuestion, 1000);
+    }, 1000);
+}
+
+function clearStatusClass(array){
+    array.forEach(item => {
+        item.classList.remove('unset');
+        item.classList.remove('set');
+        item.classList.remove('disabled');
+        item.classList.remove('correct');
+        item.classList.remove('incorrect');
+        delete item.dataset['correct'];
+    })
 }
