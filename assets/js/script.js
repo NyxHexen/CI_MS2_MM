@@ -96,7 +96,7 @@ if (window.location.pathname == '/index.html') {
 }
 
 // ------ QUIZ PAGE ------
-if (window.location.pathname == '/index.html') {
+if (window.location.pathname == '/quiz.html') {
     const quizModalContainer = document.querySelector('.quiz-start-container');
     const quizModal = document.querySelector('.quiz-start-box');
     const quizInput = document.querySelector('#quiz-name');
@@ -221,7 +221,7 @@ if (window.location.pathname == '/index.html') {
     const setAnswers = () => {
         for (let i = 0; i < quizAnswers.length; i++) {
             quizAnswers[i].innerText = currentQuestion.answers[i].answer;
-            quizAnswers[i].parentElement.classList.remove('unset');
+            quizAnswers[i].parentElement.classList.remove('unset set');
             quizAnswers[i].parentElement.classList.add('set');
         }
     }
