@@ -7,6 +7,7 @@ const countdownDiv = document.querySelector('#countdown');
 const quizQuestion = document.querySelector('.question');
 const quizAnswersBtn = document.querySelectorAll('.answer');
 const quizAnswersText = document.querySelectorAll('.answer span');
+const hudTimer = document.querySelector('.timer');
 
 let shuffledQuestions, shuffledAnswers, currentQuestion;
 let answeredQuestions = [];
@@ -121,6 +122,17 @@ function shuffle(array) {
     return array;
 }
 
+function clearStatusClass(array){
+    array.forEach(item => {
+        item.classList.remove('unset');
+        item.classList.remove('set');
+        item.classList.remove('disabled');
+        item.classList.remove('correct');
+        item.classList.remove('incorrect');
+        delete item.dataset['correct'];
+    })
+}
+
 function showQuestion() {
     shuffledQuestions = shuffle(availQuestions);
     currentQuestion = shuffledQuestions.shift();
@@ -138,6 +150,26 @@ function showQuestion() {
         quizAnswersText[i].parentElement.classList.add('set');
         quizAnswersText[i].parentElement.addEventListener('click', selectAnswer);
     }
+    startTimer()
+}
+
+let timerId;
+
+function startTimer(){
+    let timeLeft = 30;
+    timerId = setInterval(tickTock, 1000);
+    function tickTock() {
+        if (timeLeft === -1){
+            showQuestion();
+        } else {
+            hudTimer.innerHTML = timeLeft;
+            timeLeft--;
+        }
+    }
+}
+
+function stopTimer(timer){
+    clearInterval(timer);
 }
 
 function setNextQuestion() {
@@ -155,6 +187,7 @@ function selectSiblings(array, skipThis) {
 }
 
 function selectAnswer(e) {
+    stopTimer(timerId);
     const selectedAnswer = e.target;
     selectSiblings(quizAnswersBtn, selectedAnswer).forEach(btn => {
         btn.classList.add('disabled');
@@ -170,15 +203,4 @@ function selectAnswer(e) {
         })
         setTimeout(showQuestion, 1000);
     }, 1000);
-}
-
-function clearStatusClass(array){
-    array.forEach(item => {
-        item.classList.remove('unset');
-        item.classList.remove('set');
-        item.classList.remove('disabled');
-        item.classList.remove('correct');
-        item.classList.remove('incorrect');
-        delete item.dataset['correct'];
-    })
 }
