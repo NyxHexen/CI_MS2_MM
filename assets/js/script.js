@@ -41,7 +41,7 @@ legalButtons.forEach(button => {
     })
 })
 
-modalContainer.addEventListener('click', (e) => {
+modalContainer.addEventListener('click', () => {
     modalContainer.classList.toggle('out');
 });
 
@@ -162,13 +162,13 @@ const player = {
     guesses: 0
 }
 
-quizInput.addEventListener('input', (e) => {
+quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
         quizSubmit.disabled = false;
     }
 });
 
-quizSubmit.addEventListener('click', (e) => {
+quizSubmit.addEventListener('click', () => {
     player.name = quizInput.value;
     quizModalContainer.classList.add('active');
     setTimeout(quizStart, 1000);
