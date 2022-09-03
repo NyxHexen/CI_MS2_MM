@@ -862,6 +862,8 @@ footer {
 }
 
 .answer.unset {
+    /* Adding the transform prevents the animation from flickering by making it a default value rather than a result of an animation */
+    transform: skew(25deg) translateX(0);
     animation: answersUnset .5s ease-in forwards;
 }
 
@@ -888,8 +890,7 @@ footer {
     transform: skew(-25deg);
 }
 
-.answer:hover,
-.answer:active {
+.answer:hover {
     background: var(--accent-clr);
 
     transform: skew(25deg) scale(1.05);
@@ -1001,6 +1002,7 @@ footer {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(0);
     }
