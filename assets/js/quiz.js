@@ -254,26 +254,36 @@ let scoreTotal = parseInt(hudScoreSpan.innerText);
 
 function updateScore(selected) {
     if (selected.dataset.correct) {
-        scoreTotal = scoreTotal + (10 * multiplierNumber);
+        scoreTotal = scoreTotal + ((10 * multiplierNumber) + calcTimer());
         hudScoreSpan.innerText = scoreTotal;
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
+            shortenTimer();
             multiplierNumber++;
             hudMultiplierSpan.innerText = multiplierNumber;
-            shortenTimer();
         }
     } else if (!!selected.dataset.correct == false) {
+        resetTimer();
         hudMultiplierSpan.innerText = 1;
         answerSpree = [];
-        resetTimer();
+    }
+}
+
+function calcTimer() {
+    if (timerMax === 30) {
+        return timeLeft;
+    } else if (timerMax === 20) {
+        return timeLeft * 3;
+    } else if (timerMax <= 10) {
+        return timeLeft * 8;
     }
 }
 
 function shortenTimer(){
     if (timerMax > 10){
         timerMax -= 10;
-    } else if (timerMax < 10 && timerMax > 5){
+    } else if (timerMax <= 10 && timerMax > 5){
         timerMax -= 5;
     }
 }
