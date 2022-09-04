@@ -46,16 +46,16 @@ modalContainer.addEventListener('click', () => {
 });
 
 // Carousel - index.html
-if (window.location.pathname === '/index.html') {
+if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
+    window.addEventListener ?
+    window.addEventListener("load", startCarousel, false) :
+    window.attachEvent && window.attachEvent("onload", startCarousel);
+    
     const carousel = document.getElementById('carousel');
     const carouselSlides = document.querySelectorAll('.carousel-slide');
     const carouselTabs = document.querySelectorAll('.tab');
 
     let carouselIndex = 0;
-
-    window.addEventListener ?
-        window.addEventListener("load", startCarousel, false) :
-        window.attachEvent && window.attachEvent("onload", startCarousel);
 
     function startCarousel() {
         let activeTimeout = setInterval(toggleActive, 2000);
