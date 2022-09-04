@@ -1,7 +1,6 @@
-document.onload = () => {
     // Hamburger Button
     document.querySelector('.hamburger-menu-button').addEventListener('click', function () {
-        document.querySelector('.nav-links-container').classList.toggle('active');
+    document.querySelector('.nav-links-container').classList.toggle('active');
     });
 
     // Methodology - index.html
@@ -94,4 +93,3 @@ document.onload = () => {
             carouselTimer = setInterval(slideNext, 2000);
         });
     }
-};
