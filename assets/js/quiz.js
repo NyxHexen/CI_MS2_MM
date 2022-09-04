@@ -12,9 +12,14 @@ const hudScoreSpan = document.querySelector('.score span');
 const hudMultiplierSpan = document.querySelector('.multiplier span');
 
 let answerHistory = [];
+let timerMax = 30;
+hudTimer.innerText = timerMax;
+let timerScore, timeLeft;
 
 let shuffledQuestions, shuffledAnswers, currentQuestion, timerId;
+
 let answeredQuestions = [];
+
 const availQuestions = [{
     question: "What is 2 + 2?",
     answers: [{
@@ -190,13 +195,12 @@ function showQuestion() {
         quizAnswersBtn[i].classList.add('set');
         quizAnswersBtn[i].addEventListener('click', selectAnswer);
     }
-    startTimer()
+    startTimer(timerMax);
 }
 
-function startTimer() {
-    let timeLeft = 30;
+function startTimer(seconds) {
+    timeLeft = seconds;
     timerId = setInterval(tickTock, 1000);
-
     function tickTock() {
         if (timeLeft === -1) {
             showQuestion();
@@ -209,10 +213,6 @@ function startTimer() {
 
 function stopTimer(timer) {
     clearInterval(timer);
-}
-
-function setNextQuestion() {
-    showQuestion();
 }
 
 function selectSiblings(array, skipThis) {
@@ -261,9 +261,23 @@ function updateScore(selected) {
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
             multiplierNumber++;
             hudMultiplierSpan.innerText = multiplierNumber;
+            shortenTimer();
         }
     } else if (!!selected.dataset.correct == false) {
         hudMultiplierSpan.innerText = 1;
         answerSpree = [];
+        resetTimer();
     }
+}
+
+function shortenTimer(){
+    if (timerMax > 10){
+        timerMax -= 10;
+    } else if (timerMax < 10 && timerMax > 5){
+        timerMax -= 5;
+    }
+}
+
+function resetTimer(){
+    timerMax = 30;
 }
