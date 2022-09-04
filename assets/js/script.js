@@ -53,10 +53,14 @@ if (window.location.pathname === '/index.html') {
 
     let carouselIndex = 0;
 
-    window.onload = function () {
+    window.addEventListener ?
+        window.addEventListener("load", startCarousel, false) :
+        window.attachEvent && window.attachEvent("onload", startCarousel);
+
+    function startCarousel() {
         let activeTimeout = setInterval(toggleActive, 2000);
         let carouselTimer = setInterval(slideNext, 2000);
-        
+
         function toggleActive() {
             carouselTabs[carouselIndex].classList.toggle('active');
             carouselSlides[carouselIndex].removeAttribute('style');
