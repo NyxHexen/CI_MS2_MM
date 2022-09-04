@@ -53,43 +53,45 @@ if (window.location.pathname === '/index.html') {
 
     let carouselIndex = 0;
 
-    const toggleActive = () => {
-        carouselTabs[carouselIndex].classList.toggle('active');
-        carouselSlides[carouselIndex].removeAttribute('style');
-    }
+    window.onload = function () {
+        let activeTimeout = setInterval(toggleActive, 2000);
+        let carouselTimer = setInterval(slideNext, 2000);
+        
+        function toggleActive() {
+            carouselTabs[carouselIndex].classList.toggle('active');
+            carouselSlides[carouselIndex].removeAttribute('style');
+        }
 
-    let activeTimeout = setInterval(toggleActive, 2000);
+        for (let i = 0; i < carouselTabs.length; i++) {
+            carouselTabs[i].addEventListener("click", () => {
+                for (let j = 0; j < carouselTabs.length; j++) {
+                    carouselTabs[j].classList.remove('active');
+                    carouselSlides[j].removeAttribute('style');
+                }
+                carouselIndex = i;
+                carouselTabs[carouselIndex].classList.toggle('active');
+                carouselSlides[carouselIndex].style.setProperty("z-index", "4");
+            })
+        }
 
-    for (let i = 0; i < carouselTabs.length; i++) {
-        carouselTabs[i].addEventListener("click", () => {
-            for (let j = 0; j < carouselTabs.length; j++) {
-                carouselTabs[j].classList.remove('active');
-                carouselSlides[j].removeAttribute('style');
+        function slideNext() {
+            if (carouselIndex === carouselSlides.length - 1) {
+                carouselIndex = 0;
+            } else {
+                carouselIndex++;
             }
-            carouselIndex = i;
             carouselTabs[carouselIndex].classList.toggle('active');
             carouselSlides[carouselIndex].style.setProperty("z-index", "4");
-        })
-    }
-
-    const slideNext = () => {
-        if (carouselIndex === carouselSlides.length - 1) {
-            carouselIndex = 0;
-        } else {
-            carouselIndex++;
         }
-        carouselTabs[carouselIndex].classList.toggle('active');
-        carouselSlides[carouselIndex].style.setProperty("z-index", "4");
-    }
 
-    // On hover stop the timers
-    let carouselTimer = setInterval(slideNext, 2000);
-    carousel.addEventListener('mouseenter', (e) => {
-        clearInterval(activeTimeout);
-        clearInterval(carouselTimer);
-    });
-    carousel.addEventListener('mouseleave', (e) => {
-        activeTimeout = setInterval(toggleActive, 2000);
-        carouselTimer = setInterval(slideNext, 2000);
-    });
+        // On hover stop the timers
+        carousel.addEventListener('mouseenter', (e) => {
+            clearInterval(activeTimeout);
+            clearInterval(carouselTimer);
+        });
+        carousel.addEventListener('mouseleave', (e) => {
+            activeTimeout = setInterval(toggleActive, 2000);
+            carouselTimer = setInterval(slideNext, 2000);
+        });
+    }
 }
