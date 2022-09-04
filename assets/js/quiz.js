@@ -8,8 +8,12 @@ const quizQuestion = document.querySelector('.question');
 const quizAnswersBtn = document.querySelectorAll('.answer');
 const quizAnswersText = document.querySelectorAll('.answer span');
 const hudTimer = document.querySelector('.timer');
+const hudScoreSpan = document.querySelector('.score span');
+const hudMultiplierSpan = document.querySelector('.multiplier span');
 
-let shuffledQuestions, shuffledAnswers, currentQuestion;
+let answerHistory = [];
+
+let shuffledQuestions, shuffledAnswers, currentQuestion, timerId;
 let answeredQuestions = [];
 const availQuestions = [{
     question: "What is 2 + 2?",
@@ -46,6 +50,42 @@ const availQuestions = [{
         answer: "62"
     }, {
         answer: "42"
+    }]
+}, {
+    question: "What is the correct formula for finding the area of an equilateral triangle?",
+    answers: [{
+        correct: true,
+        answer: "A = (√3)/4 x side"
+    }, {
+        answer: "What is a triangle?"
+    }, {
+        answer: "34"
+    }, {
+        answer: "24"
+    }]
+}, {
+    question: "What is the correct formula for finding the area of an equilateral triangle?",
+    answers: [{
+        correct: true,
+        answer: "A = (√3)/4 x side"
+    }, {
+        answer: "What is a triangle?"
+    }, {
+        answer: "34"
+    }, {
+        answer: "24"
+    }]
+}, {
+    question: "What is the correct formula for finding the area of an equilateral triangle?",
+    answers: [{
+        correct: true,
+        answer: "A = (√3)/4 x side"
+    }, {
+        answer: "What is a triangle?"
+    }, {
+        answer: "34"
+    }, {
+        answer: "24"
     }]
 }, {
     question: "What is the correct formula for finding the area of an equilateral triangle?",
@@ -122,7 +162,7 @@ function shuffle(array) {
     return array;
 }
 
-function clearStatusClass(array){
+function clearStatusClass(array) {
     array.forEach(item => {
         item.classList.remove('unset');
         item.classList.remove('set');
@@ -147,19 +187,18 @@ function showQuestion() {
         if (shuffledAnswers[i].hasOwnProperty('correct')) {
             quizAnswersText[i].parentElement.dataset.correct = true;
         }
-        quizAnswersText[i].parentElement.classList.add('set');
-        quizAnswersText[i].parentElement.addEventListener('click', selectAnswer);
+        quizAnswersBtn[i].classList.add('set');
+        quizAnswersBtn[i].addEventListener('click', selectAnswer);
     }
     startTimer()
 }
 
-let timerId;
-
-function startTimer(){
+function startTimer() {
     let timeLeft = 30;
     timerId = setInterval(tickTock, 1000);
+
     function tickTock() {
-        if (timeLeft === -1){
+        if (timeLeft === -1) {
             showQuestion();
         } else {
             hudTimer.innerHTML = timeLeft;
@@ -168,7 +207,7 @@ function startTimer(){
     }
 }
 
-function stopTimer(timer){
+function stopTimer(timer) {
     clearInterval(timer);
 }
 
@@ -194,13 +233,37 @@ function selectAnswer(e) {
     })
     if (selectedAnswer.dataset.correct) {
         selectedAnswer.classList.add('correct');
+        answerHistory.push(true);
     } else {
         selectedAnswer.classList.add('incorrect');
+        answerHistory.push(false);
     }
+    updateScore(selectedAnswer);
     setTimeout(() => {
         quizAnswersBtn.forEach(btn => {
             btn.classList.add('unset');
         })
         setTimeout(showQuestion, 1000);
     }, 1000);
+}
+
+let answerSpree = [];
+let isOnSpree;
+let multiplierNumber = parseInt(hudMultiplierSpan.innerText);
+let scoreTotal = parseInt(hudScoreSpan.innerText);
+
+function updateScore(selected) {
+    if (selected.dataset.correct) {
+        scoreTotal = scoreTotal + (10 * multiplierNumber);
+        hudScoreSpan.innerText = scoreTotal;
+        answerSpree.push(true);
+        isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
+        if (isOnSpree > 0 && isOnSpree % 2 == 0) {
+            multiplierNumber++;
+            hudMultiplierSpan.innerText = multiplierNumber;
+        }
+    } else if (!!selected.dataset.correct == false) {
+        hudMultiplierSpan.innerText = 1;
+        answerSpree = [];
+    }
 }
