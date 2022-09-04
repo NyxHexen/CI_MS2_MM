@@ -772,7 +772,7 @@ footer {
 
     margin: 2rem auto 1rem;
 
-    background-image: url(../assets/images/printable-lined-paper-college-ruled.webp);
+    background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-position: 5% 45%;
     background-color: white;
 
@@ -794,7 +794,7 @@ footer {
     border: 1px solid rgb(125, 125, 125);
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
 
-    background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
+    background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-color: white;
 
     z-index: -1;
@@ -810,7 +810,7 @@ footer {
     height: 100%;
     width: 100%;
 
-    background-image: url(/assets/images/printable-lined-paper-college-ruled.png);
+    background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-color: white;
 
     border: 1px solid rgb(125, 125, 125);
