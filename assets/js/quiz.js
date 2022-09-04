@@ -254,7 +254,7 @@ let scoreTotal = parseInt(hudScoreSpan.innerText);
 
 function updateScore(selected) {
     if (selected.dataset.correct) {
-        scoreTotal = scoreTotal + ((10 * multiplierNumber) + calcTimer());
+        scoreTotal = parseInt(scoreTotal + ((10 * multiplierNumber) + calcTimer()));
         hudScoreSpan.innerText = scoreTotal;
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
