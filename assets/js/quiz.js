@@ -10,15 +10,14 @@ const quizAnswersText = document.querySelectorAll('.answer span');
 const hudTimer = document.querySelector('.timer');
 const hudScoreSpan = document.querySelector('.score span');
 const hudMultiplierSpan = document.querySelector('.multiplier span');
+const hudQuestionCounter = document.querySelectorAll('.question-counter span')[0];
+const hudQuestionCounterTotal = document.querySelectorAll('.question-counter span')[1];
 
-let answerHistory = [];
 let timerMax = 30;
-hudTimer.innerText = timerMax;
-let timerScore, timeLeft;
-
-let shuffledQuestions, shuffledAnswers, currentQuestion, timerId;
-
-let answeredQuestions = [];
+let timerId, timerScore, timeLeft;
+let shuffledQuestions, shuffledAnswers, currentQuestion;
+let answerSpree = [];
+let isOnSpree;
 
 const availQuestions = [{
     question: "What is 2 + 2?",
@@ -110,7 +109,7 @@ const player = {
     name: 0,
     score: 0,
     multiplier: 1,
-    guesses: 0
+    correct: 0
 }
 
 quizInput.addEventListener('input', () => {
@@ -126,9 +125,6 @@ quizSubmit.addEventListener('click', () => {
 })
 
 function quizStart() {
-    player.score = 0;
-    player.guesses = 0;
-
     //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
     function countdown(parent, callback) {
         function count() {
@@ -179,26 +175,30 @@ function clearStatusClass(array) {
 }
 
 function showQuestion() {
-    shuffledQuestions = shuffle(availQuestions);
-    currentQuestion = shuffledQuestions.shift();
-    answeredQuestions.push(currentQuestion);
-    quizQuestion.innerText = currentQuestion.question;
+    if (hudQuestionCounter != hudQuestionCounterTotal) {
+        shuffledQuestions = shuffle(availQuestions);
+        currentQuestion = shuffledQuestions.shift();
+        quizQuestion.innerText = currentQuestion.question;
 
-    shuffledAnswers = shuffle(currentQuestion.answers);
-
-    clearStatusClass(quizAnswersBtn);
-    for (let i = 0; i < quizAnswersText.length; i++) {
-        quizAnswersText[i].innerText = shuffledAnswers[i].answer;
-        if (shuffledAnswers[i].hasOwnProperty('correct')) {
-            quizAnswersText[i].parentElement.dataset.correct = true;
+        shuffledAnswers = shuffle(currentQuestion.answers);
+        clearStatusClass(quizAnswersBtn);
+        for (let i = 0; i < quizAnswersText.length; i++) {
+            quizAnswersText[i].innerText = shuffledAnswers[i].answer;
+            if (shuffledAnswers[i].hasOwnProperty('correct')) {
+                quizAnswersText[i].parentElement.dataset.correct = true;
+            }
+            quizAnswersBtn[i].classList.add('set');
+            quizAnswersBtn[i].addEventListener('click', selectAnswer);
         }
-        quizAnswersBtn[i].classList.add('set');
-        quizAnswersBtn[i].addEventListener('click', selectAnswer);
+        startTimer(timerMax);
+    } else {
+        console.log('The End!');
     }
-    startTimer(timerMax);
 }
 
 function startTimer(seconds) {
+    hudTimer.innerText = timerMax;
+
     timeLeft = seconds;
     timerId = setInterval(tickTock, 1000);
 
@@ -234,10 +234,9 @@ function selectAnswer(e) {
     })
     if (selectedAnswer.dataset.correct) {
         selectedAnswer.classList.add('correct');
-        answerHistory.push(true);
+        player.correct++;
     } else {
         selectedAnswer.classList.add('incorrect');
-        answerHistory.push(false);
     }
     updateScore(selectedAnswer);
     setTimeout(() => {
@@ -248,27 +247,24 @@ function selectAnswer(e) {
     }, 1000);
 }
 
-let answerSpree = [];
-let isOnSpree;
-let multiplierNumber = parseInt(hudMultiplierSpan.innerText);
-let scoreTotal = parseInt(hudScoreSpan.innerText);
-
 function updateScore(selected) {
     if (selected.dataset.correct) {
-        scoreTotal = scoreTotal + ((10 * multiplierNumber) + calcTimer());
-        hudScoreSpan.innerText = scoreTotal;
+        player.score = player.score + ((10 * player.multiplier) + calcTimer());
+        hudScoreSpan.innerText = player.score;
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
             shortenTimer();
-            multiplierNumber++;
-            hudMultiplierSpan.innerText = multiplierNumber;
+            player.multiplier++;
+            hudMultiplierSpan.innerText = player.multiplier;
         }
     } else if (!!selected.dataset.correct == false) {
         resetTimer();
-        hudMultiplierSpan.innerText = 1;
+        player.multiplier = 1;
         answerSpree = [];
     }
+    hudMultiplierSpan.innerText = player.multiplier;
+    hudScoreSpan.innerText = player.score;
 }
 
 function calcTimer() {
