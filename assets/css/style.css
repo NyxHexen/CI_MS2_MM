@@ -653,17 +653,16 @@ footer {
 }
 
 .quiz-start-container.active {
-    opacity: 0;
     display: none;
 }
 
-.quiz-start-container.active~.quiz-container {
+.quiz-start-container.active ~ .quiz-container {
     filter: none;
 }
 
 .quiz-start-box {
     width: 70%;
-    height: 60%;
+    min-height: 60%;
 
     display: flex;
     flex-direction: column;
@@ -694,6 +693,11 @@ footer {
 
 .quiz-start-box button:disabled {
     background: rgb(125, 125, 125);
+}
+
+.quiz-start-box table {
+    border-collapse: separate;
+    border-spacing: 10px;
 }
 
 .quiz-container {

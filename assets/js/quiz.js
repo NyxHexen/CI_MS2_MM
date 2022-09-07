@@ -67,49 +67,19 @@ const availQuestions = [{
     }, {
         answer: "24"
     }]
-}, {
-    question: "What is the correct formula for finding the area of an equilateral triangle?",
-    answers: [{
-        correct: true,
-        answer: "A = (√3)/4 x side"
-    }, {
-        answer: "What is a triangle?"
-    }, {
-        answer: "34"
-    }, {
-        answer: "24"
-    }]
-}, {
-    question: "What is the correct formula for finding the area of an equilateral triangle?",
-    answers: [{
-        correct: true,
-        answer: "A = (√3)/4 x side"
-    }, {
-        answer: "What is a triangle?"
-    }, {
-        answer: "34"
-    }, {
-        answer: "24"
-    }]
-}, {
-    question: "What is the correct formula for finding the area of an equilateral triangle?",
-    answers: [{
-        correct: true,
-        answer: "A = (√3)/4 x side"
-    }, {
-        answer: "What is a triangle?"
-    }, {
-        answer: "34"
-    }, {
-        answer: "24"
-    }]
 }]
 
 const player = {
     name: 0,
     score: 0,
     multiplier: 1,
-    correct: 0
+    correct: 0,
+    answered: 0
+}
+
+const quiz = {
+    questionsTotal: availQuestions.length,
+    questionsCounter: 0
 }
 
 quizInput.addEventListener('input', () => {
@@ -175,11 +145,10 @@ function clearStatusClass(array) {
 }
 
 function showQuestion() {
-    if (hudQuestionCounter != hudQuestionCounterTotal) {
+    if (quiz.questionsCounter != quiz.questionsTotal) {
         shuffledQuestions = shuffle(availQuestions);
         currentQuestion = shuffledQuestions.shift();
         quizQuestion.innerText = currentQuestion.question;
-
         shuffledAnswers = shuffle(currentQuestion.answers);
         clearStatusClass(quizAnswersBtn);
         for (let i = 0; i < quizAnswersText.length; i++) {
@@ -190,10 +159,13 @@ function showQuestion() {
             quizAnswersBtn[i].classList.add('set');
             quizAnswersBtn[i].addEventListener('click', selectAnswer);
         }
+        quiz.questionsCounter += 1;
         startTimer(timerMax);
     } else {
-        console.log('The End!');
+        quizEnd();
     }
+    hudQuestionCounterTotal.innerText = quiz.questionsTotal;
+    hudQuestionCounter.innerText = quiz.questionsCounter;
 }
 
 function startTimer(seconds) {
@@ -238,6 +210,7 @@ function selectAnswer(e) {
     } else {
         selectedAnswer.classList.add('incorrect');
     }
+    player.answered++;
     updateScore(selectedAnswer);
     setTimeout(() => {
         quizAnswersBtn.forEach(btn => {
@@ -250,7 +223,6 @@ function selectAnswer(e) {
 function updateScore(selected) {
     if (selected.dataset.correct) {
         player.score = player.score + ((10 * player.multiplier) + calcTimer());
-        hudScoreSpan.innerText = player.score;
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
@@ -287,4 +259,31 @@ function shortenTimer() {
 
 function resetTimer() {
     timerMax = 30;
+}
+
+function quizEnd() {
+    quizModal.innerHTML = `
+    <h2>Well done!</h2>
+    <p>Lets see how you did...</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>${player.name}</td>
+        </tr>
+        <tr>
+            <th>Correct Questions</th>
+            <td>${player.correct}</td>
+        </tr>
+        <tr>
+            <th>Questions Answered</th>
+            <td>${player.answered} out of ${quiz.questionsTotal}</td>
+        </tr>
+        <tr>
+            <th>Score</th>
+            <td>${player.score}</td>
+        </tr>
+    </table>
+    <button type="submit" class="quiz-submit" onclick="window.location.reload();">Replay Icon</button>
+    `
+    quizModalContainer.classList.remove('active');
 }
