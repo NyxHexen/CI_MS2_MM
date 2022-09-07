@@ -24,16 +24,6 @@ let acceptingAnswers;
 
 let availQuestions = [];
 
-fetch("/assets/js/questions.json")
-    .then(res => {
-        console.log(res);
-        return res.json();
-    }).then(loadedQuestions => {
-        console.log(loadedQuestions);
-        availQuestions = loadedQuestions;
-        quiz.questionsTotal = availQuestions.length;
-    });
-
 const player = {
     name: 0,
     score: 0,
@@ -46,6 +36,16 @@ const quiz = {
     questionsTotal: 0,
     questionsCounter: 0
 }
+
+fetch("/assets/js/questions.json")
+    .then(res => {
+        console.log(res);
+        return res.json();
+    }).then(loadedQuestions => {
+        console.log(loadedQuestions);
+        availQuestions = loadedQuestions;
+        quiz.questionsTotal = availQuestions.length;
+    });
 
 quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
