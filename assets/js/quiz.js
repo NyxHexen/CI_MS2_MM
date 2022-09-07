@@ -2,7 +2,6 @@ const quizModalContainer = document.querySelector('.quiz-start-container');
 const quizModal = document.querySelector('.quiz-start-box');
 const quizInput = document.querySelector('#quiz-name');
 const quizSubmit = document.querySelector('.quiz-submit');
-const quizContainer = document.querySelector('.quiz-container');
 const countdownDiv = document.querySelector('#countdown');
 const quizQuestion = document.querySelector('.question');
 const quizAnswersBtn = document.querySelectorAll('.answer');
@@ -13,11 +12,15 @@ const hudMultiplierSpan = document.querySelector('.multiplier span');
 const hudQuestionCounter = document.querySelectorAll('.question-counter span')[0];
 const hudQuestionCounterTotal = document.querySelectorAll('.question-counter span')[1];
 
+//Constants
+const CORRECT_BONUS = 10;
+
 let timerMax = 30;
-let timerId, timerScore, timeLeft;
+let timerId, timeLeft;
 let shuffledQuestions, shuffledAnswers, currentQuestion;
 let answerSpree = [];
 let isOnSpree;
+let acceptingAnswers;
 
 const availQuestions = [{
     question: "What is 2 + 2?",
@@ -160,6 +163,7 @@ function showQuestion() {
             quizAnswersBtn[i].addEventListener('click', selectAnswer);
         }
         quiz.questionsCounter += 1;
+        acceptingAnswers = true;
         startTimer(timerMax);
     } else {
         quizEnd();
@@ -199,8 +203,10 @@ function selectSiblings(array, skipThis) {
 }
 
 function selectAnswer(e) {
-    stopTimer(timerId);
+    if (!acceptingAnswers) return;
+    acceptingAnswers = false;
     const selectedAnswer = e.target;
+    stopTimer(timerId);
     selectSiblings(quizAnswersBtn, selectedAnswer).forEach(btn => {
         btn.classList.add('disabled');
     })
@@ -222,13 +228,12 @@ function selectAnswer(e) {
 
 function updateScore(selected) {
     if (selected.dataset.correct) {
-        player.score = player.score + ((10 * player.multiplier) + calcTimer());
+        player.score = player.score + ((CORRECT_BONUS * player.multiplier) + calcTimer());
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
             shortenTimer();
             player.multiplier++;
-            hudMultiplierSpan.innerText = player.multiplier;
         }
     } else if (!!selected.dataset.correct == false) {
         resetTimer();
