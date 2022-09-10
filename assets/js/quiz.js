@@ -37,7 +37,7 @@ const quiz = {
     questionsCounter: 0
 }
 
-fetch("../assets/js/questions.json")
+fetch("assets/js/questions.json")
     .then(res => {
         console.log(res);
         return res.json();
