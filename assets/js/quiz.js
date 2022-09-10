@@ -180,6 +180,10 @@ function startTimer(seconds) {
 
     function tickTock() {
         if (timeLeft === -1) {
+            stopTimer(timerId);
+            resetTimer();
+            player.multiplier = 1;
+            answerSpree = [];
             showQuestion();
         } else {
             hudTimer.innerHTML = timeLeft;
@@ -204,9 +208,9 @@ function selectSiblings(array, skipThis) {
 
 function selectAnswer(e) {
     if (!acceptingAnswers) return;
+    stopTimer(timerId);
     acceptingAnswers = false;
     const selectedAnswer = e.target;
-    stopTimer(timerId);
     selectSiblings(quizAnswersBtn, selectedAnswer).forEach(btn => {
         btn.classList.add('disabled');
     })
