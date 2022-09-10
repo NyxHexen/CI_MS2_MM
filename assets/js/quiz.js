@@ -39,13 +39,49 @@ const quiz = {
 
 fetch("/CI_MS2_MM/assets/js/questions.json")
     .then(res => {
-        console.log(res);
         return res.json();
-    }).then(loadedQuestions => {
-        console.log(loadedQuestions);
+    })
+    .then(loadedQuestions => {
         availQuestions = loadedQuestions;
         quiz.questionsTotal = availQuestions.length;
+    })
+    .catch(err => {
+        console.error(err);
     });
+
+// Second call added to use during development on localhost - to be removed
+fetch("assets/js/questions.json")
+    .then(res => {
+        return res.json();
+    }).then(loadedQuestions => {
+        availQuestions = loadedQuestions;
+    });
+
+fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
+    .then(res => {
+        return res.json();
+    })
+    .then(loadedQuestions => {
+        loadedQuestions.results.forEach(entry => {
+            const question = {
+                question: entry.question,
+                answers: [{
+                    correct: true,
+                    answer: entry.correct_answer
+                }]
+            }
+            entry.incorrect_answers.forEach(item => {
+                const answer = {
+                    answer: item
+                }
+                question.answers.push(answer);
+            })
+            availQuestions.push(question);
+        })
+    })
+    .catch(err => {
+        console.error(err);
+    })
 
 quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
@@ -55,6 +91,7 @@ quizInput.addEventListener('input', () => {
 
 quizSubmit.addEventListener('click', () => {
     player.name = quizInput.value;
+    quiz.questionsTotal = availQuestions.length;
     quizModalContainer.classList.add('active');
     setTimeout(quizStart, 1000);
 })
@@ -239,7 +276,7 @@ function quizEnd() {
             <td>${player.name}</td>
         </tr>
         <tr>
-            <th>Correct Questions</th>
+            <th>Correct Answers</th>
             <td>${player.correct}</td>
         </tr>
         <tr>
