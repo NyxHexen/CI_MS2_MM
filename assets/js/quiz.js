@@ -60,30 +60,6 @@ quizSubmit.addEventListener('click', () => {
 })
 
 function quizStart() {
-    //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
-    function countdown(parent, callback) {
-        function count() {
-            if (numDiv) {
-                numDiv.remove();
-            }
-
-            if (numbers.length === 0) {
-                clearInterval(interval);
-                callback();
-                return;
-            }
-
-            let number = numbers.shift();
-            numDiv = document.createElement('p');
-            numDiv.textContent = number;
-            numDiv.className = "num";
-
-            parent.appendChild(numDiv);
-        }
-        let numbers = [3, 2, 1];
-        let numDiv = null;
-        var interval = setInterval(count, 1000);
-    }
     countdown(countdownDiv, function () {
         countdownDiv.innerHTML = '<p class="num">START!</p>';
         setTimeout(() => {
@@ -92,6 +68,31 @@ function quizStart() {
         }, 1500);
     });
 };
+
+//https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
+function countdown(parent, callback) {
+    function count() {
+        if (numDiv) {
+            numDiv.remove();
+        }
+
+        if (numbers.length === 0) {
+            clearInterval(interval);
+            callback();
+            return;
+        }
+
+        let number = numbers.shift();
+        numDiv = document.createElement('p');
+        numDiv.textContent = number;
+        numDiv.className = "num";
+
+        parent.appendChild(numDiv);
+    }
+    let numbers = [3, 2, 1];
+    let numDiv = null;
+    var interval = setInterval(count, 1000);
+}
 
 function shuffle(array) {
     array.sort(() => Math.random() - .5);
