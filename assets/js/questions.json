@@ -1,49 +1,109 @@
 [{
-    "question": "What is 2 + 2?",
+    "question": "What is three fifth of 100?",
     "answers": [{
         "correct": true,
-        "answer": "4"
+        "answer": "60"
+    }, {
+        "answer": "20"
+    }, {
+        "answer": "5"
     }, {
         "answer": "3"
+    }]
+}, {
+    "question": "What is the remainder of 21 divided by 7?",
+    "answers": [{
+        "correct": true,
+        "answer": "None of these"
     }, {
-        "answer": "2"
+        "answer": "21"
+    }, {
+        "answer": "7"
     }, {
         "answer": "1"
     }]
 }, {
-    "question": "What is the correct formula for finding the circumference of a circle",
+    "question": "What is the value of x if x² = 169",
     "answers": [{
         "correct": true,
-        "answer": "C = 2 π r"
+        "answer": "13"
     }, {
-        "answer": "23"
+        "answer": "1"
     }, {
-        "answer": "32"
+        "answer": "169"
     }, {
-        "answer": "24"
-    }]
-}, {
-    "question": "What is 10 + 10?",
-    "answers": [{
-        "correct": true,
-        "answer": "20"
-    }, {
-        "answer": "23"
-    }, {
-        "answer": "62"
-    }, {
-        "answer": "42"
+        "answer": "338"
     }]
 }, {
     "question": "What is the correct formula for finding the area of an equilateral triangle?",
     "answers": [{
         "correct": true,
-        "answer": "A = (√3)/4 x side"
+        "answer": "(√3)/4 x side"
     }, {
-        "answer": "What is a triangle?"
+        "answer": "π r²"
     }, {
-        "answer": "34"
+        "answer": "π d²"
     }, {
-        "answer": "24"
+        "answer": "a² + b²"
+    }]
+}, {
+    "question": "What is the formula πr² used for?",
+    "answers": [{
+        "correct": true,
+        "answer": "Area of circle"
+    }, {
+        "answer": "Area of triangle"
+    }, {
+        "answer": "Area of square"
+    }, {
+        "answer": "Area of rectangle"
+    }]
+}, {
+    "question": "Which of the following measures the amount of space an object takes up?",
+    "answers": [{
+        "correct": true,
+        "answer": "Volume"
+    }, {
+        "answer": "Area"
+    }, {
+        "answer": "Surface Area"
+    }, {
+        "answer": "Perimeter"
+    }]
+}, {
+    "question": "What is the formula b * h ÷ 2 used for?",
+    "answers": [{
+        "correct": true,
+        "answer": "Area of triangle"
+    }, {
+        "answer": "Area of circle"
+    }, {
+        "answer": "Area of square"
+    }, {
+        "answer": "Area of rectangle"
+    }]
+}, {
+    "question": "What is the square root of 49?",
+    "answers": [{
+        "correct": true,
+        "answer": "7"
+    }, {
+        "answer": "45"
+    }, {
+        "answer": "10"
+    }, {
+        "answer": "16"
+    }]
+}, {
+    "question": "sinθ/cosθ = ?",
+    "answers": [{
+        "correct": true,
+        "answer": "tanθ"
+    }, {
+        "answer": "cotθ"
+    }, {
+        "answer": "secθ"
+    }, {
+        "answer": "1"
     }]
 }]
