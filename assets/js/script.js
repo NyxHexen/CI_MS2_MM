@@ -18,11 +18,65 @@ const modalHeading = document.querySelector('.modal').childNodes[1];
 const modalText = document.querySelector('.modal').childNodes[3];
 const legalButtons = document.querySelectorAll('.legal-button');
 const legalSwitch = [{
-    "h2": "This is TNC option!",
-    "text": "<p>Sed nisi lacus sed viverra tellus in. Dui nunc mattis enim ut tellus elementum sagittis. Non diam phasellus vestibulum lorem sed risus ultricies tristique. In massa tempor nec feugiat. Parturient montes nascetur ridiculus mus mauris. Justo nec ultrices dui sapien. Massa sapien faucibus et molestie ac feugiat sed lectus. Sed risus ultricies tristique nulla aliquet. Ligula ullamcorper malesuada proin libero nunc. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Id diam maecenas ultricies mi eget. Ut tristique et egestas quis ipsum suspendisse. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque.Sed nisi lacus sed viverra tellus in. Dui nunc mattis enim ut tellus elementum sagittis. Non diam phasellus vestibulum lorem sed risus ultricies tristique. In massa tempor nec feugiat. Parturient montes nascetur ridiculus mus mauris. Justo nec ultrices dui sapien. Massa sapien faucibus et molestie ac feugiat sed lectus. Sed risus ultricies tristique nulla aliquet. Ligula ullamcorper malesuada proin libero nunc. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Id diam maecenas ultricies mi eget. Ut tristique et egestas quis ipsum suspendisse. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. </p>"
+    "h2": "TERMS OF USE",
+    "text": `
+    <h3> 1. Right to Access </h3>
+    <p> We grant you a limited, nonexclusive, nontransferable right to access this Site and its content for your
+        personal, noncommercial use according to these Terms of Use.If you are under age 18, you may use this Site only
+        with your parents or guardian
+        s consent.</p>
+    <br>
+    <p>Availability.We shall use commercially reasonable efforts to provide continuous access to the Site.We do not
+        guarantee that the Site will be accessible at all times.The Site may be unavailable during maintenance periods
+        or during an emergency.In addition to normal maintenance,
+        there may be events that will make the Site inaccessible for a limited amount of time due to unforeseen
+        circumstances.</p>
+    <br>
+    <h3> 2. Limits of Your Use </h3>
+    <p>You may use the Site only for lawful purposes and in accordance with these Terms. You agree not to use the Site:
+    </p>
+    <ul>
+        <li>In any way that violates any applicable federal, state, local or international law or regulation (including,
+            without limitation, any laws regarding the export of data or software to and from the US or other
+            countries).</li>
+        <li>For the purpose of exploiting, harming or attempting to exploit or harm minors in any way by exposing them
+            to inappropriate content, asking for personally identifiable information or otherwise.</li>
+        <li>To transmit, or procure the sending of, any advertising or promotional material without our prior written
+            consent, including any “junk mail”, “chain letter” or“ spam” or any other similar solicitation.</li>
+        <li>To impersonate or attempt to impersonate us, our employees, another user or any other person or
+            entity(including, without limitation, by using e - mail addresses or screen names associated with any of the
+            foregoing).</li>
+        <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Site, or which,
+            as determined by us, may harm us or users of the Site or expose them to liability.</li>
+    </ul>
+    <br>
+    <h3>3. Additionally, you agree not to:</h3>
+    <ul>
+        <li>Use the Site in any manner that could disable, overburden, damage, or impair the Site or interfere with any
+            other party's use of the Site, including their ability to engage in real time activities through the Site.
+        </li>
+        <li>Use any robot, spider or other automatic device, process or means to access the Site for any purpose,
+            including monitoring or copying any of the material on the Site.</li>
+        <li>Use any device, software or routine that interferes with the proper working of the Site.</li>
+        <li>Introduce any viruses, Trojan horses, worms, logic bombs or other material which is malicious or
+            technologically harmful.</li>
+        <li>Attempt to gain unauthorized access to, interfere with, damage or disrupt any parts of the Site, the server
+            on which the Site is stored, or any server, computer or database connected to the Site.</li>
+        <li>Attack the Site via a denial-of-service attack or a distributed denial-of-service attack.</li>
+        <li>Otherwise attempt to interfere with the proper working of the Site.</li>
+    </ul>
+    <br>
+    <h3>4. Privacy</h3>
+    <p>Personal Information.We will maintain and use your“ Personal Information” as defined in, and according to our
+        Privacy Policy, and which may be modified from time to time in our discretion, which modifications are effective
+        as of the date posted on our Site.Your continued access or use of the Site or purchase or use of our Services
+        indicates that you agree with such modifications.</p>`
 }, {
-    "h2": "This is Privacy Policy option!",
-    "text": "<p>YES!</p>"
+    "h2": "PRIVACY POLICY",
+    "text": `
+    <h3>What Information Does This Privacy Policy Cover?</h3>
+    <br>
+    <p>This Privacy Policy covers our treatment of personally identifiable information. Such  information may include name, mailing address, email address, telephone number, and other  information which identifies you as a specific individual ("Personal Information"). Please see  additional information below on the information we collect. For this Privacy Policy the definition  of “Personal Information” is the definition under the state, country, or other law applicable to the  person whose data is collected. For California residents only, “Personal Information” shall have  the definition as set forth in the California Consumer Privacy Act of 2018 (“CCPA”). Please see  the section below entitled “Privacy Notice for California Residents” for more information. If you  are a citizen or resident of the European Economic Area, United Kingdom, or Switzerland, the  definition of personal information ("personal data") is defined under GDPR and you have certain rights; therefore, please see the section below entitled "GDPR".</p>`
 }]
 
 legalButtons.forEach(button => {
@@ -48,9 +102,9 @@ modalContainer.addEventListener('click', () => {
 // Carousel - index.html
 if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
     window.addEventListener ?
-    window.addEventListener("load", startCarousel, false) :
-    window.attachEvent && window.attachEvent("onload", startCarousel);
-    
+        window.addEventListener("load", startCarousel, false) :
+        window.attachEvent && window.attachEvent("onload", startCarousel);
+
     const carousel = document.getElementById('carousel');
     const carouselSlides = document.querySelectorAll('.carousel-slide');
     const carouselTabs = document.querySelectorAll('.tab');
