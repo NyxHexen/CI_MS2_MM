@@ -151,11 +151,11 @@ function showQuestion() {
     if (quiz.questionsCounter != quiz.questionsTotal) {
         shuffledQuestions = shuffle(availQuestions);
         currentQuestion = shuffledQuestions.shift();
-        quizQuestion.innerText = currentQuestion.question;
+        quizQuestion.innerHTML = currentQuestion.question;
         shuffledAnswers = shuffle(currentQuestion.answers);
         clearStatusClass(quizAnswersBtn);
         for (let i = 0; i < quizAnswersText.length; i++) {
-            quizAnswersText[i].innerText = shuffledAnswers[i].answer;
+            quizAnswersText[i].innerHTML = shuffledAnswers[i].answer;
             if (shuffledAnswers[i].hasOwnProperty('correct')) {
                 quizAnswersText[i].parentElement.dataset.correct = true;
             }
