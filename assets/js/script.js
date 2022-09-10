@@ -142,7 +142,6 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
         // activeIndex is assigned to a RegExp to extract specific text from a string
         // https://stackoverflow.com/questions/41515234/extract-a-specific-word-from-string-in-javascript
         const activeIndex = selectedTab.match(/tab-(\d)/)[1];
-        console.log(activeIndex);
         activeState(activeIndex - 1);
         carouselIndex = activeIndex - 1;
     }
