@@ -63,39 +63,10 @@ header {
 
 #logo {
     position: absolute;
+    font-family: Verdana, sans-serif !important;
     width: 4rem;
     top: .5rem;
     left: .5rem;
-}
-
-/* ------------------------------ SVG logo CSS */
-.cls-1 {
-    fill: url(#linear-gradient);
-}
-
-.cls-2 {
-    font-size: 532.25px;
-}
-
-.cls-2,
-.cls-3 {
-    fill: #fff;
-}
-
-.cls-2,
-.cls-3,
-.cls-4 {
-    font-family: Verdana-Bold, Verdana;
-    font-weight: 700;
-}
-
-.cls-3 {
-    font-size: 309.91px;
-}
-
-.cls-4 {
-    font-size: 104.56px;
-    fill: #ff3300;
 }
 
 /* ------------------------------ Hamburger Menu */
