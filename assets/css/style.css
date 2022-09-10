@@ -572,6 +572,10 @@ footer {
     overflow-y: scroll;
 }
 
+.legal-text-container ul {
+    padding: 0 1.5rem;
+}
+
 .legal-button {
     cursor: pointer;
 }
