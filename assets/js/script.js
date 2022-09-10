@@ -102,54 +102,61 @@ modalContainer.addEventListener('click', () => {
 // Carousel - index.html
 if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
     window.addEventListener ?
-        window.addEventListener("load", startCarousel, false) :
-        window.attachEvent && window.attachEvent("onload", startCarousel);
+        window.addEventListener("load", nextSlide, false) :
+        window.attachEvent && window.attachEvent("onload", nextSlide);
 
     const carousel = document.getElementById('carousel');
     const carouselSlides = document.querySelectorAll('.carousel-slide');
     const carouselTabs = document.querySelectorAll('.tab');
 
     let carouselIndex = 0;
+    let carouselInterval = setInterval(nextSlide, 2000);
 
-    function startCarousel() {
-        let activeTimeout = setInterval(toggleActive, 2000);
-        let carouselTimer = setInterval(slideNext, 2000);
-
-        function toggleActive() {
-            carouselTabs[carouselIndex].classList.toggle('active');
-            carouselSlides[carouselIndex].removeAttribute('style');
+    function nextSlide() {
+        clearState();
+        if (carouselIndex === carouselSlides.length - 1) {
+            carouselIndex = 0;
+        } else {
+            carouselIndex++;
         }
-
-        for (let i = 0; i < carouselTabs.length; i++) {
-            carouselTabs[i].addEventListener("click", () => {
-                for (let j = 0; j < carouselTabs.length; j++) {
-                    carouselTabs[j].classList.remove('active');
-                    carouselSlides[j].removeAttribute('style');
-                }
-                carouselIndex = i;
-                carouselTabs[carouselIndex].classList.toggle('active');
-                carouselSlides[carouselIndex].style.setProperty("z-index", "4");
-            })
-        }
-
-        function slideNext() {
-            if (carouselIndex === carouselSlides.length - 1) {
-                carouselIndex = 0;
-            } else {
-                carouselIndex++;
-            }
-            carouselTabs[carouselIndex].classList.toggle('active');
-            carouselSlides[carouselIndex].style.setProperty("z-index", "4");
-        }
-
-        // On hover stop the timers
-        carousel.addEventListener('mouseenter', (e) => {
-            clearInterval(activeTimeout);
-            clearInterval(carouselTimer);
-        });
-        carousel.addEventListener('mouseleave', (e) => {
-            activeTimeout = setInterval(toggleActive, 2000);
-            carouselTimer = setInterval(slideNext, 2000);
-        });
+        activeState(carouselIndex);
     }
+
+    function clearState() {
+        carouselTabs.forEach(tab => {
+            tab.classList.remove('active');
+        })
+        carouselSlides.forEach(slide => {
+            slide.classList.remove('active');
+        })
+    }
+
+    function activeState(index) {
+        carouselTabs[index].classList.add('active');
+        carouselSlides[index].classList.add('active');
+    }
+
+    function selectedState(e) {
+        clearState();
+        const selectedTab = e.target.classList.value;
+        // activeIndex is assigned to a RegExp to extract specific text from a string
+        // https://stackoverflow.com/questions/41515234/extract-a-specific-word-from-string-in-javascript
+        const activeIndex = selectedTab.match(/tab-(\d)/)[1];
+        console.log(activeIndex);
+        activeState(activeIndex - 1);
+        carouselIndex = activeIndex - 1;
+    }
+
+    // On hover stop the timers
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(carouselInterval);
+    });
+    carousel.addEventListener('mouseleave', () => {
+        carouselInterval = setInterval(nextSlide, 2000);
+    });
+
+    // On tab click - focus slide
+    carouselTabs.forEach(tab =>{
+        tab.addEventListener('click', selectedState);
+    })
 }
