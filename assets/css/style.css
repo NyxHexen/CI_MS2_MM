@@ -63,10 +63,13 @@ header {
 
 #logo {
     position: absolute;
-    font-family: Verdana, sans-serif !important;
     width: 4rem;
     top: .5rem;
     left: .5rem;
+}
+
+#logo img {
+    width: 4rem;
 }
 
 /* ------------------------------ Hamburger Menu */
@@ -484,6 +487,7 @@ footer {
     justify-content: center;
     align-items: center;
 
+    padding-top: 1rem;
     font-family: "Lexend", sans-serif;
     font-weight: 600;
 
@@ -494,15 +498,14 @@ footer {
 #full-logo {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.logo-svg {
+.logo-image img {
     width: 25vw;
 }
 
 .logo-text {
-    margin-top: -1.25rem;
     margin-left: .5rem;
 }
 
