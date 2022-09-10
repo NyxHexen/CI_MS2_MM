@@ -730,7 +730,7 @@ footer {
     color: #eee;
     font-family: var(--h-font);
     font-size: 5.5rem;
-    font-weight: 800;
+    font-weight: bolder;
     text-align: center;
 
     animation: count 0.1s cubic-bezier(0.1, 0.1, 1, 1);
@@ -746,6 +746,10 @@ footer {
     z-index: 1;
 }
 
+.question-counter {
+    margin-left: .5rem;
+}
+
 .timer {
     position: absolute;
     top: 0;
@@ -759,6 +763,7 @@ footer {
     align-items: center;
 
     font-size: 2rem;
+    font-weight: bolder;
 }
 
 .score {
@@ -783,6 +788,9 @@ footer {
     align-items: center;
 
     margin: 2rem auto 1rem;
+    padding: 0 1rem 0 1.5rem;
+
+    font-size: 1.15rem;
 
     background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-position: 5% 45%;
@@ -841,12 +849,10 @@ footer {
 
 .answer {
     position: relative;
-    width: 18.5rem;
+    width: 21rem;
     height: 3.5rem;
 
     margin: .25rem -2.5rem .25rem 0;
-    font-family: var(--h-font);
-    font-size: 2rem;
 
     background: var(--prm-gradient);
     border: none;
@@ -893,12 +899,13 @@ footer {
 
 .answer span {
     position: absolute;
-    top: 15%;
-    left: 15%;
+    top: 17.5%;
+    left: 7.5%;
 
     color: white;
     font: var(--h-font);
-    font-size: 2rem;
+    text-align: center;
+    font-size: 1.75rem;
     transform: skew(-25deg);
     pointer-events: none;
 }
