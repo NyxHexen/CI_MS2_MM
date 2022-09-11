@@ -1058,7 +1058,7 @@ header {
 }
 
 #newsletter-form button[type=reset] {
-    background-color: #ccc;
+    background-color: #ddd;
     color: var(--accent-clr);
 }
 
