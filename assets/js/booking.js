@@ -1,7 +1,7 @@
 const schoolLevelOption = document.querySelectorAll('.booking-radio');
 const schoolYearDiv = document.querySelector('.school-year');
-const schoolYearDropDown = document.querySelector('.school-year').firstElementChild;
-const schoolYearButtons = document.querySelector('.school-year').lastElementChild;
+const schoolYearDropDown = document.querySelector('#school-year-select');
+const schoolYearButtons = document.querySelector('#school-year-btns');
 
 const primaryOptions = [{
     name: "Year 1",
@@ -117,14 +117,11 @@ function displaySchoolYearOptions(e) {
 }
 
 function createSchoolYearOptions(arr) {
-    const dropDownShow = `<button type="submit" class="show-classes">Show Classes</button>`
+    const dropDownShow = `<button type="submit" class="show-classes">Show Classes</button>`;
     if (window.getComputedStyle(schoolYearDropDown).display !== 'none') {
         arr.forEach(item => {
             schoolYearDropDown.innerHTML += `<option value="year-${item.name.charAt(item.name.length -1)}">${item.name}</option>`;
         })
-        if (!document.querySelector('.show-classes')) {
-            schoolYearDiv.innerHTML += dropDownShow;
-        }
     } else {
         arr.forEach(item => {
             schoolYearButtons.innerHTML += `
