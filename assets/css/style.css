@@ -46,6 +46,14 @@ body {
     min-height: 100%;
 }
 
+.mobile-only {
+    
+}
+
+.desktop-only {
+    
+}
+
 header {
     min-height: 2.5rem;
     position: relative;
@@ -72,7 +80,7 @@ header {
     width: 4rem;
 }
 
-/* ------------------------------ Hamburger Menu */
+/*  ---------------------------------------------------------------------------------  Hamburger Menu */
 
 #nav {
     z-index: 9;
@@ -251,7 +259,7 @@ header {
     display: none;
 }
 
-/* Carousel */
+/* --------------------------------------------------------------------------------- Carousel */
 #carousel {
     min-height: 16rem;
     position: relative;
@@ -394,7 +402,7 @@ header {
     font-size: 1.3rem;
 }
 
-/* -------------------------------------------------------- Methodology */
+/*  ---------------------------------------------------------------------------------  Methodology */
 
 #methodology {
     background-color: var(--prm-clr);
@@ -479,146 +487,7 @@ header {
     filter: blur(4px);
 }
 
-/* Footer */
-footer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 1rem;
-    font-family: "Lexend", sans-serif;
-    font-weight: 600;
-
-    background-color: #fff;
-    box-shadow: 0 -2px 5px 1px rgba(88, 88, 88, 0.603);
-}
-
-#full-logo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.logo-image img {
-    width: 25vw;
-}
-
-.logo-text {
-    margin-left: .5rem;
-}
-
-.logo-text span {
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-#social-media {
-    margin-bottom: 1rem;
-}
-
-.fa-brands {
-    color: var(--accent-clr);
-    font-size: 3rem;
-    margin: 0 1rem;
-}
-
-#legal {
-    width: 100vw;
-    padding: 1rem;
-    background-color: var(--prm-clr);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-}
-
-#modal-container {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transform: scale(0);
-    z-index: 10;
-}
-
-.legal-text-container {
-    margin-top: 1rem;
-    max-height: calc(100% - 2rem);
-    overflow-y: scroll;
-}
-
-.legal-text-container ul {
-    padding: 0 1.5rem;
-}
-
-.legal-button {
-    cursor: pointer;
-}
-
-#modal-container .modal-background {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: rgba(0, 0, 0, .8);
-}
-
-#modal-container .modal {
-    max-height: 100%;
-    position: relative;
-    padding: 1rem;
-    margin: 0 .5rem;
-
-    border-radius: 20px;
-    background: white;
-}
-
-#modal-container h2 {
-    text-align: center;
-}
-
-#modal-container.active {
-    transform: scale(1);
-}
-
-#modal-container.active .modal-background {
-    animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-#modal-container.active .modal {
-    background-color: transparent;
-    animation: modalFadeIn 0.6s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-#modal-container.active h2,
-#modal-container.active p {
-    opacity: 0;
-    position: relative;
-    animation: modalContentFadeIn 0.5s .4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-#modal-container.active.out {
-    animation: quickScaleDown 0s 0.5s linear forwards;
-}
-
-#modal-container.active.out .modal-background {
-    animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-#modal-container.active.out .modal {
-    animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-#modal-container.active.out .modal h2,
-#modal-container.active.out .modal p {
-    animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-/* ------------------------------------------------------ QUIZ */
+/* --------------------------------------------------------------------------------- QUIZ */
 .quiz-start-container {
     position: absolute;
     left: 0;
@@ -901,7 +770,439 @@ footer {
     background: red !important;
 }
 
-/* Keyframes */
+/* --------------------------------------------------------------------------------- Marketing */
+
+#marketing {
+    position: relative;
+    width: 96%;
+    margin: 2.5rem auto 0;
+}
+
+#marketing img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    border: 2px solid var(--prm-clr);
+}
+
+.marketing-badge {
+    position: absolute;
+    top: -.5rem;
+    left: -.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--accent-clr);
+    rotate: -25deg;
+    border-radius: 50%;
+}
+
+.marketing-badge h2 {
+    text-align: center;
+    letter-spacing: .1rem;
+    line-height: 1.1rem;
+    color: white;
+}
+
+.marketing-title {
+    position: absolute;
+    top: 50%;
+    left: 6.5%;
+}
+
+.marketing-title h1 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 2px var(--accent-clr);
+}
+
+.marketing-text {
+    background-color: white;
+    min-height: 5rem;
+    width: 100%;
+    margin-top: -.3rem;
+    border-radius: 0 0 20px 20px;
+    border: 2px solid var(--prm-clr);
+    border-top: none;
+}
+
+/* --------------------------------------------------------------------------------- Booking Buttons */
+#booking-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1rem auto;
+}
+
+.booking-button {
+    font: var(--h-font);
+    border: none;
+    padding: .25rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+}
+
+.school-level {
+    margin-bottom: 1rem;
+    max-width: 100%;
+}
+
+.school-level-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem .5rem;
+}
+
+.sch-lvl-rd label,
+.sch-yr-rd label {
+    padding: .5rem 1rem;
+    margin: 0 1rem;
+
+    font-weight: bold;
+    letter-spacing: .1rem;
+    color: white;
+
+    background-color: var(--prm-clr);
+    border: 2px solid transparent;
+    border-radius: 20px;
+}
+
+.sch-lvl-rd label.active {
+    background-color: white;
+    color: var(--prm-clr);
+    border: 2px solid var(--prm-clr);
+}
+
+.sch-lvl-rd input,
+.sch-yr-rd input {
+    display: none;
+}
+
+.school-year {
+    display: flex;
+    flex-direction: column;
+}
+
+.school-year select {
+    font: var(--h-font);
+    border: 2px solid var(--accent-clr);
+    padding: .25rem 1rem;
+    border-radius: 20px;
+}
+
+.school-year select:hover,
+.school-year select:active {
+    background-color: var(--accent-clr);
+    color: white;
+    border: 2px solid var();
+}
+
+.sch-yr-rd {
+    margin: 1rem;
+}
+
+.sch-yr-rd label {
+    background-color: var(--accent-clr);
+}
+
+.sch-yr-rd label.active {
+    background-color: white;
+    color: var(--accent-clr);
+    border: 2px solid var(--accent-clr);
+}
+/* --------------------------------------------------------------------------------- Booking Cards */
+#activity-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+    margin: 1rem auto;
+}
+
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: .5rem .6rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    border: 2px solid var(--prm-clr);
+    border-radius: 20px;
+}
+
+.activity-card * {
+    margin: .25rem 0;
+}
+
+.activity-card h4 {
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.activity-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tutor {
+    justify-content: flex-start;
+}
+
+.tutor-image {
+    width: 6rem;
+    height: 5rem;
+}
+
+.tutor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activity-submit {
+    margin: .25rem auto;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--prm-clr);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.no-class-card {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+/* --------------------------------------------------------------------------------- Newsletter Form */
+#newsletter-form {
+    width: 96%;
+    margin: 0 auto 1.25rem;
+    padding: .5rem 1rem;
+    background: var(--prm-gradient);
+    color: white;
+    border-radius: 20px;
+}
+
+#newsletter-form,
+#newsletter-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#newsletter-form h3 {
+    font-size: 1.5rem;
+    margin: .5rem 0;
+}
+
+#newsletter-form form {
+    padding: .5rem;
+    margin: .5rem 0;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+#newsletter-form form * {
+    font: var(--t-font);
+    font-size: .9rem;
+}
+
+#newsletter-form input,
+#newsletter-form select{
+    border: none;
+    background-color: #0084ff;
+    color: white;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 20px;
+}
+
+#newsletter-form input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+#newsletter-form input:focus,
+#newsletter-form select:focus{
+    outline-color: var(--accent-clr);
+}
+
+#newsletter-form legend,
+#newsletter-form label,
+#newsletter-form option:first-child {
+    display: none;
+}
+
+#newsletter-form .form-buttons {
+    margin: 1rem auto;
+}
+
+#newsletter-form button {
+    margin: 0 1rem;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--prm-clr);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#newsletter-form button[type=reset] {
+    background-color: #ccc;
+    color: var(--accent-clr);
+}
+
+/* --------------------------------------------------------------------------------- Footer */
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 1rem;
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+
+    background-color: #fff;
+    box-shadow: 0 -2px 5px 1px rgba(88, 88, 88, 0.603);
+}
+
+#full-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo-image img {
+    width: 25vw;
+}
+
+.logo-text {
+    margin-left: .5rem;
+}
+
+.logo-text span {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#social-media {
+    margin-bottom: 1rem;
+}
+
+.fa-brands {
+    color: var(--accent-clr);
+    font-size: 3rem;
+    margin: 0 1rem;
+}
+
+#legal {
+    width: 100vw;
+    padding: 1rem;
+    background-color: var(--prm-clr);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+#modal-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    z-index: 10;
+}
+
+.legal-text-container {
+    margin-top: 1rem;
+    max-height: calc(100% - 2rem);
+    overflow-y: scroll;
+}
+
+.legal-text-container ul {
+    padding: 0 1.5rem;
+}
+
+.legal-button {
+    cursor: pointer;
+}
+
+#modal-container .modal-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+}
+
+#modal-container .modal {
+    max-height: 100%;
+    position: relative;
+    padding: 1rem;
+    margin: 0 .5rem;
+
+    border-radius: 20px;
+    background: white;
+}
+
+#modal-container h2 {
+    text-align: center;
+}
+
+#modal-container.active {
+    transform: scale(1);
+}
+
+#modal-container.active .modal-background {
+    animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active .modal {
+    background-color: transparent;
+    animation: modalFadeIn 0.6s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active h2,
+#modal-container.active p {
+    opacity: 0;
+    position: relative;
+    animation: modalContentFadeIn 0.5s .4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.out {
+    animation: quickScaleDown 0s 0.5s linear forwards;
+}
+
+#modal-container.active.out .modal-background {
+    animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.out .modal {
+    animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.active.out .modal h2,
+#modal-container.active.out .modal p {
+    animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* --------------------------------------------------------------------------------- Keyframes */
 @keyframes onePulse {
     0% {
         box-shadow: 0px 0px 0px 0px rgba(0, 86, 255, .3);

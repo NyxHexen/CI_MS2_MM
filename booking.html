@@ -33,68 +33,105 @@
                         class="nav-button">Home</a></li>
                 <li onclick="location.href='quiz.html'" class="hamburger-menu-item"><a href="quiz.html"
                         class="nav-button">Take the Quiz</a></li>
-                <li onclick="location.href='booking.html'" class="hamburger-menu-item"><a href="#" class="nav-button">Book an
+                <li onclick="location.href='booking.html'" class="hamburger-menu-item"><a href="#"
+                        class="nav-button">Book an
                         Activity</a></li>
                 <li onclick="location.href='#'" class="hamburger-menu-item"><a href="#" class="nav-button">About Us</a>
                 </li>
             </ul>
         </nav>
     </header>
-<section id="marketing">
-    <img src="assets/images/kenny-eliason-zFSo6bnZJTw-unsplash.webp" alt="A classroom with seated kids and a teacher by the blackboard" srcset="">
-    <div class="marketing-title">
-        <h2>Book an Activity</h2>
-    </div>
-    <div class="marketing-text">
-        <p></p>
-    </div>
-    <div class="marketing-badge">
-        <h3>Try 2 Activities for Free!</h3>
-    </div>
-</section>
-<section id="booking-container">
-    <div class="school-level">
-        <button class="booking-button school-primary">Primary</button>
-        <button class="booking-button school-secondary">Secondary</button>
-    </div>
-    <div class="school-year">
-        <button class="booking-button">Temporary</button>
-    </div>
-    <div id="activity-cards">
-        <div class="activity-card">
-            <div class="card-info name">Name: <h4 class="card-info title"></h4></div>
-            <div class="card-info level">Level: <span></span></div>
-            <div class="card-info schedule">Schedule: <span></span></div>
-            <div class="card-info price">Price: <span></span></div>
-            <div class="card-info tutor">
-                <img src="" alt="Picture of a teacher" class="tutor-image">
-                <h5 class="tutor-title"></h5>
+    <section id="marketing">
+        <img src="assets/images/kenny-eliason-zFSo6bnZJTw-unsplash.webp"
+            alt="A classroom with seated kids and a teacher by the blackboard" srcset="">
+        <div class="marketing-title">
+            <h1>Book an Activity</h1>
+        </div>
+        <div class="marketing-text">
+            <p></p>
+        </div>
+        <div class="marketing-badge">
+            <h2>Try 2 <br> FOR <br> FREE!</h2>
+        </div>
+    </section>
+    <section id="booking-container">
+        <div class="school-level">
+            <h2>Select school level to start!</h2>
+            <div class="school-level-options">
+                <div class="sch-lvl-rd">
+                    <label class="active" for="sch_lvl1">Primary</label>
+                    <input type="radio" class="booking-button" name="sch-lvl" id="sch_lvl1">
+                </div>
+                <div class="sch-lvl-rd">
+                    <label for="sch_lvl2">Secondary</label>
+                    <input type="radio" class="booking-button" name="sch-lvl" id="sch_lvl2">
+                </div>
             </div>
         </div>
-        <div class="404-card">
-            <img src="" alt="Picture of an empty open cardboard box" class="404-image">
-            <h5 class="404-text">There are no courses under this category!</h5>
+        <div class="school-year">
+            <select class="mobile-only" name="school-year-select" id="school-year-select">
+                <option value="year-1">Year 1</option>
+                <option value="year-2">Year 2</option>
+                <option value="year-3">Year 3</option>
+            </select>
+            <div class="school-year buttons desktop-only">
+                <div class="sch-yr-rd">
+                    <label class="active" for="sch_yr1">Year 1</label>
+                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr1">
+                </div>
+                <div class="sch-yr-rd">
+                    <label for="sch_yr2">Year 2</label>
+                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr2">
+                </div>
+                <div class="sch-yr-rd">
+                    <label for="sch_yr3">Year 3</label>
+                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr3">
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+        <div id="activity-cards">
+            <div class="activity-card">
+                <h4>This is an Activity Title</h4>
+                <div class="activity-info level"><b>Level:</b> <span>Beginner</span></div>
+                <div class="activity-info schedule"><b>Schedule:</b> <span>Every Tuesday</span></div>
+                <div class="activity-info price"><b>Price:</b> <span>£50</span></div>
+                <div class="activity-info tutor">
+                    <img src="" alt="Picture of a teacher" class="tutor-image">
+                    <div class="tutor-info">
+                        <h5>Dess Ilieva</h5>
+                        <p>Tutor</p>
+                    </div>
+                </div>
+                <button class="activity-submit" type="submit">Add to List</button>
+            </div>
+            <div class="no-class-card">
+                <img src="" alt="Picture of an empty open cardboard box" class="404-image">
+                <h5 class="404-text">There are no courses under this category!</h5>
+            </div>
+        </div>
+    </section>
     <div id="newsletter-form">
         <h3>Can't find a time that suits you?</h3>
-        <p>Want to be the first to hear about our new classes?</p>
+        <p>Want to be the first to hear about our new classes? Sign up for our newsletter to find out when more classes
+            are available. We'll also send you free learning resources to help you make progress in maths. </p>
         <form action="post">
             <legend class="visually-hidden">Your contact information:</legend>
-            <label for="fullname">Your Full Name:</label>
-            <input type="text" name="fullname" id="fullname" required>
-            <label for="email"></label>
-            <input type="email" name="email" id="email" required>
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" id="fullname" placeholder="What's your name?" required>
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" id="email" placeholder="Your e-mail goes here!" required>
             <label for="findus">How did you find out about us?</label>
-            <select name="findus" id="findus">
+            <select name="findus" id="findus" required>
+                <option value="" disabled selected value>-- select an option --</option>
                 <option value="option--one">Google</option>
                 <option value="option--two">Facebook</option>
                 <option value="option--three">Twitter</option>
                 <option value="option--four">Recommended By Friend</option>
             </select>
-            <button type="submit" class="newsletter-form--submit">Submit</button>
-            <button type="reset" class="newsletter-form--reset">Reset Form</button>
+            <div class="form-buttons">
+                <button type="submit" class="newsletter-form--submit">Submit</button>
+                <button type="reset" class="newsletter-form--reset">Reset</button>
+            </div>
         </form>
     </div>
     <footer>
