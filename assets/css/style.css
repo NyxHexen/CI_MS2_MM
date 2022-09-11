@@ -836,14 +836,6 @@ header {
     margin: 1rem auto;
 }
 
-.booking-button {
-    font: var(--h-font);
-    border: none;
-    padding: .25rem 1rem;
-    border: 2px solid transparent;
-    border-radius: 20px;
-}
-
 .school-level {
     display: flex;
     flex-direction: column;
@@ -872,15 +864,15 @@ header {
     border-radius: 20px;
 }
 
-.sch-lvl-rd label.active {
-    background-color: white;
-    color: var(--prm-clr);
-    border: 2px solid var(--prm-clr);
-}
-
 .sch-lvl-rd input,
 .sch-yr-rd input {
     display: none;
+}
+
+.sch-lvl-rd input[type=radio]:checked + label {
+    background-color: white;
+    color: black;
+    border: 2px solid var(--prm-clr);
 }
 
 .school-year {
@@ -910,11 +902,12 @@ header {
     background-color: var(--accent-clr);
 }
 
-.sch-yr-rd label.active {
+.sch-yr-rd input[type=radio]:checked + label {
     background-color: white;
-    color: black;
-    border: 2px solid var(--accent-clr);
+    color: var(--prm-clr);
+    border: 2px solid var(--prm-clr);
 }
+
 /* --------------------------------------------------------------------------------- Booking Cards */
 #activity-cards {
     display: flex;
