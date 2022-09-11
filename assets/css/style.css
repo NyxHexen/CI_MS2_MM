@@ -46,12 +46,8 @@ body {
     min-height: 100%;
 }
 
-.mobile-only {
-    
-}
-
 .desktop-only {
-    
+    display: none !important;
 }
 
 header {
@@ -849,6 +845,9 @@ header {
 }
 
 .school-level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 1rem;
     max-width: 100%;
 }
@@ -896,11 +895,11 @@ header {
     border-radius: 20px;
 }
 
-.school-year select:hover,
-.school-year select:active {
+.school-year select:focus {
     background-color: var(--accent-clr);
     color: white;
     border: 2px solid var();
+    outline-color: var(--accent-clr);
 }
 
 .sch-yr-rd {
@@ -913,7 +912,7 @@ header {
 
 .sch-yr-rd label.active {
     background-color: white;
-    color: var(--accent-clr);
+    color: black;
     border: 2px solid var(--accent-clr);
 }
 /* --------------------------------------------------------------------------------- Booking Cards */
@@ -952,7 +951,7 @@ header {
 }
 
 .tutor {
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .tutor-image {
@@ -1008,7 +1007,7 @@ header {
 #newsletter-form form {
     padding: .5rem;
     margin: .5rem 0;
-    background-color: #ddd;
+    background-color: white;
     border-radius: 10px;
 }
 
