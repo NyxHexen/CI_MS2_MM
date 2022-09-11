@@ -59,33 +59,31 @@
             <h2>Select school level to start!</h2>
             <div class="school-level-options">
                 <div class="sch-lvl-rd">
-                    <label class="active" for="sch_lvl1">Primary</label>
-                    <input type="radio" class="booking-button" name="sch-lvl" id="sch_lvl1">
+                    <input type="radio" class="booking-radio" name="sch-lvl" id="sch_lvl1">
+                    <label for="sch_lvl1">Primary</label>
                 </div>
                 <div class="sch-lvl-rd">
+                    <input type="radio" class="booking-radio" name="sch-lvl" id="sch_lvl2">
                     <label for="sch_lvl2">Secondary</label>
-                    <input type="radio" class="booking-button" name="sch-lvl" id="sch_lvl2">
                 </div>
             </div>
         </div>
         <div class="school-year">
             <select class="mobile-only" name="school-year-select" id="school-year-select">
-                <option value="year-1">Year 1</option>
-                <option value="year-2">Year 2</option>
-                <option value="year-3">Year 3</option>
+                <option value="default" disabled hidden selected>-- Pick A Level --</option>
             </select>
-            <div class="school-year desktop-only">
+            <div class="">
                 <div class="sch-yr-rd">
                     <label class="active" for="sch_yr1">Year 1</label>
-                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr1">
+                    <input type="radio" name="sch-yr" id="sch_yr1">
                 </div>
                 <div class="sch-yr-rd">
                     <label for="sch_yr2">Year 2</label>
-                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr2">
+                    <input type="radio" name="sch-yr" id="sch_yr2">
                 </div>
                 <div class="sch-yr-rd">
                     <label for="sch_yr3">Year 3</label>
-                    <input type="radio" class="booking-button desktop-only" name="sch-yr" id="sch_yr3">
+                    <input type="radio" name="sch-yr" id="sch_yr3">
                 </div>
             </div>
         </div>
@@ -110,7 +108,7 @@
             </div>
         </div>
     </section>
-    <div id="newsletter-form">
+    <section id="newsletter-form">
         <h3>Can't find a time that suits you?</h3>
         <p>Want to be the first to hear about our new classes? Sign up for our newsletter to find out when more classes
             are available. We'll also send you free learning resources to help you make progress in maths. </p>
@@ -133,7 +131,7 @@
                 <button type="reset" class="newsletter-form--reset">Reset</button>
             </div>
         </form>
-    </div>
+    </section>
     <footer>
         <div id="full-logo">
             <div class="logo-image">
@@ -168,6 +166,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/booking.js"></script>
 </body>
 
 </html>
