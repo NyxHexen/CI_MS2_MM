@@ -1034,6 +1034,10 @@ header {
     justify-content: space-between
 }
 
+.selected-class i {
+    margin-top: .1rem;
+}
+
 .booking-cart-total {
     display: flex;
     justify-content: space-between;
