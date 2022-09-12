@@ -995,8 +995,9 @@ header {
     width: 80%;
 }
 
-#booking-cart {
-    display: flex;
+#booking-cart-container {
+    opacity: 0;
+    display: none;
     flex-direction: column;
     width: 80%;
     padding: .5rem .6rem;
@@ -1004,13 +1005,15 @@ header {
     background-color: white;
     border: 2px solid var(--prm-clr);
     border-radius: 20px;
+    transform-origin: top;
+    animation: showCart 1s ease-in forwards;
 }
 
-#booking-cart h3 {
+#booking-cart-container h3 {
     text-align: center;
 }
 
-.booking-cart-items {
+.booking-cart {
     padding: .5rem;
     display: flex;
     flex-direction: column;
@@ -1027,6 +1030,21 @@ header {
     display: flex;
     justify-content: space-between;
     padding: .5rem 0;
+}
+
+.booking-cart-total * {
+    font-weight: bold;
+}
+
+.booking-cart-submit {
+    margin: .25rem auto;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--accent-clr);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 /* --------------------------------------------------------------------------------- Newsletter Form */
@@ -1378,5 +1396,18 @@ footer {
 
     100% {
         transform: skew(25deg) translateX(300px);
+    }
+}
+
+@keyframes showCart {
+    0% {
+        transform: scaleY(0);
+    } 
+    50% {
+        transform: scaleY(1);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
