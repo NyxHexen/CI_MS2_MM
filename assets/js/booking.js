@@ -7,6 +7,9 @@ const activityCardsDiv = document.querySelector('#activity-cards');
 const activityCardTemplate = document.querySelector("div[data-type='template']");
 const activityNoClassCard = document.querySelector('.no-class-card');
 const activitySubmitBtn = document.querySelectorAll('.activity-submit');
+const bookingCartContainer = document.querySelector('#booking-cart-container');
+const bookingCart = document.querySelector('.booking-cart');
+const bookingCartTotal = document.querySelector('.booking-cart-total');
 
 const primaryOptions = [{
     name: "Year 1",
@@ -170,6 +173,7 @@ function displayClasses(arr) {
                 tempTemplateNode.querySelector('.tutor img').src = year.classes[i].tutor.image;
                 tempTemplateNode.querySelector('.tutor-info h5').textContent = year.classes[i].tutor.name;
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
+                tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () =>{addToCart(year.classes[i].activity, year.classes[i].price)});
                 tempTemplateNode.style.display = 'flex';
                 delete tempTemplateNode.dataset.type;
                 docFrag.appendChild(tempTemplateNode);
@@ -180,14 +184,6 @@ function displayClasses(arr) {
     })
     activityCardsDiv.appendChild(docFrag);
     delete docFrag;
-    activitySubmitBtn.forEach(
-        btn => {
-            btn.addEventListener('click', () => {
-                showClassesList();
-                addItemToList();
-            })
-        }
-    )
 }
 
 function deleteOldCards() {
@@ -198,4 +194,23 @@ function deleteOldCards() {
             card.remove();
         }
     })
+}
+
+function addToCart(className, classPrice) {
+    let selectedClass = `<div class="selected-class">${className} <span>${classPrice}</span></div>`
+    if (window.getComputedStyle(bookingCartContainer).display == 'none') {
+        bookingCartContainer.style.display = 'flex';
+    }
+    bookingCart.innerHTML += selectedClass;
+    updateCartTotal();
+}
+
+function updateCartTotal() {
+    let subTotal = 0;
+    bookingCartTotal.querySelector('span').innerHTML = "";
+    bookingCart.querySelectorAll('.selected-class span').forEach(item => {
+        let itemPrice = item.innerHTML.slice(1, 4);
+        subTotal += parseInt(itemPrice);
+    })
+    bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
