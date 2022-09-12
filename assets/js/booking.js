@@ -6,6 +6,7 @@ const schoolYearSelect = document.querySelector('.school-year select');
 const activityCardsDiv = document.querySelector('#activity-cards');
 const activityCardTemplate = document.querySelector("div[data-type='template']");
 const activityNoClassCard = document.querySelector('.no-class-card');
+const activitySubmitBtn = document.querySelectorAll('.activity-submit');
 
 const primaryOptions = [{
     name: "Year 1",
@@ -138,11 +139,15 @@ function createSchoolYearOptions(arr) {
 
 schoolYearSelect.addEventListener('change', () => {
     // https://stackoverflow.com/questions/4602141/variable-name-as-a-string-in-javascript
-    let selectedLevel = schoolLevelOption[0].checked 
-        ? Object.keys({primaryOptions})[0] 
-        : schoolLevelOption[1].checked 
-        ? Object.keys({secondaryOptions})[0] 
-        : false;
+    let selectedLevel = schoolLevelOption[0].checked ?
+        Object.keys({
+            primaryOptions
+        })[0] :
+        schoolLevelOption[1].checked ?
+        Object.keys({
+            secondaryOptions
+        })[0] :
+        false;
     if (selectedLevel === 'primaryOptions') {
         displayClasses(primaryOptions);
     } else if (selectedLevel === 'secondaryOptions') {
@@ -169,19 +174,27 @@ function displayClasses(arr) {
                 delete tempTemplateNode.dataset.type;
                 docFrag.appendChild(tempTemplateNode);
             }
-        } else if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length == 0){
+        } else if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length == 0) {
             activityNoClassCard.style.display = "flex";
         }
     })
     activityCardsDiv.appendChild(docFrag);
     delete docFrag;
+    activitySubmitBtn.forEach(
+        btn => {
+            btn.addEventListener('click', () => {
+                showClassesList();
+                addItemToList();
+            })
+        }
+    )
 }
 
 function deleteOldCards() {
     let activityCards = document.querySelectorAll('.activity-card');
     activityNoClassCard.style.display = "none";
     activityCards.forEach(card => {
-        if (!card.hasAttribute('data-type')){
+        if (!card.hasAttribute('data-type')) {
             card.remove();
         }
     })
