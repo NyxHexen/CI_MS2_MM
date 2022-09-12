@@ -995,6 +995,40 @@ header {
     width: 80%;
 }
 
+#booking-cart {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: .5rem .6rem;
+    margin: .5rem 0;
+    background-color: white;
+    border: 2px solid var(--prm-clr);
+    border-radius: 20px;
+}
+
+#booking-cart h3 {
+    text-align: center;
+}
+
+.booking-cart-items {
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--prm-clr);
+    border-bottom: 2px solid var(--prm-clr);
+}
+
+.selected-class {
+    display: flex;
+    justify-content: space-between
+}
+
+.booking-cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+}
+
 /* --------------------------------------------------------------------------------- Newsletter Form */
 #newsletter-form {
     width: 96%;
