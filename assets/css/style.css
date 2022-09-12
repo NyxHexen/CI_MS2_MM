@@ -1009,6 +1009,12 @@ header {
     animation: showCart 1s ease-in forwards;
 }
 
+#booking-cart-container.submitted > * {
+    transform: translateZ(-320px);
+    opacity: 0;
+    transition: transform 1s forwards;
+}
+
 #booking-cart-container h3 {
     text-align: center;
 }
