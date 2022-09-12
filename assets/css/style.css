@@ -1019,6 +1019,8 @@ header {
     flex-direction: column;
     border-top: 2px solid var(--prm-clr);
     border-bottom: 2px solid var(--prm-clr);
+    max-height: 8rem;
+    overflow-y: scroll;
 }
 
 .selected-class {
