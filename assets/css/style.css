@@ -963,6 +963,10 @@ header {
     object-fit: cover;
 }
 
+.attribution {
+    font-size: .5rem;
+}
+
 .tutor-info {
     display: flex;
     flex-direction: column;
