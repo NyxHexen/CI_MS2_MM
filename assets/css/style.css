@@ -503,7 +503,7 @@ header {
     display: none;
 }
 
-.quiz-start-container.active ~ .quiz-container {
+.quiz-start-container.active~.quiz-container {
     filter: none;
 }
 
@@ -840,7 +840,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     max-width: 100%;
 }
 
@@ -869,7 +869,7 @@ header {
     display: none;
 }
 
-.sch-lvl-rd input[type=radio]:checked + label {
+.sch-lvl-rd input[type=radio]:checked+label {
     background-color: white;
     color: black;
     border: 2px solid var(--prm-clr);
@@ -902,7 +902,7 @@ header {
     background-color: var(--accent-clr);
 }
 
-.sch-yr-rd input[type=radio]:checked + label {
+.sch-yr-rd input[type=radio]:checked+label {
     background-color: white;
     color: var(--prm-clr);
     border: 2px solid var(--prm-clr);
@@ -915,7 +915,11 @@ header {
     align-items: center;
     justify-content: center;
     width: 96%;
-    margin: 1rem auto;
+    margin: .5rem auto;
+}
+
+.activity-card[data-type="template"] {
+    display: none;
 }
 
 .activity-card {
@@ -923,7 +927,7 @@ header {
     flex-direction: column;
     width: 80%;
     padding: .5rem .6rem;
-    margin-bottom: 1rem;
+    margin: .5rem 0;
     background-color: white;
     border: 2px solid var(--prm-clr);
     border-radius: 20px;
@@ -940,7 +944,12 @@ header {
 
 .activity-info {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+}
+
+.activity-info span {
+    text-align: end;
 }
 
 .tutor {
@@ -948,8 +957,10 @@ header {
 }
 
 .tutor-image {
-    width: 6rem;
+    width: 5rem;
     height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .tutor-info {
@@ -957,6 +968,10 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.tutor-info * {
+    text-align: center;
 }
 
 .activity-submit {
@@ -971,7 +986,7 @@ header {
 }
 
 .no-class-card {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 80%;
 }
@@ -1010,7 +1025,7 @@ header {
 }
 
 #newsletter-form input,
-#newsletter-form select{
+#newsletter-form select {
     border: none;
     background-color: #0084ff;
     color: white;
@@ -1025,7 +1040,7 @@ header {
 }
 
 #newsletter-form input:focus,
-#newsletter-form select:focus{
+#newsletter-form select:focus {
     outline-color: var(--accent-clr);
 }
 
