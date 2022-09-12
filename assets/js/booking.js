@@ -10,6 +10,7 @@ const activitySubmitBtn = document.querySelectorAll('.activity-submit');
 const bookingCartContainer = document.querySelector('#booking-cart-container');
 const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
+const bookingCartSubmit = document.querySelector('.booking-cart-submit');
 
 const primaryOptions = [{
     name: "Year 1",
@@ -173,7 +174,10 @@ function displayClasses(arr) {
                 tempTemplateNode.querySelector('.tutor img').src = year.classes[i].tutor.image;
                 tempTemplateNode.querySelector('.tutor-info h5').textContent = year.classes[i].tutor.name;
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
-                tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () =>{addToCart(year.classes[i].activity, year.classes[i].price)});
+                tempTemplateNode.querySelector('.activity-submit').addEventListener('click', (e) =>{
+                    e.target.disabled = true;
+                    addToCart(year.classes[i].activity, year.classes[i].price)
+                });
                 tempTemplateNode.style.display = 'flex';
                 delete tempTemplateNode.dataset.type;
                 docFrag.appendChild(tempTemplateNode);
@@ -197,7 +201,7 @@ function deleteOldCards() {
 }
 
 function addToCart(className, classPrice) {
-    let selectedClass = `<div class="selected-class">${className} <span>${classPrice}</span></div>`
+    let selectedClass = `<div class="selected-class"><i class="fa-solid fa-xmark"></i>${className} <span>${classPrice}</span></div>`
     if (window.getComputedStyle(bookingCartContainer).display == 'none') {
         bookingCartContainer.style.display = 'flex';
     }
@@ -214,3 +218,8 @@ function updateCartTotal() {
     })
     bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
+
+bookingCartSubmit.addEventListener('click', (e) => {
+    bookingCartContainer.classList.add('submitted');
+    console.log(e.target.innerHTML)
+})
