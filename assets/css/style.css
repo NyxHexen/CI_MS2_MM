@@ -990,9 +990,15 @@ header {
 }
 
 .no-class-card {
+    margin: 1rem auto;
     display: none;
     flex-direction: column;
-    width: 80%;
+    width: 96%;
+}
+
+.no-class-card h5 {
+    margin-top: .5rem;
+    font-size: 1.25rem;
 }
 
 #booking-cart-container {
