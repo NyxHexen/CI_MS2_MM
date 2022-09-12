@@ -72,23 +72,23 @@
             <select class="mobile-only" name="school-year-select" id="school-year-select">
                 <option value="default" disabled hidden selected>-- Pick A Level --</option>
             </select>
-            <div class="">
+            <div id="school-year-btns" class="desktop-only">
                 <div class="sch-yr-rd">
                     <label class="active" for="sch_yr1">Year 1</label>
-                    <input type="radio" name="sch-yr" id="sch_yr1">
+                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr1">
                 </div>
                 <div class="sch-yr-rd">
                     <label for="sch_yr2">Year 2</label>
-                    <input type="radio" name="sch-yr" id="sch_yr2">
+                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr2">
                 </div>
                 <div class="sch-yr-rd">
                     <label for="sch_yr3">Year 3</label>
-                    <input type="radio" name="sch-yr" id="sch_yr3">
+                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr3">
                 </div>
             </div>
         </div>
         <div id="activity-cards">
-            <div class="activity-card">
+            <div data-type="template" class="activity-card">
                 <h4>This is an Activity Title</h4>
                 <div class="activity-info level"><b>Level:</b> <span>Beginner</span></div>
                 <div class="activity-info schedule"><b>Schedule:</b> <span>Every Tuesday</span></div>
@@ -103,8 +103,8 @@
                 <button class="activity-submit" type="submit">Add to List</button>
             </div>
             <div class="no-class-card">
-                <img src="" alt="Picture of an empty open cardboard box" class="404-image">
-                <h5 class="404-text">There are no courses under this category!</h5>
+                <img src="" alt="Picture of an empty open cardboard box" class="no-class-card-image">
+                <h5 class="no-class-card-text">Sorry, there are no courses under this category!</h5>
             </div>
         </div>
     </section>
