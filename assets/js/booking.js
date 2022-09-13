@@ -11,6 +11,11 @@ const bookingCartContainer = document.querySelector('#booking-cart-container');
 const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
+const bookingCartRemove = document.querySelectorAll('.booking-cart i');
+
+window.onbeforeunload = function () {
+    sessionStorage.clear();
+}
 
 const primaryOptions = [{
     name: "Year 1",
@@ -70,7 +75,7 @@ const primaryOptions = [{
 }, {
     name: "Year 6",
     classes: [{
-        activity: "Year 7 Preparation - <br> End of Year",
+        activity: "Year 7 Preparation - End of Year",
         level: "Intermediate",
         schedule: "17/04/2022, 12pm - 2pm",
         price: "£149.99",
@@ -167,6 +172,9 @@ function displayClasses(arr) {
         if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length != 0) {
             for (let i = 0; i < year.classes.length; i++) {
                 let tempTemplateNode = activityCardTemplate.cloneNode(true);
+                if (!sessionStorage.getItem(year.classes[i].activity)){
+                    sessionStorage.setItem(year.classes[i].activity, 'enabled');
+                };
                 tempTemplateNode.querySelector('h4').textContent = year.classes[i].activity;
                 tempTemplateNode.querySelector('.level span').textContent = year.classes[i].level;
                 tempTemplateNode.querySelector('.schedule span').textContent = year.classes[i].schedule;
@@ -174,9 +182,10 @@ function displayClasses(arr) {
                 tempTemplateNode.querySelector('.tutor img').src = year.classes[i].tutor.image;
                 tempTemplateNode.querySelector('.tutor-info h5').textContent = year.classes[i].tutor.name;
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
-                tempTemplateNode.querySelector('.activity-submit').addEventListener('click', (e) =>{
-                    e.target.disabled = true;
-                    addToCart(year.classes[i].activity, year.classes[i].price)
+                tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () => {
+                    if (sessionStorage.getItem(year.classes[i].activity) == 'enabled' && !!sessionStorage.getItem('btnsDisabled') !== true) {
+                        addToCart( year.classes[i].activity, year.classes[i].price);
+                    }
                 });
                 tempTemplateNode.style.display = 'flex';
                 delete tempTemplateNode.dataset.type;
@@ -188,6 +197,7 @@ function displayClasses(arr) {
     })
     activityCardsDiv.appendChild(docFrag);
     delete docFrag;
+    updateAddBtn();
 }
 
 function deleteOldCards() {
@@ -202,11 +212,17 @@ function deleteOldCards() {
 
 function addToCart(className, classPrice) {
     let selectedClass = `<div class="selected-class"><i class="fa-solid fa-xmark"></i>${className} <span>${classPrice}</span></div>`
+    sessionStorage.setItem(className, 'disabled');
     if (window.getComputedStyle(bookingCartContainer).display == 'none') {
         bookingCartContainer.style.display = 'flex';
     }
     bookingCart.innerHTML += selectedClass;
+    bookingCart.querySelectorAll('.selected-class i').forEach(item => {
+        item.addEventListener('click', (e) => {
+        removeFromCart(e);
+    })});
     updateCartTotal();
+    updateAddBtn()
 }
 
 function updateCartTotal() {
@@ -214,12 +230,41 @@ function updateCartTotal() {
     bookingCartTotal.querySelector('span').innerHTML = "";
     bookingCart.querySelectorAll('.selected-class span').forEach(item => {
         let itemPrice = item.innerHTML.slice(1, 4);
-        subTotal += parseInt(itemPrice);
+        if (!isNaN(itemPrice)) {
+            subTotal += parseInt(itemPrice);
+        }
     })
     bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
 
-bookingCartSubmit.addEventListener('click', (e) => {
+bookingCartSubmit.addEventListener('click', () => {
     bookingCartContainer.classList.add('submitted');
-    console.log(e.target.innerHTML)
+    sessionStorage.setItem('btnsDisabled', 'true');
+    updateAddBtn();
 })
+
+function removeFromCart(e) {
+    let classToRemove = e.target.parentNode;
+    let className = classToRemove.innerHTML.slice(classToRemove.innerHTML.indexOf('</i>') + 4, classToRemove.innerHTML.indexOf('<span>') - 1);
+    sessionStorage.setItem(className, 'enabled');
+    classToRemove.remove();
+    updateAddBtn()
+}
+
+function updateAddBtn() {
+    if (sessionStorage.getItem('btnsDisabled') == true) {
+        document.querySelectorAll('.activity-submit').forEach(btn => {btn.disabled = true});
+    } else {
+        document.querySelectorAll('.activity-submit').forEach(btn => {
+            for (let i = 0; i < sessionStorage.length; i++){
+                if (sessionStorage.key(i) == btn.parentNode.firstElementChild.innerText){
+                    if (sessionStorage.getItem(sessionStorage.key(i)) === 'disabled'){
+                        btn.disabled = true;
+                    } else {
+                        btn.disabled = false;
+                    };
+                }
+            }
+        });
+    }
+}
