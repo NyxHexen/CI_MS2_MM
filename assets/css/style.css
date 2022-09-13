@@ -538,7 +538,7 @@ header {
     font-weight: bolder;
 }
 
-.quiz-start-box button:disabled {
+button:disabled {
     background: rgb(125, 125, 125);
 }
 
@@ -1026,7 +1026,7 @@ header {
 }
 
 .booking-cart {
-    padding: .5rem;
+    padding: .5rem 0;
     display: flex;
     flex-direction: column;
     border-top: 2px solid var(--prm-clr);
@@ -1042,6 +1042,7 @@ header {
 
 .selected-class i {
     margin-top: .1rem;
+    font-size: 1.25rem;
 }
 
 .booking-cart-total {
