@@ -1037,7 +1037,8 @@ button:disabled {
 
 .selected-class {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
 }
 
 .selected-class i {
