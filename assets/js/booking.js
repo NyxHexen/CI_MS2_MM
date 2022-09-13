@@ -14,6 +14,13 @@ const bookingCartSubmit = document.querySelector('.booking-cart-submit');
 const bookingCartRemove = document.querySelectorAll('.booking-cart i');
 
 let subTotal = 0;
+let bookedClasses = [];
+let order = {
+    name: "",
+    email: "",
+    classes: "",
+    total: subTotal
+};
 
 window.onbeforeunload = function () {
     sessionStorage.clear();
@@ -169,12 +176,12 @@ schoolYearSelect.addEventListener('change', () => {
 function displayClasses(arr) {
     deleteOldCards();
     let docFrag = document.createDocumentFragment();
-    //https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
+    //Inspired by https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
     arr.forEach(year => {
         if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length != 0) {
             for (let i = 0; i < year.classes.length; i++) {
                 let tempTemplateNode = activityCardTemplate.cloneNode(true);
-                if (!sessionStorage.getItem(year.classes[i].activity)){
+                if (!sessionStorage.getItem(year.classes[i].activity)) {
                     sessionStorage.setItem(year.classes[i].activity, 'enabled');
                 };
                 tempTemplateNode.querySelector('h4').textContent = year.classes[i].activity;
@@ -186,7 +193,7 @@ function displayClasses(arr) {
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
                 tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () => {
                     if (sessionStorage.getItem(year.classes[i].activity) == 'enabled' && !!sessionStorage.getItem('btnsDisabled') !== true) {
-                        addToCart( year.classes[i].activity, year.classes[i].price);
+                        addToCart(year.classes[i].activity, year.classes[i].price);
                     }
                 });
                 tempTemplateNode.style.display = 'flex';
@@ -221,16 +228,18 @@ function addToCart(className, classPrice) {
     bookingCart.innerHTML += selectedClass;
     bookingCart.querySelectorAll('.selected-class i').forEach(item => {
         item.addEventListener('click', (e) => {
-        removeFromCart(e);
-    })});
+            removeFromCart(e);
+        })
+    });
     updateCartTotal();
     updateAddBtn()
 }
 
 function updateCartTotal() {
+    subTotal = 0;
     bookingCartTotal.querySelector('span').innerHTML = "";
     bookingCart.querySelectorAll('.selected-class span').forEach(item => {
-        let itemPrice = item.innerHTML.slice(1, 4);
+        let itemPrice = item.innerHTML.slice(1, item.innerHTML.length);
         if (!isNaN(itemPrice)) {
             subTotal += parseInt(itemPrice);
         }
@@ -241,6 +250,12 @@ function updateCartTotal() {
 bookingCartSubmit.addEventListener('click', () => {
     bookingCartContainer.classList.add('submitted');
     sessionStorage.setItem('btnsDisabled', 'true');
+    bookingCart.querySelectorAll('.selected-class').forEach(item => {
+        bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
+    })
+    order.classes = bookedClasses.join(' & ');
+    order.total = subTotal;
+    console.log(order);
     updateAddBtn();
 })
 
@@ -259,15 +274,19 @@ function removeFromCart(e) {
 
 function updateAddBtn() {
     if (sessionStorage.getItem('btnsDisabled') == true) {
-        document.querySelectorAll('.activity-submit').forEach(btn => {btn.disabled = true});
+        document.querySelectorAll('.activity-submit').forEach(btn => {
+            btn.disabled = true
+        });
     } else {
         document.querySelectorAll('.activity-submit').forEach(btn => {
-            for (let i = 0; i < sessionStorage.length; i++){
-                if (sessionStorage.key(i) == btn.parentNode.firstElementChild.innerText){
-                    if (sessionStorage.getItem(sessionStorage.key(i)) === 'disabled'){
+            for (let i = 0; i < sessionStorage.length; i++) {
+                if (sessionStorage.key(i) == btn.parentNode.firstElementChild.innerText) {
+                    if (sessionStorage.getItem(sessionStorage.key(i)) === 'disabled') {
                         btn.disabled = true;
+                        btn.innerHTML = 'Added';
                     } else {
                         btn.disabled = false;
+                        btn.innerHTML = 'Add to Cart'
                     };
                 }
             }
