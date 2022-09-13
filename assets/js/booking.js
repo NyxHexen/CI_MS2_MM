@@ -247,18 +247,6 @@ function updateCartTotal() {
     bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
 
-bookingCartSubmit.addEventListener('click', () => {
-    bookingCartContainer.classList.add('submitted');
-    sessionStorage.setItem('btnsDisabled', 'true');
-    bookingCart.querySelectorAll('.selected-class').forEach(item => {
-        bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
-    })
-    order.classes = bookedClasses.join(' & ');
-    order.total = subTotal;
-    console.log(order);
-    updateAddBtn();
-})
-
 function removeFromCart(e) {
     let classToRemove = e.target.parentNode;
     let className = classToRemove.innerHTML.slice(classToRemove.innerHTML.indexOf('</i>') + 4, classToRemove.innerHTML.indexOf('<span>') - 1);
@@ -292,4 +280,36 @@ function updateAddBtn() {
             }
         });
     }
+}
+
+bookingCartSubmit.addEventListener('click', () => {
+    bookingCartContainer.classList.add('submitted');
+    setTimeout(showMailingForm, 1000);
+    sessionStorage.setItem('btnsDisabled', 'true');
+    bookingCart.querySelectorAll('.selected-class').forEach(item => {
+        bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
+    })
+    order.classes = bookedClasses.join(' & ');
+    order.total = subTotal;
+    updateAddBtn();
+})
+
+function showMailingForm() {
+    bookingCartContainer.classList.add('mailing-info');
+    setTimeout(()=>{bookingCartContainer.classList.remove('submitted')}, 5000);
+    let bookingCartContainerDefault = bookingCartContainer.innerHTML;
+    bookingCartContainer.innerHTML = `
+    <form>
+    <legend class="visually-hidden">Your Order Details</legend>
+    <input type="text" name="name" placeholder="Full Name" required>
+    <label for="name">Your Name:</label>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <label for="email">Email Address:</label>
+    <div class="form-buttons">
+                <button type="submit">Submit</button>
+                <button type="reset"><i class="fa-solid fa-rotate-left"></i></button>
+                <button type="submit" class="back">Back</button>
+            </div>
+    `
+    console.log(bookingCartContainerDefault);
 }

@@ -1016,13 +1016,36 @@ button:disabled {
 }
 
 #booking-cart-container.submitted > * {
-    transform: translateZ(-320px);
     opacity: 0;
-    transition: transform 1s forwards;
+}
+
+#booking-cart-container.mailing-info > * {
+    animation: showCart 1s ease-in forwards;
+    display: flex;
 }
 
 #booking-cart-container h3 {
     text-align: center;
+}
+
+#booking-cart-container .form-buttons {
+    margin-top: .5rem;
+    display: flex;
+    justify-content: center
+}
+
+#booking-cart-container .form-buttons > * {
+    margin: .175rem;
+    padding: .5rem .175rem;
+    min-width: 33%;
+}
+
+#booking-cart-container .form-buttons i {
+    font-size: 1.25rem;
+}
+
+#booking-cart-container .back {
+    background-color: var(--accent-clr);
 }
 
 .booking-cart {
@@ -1078,7 +1101,8 @@ button:disabled {
 }
 
 #newsletter-form,
-#newsletter-form form {
+#newsletter-form form,
+#booking-cart-container form {
     display: flex;
     flex-direction: column;
 }
@@ -1095,12 +1119,14 @@ button:disabled {
     border-radius: 10px;
 }
 
-#newsletter-form form * {
+#newsletter-form form *,
+#booking-cart-container form input {
     font: var(--t-font);
     font-size: .9rem;
 }
 
 #newsletter-form input,
+#booking-cart-container input,
 #newsletter-form select {
     border: none;
     background-color: #0084ff;
@@ -1110,7 +1136,8 @@ button:disabled {
     border-radius: 20px;
 }
 
-#newsletter-form input::placeholder {
+#newsletter-form input::placeholder,
+#booking-cart-container input::placeholder {
     color: white;
     opacity: 1;
 }
@@ -1130,7 +1157,8 @@ button:disabled {
     margin: 1rem auto;
 }
 
-#newsletter-form button {
+#newsletter-form button,
+#booking-cart-container form button{
     margin: 0 1rem;
     padding: .5rem 1rem;
     border-radius: 20px;
@@ -1141,7 +1169,8 @@ button:disabled {
     font-size: 1rem;
 }
 
-#newsletter-form button[type=reset] {
+#newsletter-form button[type=reset],
+#booking-cart-container button[type=reset] {
     background-color: #ddd;
     color: var(--accent-clr);
 }
