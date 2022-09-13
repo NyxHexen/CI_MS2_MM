@@ -13,6 +13,8 @@ const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
 const bookingCartRemove = document.querySelectorAll('.booking-cart i');
 
+let subTotal = 0;
+
 window.onbeforeunload = function () {
     sessionStorage.clear();
 }
@@ -226,7 +228,6 @@ function addToCart(className, classPrice) {
 }
 
 function updateCartTotal() {
-    let subTotal = 0;
     bookingCartTotal.querySelector('span').innerHTML = "";
     bookingCart.querySelectorAll('.selected-class span').forEach(item => {
         let itemPrice = item.innerHTML.slice(1, 4);
@@ -246,8 +247,13 @@ bookingCartSubmit.addEventListener('click', () => {
 function removeFromCart(e) {
     let classToRemove = e.target.parentNode;
     let className = classToRemove.innerHTML.slice(classToRemove.innerHTML.indexOf('</i>') + 4, classToRemove.innerHTML.indexOf('<span>') - 1);
+    let classPrice = classToRemove.querySelector('span').innerHTML.slice(1, 4);
+    if (!isNaN(classPrice)) {
+        subTotal -= classPrice;
+    }
     sessionStorage.setItem(className, 'enabled');
     classToRemove.remove();
+    updateCartTotal();
     updateAddBtn()
 }
 
