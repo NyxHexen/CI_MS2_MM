@@ -1114,6 +1114,11 @@ button:disabled {
     font-size: 1rem;
 }
 
+#booking-cart-container .error {
+    font-size: .9rem;
+    margin-left: .7rem;
+}
+
 /* --------------------------------------------------------------------------------- Newsletter Form */
 #newsletter-form-container {
     width: 96%;
