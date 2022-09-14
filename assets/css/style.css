@@ -1031,20 +1031,30 @@ button:disabled {
     display: flex;
 }
 
-#booking-cart-container.mailing-info .booking-cart-div {
-    display: none;
+#booking-cart-container .booking-cart-div {
+    display: flex;
+    flex-direction: column;
 }
 
 #booking-cart-container .mailing-info-div {
     display: none;
 }
 
+#booking-cart-container .mailing-info-div form {
+    width: 100%;
+}
+
 #booking-cart-container.mailing-info .mailing-info-div {
     display: flex;
 }
 
-#booking-cart-container .mailing-info-div form {
-    width: 100%;
+#booking-cart-container.mailing-info .booking-cart-div {
+    display: none;
+}
+
+#booking-cart-container .error {
+    font-size: .9rem;
+    margin-left: .7rem;
 }
 
 #booking-cart-container h3 {
@@ -1112,11 +1122,6 @@ button:disabled {
     color: white;
     font-weight: bold;
     font-size: 1rem;
-}
-
-#booking-cart-container .error {
-    font-size: .9rem;
-    margin-left: .7rem;
 }
 
 /* --------------------------------------------------------------------------------- Newsletter Form */
