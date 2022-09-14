@@ -46,6 +46,10 @@ body {
     min-height: 100%;
 }
 
+.visually-hidden {
+    display: none !important;
+}
+
 .desktop-only {
     display: none !important;
 }
@@ -536,6 +540,7 @@ header {
     font-family: var(--h-font);
     font-size: 1.5rem;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 button:disabled {
@@ -862,6 +867,7 @@ button:disabled {
     background-color: var(--prm-clr);
     border: 2px solid transparent;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .sch-lvl-rd input,
@@ -885,6 +891,7 @@ button:disabled {
     border: 2px solid var(--accent-clr);
     padding: .25rem 1rem;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .school-year select:focus {
@@ -1024,6 +1031,22 @@ button:disabled {
     display: flex;
 }
 
+#booking-cart-container.mailing-info .booking-cart-div {
+    display: none;
+}
+
+#booking-cart-container .mailing-info-div {
+    display: none;
+}
+
+#booking-cart-container.mailing-info .mailing-info-div {
+    display: flex;
+}
+
+#booking-cart-container .mailing-info-div form {
+    width: 100%;
+}
+
 #booking-cart-container h3 {
     text-align: center;
 }
@@ -1067,6 +1090,7 @@ button:disabled {
 .selected-class i {
     margin-top: .1rem;
     font-size: 1.25rem;
+    cursor: pointer;
 }
 
 .booking-cart-total {
@@ -1091,7 +1115,7 @@ button:disabled {
 }
 
 /* --------------------------------------------------------------------------------- Newsletter Form */
-#newsletter-form {
+#newsletter-form-container {
     width: 96%;
     margin: 0 auto 1.25rem;
     padding: .5rem 1rem;
@@ -1100,64 +1124,65 @@ button:disabled {
     border-radius: 20px;
 }
 
-#newsletter-form,
-#newsletter-form form,
+#newsletter-form-container,
+#newsletter-form-container form,
 #booking-cart-container form {
     display: flex;
     flex-direction: column;
 }
 
-#newsletter-form h3 {
+#newsletter-form-container h3 {
     font-size: 1.5rem;
     margin: .5rem 0;
 }
 
-#newsletter-form form {
+#newsletter-form-container form {
     padding: .5rem;
     margin: .5rem 0;
     background-color: white;
     border-radius: 10px;
 }
 
-#newsletter-form form *,
+#newsletter-form-container form *,
 #booking-cart-container form input {
     font: var(--t-font);
     font-size: .9rem;
 }
 
-#newsletter-form input,
+#newsletter-form-container input,
 #booking-cart-container input,
-#newsletter-form select {
+#newsletter-form-container select {
     border: none;
     background-color: #0084ff;
     color: white;
     margin: .5rem;
     padding: .5rem;
     border-radius: 20px;
+    cursor: pointer;
 }
 
-#newsletter-form input::placeholder,
+#newsletter-form-container input::placeholder,
 #booking-cart-container input::placeholder {
     color: white;
     opacity: 1;
 }
 
-#newsletter-form input:focus,
-#newsletter-form select:focus {
+#newsletter-form-container input:focus,
+#newsletter-form-container select:focus {
     outline-color: var(--accent-clr);
 }
 
-#newsletter-form legend,
-#newsletter-form label,
-#newsletter-form option:first-child {
+#newsletter-form-container legend,
+#newsletter-form-container label,
+#newsletter-form-container option:first-child {
     display: none;
 }
 
-#newsletter-form .form-buttons {
+#newsletter-form-container .form-buttons {
     margin: 1rem auto;
 }
 
-#newsletter-form button,
+#newsletter-form-container button,
 #booking-cart-container form button{
     margin: 0 1rem;
     padding: .5rem 1rem;
@@ -1167,9 +1192,10 @@ button:disabled {
     color: white;
     font-weight: bold;
     font-size: 1rem;
+    cursor: pointer;
 }
 
-#newsletter-form button[type=reset],
+#newsletter-form-container button[type=reset],
 #booking-cart-container button[type=reset] {
     background-color: #ddd;
     color: var(--accent-clr);
