@@ -12,6 +12,8 @@ const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
 const bookingCartRemove = document.querySelectorAll('.booking-cart i');
+const mailingInfoNameInput = document.querySelector('#order-name');
+const mailingInfoEmailInput = document.querySelector('#order-email');
 
 let subTotal = 0;
 let bookedClasses = [];
@@ -284,32 +286,47 @@ function updateAddBtn() {
 
 bookingCartSubmit.addEventListener('click', () => {
     bookingCartContainer.classList.add('submitted');
-    setTimeout(showMailingForm, 1000);
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
         bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
     })
     order.classes = bookedClasses.join(' & ');
     order.total = subTotal;
+    showMailingForm();
     updateAddBtn();
 })
 
 function showMailingForm() {
     bookingCartContainer.classList.add('mailing-info');
-    setTimeout(()=>{bookingCartContainer.classList.remove('submitted')}, 5000);
-    let bookingCartContainerDefault = bookingCartContainer.innerHTML;
-    bookingCartContainer.innerHTML = `
-    <form>
-    <legend class="visually-hidden">Your Order Details</legend>
-    <input type="text" name="name" placeholder="Full Name" required>
-    <label for="name">Your Name:</label>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <label for="email">Email Address:</label>
-    <div class="form-buttons">
-                <button type="submit">Submit</button>
-                <button type="reset"><i class="fa-solid fa-rotate-left"></i></button>
-                <button type="submit" class="back">Back</button>
-            </div>
-    `
-    console.log(bookingCartContainerDefault);
+    setTimeout(() => {
+        bookingCartContainer.classList.remove('submitted')
+    }, 1000);
+}
+
+bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
+    if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid){
+        mailingInfoEmailInput.reportValidity();
+        mailingInfoNameInput.reportValidity();
+    } else if (!isEmailValid(mailingInfoEmailInput.value)){
+        reportInvalidEmail(mailingInfoEmailInput);
+    } else {
+        
+        console.log('empty both input fields and send e-mail')
+    }
+})
+
+bookingCartContainer.querySelector('.back').addEventListener('click', () => {
+    bookingCartContainer.classList.remove('mailing-info');
+})
+
+function isEmailValid(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+function reportInvalidEmail(insertAfterNode){
+    const error = document.createElement('p');
+    error.classList.add('error');
+    error.innerText = 'Your e-mail address is missing its TLD (.com, .co.uk, etc.)';
+    insertAfterNode.parentElement.insertBefore(error, insertAfterNode.nextSibling);
 }
