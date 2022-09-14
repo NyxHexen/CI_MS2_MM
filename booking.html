@@ -103,23 +103,41 @@
                 <button class="activity-submit" type="submit">Add to Cart</button>
             </div>
             <div class="no-class-card">
-                <img src="assets/images/3973477.png" alt="Picture of an empty open cardboard box" class="no-class-card-image">
-                <a href="https://www.freepik.com/free-vector/no-data-concept-illustration_8961448.htm#query=empty%20box&position=18&from_view=search" class="attribution">Image by storyset on Freepik </a>
+                <img src="assets/images/3973477.png" alt="Picture of an empty open cardboard box"
+                    class="no-class-card-image">
+                <a href="https://www.freepik.com/free-vector/no-data-concept-illustration_8961448.htm#query=empty%20box&position=18&from_view=search"
+                    class="attribution">Image by storyset on Freepik </a>
                 <h5>Sorry, there are no courses under this category!</h5>
             </div>
         </div>
         <div id="booking-cart-container">
-            <h3>Booking List</h3>
-            <div class="booking-cart"></div>
-            <div class="booking-cart-total"><b>Total:</b> <span>£0</span></div>
-            <button class="booking-cart-submit">Book Now</button>
+            <div class="booking-cart-div">
+                <h3>Booking List</h3>
+                <div class="booking-cart"></div>
+                <div class="booking-cart-total"><b>Total:</b> <span>£0</span></div>
+                <button class="booking-cart-submit">Book Now</button>
+            </div>
+            <div class="mailing-info-div">
+                <form id="order-mailing-form">
+                    <legend>Your Details</legend>
+                    <input type="text" name="order-name" id="order-name" placeholder="Full Name" required>
+                    <label for="order-name" class="visually-hidden">Your Name:</label>
+                    <input type="email" name="order-email" id="order-email" placeholder="Email Address" required>
+                    <label for="order-email" class="visually-hidden">Email Address:</label>
+                    <div class="form-buttons">
+                        <button type="button" form="order-mailing-form" class="send">Submit</button>
+                        <button type="reset"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button type="button" class="back">Back</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
-    <section id="newsletter-form">
+    <section id="newsletter-form-container">
         <h3>Can't find a time that suits you?</h3>
         <p>Want to be the first to hear about our new classes? Sign up for our newsletter to find out when more classes
             are available. We'll also send you free learning resources to help you make progress in maths. </p>
-        <form action="post">
+        <form id="newsletter-form">
             <legend class="visually-hidden">Your contact information:</legend>
             <label for="fullname">Full Name:</label>
             <input type="text" name="fullname" id="fullname" placeholder="What's your name?" required>
@@ -127,14 +145,14 @@
             <input type="email" name="email" id="email" placeholder="Your e-mail goes here!" required>
             <label for="findus">How did you find out about us?</label>
             <select name="findus" id="findus" required>
-                <option value="" disabled selected value>-- select an option --</option>
+                <option value="" disabled selected>-- select an option --</option>
                 <option value="option--one">Google</option>
                 <option value="option--two">Facebook</option>
                 <option value="option--three">Twitter</option>
                 <option value="option--four">Recommended By Friend</option>
             </select>
             <div class="form-buttons">
-                <button type="submit" class="newsletter-form--submit">Submit</button>
+                <button type="submit" form="newsletter-form" class="newsletter-form--submit">Submit</button>
                 <button type="reset" class="newsletter-form--reset">Reset</button>
             </div>
         </form>
