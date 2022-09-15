@@ -415,6 +415,9 @@ header {
     text-decoration: none;
     text-align: center;
     background-color: white;
+    background-image: url(/assets/images/printable-lined-paper-college-ruled.webp);
+    background-size: 200%;
+    background-position: 26% 54%;
     color: black;
     border-radius: 20px;
     box-shadow: inset 0px 2px 6px 0px black;
