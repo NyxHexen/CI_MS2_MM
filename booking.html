@@ -20,6 +20,7 @@
         <div id="logo">
             <img src="assets/images/logo.webp" alt="M-squared logo">
         </div>
+        <h1 class="desktop-only">Math Masters Academy</h1>
         <nav id="nav" class="nav-links-container" aria-label="Navigation links">
             <button class="hamburger-menu-button" aria-label="Menu Button">
                 <div class="menu-icon-wrapper">
@@ -117,12 +118,12 @@
                 <div class="booking-cart-total"><b>Total:</b> <span>£0</span></div>
                 <button class="booking-cart-submit">Book Now</button>
             </div>
-            <div class="mailing-info-div">
+            <div class="mailing-info-div hidden">
                 <form id="order-mailing-form">
                     <legend>Your Details</legend>
-                    <input type="text" name="order-name" id="order-name" placeholder="Full Name" required>
+                    <input type="text" name="order_name" id="order-name" placeholder="Full Name" required>
                     <label for="order-name" class="visually-hidden">Your Name:</label>
-                    <input type="email" name="order-email" id="order-email" placeholder="Email Address" required>
+                    <input type="email" name="order_email" id="order-email" placeholder="Email Address" required>
                     <label for="order-email" class="visually-hidden">Email Address:</label>
                     <div class="form-buttons">
                         <button type="button" form="order-mailing-form" class="send">Submit</button>
@@ -130,6 +131,13 @@
                         <button type="button" class="back">Back</button>
                     </div>
                 </form>
+            </div>
+            <div class="booking-complete-div hidden">
+                <div class="circle-complete">
+                    <span class="checkmark-complete"></span>
+                </div>
+                <button onclick="window.location.reload();" class="restart-booking">Restart <i class="fa-solid fa-rotate-left"></i></button>
+                <h3>Booking Complete! Please check your inbox for the confirmation e-mail.</h3>
             </div>
         </div>
     </section>
@@ -139,12 +147,12 @@
             are available. We'll also send you free learning resources to help you make progress in maths. </p>
         <form id="newsletter-form">
             <legend class="visually-hidden">Your contact information:</legend>
-            <label for="fullname">Full Name:</label>
-            <input type="text" name="fullname" id="fullname" placeholder="What's your name?" required>
+            <label for="newsletter-name">Full Name:</label>
+            <input type="text" name="newsletter_name" id="newsletter-name" placeholder="What's your name?" required>
             <label for="email">Email Address:</label>
-            <input type="email" name="email" id="email" placeholder="Your e-mail goes here!" required>
-            <label for="findus">How did you find out about us?</label>
-            <select name="findus" id="findus" required>
+            <input type="newsletter-email" name="newsletter_email" id="newsletter-email" placeholder="Your e-mail goes here!" required>
+            <label for="newsletter-findus">How did you find out about us?</label>
+            <select name="newsletter_findus" id="newsletter-findus" required>
                 <option value="" disabled selected>-- select an option --</option>
                 <option value="option--one">Google</option>
                 <option value="option--two">Facebook</option>
@@ -189,8 +197,9 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/index.js"></script>
     <script src="assets/js/booking.js"></script>
 </body>
 
