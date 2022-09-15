@@ -15,6 +15,13 @@
     --method-img-3: url(../images/towfiqu-barbhuiya-5u6bz2tYhX8-unsplash.webp);
     --h-font: 600 1rem "Lexend", sans-serif;
     --t-font: 500 1rem "Montserrat", sans-serif;
+    --check-size: 5rem;
+    --check-border-width: 5px;
+    --checkmark-width: calc(var(--check-size) / 2);
+    --checkmark-height: calc(var(--checkmark-width) / 2);
+    --checkmark-left: calc(var(--checkmark-width) / 2 );
+    --checkmark-top: 50%;
+    --checkmark-color: #19b8a2;
 }
 
 *,
@@ -23,7 +30,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .5s;
 }
 
 h1,
@@ -309,7 +315,6 @@ header {
 .carousel-slides {
     position: relative;
     display: flex;
-    flex-direction: row;
     z-index: 2;
 }
 
@@ -357,6 +362,10 @@ header {
     background-image: var(--carousel-img-2);
 }
 
+.slide-2 h2 {
+    top: 30% !important;
+}
+
 .slide-2::before {
     content: '';
     background: linear-gradient(0deg, rgba(107, 197, 0, 1) 0%, rgba(107, 197, 0, 0.70) 75%, rgba(107, 197, 0, 0) 100%);
@@ -385,9 +394,10 @@ header {
 }
 
 .carousel-slide h2,
-.carousel-slide p {
+.carousel-slide a {
     position: absolute;
     line-height: 108%;
+    z-index: 1;
 }
 
 .carousel-slide h2 {
@@ -396,17 +406,26 @@ header {
     font-size: 1.8rem;
 }
 
-.carousel-slide p {
+.carousel-slide a {
+    width: calc(100% - 1.75rem);
     bottom: 1rem;
     left: 1rem;
     font-size: 1.3rem;
+    padding: .5rem .75rem;
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    box-shadow: inset 0px 2px 6px 0px black;
 }
 
 /*  ---------------------------------------------------------------------------------  Methodology */
 
 #methodology {
+    width: 96%;
     background-color: var(--prm-clr);
-    margin: 0 .2rem 2rem;
+    margin: 0 auto 1.25rem;
     padding: 1rem;
     position: relative;
     display: flex;
@@ -485,6 +504,105 @@ header {
 
 .method.active .method-cover {
     filter: blur(4px);
+}
+
+/* --------------------------------------------------------------------------------- Contact Info + Google Maps */
+
+#about-us {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid var(--prm-clr);
+    padding: .5rem 0;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+}
+
+#about-us .classes-info,
+#about-us .contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#about-us .classes-info {
+    margin: .5rem 0;
+}
+
+#about-us .classes-info h2 {
+    font-size: 1.5rem;
+}
+
+#about-us .classes-info--zoom img {
+    width: 80%;
+    height: 2.3rem;
+    object-fit: contain;
+}
+
+#about-us .app-icons--container {
+    display: flex;
+    flex-direction: row;
+}
+
+#about-us .app-icons--container > * {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+#about-us img {
+    width: 50%;
+}
+
+#about-us a {
+    text-align: center;
+}
+
+#about-us iframe {
+    height: 100%;
+    width: calc(100% + 2px);
+    border-style: inset;
+    border-top: 4px solid var(--accent-clr);
+    border-bottom: 4px solid var(--accent-clr);
+}
+
+#about-us .contact-us {
+    padding: .5rem 0;
+}
+
+#about-us .contact-us h2 {
+    font-size: 1.5rem;
+}
+
+#about-us .contact-us p {
+    margin: .5rem 0;
+}
+
+#about-us .contact-us ul {
+    width: 90%;
+    margin: .5rem 0;
+}
+
+#about-us .contact-us li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#about-us .contact-us li i {
+    font-size: 1.75rem;
+    margin: 0 .5rem;
+}
+
+#about-us .contact-us a {
+    text-decoration: none;
+    color: var(--accent-clr);
 }
 
 /* --------------------------------------------------------------------------------- QUIZ */
@@ -1013,6 +1131,7 @@ button:disabled {
     display: none;
     flex-direction: column;
     width: 80%;
+    min-height: 6rem;
     padding: .5rem .6rem;
     margin: .5rem 0;
     background-color: white;
@@ -1020,36 +1139,24 @@ button:disabled {
     border-radius: 20px;
     transform-origin: top;
     animation: showCart 1s ease-in forwards;
+    transition: all 1s linear forwards;
 }
 
-#booking-cart-container.submitted > * {
-    opacity: 0;
-}
-
-#booking-cart-container.mailing-info > * {
-    animation: showCart 1s ease-in forwards;
-    display: flex;
-}
-
-#booking-cart-container .booking-cart-div {
-    display: flex;
-    flex-direction: column;
+#booking-cart-container .hidden {
+    display: none !important;
+    transition: display 2s linear forwards;
 }
 
 #booking-cart-container .mailing-info-div {
-    display: none;
+    display: flex;
 }
 
 #booking-cart-container .mailing-info-div form {
     width: 100%;
 }
 
-#booking-cart-container.mailing-info .mailing-info-div {
-    display: flex;
-}
-
-#booking-cart-container.mailing-info .booking-cart-div {
-    display: none;
+#booking-cart-container .booking-complete-div button {
+    margin: .5rem;
 }
 
 #booking-cart-container .error {
@@ -1124,6 +1231,69 @@ button:disabled {
     font-size: 1rem;
 }
 
+#booking-cart-container .booking-complete-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem 0;
+}
+
+.circle-complete {
+    position: relative;
+    width: var(--check-size);
+    height: var(--check-size);
+    margin: 0 auto .5rem;
+}
+
+.circle-complete::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--check-border-width) solid #dbdbdb;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    z-index: 0;
+}
+
+.circle-complete::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--check-border-width) solid transparent;
+    border-left-color: var(--checkmark-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    z-index: 1;
+    animation: circle linear forwards .75s;
+}
+
+.checkmark-complete {
+    opacity: 0;
+    position:absolute;
+    top: var(--checkmark-top);
+    left: var(--checkmark-left);
+    display: block;
+    height: var(--checkmark-height);
+    width: var(--checkmark-width);
+    border-left: var(--check-border-width) solid var(--checkmark-color);
+    border-bottom: var(--check-border-width) solid var(--checkmark-color);
+    transform-origin: top left;
+    transform: rotate(-45deg);
+    animation: checkmark linear both 1s;
+}
+
+.booking-complete h3 {
+    display: none;
+}
+
+.booking-complete.complete h3 {
+    display: flex;
+}
+
 /* --------------------------------------------------------------------------------- Newsletter Form */
 #newsletter-form-container {
     width: 96%;
@@ -1193,7 +1363,7 @@ button:disabled {
 }
 
 #newsletter-form-container button,
-#booking-cart-container form button{
+#booking-cart-container button{
     margin: 0 1rem;
     padding: .5rem 1rem;
     border-radius: 20px;
@@ -1450,16 +1620,6 @@ footer {
     }
 }
 
-@keyframes hideCountdownDiv {
-    0% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(0);
-    }
-}
-
 @keyframes answersSet {
     0% {
         transform: skew(25deg) translateX(300px);
@@ -1493,6 +1653,45 @@ footer {
         opacity: 0;
     }
     100% {
+        opacity: 1;
+    }
+}
+
+@keyframes circle {
+    0% {
+        border-color: transparent;
+        border-left-color: var(--checkmark-color);
+    }
+    90% {
+        border-color: transparent;
+        border-left-color: var(--checkmark-color);
+        transform: rotate(-360deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+        border-color: var(--checkmark-color);
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    80% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    90% {
+        height: var(--checkmark-height);
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        height: var(--checkmark-height);
+        width: var(--checkmark-width);
         opacity: 1;
     }
 }
