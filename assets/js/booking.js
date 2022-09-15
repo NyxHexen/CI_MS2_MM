@@ -8,12 +8,16 @@ const activityCardTemplate = document.querySelector("div[data-type='template']")
 const activityNoClassCard = document.querySelector('.no-class-card');
 const activitySubmitBtn = document.querySelectorAll('.activity-submit');
 const bookingCartContainer = document.querySelector('#booking-cart-container');
+const bookingCartDiv = document.querySelector('.booking-cart-div');
 const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
 const bookingCartRemove = document.querySelectorAll('.booking-cart i');
+const mailingInfoDiv = document.querySelector('.mailing-info-div');
 const mailingInfoNameInput = document.querySelector('#order-name');
 const mailingInfoEmailInput = document.querySelector('#order-email');
+const bookingCompleteDiv = document.querySelector('.booking-complete-div');
+const newsletterFormId = document.querySelector('#newsletter-form').id;
 
 let subTotal = 0;
 let bookedClasses = [];
@@ -207,7 +211,7 @@ function displayClasses(arr) {
         }
     })
     activityCardsDiv.appendChild(docFrag);
-    delete docFrag;
+    docFrag = null;
     updateAddBtn();
 }
 
@@ -285,32 +289,51 @@ function updateAddBtn() {
 }
 
 bookingCartSubmit.addEventListener('click', () => {
-    bookingCartContainer.classList.add('submitted');
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
         bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
     })
-    order.classes = bookedClasses.join(' & ');
-    order.total = subTotal;
+    order.classes = bookedClasses.length <= 1 ? bookedClasses.join(' & ') : bookedClasses.length > 1 ? bookedClasses.join(', ') : false;
+    order.total = '£' + subTotal;
     showMailingForm();
     updateAddBtn();
 })
 
+function selectSiblings(array, skipThis) {
+    let arr = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] != skipThis) {
+            arr.push(array[i]);
+        }
+    }
+    return arr;
+}
+
 function showMailingForm() {
-    bookingCartContainer.classList.add('mailing-info');
-    setTimeout(() => {
-        bookingCartContainer.classList.remove('submitted')
-    }, 1000);
+    mailingInfoDiv.classList.remove('hidden');
+    selectSiblings(bookingCartContainer.children, mailingInfoDiv).forEach(div => {
+        div.classList.add('hidden');
+    })
+}
+
+function showBookingComplete() {
+    bookingCompleteDiv.classList.remove('hidden')
+    selectSiblings(bookingCartContainer.children, bookingCompleteDiv).forEach(div => {
+        div.classList.add('hidden');
+    })
 }
 
 bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
-    if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid){
+    if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid) {
         mailingInfoEmailInput.reportValidity();
         mailingInfoNameInput.reportValidity();
-    } else if (!isEmailValid(mailingInfoEmailInput.value)){
+    } else if (!isEmailValid(mailingInfoEmailInput.value)) {
         reportInvalidEmail(mailingInfoEmailInput);
     } else {
-        console.log('empty both input fields and send e-mail')
+        order.name = mailingInfoNameInput.value;
+        order.email = mailingInfoEmailInput.value;
+        sendBookingConfirmation();
+        showBookingComplete();
     }
 })
 
@@ -323,9 +346,27 @@ function isEmailValid(email) {
     return re.test(email);
 };
 
-function reportInvalidEmail(insertAfterNode){
+function reportInvalidEmail(insertAfterNode) {
     const error = document.createElement('p');
     error.classList.add('error');
     error.innerText = 'Your e-mail address is missing its TLD (.com, .co.uk, etc.)';
     insertAfterNode.parentElement.insertBefore(error, insertAfterNode.nextSibling);
 }
+
+function sendBookingConfirmation() {
+    emailjs.send('service_sl1lvmo', 'template_0xcih7k', order, 'uwUMF7skPiFP9wOGF')
+}
+
+function signUpConfirm(form) {
+    emailjs.sendForm('service_sl1lvmo', 'template_zf090ar', form, 'uwUMF7skPiFP9wOGF')
+        .then(function () {
+            console.log('SUCCESS!');
+        }, function (error) {
+            console.log('FAILED...', error);
+        });
+}
+
+document.getElementById('newsletter-form-container').addEventListener('submit', (e) => {
+    e.preventDefault();
+    signUpConfirm(e.target);
+})
