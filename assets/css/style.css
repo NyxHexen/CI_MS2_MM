@@ -404,6 +404,7 @@ header {
     left: 1rem;
     top: 40%;
     font-size: 1.8rem;
+    text-shadow: 1px 0 5px rgba(0, 0, 0, 0.75);
 }
 
 .carousel-slide a {
