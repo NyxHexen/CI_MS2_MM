@@ -310,7 +310,6 @@ bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
     } else if (!isEmailValid(mailingInfoEmailInput.value)){
         reportInvalidEmail(mailingInfoEmailInput);
     } else {
-        
         console.log('empty both input fields and send e-mail')
     }
 })
