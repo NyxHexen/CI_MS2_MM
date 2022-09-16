@@ -1,23 +1,18 @@
 const schoolLevelOption = document.querySelectorAll('.booking-radio');
-const schoolYearDiv = document.querySelector('.school-year');
 const schoolYearDropDown = document.querySelector('#school-year-select');
 const schoolYearButtons = document.querySelector('#school-year-btns');
 const schoolYearSelect = document.querySelector('.school-year select');
 const activityCardsDiv = document.querySelector('#activity-cards');
 const activityCardTemplate = document.querySelector("div[data-type='template']");
 const activityNoClassCard = document.querySelector('.no-class-card');
-const activitySubmitBtn = document.querySelectorAll('.activity-submit');
 const bookingCartContainer = document.querySelector('#booking-cart-container');
-const bookingCartDiv = document.querySelector('.booking-cart-div');
 const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
-const bookingCartRemove = document.querySelectorAll('.booking-cart i');
 const mailingInfoDiv = document.querySelector('.mailing-info-div');
 const mailingInfoNameInput = document.querySelector('#order-name');
 const mailingInfoEmailInput = document.querySelector('#order-email');
 const bookingCompleteDiv = document.querySelector('.booking-complete-div');
-const newsletterFormId = document.querySelector('#newsletter-form').id;
 
 let subTotal = 0;
 let bookedClasses = [];
@@ -30,7 +25,7 @@ let order = {
 
 window.onbeforeunload = function () {
     sessionStorage.clear();
-}
+};
 
 const primaryOptions = [{
     name: "Year 1",
@@ -146,10 +141,10 @@ function displaySchoolYearOptions(e) {
 
 function createSchoolYearOptions(arr) {
     if (window.getComputedStyle(schoolYearDropDown).display !== 'none') {
-        schoolYearDropDown.innerHTML = `<option value="default">-- Pick Year --</option>`
+        schoolYearDropDown.innerHTML = `<option value="default">-- Pick Year --</option>`;
         arr.forEach(item => {
             schoolYearDropDown.innerHTML += `<option value="year-${item.name.charAt(item.name.length -1)}">${item.name}</option>`;
-        })
+        });
     } else {
         arr.forEach(item => {
             schoolYearButtons.innerHTML += `
@@ -157,7 +152,7 @@ function createSchoolYearOptions(arr) {
                     <label for="sch_yr${item.name.charAt(item.name.length -1)}">${item.name}</label>
                     <input type="radio" name="sch-yr" id="sch_yr${item.name.charAt(item.name.length -1)}">
                 </div>`;
-        })
+        });
     }
 }
 
@@ -189,7 +184,7 @@ function displayClasses(arr) {
                 let tempTemplateNode = activityCardTemplate.cloneNode(true);
                 if (!sessionStorage.getItem(year.classes[i].activity)) {
                     sessionStorage.setItem(year.classes[i].activity, 'enabled');
-                };
+                }
                 tempTemplateNode.querySelector('h4').textContent = year.classes[i].activity;
                 tempTemplateNode.querySelector('.level span').textContent = year.classes[i].level;
                 tempTemplateNode.querySelector('.schedule span').textContent = year.classes[i].schedule;
@@ -209,7 +204,7 @@ function displayClasses(arr) {
         } else if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length == 0) {
             activityNoClassCard.style.display = "flex";
         }
-    })
+    });
     activityCardsDiv.appendChild(docFrag);
     docFrag = null;
     updateAddBtn();
@@ -222,11 +217,11 @@ function deleteOldCards() {
         if (!card.hasAttribute('data-type')) {
             card.remove();
         }
-    })
+    });
 }
 
 function addToCart(className, classPrice) {
-    let selectedClass = `<div class="selected-class"><i class="fa-solid fa-xmark"></i>${className} <span>${classPrice}</span></div>`
+    let selectedClass = `<div class="selected-class"><i class="fa-solid fa-xmark"></i>${className} <span>${classPrice}</span></div>`;
     sessionStorage.setItem(className, 'disabled');
     if (window.getComputedStyle(bookingCartContainer).display == 'none') {
         bookingCartContainer.style.display = 'flex';
@@ -235,10 +230,10 @@ function addToCart(className, classPrice) {
     bookingCart.querySelectorAll('.selected-class i').forEach(item => {
         item.addEventListener('click', (e) => {
             removeFromCart(e);
-        })
+        });
     });
     updateCartTotal();
-    updateAddBtn()
+    updateAddBtn();
 }
 
 function updateCartTotal() {
@@ -249,7 +244,7 @@ function updateCartTotal() {
         if (!isNaN(itemPrice)) {
             subTotal += parseInt(itemPrice);
         }
-    })
+    });
     bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
 
@@ -263,13 +258,13 @@ function removeFromCart(e) {
     sessionStorage.setItem(className, 'enabled');
     classToRemove.remove();
     updateCartTotal();
-    updateAddBtn()
+    updateAddBtn();
 }
 
 function updateAddBtn() {
     if (sessionStorage.getItem('btnsDisabled') == true) {
         document.querySelectorAll('.activity-submit').forEach(btn => {
-            btn.disabled = true
+            btn.disabled = true;
         });
     } else {
         document.querySelectorAll('.activity-submit').forEach(btn => {
@@ -280,8 +275,8 @@ function updateAddBtn() {
                         btn.innerHTML = 'Added';
                     } else {
                         btn.disabled = false;
-                        btn.innerHTML = 'Add to Cart'
-                    };
+                        btn.innerHTML = 'Add to Cart';
+                    }
                 }
             }
         });
@@ -292,12 +287,12 @@ bookingCartSubmit.addEventListener('click', () => {
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
         bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
-    })
+    });
     order.classes = bookedClasses.length <= 1 ? bookedClasses.join(' & ') : bookedClasses.length > 1 ? bookedClasses.join(', ') : false;
     order.total = '£' + subTotal;
     showMailingForm();
     updateAddBtn();
-})
+});
 
 function selectSiblings(array, skipThis) {
     let arr = [];
@@ -313,14 +308,14 @@ function showMailingForm() {
     mailingInfoDiv.classList.remove('hidden');
     selectSiblings(bookingCartContainer.children, mailingInfoDiv).forEach(div => {
         div.classList.add('hidden');
-    })
+    });
 }
 
 function showBookingComplete() {
-    bookingCompleteDiv.classList.remove('hidden')
+    bookingCompleteDiv.classList.remove('hidden');
     selectSiblings(bookingCartContainer.children, bookingCompleteDiv).forEach(div => {
         div.classList.add('hidden');
-    })
+    });
 }
 
 bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
@@ -335,16 +330,16 @@ bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
         sendBookingConfirmation();
         showBookingComplete();
     }
-})
+});
 
 bookingCartContainer.querySelector('.back').addEventListener('click', () => {
     bookingCartContainer.classList.remove('mailing-info');
-})
+});
 
 function isEmailValid(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-};
+}
 
 function reportInvalidEmail(insertAfterNode) {
     const error = document.createElement('p');
@@ -354,19 +349,14 @@ function reportInvalidEmail(insertAfterNode) {
 }
 
 function sendBookingConfirmation() {
-    emailjs.send('service_sl1lvmo', 'template_0xcih7k', order, 'uwUMF7skPiFP9wOGF')
-}
-
-function signUpConfirm(form) {
-    emailjs.sendForm('service_sl1lvmo', 'template_zf090ar', form, 'uwUMF7skPiFP9wOGF')
-        .then(function () {
-            console.log('SUCCESS!');
-        }, function (error) {
-            console.log('FAILED...', error);
-        });
+    emailjs.send('service_sl1lvmo', 'template_0xcih7k', order, 'uwUMF7skPiFP9wOGF');
 }
 
 document.getElementById('newsletter-form-container').addEventListener('submit', (e) => {
     e.preventDefault();
     signUpConfirm(e.target);
-})
+});
+
+function signUpConfirm(form) {
+    emailjs.sendForm('service_sl1lvmo', 'template_zf090ar', form, 'uwUMF7skPiFP9wOGF');
+}
