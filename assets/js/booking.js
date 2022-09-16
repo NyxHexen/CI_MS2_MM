@@ -6,6 +6,7 @@ const activityCardsDiv = document.querySelector('#activity-cards');
 const activityCardTemplate = document.querySelector("div[data-type='template']");
 const activityNoClassCard = document.querySelector('.no-class-card');
 const bookingCartContainer = document.querySelector('#booking-cart-container');
+const bookingCartDiv = document.querySelector('.booking-cart-div');
 const bookingCart = document.querySelector('.booking-cart');
 const bookingCartTotal = document.querySelector('.booking-cart-total');
 const bookingCartSubmit = document.querySelector('.booking-cart-submit');
@@ -333,7 +334,10 @@ bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
 });
 
 bookingCartContainer.querySelector('.back').addEventListener('click', () => {
-    bookingCartContainer.classList.remove('mailing-info');
+    bookingCartDiv.classList.remove('hidden');
+    selectSiblings(bookingCartContainer.children, bookingCartDiv).forEach(div => {
+        div.classList.add('hidden');
+    });
 });
 
 function isEmailValid(email) {
