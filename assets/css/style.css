@@ -530,7 +530,7 @@ header {
     background-image: var(--method-img-2);
 }
 
-.method-2 p {
+.method-2 .method-info p {
     font-size: .89rem;
 }
 
@@ -1777,8 +1777,8 @@ footer {
     p,
     span,
     li,
-    b,
-    button {
+    b, 
+    input{
         font-size: 1.10rem;
     }
 
@@ -1866,5 +1866,194 @@ footer {
 
     .logo-text span {
         font-size: 1.35rem !important;
+    }
+}
+
+@media (min-width: 414px) {
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.75rem;
+    }
+    
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.35rem;
+    }
+
+    a,
+    div,
+    p,
+    span,
+    li,
+    b,
+    input,
+    select {
+        font-size: 1.25rem;
+    }
+
+    button {
+        font-size: 1.3rem;
+    }
+
+    header {
+        height: 3rem;
+    }
+
+    #logo img {
+        width: 5rem;
+    }
+
+    .hamburger-menu-button {
+        margin-top: .4rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-icon-wrapper {
+        width: 25px;
+        height: 25px;
+    }
+
+    .hamburger-menu-item {
+        width: 15rem;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu-item a {
+        font-size: 1.6rem;
+        font-weight: bolder;
+    }
+
+    .carousel-tabs {
+        margin-top: 0.5rem;
+    }
+
+    .tab {
+        height: 4.5rem;
+    }
+
+    .carousel-slide {
+        left: -12.7rem;
+        height: 30vh;
+    }
+
+    .carousel-slide h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-slide a {
+        font-size: 1.5rem;
+    }
+
+    #methodology {
+        margin-top: 5.5rem;
+    }
+
+    .method-2 .method-info p {
+        font-size: 1.05rem;
+    }
+
+    .classes-info img {
+        min-height: 3rem;
+    }
+
+    .quiz-start-container {
+        height: calc(70vh + 3rem + 1rem);
+    }
+
+    .quiz-start-box button {
+        font-size: 2rem;
+    }
+
+    .quiz-container {
+        margin-top: 3rem;
+        height: 70vh;
+    }
+
+    .hud,
+    .hud * {
+        font-size: 1.25rem;
+    }
+
+    .question-counter {
+        margin-left: 5%;
+    }
+
+    .timer {
+        font-size: 2.5rem;
+        right: 2.5%;
+    }
+
+    .question {
+        margin-top: 2.5rem;
+        height: 13rem;
+        font-size: 1.5rem;
+    }
+
+    .answer {
+        height: 4.5rem;
+        width: 25rem;
+    }
+
+    .answer span {
+        font-size: 2rem;
+    }
+
+    #marketing {
+        margin: 3rem auto 0;
+    }
+
+    .marketing-badge {
+        font-size: 1.25rem;
+        height: 6rem;
+        width: 6rem;
+    }
+
+    .marketing-title {
+        top: 55%;
+    }
+
+    .marketing-title h2 {
+        font-size: 2.75rem;
+    }
+
+    #booking-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .sch-lvl-rd label, .sch-yr-rd label {
+        font-size: 1.3rem;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+    }
+
+    .school-year select {
+        font-size: 1.3rem;
+    }
+
+    .activity-card h4 {
+        font-size: 1.5rem;
+    }
+
+    #booking-cart-container .error {
+        font-size: 1.15rem;
+    }
+    
+    .booking-cart-div h3 {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        margin-top: .6rem;
+    }
+
+    .fa-brands {
+        font-size: 4.5rem;
     }
 }
