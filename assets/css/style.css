@@ -411,7 +411,7 @@ header {
 }
 
 .slide-2 h2 {
-    top: 30% !important;
+    top: 30%;
 }
 
 .slide-2::before {
@@ -1668,7 +1668,7 @@ footer {
 
 @keyframes answersSet {
     0% {
-        transform: skew(25deg) translateX(400px);
+        transform: skew(25deg) translateX(1000px);
     }
 
     100% {
@@ -1686,7 +1686,7 @@ footer {
     }
 
     100% {
-        transform: skew(25deg) translateX(400px);
+        transform: skew(25deg) translateX(1000px);
     }
 }
 
@@ -1750,6 +1750,7 @@ footer {
 }
 
 /* --------------------------------------------------------------------------------- Media Queries */
+/* ----------------------------------------------------- Mobile (Portrait) Phones */
 /* Narrower phones such as the Galaxy Fold */
 @media (max-width: 280px) {
     .carousel-slide {
@@ -1764,7 +1765,8 @@ footer {
         width: 19rem;
     }
 
-    .sch-lvl-rd label, .sch-yr-rd label {
+    .sch-lvl-rd label,
+    .sch-yr-rd label {
         margin: 0 .5rem;
     }
 
@@ -1780,118 +1782,12 @@ footer {
         width: auto;
     }
 
+    #newsletter-form button {
+        margin: 0 .5rem;
+    }
+
     #privacy {
         text-align: right;
-    }
-}
-
-@media (min-width: 375px) {
-    h2 {
-        font-size: 1.6rem;
-    }
-    
-    h3 {
-        font-size: 1.45rem;
-    }
-    
-    h4 {
-        font-size: 1.20rem;
-    }
-
-    a,
-    div,
-    p,
-    span,
-    li,
-    b, 
-    input{
-        font-size: 1.10rem;
-    }
-
-    .carousel-slide {
-        left: -11.5rem;
-    }
-
-    .quiz-start-container {
-        height: calc(80vh + 2.5rem + 1rem);
-    }
-
-    .quiz-container {
-        height: 80vh;
-        margin-bottom: 1rem;
-    }
-
-    .question {
-        height: 11rem;
-        font-size: 1.25rem;
-    }
-
-    .hud,
-    .hud * {
-        font-size: 1.15rem;
-    }
-
-    .question-counter {
-        margin-left: 5%;
-    }
-
-    .timer {
-        font-size: 2.5rem;
-        right: 2.5%;
-    }
-
-    .answer {
-        height: 4rem;
-        width: 22.5rem;
-    }
-
-    .answer span {
-        font-size: 2rem;
-    }
-
-    .marketing-title h2 {
-        font-size: 2.5rem;
-    }
-
-    #booking-container h2 {
-        font-size: 1.25rem;
-    }
-
-    .sch-lvl-rd label,
-    .sch-yr-rd label,
-    .school-year select {
-        font-size: 1.15rem;
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-    }
-
-    .activity-card h4 {
-        font-size: 1.25rem;
-    }
-
-    .tutor-image {
-        width: 5.5rem;
-        height: 5.5rem;
-    }
-
-    .booking-cart-div h3 {
-        font-size: 1.20rem;
-    }
-
-    .fa-brands {
-        font-size: 4rem;
-    }
-
-    .logo-image {
-        height: 25%;
-    }
-
-    .logo-text {
-        margin-top: .30rem;
-    }
-
-    .logo-text span {
-        font-size: 1.35rem;
     }
 }
 
@@ -1899,11 +1795,11 @@ footer {
     h2 {
         font-size: 1.8rem;
     }
-    
+
     h3 {
         font-size: 1.5rem;
     }
-    
+
     h4 {
         font-size: 1.4rem;
     }
@@ -1960,7 +1856,6 @@ footer {
     }
 
     .carousel-slide {
-        left: -11.95rem;
         height: 17rem;
     }
 
@@ -2068,7 +1963,8 @@ footer {
         font-size: 1.5rem;
     }
 
-    .sch-lvl-rd label, .sch-yr-rd label {
+    .sch-lvl-rd label,
+    .sch-yr-rd label {
         font-size: 1.3rem;
         padding-top: 0.35rem;
         padding-bottom: 0.35rem;
@@ -2089,7 +1985,7 @@ footer {
     #booking-cart-container .error {
         font-size: 1.15rem;
     }
-    
+
     .booking-cart-div h3 {
         font-size: 1.5rem;
     }
@@ -2107,10 +2003,9 @@ footer {
     }
 }
 
-@media (min-width: 375px) and (min-height: 700px){
+@media (min-width: 375px) and (min-height: 700px) {
     header {
         height: 2.6rem;
-        margin-bottom: 3rem;
     }
 
     #logo img {
@@ -2135,5 +2030,339 @@ footer {
     .hamburger-menu-item a {
         font-size: 1.6rem;
         font-weight: bolder;
+    }
+}
+
+/* ----------------------------------------------------- Tablet (Large Portrait) Devices */
+@media (min-width: 500px) and (min-height: 700px) {
+    /* Surface Duo */
+}
+
+@media (min-width: 700px) and (orientation: portrait) {
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    h3 {
+        font-size: 1.80rem;
+    }
+
+    h4 {
+        font-size: 1.70rem;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    a,
+    div,
+    p,
+    span,
+    li,
+    b,
+    input,
+    select {
+        font-size: 1.50rem;
+    }
+
+    button {
+        font-size: 1.75rem;
+    }
+
+    header {
+        height: 3rem;
+    }
+
+    #logo {
+        left: 5%;
+    }
+
+    #logo img {
+        width: 5.5rem;
+    }
+
+    .nav-links-container {
+        right: 7.5%;
+    }
+
+    .hamburger-menu-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .menu-icon-wrapper {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hamburger-menu-item {
+        width: 20rem;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu-item a {
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+
+    #carousel {
+        margin-top: 3.5rem;
+    }
+
+    .tab {
+        height: 5rem;
+        width: calc(80vw / 3);
+    }
+
+    .carousel-slide {
+        height: 20rem;
+        width: 80vw;
+    }
+
+    .carousel-slide h2 {
+        font-size: 2.5rem;
+        top: 50%;
+    }
+
+    .carousel-slide a {
+        font-size: 1.75rem;
+    }
+
+    #methodology {
+        width: 80vw;
+    }
+
+    #methodology>* {
+        width: 90%;
+    }
+
+    .method-1 {
+        background-size: 100%;
+        background-position: bottom right;
+    }
+
+    #about-us {
+        width: 80vw;
+    }
+
+    .contact-us li {
+        justify-content: center;
+    }
+
+    .app-icons--container a {
+        min-height: 5rem;
+    }
+
+    .classes-info--zoom img {
+        height: 5rem;
+    }
+
+    .maps-iframe {
+        height: 15rem;
+    }
+
+    .quiz-start-container {
+        height: calc(70vh + 3.5rem);
+    }
+
+    .quiz-start-box input {
+        font-size: 2rem;
+    }
+
+    .quiz-container {
+        height: 70vh;
+        margin-top: 3.5rem;
+    }
+
+    .hud,
+    .hud * {
+        font-size: 1.6rem;
+    }
+
+    .multiplier,
+    .score {
+        width: 14rem;
+    }
+
+    .timer {
+        font-size: 3.5rem;
+    }
+
+    .question {
+        width: 80vw;
+        background-size: 150%;
+        margin-top: 3rem;
+    }
+
+    .answer {
+        height: 5rem;
+        width: 45rem;
+        transform: skew(25deg) translateX(1000px);
+    }
+
+    .answer span {
+        font-size: 3.25rem;
+        top: 6%;
+        left: 5%;
+    }
+
+    #marketing {
+        width: 80%;
+    }
+
+    #activity-cards {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .activity-card {
+        width: 50%;
+        margin: 0.5rem 1rem;
+        justify-content: space-between
+    }
+
+    .activity-card h4 {
+        font-size: 1.75rem;
+    }
+
+    .activity-card b {
+        margin-right: 1.5rem;
+    }
+
+    .activity-submit,
+    #newsletter-form-container button,
+    #order-mailing-form button,
+    .booking-cart-submit {
+        border-radius: 1.75rem;
+    }
+
+    #newsletter-form input,
+    #newsletter-form select {
+        border-radius: 1.5rem;
+        padding-left: 1rem;
+        text-align: center;
+    }
+
+    .marketing-title {
+        top: 60%;
+        margin: 0;
+    }
+
+    .marketing-title h2 {
+        font-size: 4rem;
+        width: 38rem;
+    }
+
+    .marketing-badge {
+        height: 8rem;
+        width: 8rem;
+        font-size: 1.7rem;
+        left: -1.5rem;
+        top: -.3rem;
+    }
+
+    .sch-lvl-rd label,
+    .sch-yr-rd label {
+        font-size: 2rem;
+        border-radius: 2rem;
+    }
+
+    .school-year select {
+        font-size: 1.75rem;
+        border-radius: 1.75rem;
+    }
+
+    .school-year option {
+        font-size: 1.25rem;
+    }
+
+    #booking-cart-container {
+        width: 50%;
+    }
+
+    .booking-cart-div h3 {
+        font-size: 1.75rem;
+    }
+
+    .selected-class i {
+        font-size: 1.75rem;
+        margin-top: 0;
+    }
+
+    #newsletter-form-container {
+        width: 80%;
+    }
+
+    .logo-image img {
+        width: 7.5rem;
+    }
+
+    .logo-text span {
+        font-size: 1.8rem;
+    }
+
+    .fa-brands {
+        font-size: 5rem;
+    }
+
+    #legal div {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 800px) and (orientation: portrait) {
+    h2 {
+        font-size: 2.75rem;
+    }
+
+    h3 {
+        font-size: 2.3rem;
+    }
+
+    h4 {
+        font-size: 2.2rem;
+    }
+
+    h5 {
+        font-size: 2rem;
+    }
+
+    a,
+    div,
+    p,
+    span,
+    li,
+    b,
+    input,
+    select {
+        font-size: 1.6rem;
+    }
+
+    button {
+        font-size: 1.75rem;
+    }
+
+    header {
+        height: 3rem;
+    }
+
+    .question {
+        font-size: 2rem;
+        height: 20rem;
+    }
+
+    .answer {
+        width: 70%;
+    }
+
+    .quiz-start-box button {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 900px) and (orientation: portrait) {
+    .answer {
+        width: 15rem;
     }
 }
