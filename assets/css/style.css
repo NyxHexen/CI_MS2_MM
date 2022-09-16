@@ -19,7 +19,7 @@
     --check-border-width: 5px;
     --checkmark-width: calc(var(--check-size) / 2);
     --checkmark-height: calc(var(--checkmark-width) / 2);
-    --checkmark-left: calc(var(--checkmark-width) / 2 );
+    --checkmark-left: calc(var(--checkmark-width) / 2);
     --checkmark-top: 50%;
     --checkmark-color: #30aa00;
 }
@@ -48,10 +48,36 @@ h5 {
     font: var(--h-font);
 }
 
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+h4 {
+    font-size: 1.10rem;
+}
+
+a,
 div,
 p,
-span {
+span,
+li,
+b,
+input,
+select {
     font: var(--t-font);
+}
+
+b {
+    font-weight: bolder;
+}
+
+button {
+    font: var(--h-font);
+    font-size: 1.10rem;
 }
 
 button:disabled {
@@ -256,7 +282,6 @@ header {
     padding: 10px;
     border-radius: 4px;
 
-    font-size: 1.2rem;
     color: var(--prm-clr);
 
     cursor: pointer;
@@ -265,7 +290,13 @@ header {
     opacity: 0;
 }
 
-.hamburger-menu-item:hover {
+.hamburger-menu-item a {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.hamburger-menu-item:hover,
+.hamburger-menu-item.active {
     color: #fff;
     background-color: var(--prm-clr);
 }
@@ -420,9 +451,9 @@ header {
 }
 
 .carousel-slide h2 {
+    font-size: 1.75rem;
     left: 1rem;
     top: 40%;
-    font-size: 1.8rem;
     text-shadow: 1px 0 5px rgba(0, 0, 0, 0.75);
 }
 
@@ -463,7 +494,6 @@ header {
 }
 
 #methodology h2 {
-    font-size: 1.75rem;
     text-align: center;
 }
 
@@ -492,20 +522,16 @@ header {
     background: var(--prm-clr);
 }
 
-.method-cover h3 {
-    font-size: 1.5rem;
-}
-
-.method-cover p {
-    font-size: 1.25rem;
-}
-
 .method-1 {
     background-image: var(--method-img-1);
 }
 
 .method-2 {
     background-image: var(--method-img-2);
+}
+
+.method-2 p {
+    font-size: .89rem;
 }
 
 .method-3 {
@@ -543,37 +569,33 @@ header {
     margin: 0 auto 1.5rem;
     overflow: hidden;
     box-shadow: 0 -2px 5px rgba(88, 88, 88, 0.459),
-    0 2px 5px rgba(88, 88, 88, 0.459);
+        0 2px 5px rgba(88, 88, 88, 0.459);
 }
 
- .classes-info,
- .contact-us {
+.classes-info,
+.contact-us {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
- .classes-info {
+.classes-info {
     margin: .5rem 0;
 }
 
- .classes-info h2 {
-    font-size: 1.5rem;
-}
-
- .classes-info--zoom img {
+.classes-info--zoom img {
     width: 80%;
     height: 2.3rem;
     object-fit: contain;
 }
 
- .app-icons--container {
+.app-icons--container {
     display: flex;
     flex-direction: row;
 }
 
- .app-icons--container > * {
+.app-icons--container>* {
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -600,10 +622,6 @@ header {
 
 .contact-us {
     padding: .5rem 0;
-}
-
-.contact-us h2 {
-    font-size: 1.5rem;
 }
 
 .contact-us p {
@@ -636,7 +654,7 @@ header {
     position: absolute;
     left: 0;
     width: 100%;
-    height: calc(100% + 1.5rem);
+    height: calc(90vh + 2.5rem);
 
     display: flex;
     flex-direction: column;
@@ -687,6 +705,14 @@ header {
     cursor: pointer;
 }
 
+.quiz-start-box input {
+    max-width: 80%;
+    border: 2px solid var(--prm-clr);
+    border-radius: 20px;
+    padding: .25rem;
+    text-align: center;
+}
+
 .quiz-start-box table {
     border-collapse: separate;
     border-spacing: 10px;
@@ -695,7 +721,7 @@ header {
 .quiz-container {
     position: relative;
     height: 90vh;
-    margin: 2.5rem 0;
+    margin-top: 2.5rem;
     filter: blur(20px);
 
     overflow: hidden;
@@ -751,15 +777,18 @@ header {
 }
 
 .score {
-    position: absolute;
     top: 4%;
-    left: 39%;
 }
 
-.multiplier {
+.multiplier,
+.score {
     position: absolute;
-    top: 0;
-    right: 33%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    text-align: center;
 }
 
 .question {
@@ -844,7 +873,7 @@ header {
     border-bottom-left-radius: 10px;
 
     box-shadow: 1px 1px 2px black;
-    transform: skew(25deg) translateX(300px);
+    transform: skew(25deg) translateX(400px);
 }
 
 .answer.set {
@@ -936,12 +965,14 @@ header {
     justify-content: center;
     align-items: center;
 
+    color: white;
+    font: var(--h-font);
     background: var(--accent-clr);
     transform: rotate(-25deg);
     border-radius: 50%;
 }
 
-.marketing-badge h2 {
+.marketing-badge h3 {
     text-align: center;
     letter-spacing: .1rem;
     line-height: 1.1rem;
@@ -951,14 +982,18 @@ header {
 .marketing-title {
     position: absolute;
     top: 50%;
-    left: 6.5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 25rem;
+    text-align: center;
 }
 
-.marketing-title h1 {
-    font-size: 2rem;
+.marketing-title h2 {
     color: white;
     text-align: center;
-    text-shadow: 0 0 2px var(--accent-clr);
+    text-shadow: 0 0 4px var(--accent-clr);
+    font-size: 2rem;
 }
 
 .marketing-text {
@@ -979,6 +1014,10 @@ header {
     align-items: center;
 
     margin: 1rem auto;
+}
+
+#booking-container h2 {
+    text-align: center;
 }
 
 .school-level {
@@ -1084,7 +1123,6 @@ header {
 }
 
 .activity-card h4 {
-    font-size: 1.15rem;
     text-align: center;
 }
 
@@ -1131,8 +1169,6 @@ header {
     border: none;
     background-color: var(--prm-clr);
     color: white;
-    font-weight: bold;
-    font-size: 1rem;
 }
 
 .no-class-card {
@@ -1178,24 +1214,29 @@ header {
     text-align: center;
 }
 
-#booking-cart-container .form-buttons {
+.form-buttons {
     margin-top: .5rem;
     display: flex;
     justify-content: center
 }
 
-#booking-cart-container .form-buttons > * {
+#booking-cart-container .form-buttons>* {
     margin: .175rem;
     padding: .5rem .175rem;
     min-width: 33%;
 }
 
-#booking-cart-container .form-buttons i {
+.form-buttons i {
     font-size: 1.25rem;
 }
 
 #booking-cart-container .back {
     background-color: var(--accent-clr);
+}
+
+.booking-cart-div {
+    display: flex;
+    flex-direction: column;
 }
 
 .booking-cart {
@@ -1216,6 +1257,7 @@ header {
 
 .selected-class i {
     margin-top: .1rem;
+    margin-right: .5rem;
     font-size: 1.25rem;
     cursor: pointer;
 }
@@ -1237,8 +1279,7 @@ header {
     border: none;
     background-color: var(--accent-clr);
     color: white;
-    font-weight: bold;
-    font-size: 1rem;
+    cursor: pointer;
 }
 
 .mailing-info-div {
@@ -1303,7 +1344,7 @@ header {
 
 .checkmark-complete {
     opacity: 0;
-    position:absolute;
+    position: absolute;
     top: var(--checkmark-top);
     left: var(--checkmark-left);
     display: block;
@@ -1334,7 +1375,6 @@ header {
 }
 
 #newsletter-form-container h3 {
-    font-size: 1.5rem;
     margin: .5rem 0;
 }
 
@@ -1343,12 +1383,6 @@ header {
     margin: .5rem 0;
     background-color: white;
     border-radius: 10px;
-}
-
-#newsletter-form-container form *,
-#booking-cart-container form input {
-    font: var(--t-font);
-    font-size: .9rem;
 }
 
 #newsletter-form-container input,
@@ -1385,7 +1419,7 @@ header {
 }
 
 #newsletter-form-container button,
-#booking-cart-container button{
+#order-mailing-form button {
     margin: 0 1rem;
     padding: .5rem 1rem;
     border-radius: 20px;
@@ -1393,7 +1427,6 @@ header {
     background-color: var(--prm-clr);
     color: white;
     font-weight: bold;
-    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -1421,8 +1454,7 @@ footer {
 
 #full-logo {
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    align-items: flex-start;
 }
 
 .logo-image img {
@@ -1431,6 +1463,7 @@ footer {
 
 .logo-text {
     margin-left: .5rem;
+    margin-top: .15rem;
 }
 
 .logo-text span {
@@ -1469,8 +1502,8 @@ footer {
 }
 
 .legal-text-container {
-    margin-top: 1rem;
-    max-height: calc(100% - 2rem);
+    margin: 1rem 0;
+    max-height: calc(100% - 3rem);
     overflow-y: scroll;
 }
 
@@ -1492,7 +1525,7 @@ footer {
 }
 
 #modal-container .modal {
-    max-height: 100%;
+    max-height: 90%;
     position: relative;
     padding: 1rem;
     margin: 0 .5rem;
@@ -1644,7 +1677,7 @@ footer {
 
 @keyframes answersSet {
     0% {
-        transform: skew(25deg) translateX(300px);
+        transform: skew(25deg) translateX(400px);
     }
 
     100% {
@@ -1662,18 +1695,20 @@ footer {
     }
 
     100% {
-        transform: skew(25deg) translateX(300px);
+        transform: skew(25deg) translateX(400px);
     }
 }
 
 @keyframes showCart {
     0% {
         transform: scaleY(0);
-    } 
+    }
+
     50% {
         transform: scaleY(1);
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -1684,11 +1719,13 @@ footer {
         border-color: transparent;
         border-left-color: var(--checkmark-color);
     }
+
     90% {
         border-color: transparent;
         border-left-color: var(--checkmark-color);
         transform: rotate(-360deg);
     }
+
     100% {
         transform: rotate(-360deg);
         border-color: var(--checkmark-color);
@@ -1701,16 +1738,19 @@ footer {
         width: 0;
         opacity: 0;
     }
+
     80% {
         height: 0;
         width: 0;
         opacity: 0;
     }
+
     90% {
         height: var(--checkmark-height);
         width: 0;
         opacity: 1;
     }
+
     100% {
         height: var(--checkmark-height);
         width: var(--checkmark-width);
@@ -1719,3 +1759,112 @@ footer {
 }
 
 /* --------------------------------------------------------------------------------- Media Queries */
+@media (min-width: 375px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.45rem;
+    }
+    
+    h4 {
+        font-size: 1.20rem;
+    }
+
+    a,
+    div,
+    p,
+    span,
+    li,
+    b,
+    button {
+        font-size: 1.10rem;
+    }
+
+    .carousel-slide {
+        left: -11.5rem;
+    }
+
+    .method-2 .method-info p {
+        font-size: .95rem;
+    }
+
+    .quiz-start-container {
+        height: calc(80vh + 2.5rem + 1rem);
+    }
+
+    .quiz-container {
+        height: 80vh;
+        margin-bottom: 1rem;
+    }
+
+    .question {
+        height: 11rem;
+        font-size: 1.25rem;
+    }
+
+    .hud,
+    .hud * {
+        font-size: 1.15rem;
+    }
+
+    .question-counter {
+        margin-left: 5%;
+    }
+
+    .timer {
+        font-size: 2.5rem;
+        right: 2.5%;
+    }
+
+    .answer {
+        height: 4rem;
+        width: 22.5rem;
+    }
+
+    .answer span {
+        font-size: 2rem;
+    }
+
+    .marketing-title h2 {
+        font-size: 2.5rem;
+    }
+
+    .sch-lvl-rd label,
+    .sch-yr-rd label,
+    .school-year select {
+        font-size: 1.15rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+
+    .activity-card h4 {
+        font-size: 1.25rem;
+    }
+
+    .tutor-image {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+
+    .booking-cart-div h3 {
+        font-size: 1.20rem;
+    }
+
+    .fa-brands {
+        font-size: 4rem;
+    }
+
+    .logo-image {
+        height: 25%;
+    }
+
+    .logo-text {
+        margin-top: .30rem;
+    }
+
+    .logo-text span {
+        font-size: 1.35rem !important;
+    }
+}
