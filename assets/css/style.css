@@ -507,8 +507,6 @@ header {
     background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
-
-    overflow: hidden;
 }
 
 .method-cover {
@@ -530,10 +528,6 @@ header {
     background-image: var(--method-img-2);
 }
 
-.method-2 .method-info p {
-    font-size: .89rem;
-}
-
 .method-3 {
     background-image: var(--method-img-3);
 }
@@ -544,6 +538,7 @@ header {
     background-color: rgba(0, 0, 0, 0.863);
     border-radius: 20px;
     opacity: 0;
+    overflow-y: scroll;
 }
 
 .method.active .method-info {
@@ -1212,6 +1207,7 @@ header {
 
 #booking-cart-container h3 {
     text-align: center;
+    margin-bottom: .5rem;
 }
 
 .form-buttons {
@@ -1786,10 +1782,6 @@ footer {
         left: -11.5rem;
     }
 
-    .method-2 .method-info p {
-        font-size: .95rem;
-    }
-
     .quiz-start-container {
         height: calc(80vh + 2.5rem + 1rem);
     }
@@ -1831,6 +1823,10 @@ footer {
         font-size: 2.5rem;
     }
 
+    #booking-container h2 {
+        font-size: 1.25rem;
+    }
+
     .sch-lvl-rd label,
     .sch-yr-rd label,
     .school-year select {
@@ -1865,11 +1861,11 @@ footer {
     }
 
     .logo-text span {
-        font-size: 1.35rem !important;
+        font-size: 1.35rem;
     }
 }
 
-@media (min-width: 414px) {
+@media (min-width: 360px) {
     h2 {
         font-size: 2rem;
     }
@@ -1898,7 +1894,7 @@ footer {
     }
 
     button {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     header {
@@ -1930,17 +1926,13 @@ footer {
         font-weight: bolder;
     }
 
-    .carousel-tabs {
-        margin-top: 0.5rem;
-    }
-
     .tab {
-        height: 4.5rem;
+        height: 4.35rem;
     }
 
     .carousel-slide {
-        left: -12.7rem;
-        height: 30vh;
+        left: -11.95rem;
+        height: 17rem;
     }
 
     .carousel-slide h2 {
@@ -1952,19 +1944,35 @@ footer {
     }
 
     #methodology {
-        margin-top: 5.5rem;
+        margin-top: 5rem;
     }
 
-    .method-2 .method-info p {
-        font-size: 1.05rem;
+    .classes-info {
+        margin: 1rem 0;
     }
 
-    .classes-info img {
-        min-height: 3rem;
+    .app-icons--container a {
+        min-height: 3.25rem;
+    }
+
+    .classes-info--zoom img {
+        width: 90%;
+    }
+
+    .maps-iframe {
+        height: 14rem;
+    }
+
+    .contact-us {
+        margin: 1rem 0 .5rem;
+    }
+
+    .contact-us li {
+        margin: .5rem 0;
     }
 
     .quiz-start-container {
-        height: calc(70vh + 3rem + 1rem);
+        height: calc(75vh + 3rem + 1rem);
     }
 
     .quiz-start-box button {
@@ -1973,7 +1981,7 @@ footer {
 
     .quiz-container {
         margin-top: 3rem;
-        height: 70vh;
+        height: 75vh;
     }
 
     .hud,
@@ -1986,14 +1994,18 @@ footer {
     }
 
     .timer {
-        font-size: 2.5rem;
-        right: 2.5%;
+        font-size: 3rem;
+        right: 5%;
     }
 
     .question {
         margin-top: 2.5rem;
         height: 13rem;
         font-size: 1.5rem;
+    }
+
+    .answers {
+        margin-top: 2rem;
     }
 
     .answer {
@@ -2003,6 +2015,10 @@ footer {
 
     .answer span {
         font-size: 2rem;
+    }
+
+    .logo-text span {
+        font-size: 1.5rem;
     }
 
     #marketing {
@@ -2037,6 +2053,10 @@ footer {
         font-size: 1.3rem;
     }
 
+    #activity-cards {
+        margin-top: 2rem;
+    }
+
     .activity-card h4 {
         font-size: 1.5rem;
     }
@@ -2047,13 +2067,5 @@ footer {
     
     .booking-cart-div h3 {
         font-size: 1.5rem;
-    }
-
-    .logo-text {
-        margin-top: .6rem;
-    }
-
-    .fa-brands {
-        font-size: 4.5rem;
     }
 }
