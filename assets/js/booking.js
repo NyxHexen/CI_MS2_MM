@@ -319,7 +319,7 @@ function showBookingComplete() {
     });
 }
 
-bookingCartContainer.querySelector('.send').addEventListener('click', (e) => {
+bookingCartContainer.querySelector('.send').addEventListener('click', () => {
     if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid) {
         mailingInfoEmailInput.reportValidity();
         mailingInfoNameInput.reportValidity();
@@ -346,6 +346,9 @@ function isEmailValid(email) {
 }
 
 function reportInvalidEmail(insertAfterNode) {
+    if (!document.querySelector('.error') === false){
+        document.querySelector('.error').remove();
+    }
     const error = document.createElement('p');
     error.classList.add('error');
     error.innerText = 'Your e-mail address is missing its TLD (.com, .co.uk, etc.)';
