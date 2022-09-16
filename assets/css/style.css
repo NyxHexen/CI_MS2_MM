@@ -478,7 +478,7 @@ header {
 #methodology {
     width: 96%;
     background-color: var(--prm-clr);
-    margin: 0 auto 1.25rem;
+    margin: -1rem auto 1.25rem;
     padding: 1rem;
     position: relative;
     display: flex;
@@ -682,7 +682,7 @@ header {
 }
 
 .quiz-start-box>* {
-    margin: 1rem 1rem;
+    margin: 1rem;
 }
 
 .quiz-start-box button {
@@ -1750,6 +1750,41 @@ footer {
 }
 
 /* --------------------------------------------------------------------------------- Media Queries */
+/* Narrower phones such as the Galaxy Fold */
+@media (max-width: 280px) {
+    .carousel-slide {
+        height: 17rem;
+    }
+
+    .question {
+        height: 13rem;
+    }
+
+    .answer {
+        width: 19rem;
+    }
+
+    .sch-lvl-rd label, .sch-yr-rd label {
+        margin: 0 .5rem;
+    }
+
+    .selected-class i {
+        margin-right: .7rem;
+    }
+
+    .selected-class span {
+        margin-left: .7rem;
+    }
+
+    #booking-cart-container {
+        width: auto;
+    }
+
+    #privacy {
+        text-align: right;
+    }
+}
+
 @media (min-width: 375px) {
     h2 {
         font-size: 1.6rem;
@@ -1862,19 +1897,19 @@ footer {
 
 @media (min-width: 360px) and (min-height: 740px) {
     h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     h3 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
     
     h4 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     h5 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 
     a,
@@ -1893,22 +1928,21 @@ footer {
     }
 
     header {
-        height: 3rem;
+        height: 2rem;
     }
 
     #logo img {
-        width: 5rem;
+        width: 4rem;
     }
 
     .hamburger-menu-button {
-        margin-top: .4rem;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 
     .menu-icon-wrapper {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
 
     .hamburger-menu-item {
@@ -1917,7 +1951,7 @@ footer {
     }
 
     .hamburger-menu-item a {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: bolder;
     }
 
@@ -1939,7 +1973,7 @@ footer {
     }
 
     #methodology {
-        margin-top: 5rem;
+        margin-top: -1rem;
     }
 
     .classes-info {
@@ -1967,7 +2001,7 @@ footer {
     }
 
     .quiz-start-container {
-        height: calc(75vh + 3rem + 1rem);
+        height: calc(85vh + 1rem + 1rem);
     }
 
     .quiz-start-box button {
@@ -1975,8 +2009,8 @@ footer {
     }
 
     .quiz-container {
-        margin-top: 3rem;
-        height: 75vh;
+        margin-top: 2rem;
+        height: 85vh;
     }
 
     .hud,
@@ -2004,16 +2038,12 @@ footer {
     }
 
     .answer {
-        height: 4.5rem;
-        width: 25rem;
+        height: 4rem;
+        width: 23rem;
     }
 
     .answer span {
         font-size: 2rem;
-    }
-
-    .logo-text span {
-        font-size: 1.5rem;
     }
 
     #marketing {
@@ -2031,7 +2061,7 @@ footer {
     }
 
     .marketing-title h2 {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
     }
 
     #booking-container h2 {
@@ -2063,6 +2093,47 @@ footer {
     .booking-cart-div h3 {
         font-size: 1.5rem;
     }
+
+    .logo-text span {
+        font-size: 1.35rem;
+    }
+
+    .fa-brands {
+        font-size: 3.5rem;
+    }
+
+    #legal div {
+        font-size: 1rem;
+    }
 }
 
-@media (min-width: 375) and (max-height: 700){}
+@media (min-width: 375px) and (min-height: 700px){
+    header {
+        height: 2.6rem;
+        margin-bottom: 3rem;
+    }
+
+    #logo img {
+        width: 4.5rem;
+    }
+
+    .hamburger-menu-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-icon-wrapper {
+        width: 25px;
+        height: 25px;
+    }
+
+    .hamburger-menu-item {
+        width: 15rem;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu-item a {
+        font-size: 1.6rem;
+        font-weight: bolder;
+    }
+}
