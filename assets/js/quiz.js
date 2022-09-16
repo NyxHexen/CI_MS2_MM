@@ -30,12 +30,12 @@ const player = {
     multiplier: 1,
     correct: 0,
     answered: 0
-}
+};
 
 const quiz = {
     questionsTotal: 0,
     questionsCounter: 0
-}
+};
 
 fetch("/CI_MS2_MM/assets/js/questions.json")
     .then(res => {
@@ -69,19 +69,19 @@ fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=
                     correct: true,
                     answer: entry.correct_answer
                 }]
-            }
+            };
             entry.incorrect_answers.forEach(item => {
                 const answer = {
                     answer: item
-                }
+                };
                 question.answers.push(answer);
-            })
+            });
             availQuestions.push(question);
-        })
+        });
     })
     .catch(err => {
         console.error(err);
-    })
+    });
 
 quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
@@ -94,7 +94,7 @@ quizSubmit.addEventListener('click', () => {
     quiz.questionsTotal = availQuestions.length;
     quizModalContainer.classList.add('active');
     setTimeout(quizStart, 1000);
-})
+});
 
 function quizStart() {
     countdown(countdownDiv, function () {
@@ -104,7 +104,7 @@ function quizStart() {
             showQuestion();
         }, 1500);
     });
-};
+}
 
 //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
 function countdown(parent, callback) {
@@ -132,7 +132,7 @@ function countdown(parent, callback) {
 }
 
 function shuffle(array) {
-    array.sort(() => Math.random() - .5);
+    array.sort(() => Math.random() - 0.5);
     return array;
 }
 
@@ -143,8 +143,8 @@ function clearStatusClass(array) {
         item.classList.remove('disabled');
         item.classList.remove('correct');
         item.classList.remove('incorrect');
-        delete item.dataset['correct'];
-    })
+        delete item.dataset.correct;
+    });
 }
 
 function showQuestion() {
@@ -213,7 +213,7 @@ function selectAnswer(e) {
     const selectedAnswer = e.target;
     selectSiblings(quizAnswersBtn, selectedAnswer).forEach(btn => {
         btn.classList.add('disabled');
-    })
+    });
     if (selectedAnswer.dataset.correct) {
         selectedAnswer.classList.add('correct');
         player.correct++;
@@ -225,7 +225,7 @@ function selectAnswer(e) {
     setTimeout(() => {
         quizAnswersBtn.forEach(btn => {
             btn.classList.add('unset');
-        })
+        });
         setTimeout(showQuestion, 1000);
     }, 1000);
 }
@@ -239,7 +239,7 @@ function updateScore(selected) {
             shortenTimer();
             player.multiplier++;
         }
-    } else if (!!selected.dataset.correct == false) {
+    } else if (!selected.dataset.correct == true) {
         resetTimer();
         player.multiplier = 1;
         answerSpree = [];
@@ -292,7 +292,7 @@ function quizEnd() {
             <td>${player.score}</td>
         </tr>
     </table>
-    <button type="submit" class="quiz-submit" onclick="window.location.reload();">Replay Icon</button>
-    `
+    <button type="submit" class="quiz-submit" onclick="window.location.reload();">Replay <i class="fa-solid fa-rotate-left"></i></button>
+    `;
     quizModalContainer.classList.remove('active');
 }
