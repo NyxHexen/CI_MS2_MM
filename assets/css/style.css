@@ -365,13 +365,14 @@ header {
 .carousel-slides {
     position: relative;
     display: flex;
+    margin-top: -1.5rem;
+    border-radius: 14px;
     z-index: 2;
+    overflow: hidden;
 }
 
 .carousel-slide {
     display: none;
-    position: absolute;
-    left: -9.8rem;
     width: 98vw;
     height: 15rem;
 
@@ -382,13 +383,10 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: -1.5rem;
-    margin-bottom: -1rem;
-    overflow: hidden;
 }
 
 .carousel-slide.active {
-    display: initial;
+    display: flex;
 }
 
 .slide-1 {
@@ -1268,7 +1266,8 @@ header {
     font-weight: bold;
 }
 
-.booking-cart-submit {
+.booking-cart-submit,
+.restart-booking {
     margin: .25rem auto;
     padding: .5rem 1rem;
     border-radius: 20px;
@@ -1290,15 +1289,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: .5rem 0;
+    margin: .5rem 0 0;
 }
 
-.booking-complete h3 {
-    display: none;
-}
-
-.booking-complete.complete h3 {
-    display: flex;
+.booking-complete-div p {
+    text-align: center;
 }
 
 .booking-complete-div button {
@@ -1865,7 +1860,7 @@ footer {
     }
 }
 
-@media (min-width: 360px) {
+@media (min-width: 360px) and (min-height: 740px) {
     h2 {
         font-size: 2rem;
     }
@@ -2069,3 +2064,5 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+@media (min-width: 375) and (max-height: 700){}
