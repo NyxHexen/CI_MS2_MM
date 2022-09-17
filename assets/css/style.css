@@ -1394,9 +1394,11 @@ header {
 }
 
 #newsletter-form-container input::placeholder,
+#newsletter-form-container select,
 #booking-cart-container input::placeholder {
     color: white;
     opacity: 1;
+    text-align: center;
 }
 
 #newsletter-form-container input:focus,
@@ -2332,6 +2334,10 @@ footer {
         padding-top: 4.5rem;
     }
 
+    .num {
+        font-size: 10rem;
+    }
+
     .hud,
     .hud * {
         font-size: 1.6rem;
@@ -2403,7 +2409,6 @@ footer {
     #newsletter-form select {
         border-radius: 1.5rem;
         padding-left: 1rem;
-        text-align: center;
     }
 
     .marketing-title {
@@ -2533,7 +2538,7 @@ footer {
 @media (min-width: 900px) and (orientation: portrait) {
     body {
         display: grid;
-        grid-template-columns: 3;
+        grid-template-rows: auto;
     }
 
     header {
@@ -2633,12 +2638,17 @@ footer {
     }
 
     footer {
-        grid-row: 12;
+        grid-row: 5;
     }
 }
 
 /* ----------------------------------------------------- Landscape Devices & Desktops */
 @media (min-width: 900px) and (orientation: landscape) {
+    body {
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+
     h3 {
         font-size: 1.75rem;
     }
@@ -2671,10 +2681,11 @@ footer {
     .nav-list,
     .nav-item {
         display: flex;
+        align-items: center;
         position: relative;
+        inset: 0;
         opacity: 1;
         transform: none;
-        inset: 0;
         background-color: transparent;
         box-shadow: none;
         border-radius: 0;
@@ -2683,6 +2694,13 @@ footer {
     .nav-item {
         width: auto;
         justify-content: center;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+        padding-top: 3rem;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
     #carousel {
@@ -2729,7 +2747,7 @@ footer {
         padding: 3rem 1rem 1rem;
     }
 
-    #methodology h2{
+    #methodology h2 {
         position: absolute;
         top: 5%;
         left: 0;
@@ -2805,10 +2823,11 @@ footer {
         padding: 5rem 0 1.5rem;
         justify-content: center;
         align-items: center;
+        grid-row: 2/10;
     }
 
     .quiz-start-box {
-        width: auto;
+        width: 50%;
     }
 
     .quiz-start-box th {
@@ -2842,9 +2861,7 @@ footer {
     .question {
         width: 40vw;
         height: 19rem;
-        ;
-        margin: 0;
-        margin-right: 2rem;
+        margin: 0 2rem 0 4rem;
         padding-left: 4rem;
         font-size: 1.75rem;
         background-size: 200%;
@@ -2926,10 +2943,10 @@ footer {
     }
 
     .activity-card {
-        width: 30%;
+        width: 100%;
     }
 
-    .activity-info b{
+    .activity-info b {
         margin-right: .5rem;
     }
 
@@ -2956,6 +2973,10 @@ footer {
         grid-column: 2;
     }
 
+    footer {
+        grid-row: 10;
+    }
+
     .logo-image img {
         width: 11vw;
     }
@@ -2970,5 +2991,97 @@ footer {
 
     #legal>* {
         margin: 0 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    a, div, p, span, li, b, input, select {
+        font-size: 1.3rem;
+    }
+
+    header {
+        height: 3rem;
+    }
+
+    .nav-item a {
+        font-size: 1.5rem;
+    }
+
+    .carousel-slide {
+        width: 60vw;
+        height: 25rem;
+    }
+
+    .carousel-slide a {
+        font-size: 1.75rem;
+        border-radius: 40px;
+        background-size: 180%;
+    }
+
+    #methodology {
+        width: 80vw;
+    }
+
+    .method-info p {
+        font-size: 1.1rem;
+    }
+
+    #about-us {
+        width: 60vw;
+    }
+
+    .quiz-container {
+        height: 70vh;
+    }
+
+    .quiz-start-box {
+        width: 50%;
+    }
+
+    .quiz-start-box input {
+        font-size: 1.5rem;
+    }
+
+    .hud,
+    .hud * {
+        font-size: 1.5rem;
+    }
+
+    .timer {
+        font-size: 4rem;
+        top: 12%;
+        left: 53%;
+    }
+
+    .score,
+    .multiplier {
+        width: 12rem;
+        top: 20%;
+    }
+
+    .score {
+        left: 65%;
+    }
+
+    .multiplier {
+        left: 25%;
+    }
+
+    .question-counter {
+        bottom: 10%;
+        width: 12rem;
+        left: 28%;
+    }
+
+    .marketing-text p {
+        font-size: 1.25rem;
+    }
+
+    #newsletter-form-container {
+        width: 60vw;
+    }
+
+    .logo-image img {
+        width: 9vw;
     }
 }
