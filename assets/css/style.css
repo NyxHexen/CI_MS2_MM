@@ -1981,7 +1981,7 @@ footer {
     }
 
     .marketing-title {
-        top: 55%;
+        top: 35%;
     }
 
     .marketing-title h2 {
@@ -2063,6 +2063,14 @@ footer {
 }
 
 @media (min-width: 400px) {
+    .marketing-title {
+        top: 40%;
+    }
+
+    .marketing-title h2 {
+        font-size: 2.75rem;
+    }
+
     .logo-text {
         margin-top: 0.3rem;
     }
@@ -2169,7 +2177,7 @@ footer {
     }
 
     .marketing-title {
-        top: 55%;
+        top: 45%;
     }
 
     .marketing-title h2 {
@@ -2399,13 +2407,15 @@ footer {
     }
 
     .marketing-title {
-        top: 60%;
-        margin: 0;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: unset;
     }
 
     .marketing-title h2 {
-        font-size: 4rem;
-        width: 38rem;
+        font-size: 4.5rem;
     }
 
     .marketing-badge {
