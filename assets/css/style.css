@@ -37,7 +37,7 @@
 body {
     background-color: #ddd;
     overflow-x: hidden;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 h1,
@@ -213,24 +213,24 @@ header {
     right: 1.1rem;
 }
 
-.nav-links-container.active .hamburger-menu-list {
+.nav-links-container.active .nav-list {
     opacity: 1;
     transform: scale(1);
 }
 
-.nav-links-container.active .hamburger-menu-item {
+.nav-links-container.active .nav-item {
     animation: fadeInItem .6s .2s forwards;
 }
 
-.nav-links-container.active .hamburger-menu-item:nth-child(2) {
+.nav-links-container.active .nav-item:nth-child(2) {
     animation-delay: .4s;
 }
 
-.nav-links-container.active .hamburger-menu-item:nth-child(3) {
+.nav-links-container.active .nav-item:nth-child(3) {
     animation-delay: .6s;
 }
 
-.nav-links-container.active .hamburger-menu-item:nth-child(4) {
+.nav-links-container.active .nav-item:nth-child(4) {
     animation-delay: .8s;
 }
 
@@ -250,7 +250,7 @@ header {
     transform: rotate(-90deg) translateX(-1px);
 }
 
-.hamburger-menu-list {
+.nav-list {
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
@@ -267,12 +267,12 @@ header {
     overflow: hidden;
 }
 
-.hamburger-menu-list a {
+.nav-list a {
     text-decoration: none;
     color: unset;
 }
 
-.hamburger-menu-item {
+.nav-item {
     position: relative;
 
     width: 12rem;
@@ -290,18 +290,18 @@ header {
     opacity: 0;
 }
 
-.hamburger-menu-item a {
+.nav-item a {
     font-size: 1.2rem;
     font-weight: bolder;
 }
 
-.hamburger-menu-item:hover,
-.hamburger-menu-item.active {
+.nav-item:hover,
+.nav-item.active {
     color: #fff;
     background-color: var(--prm-clr);
 }
 
-.hamburger-menu-item::after {
+.nav-item::after {
     content: '';
     position: absolute;
     height: 1px;
@@ -311,7 +311,7 @@ header {
     background-color: rgba(132, 160, 244, 0.1);
 }
 
-.hamburger-menu-item:last-child::after {
+.nav-item:last-child::after {
     display: none;
 }
 
@@ -647,9 +647,10 @@ header {
 /* ----------------------------------------------------------------------------------------------------- QUIZ */
 .quiz-start-container {
     position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(90vh + 2.5rem);
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -658,6 +659,7 @@ header {
 
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(5px);
 }
 
 .quiz-start-container.active {
@@ -715,9 +717,7 @@ header {
 
 .quiz-container {
     position: relative;
-    height: 90vh;
-    margin-top: 2.5rem;
-    filter: blur(20px);
+    padding: 2.5rem 0 1rem;
 
     overflow: hidden;
 }
@@ -747,17 +747,12 @@ header {
     animation: hideCountdown .5s 1s ease-out forwards;
 }
 
-.hud {
-    z-index: 1;
-}
-
 .question-counter {
     margin-left: .5rem;
 }
 
 .timer {
     position: absolute;
-    top: 0;
     right: 0;
 
     width: 3rem;
@@ -772,7 +767,7 @@ header {
 }
 
 .score {
-    top: 4%;
+    top: 11%;
 }
 
 .multiplier,
@@ -867,8 +862,8 @@ header {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 10px;
 
-    box-shadow: 1px 1px 2px black;
-    transform: skew(25deg) translateX(400px);
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.75);
+    transform: skew(25deg) translateX(1000px);
 }
 
 .answer.set {
@@ -1432,6 +1427,7 @@ header {
 /* --------------------------------------------------------------------------------- Footer */
 footer {
     position: relative;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1443,6 +1439,7 @@ footer {
 
     background-color: #fff;
     box-shadow: 0 -2px 5px 1px rgba(88, 88, 88, 0.603);
+    z-index: 1;
 }
 
 #full-logo {
@@ -1482,6 +1479,7 @@ footer {
     color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #modal-container {
@@ -1759,6 +1757,10 @@ footer {
         height: 17rem;
     }
 
+    .quiz-start-box {
+        width: 90%;
+    }
+
     .question {
         height: 13rem;
     }
@@ -1791,9 +1793,21 @@ footer {
     #privacy {
         text-align: right;
     }
+
+    .contact-us {
+        padding: 0.5rem 1rem;
+    }
+
+    .contact-us li i {
+        font-size: 1rem;
+    }
+
+    .contact-us ul {
+        width: initial;
+    }
 }
 
-@media (min-width: 360px) and (min-height: 740px) {
+@media (min-width: 360px) {
     h2 {
         font-size: 1.8rem;
     }
@@ -1843,12 +1857,12 @@ footer {
         height: 20px;
     }
 
-    .hamburger-menu-item {
+    .nav-item {
         width: 15rem;
         white-space: nowrap;
     }
 
-    .hamburger-menu-item a {
+    .nav-item a {
         font-size: 1.5rem;
         font-weight: bolder;
     }
@@ -1897,17 +1911,12 @@ footer {
         margin: .5rem 0;
     }
 
-    .quiz-start-container {
-        height: calc(85vh + 1rem + 1rem);
-    }
-
     .quiz-start-box button {
         font-size: 2rem;
     }
 
     .quiz-container {
-        margin-top: 2rem;
-        height: 85vh;
+        padding: 2rem 0 .5rem;
     }
 
     .hud,
@@ -1915,7 +1924,16 @@ footer {
         font-size: 1.25rem;
     }
 
+    .multiplier {
+        top: 6%;
+    }
+
+    .score {
+        top: 9%;
+    }
+
     .question-counter {
+        margin-top: 5%;
         margin-left: 5%;
     }
 
@@ -1925,13 +1943,14 @@ footer {
     }
 
     .question {
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
         height: 13rem;
         font-size: 1.5rem;
     }
 
     .answers {
         margin-top: 2rem;
+        margin-bottom: 1rem;
     }
 
     .answer {
@@ -2005,7 +2024,7 @@ footer {
     }
 }
 
-@media (min-width: 375px) and (min-height: 700px) {
+@media (min-width: 375px) {
     header {
         height: 2.6rem;
     }
@@ -2024,20 +2043,35 @@ footer {
         height: 25px;
     }
 
-    .hamburger-menu-item {
+    .nav-item {
         width: 15rem;
         white-space: nowrap;
     }
 
-    .hamburger-menu-item a {
+    .nav-item a {
         font-size: 1.6rem;
         font-weight: bolder;
     }
 }
 
+@media (min-width: 400px) {
+    .logo-text {
+        margin-top: 0.3rem;
+    }
+
+    .logo-text span {
+        font-size: 1.5rem;
+    }
+
+}
+
 /* ----------------------------------------------------- Tablet (Large Portrait) Devices */
 /* Smaller Tablets */
 @media (min-width: 500px) {
+    br {
+        font-size: 1rem !important;
+    }
+
     #logo {
         left: 5%;
     }
@@ -2050,12 +2084,12 @@ footer {
         width: 45px;
         height: 45px;
     }
-    
+
     .nav-links-container {
         right: 7.5%;
     }
-    
-    .hamburger-menu-item a {
+
+    .nav-item a {
         font-size: 1.3rem;
     }
 
@@ -2079,14 +2113,6 @@ footer {
         width: 80vw;
     }
 
-    .quiz-start-container {
-        height: calc(80vh + 2.5rem);
-    }
-
-    .quiz-container {
-        height: 80vh;
-    }
-    
     .question {
         width: 65vw;
         height: 12rem;
@@ -2094,7 +2120,24 @@ footer {
         font-size: 1.25rem;
     }
 
+    .answers {
+        align-items: center;
+    }
+
+    .answer {
+        width: 20rem;
+        margin: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 20px;
+        margin-bottom: .75rem;
+        transform: skew(25deg) translateX(1000px);
+    }
+
     .answer span {
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
         font-size: 2rem;
     }
 
@@ -2131,6 +2174,14 @@ footer {
 
     .logo-image img {
         width: 15vw;
+    }
+
+    .logo-text {
+        margin-top: 0.1rem;
+    }
+
+    .logo-text span {
+        font-size: 1.25rem;
     }
 }
 
@@ -2192,12 +2243,12 @@ footer {
         height: 35px;
     }
 
-    .hamburger-menu-item {
+    .nav-item {
         width: 20rem;
         white-space: nowrap;
     }
 
-    .hamburger-menu-item a {
+    .nav-item a {
         font-size: 2rem;
         font-weight: bolder;
     }
@@ -2254,7 +2305,7 @@ footer {
     }
 
     .quiz-start-container {
-        height: calc(70vh + 3.5rem);
+        height: 100%;
     }
 
     .quiz-start-box input {
@@ -2262,8 +2313,7 @@ footer {
     }
 
     .quiz-container {
-        height: 70vh;
-        margin-top: 3.5rem;
+        padding-top: 4.5rem;
     }
 
     .hud,
@@ -2280,22 +2330,27 @@ footer {
         font-size: 3.5rem;
     }
 
+    .question-counter {
+        margin-top: 2%;
+    }
+
     .question {
-        width: 80vw;
+        height: 17.5rem;
+        width: 75vw;
         background-size: 150%;
         margin-top: 3rem;
+        padding: 0 3rem;
+        font-size: 1.75rem;
     }
 
     .answer {
         height: 5rem;
-        width: 45rem;
-        transform: skew(25deg) translateX(1000px);
+        width: 35rem;
     }
 
     .answer span {
         font-size: 3.25rem;
         top: 6%;
-        left: 5%;
     }
 
     #marketing {
@@ -2438,9 +2493,14 @@ footer {
         height: 3rem;
     }
 
+    .question-counter {
+        margin-top: 2%;
+    }
+
     .question {
-        font-size: 2rem;
+        font-size: 2.25rem;
         height: 20rem;
+        padding: 0 4rem;
     }
 
     .answer {
@@ -2453,7 +2513,349 @@ footer {
 }
 
 @media (min-width: 900px) and (orientation: portrait) {
-    .answer {
+    body {
+        display: grid;
+        grid-template-columns: 3;
+    }
+
+    header {
+        height: 3.5rem;
+    }
+
+    #logo {
         width: 15rem;
+    }
+
+    #logo img {
+        width: 7rem;
+    }
+
+    .menu-icon-line {
+        height: 3px;
+    }
+
+    .hamburger-menu-button {
+        width: 75px;
+        height: 75px;
+    }
+
+    #carousel {
+        margin-top: 4.5rem;
+    }
+
+    .slide-1::before,
+    .slide-2::before,
+    .slide-3::before {
+        top: 20%;
+    }
+
+    .quiz-start-box th {
+        border-right: 20px solid transparent;
+    }
+
+    .hud,
+    .hud * {
+        font-size: 2rem;
+    }
+
+    .question-counter {
+        margin-top: 2rem;
+    }
+
+    .multiplier,
+    .score {
+        width: 15rem;
+        margin-top: 1.9rem;
+    }
+
+    .timer {
+        font-size: 5rem;
+        right: 7.5%;
+    }
+
+    .question {
+        height: 22.5rem;
+        font-size: 2.25rem;
+        margin-top: 3rem;
+        padding: 0 5rem;
+    }
+
+    .quiz-start-box button {
+        font-size: 2.5rem;
+    }
+
+    .answers {
+        align-items: center;
+    }
+
+    .answer {
+        width: 32rem;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 20px;
+        margin-bottom: 1rem;
+    }
+
+    #marketing {
+        margin-top: 4rem;
+    }
+
+    .marketing-title h2 {
+        font-size: 5rem;
+        width: 46rem;
+    }
+
+    .marketing-badge {
+        height: 9rem;
+        width: 9rem;
+        font-size: 1.9rem;
+    }
+
+    .activity-card {
+        width: 60%;
+    }
+
+    footer {
+        grid-row: 12;
+    }
+}
+
+/* ----------------------------------------------------- Landscape Devices & Desktops */
+@media (orientation: landscape) {
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    header {
+        justify-content: flex-end;
+    }
+
+    #logo {
+        left: 20%;
+    }
+
+    #logo img {
+        width: 5rem;
+    }
+
+    #nav {
+        margin-right: 1rem;
+    }
+
+    .hamburger-menu-button {
+        display: none;
+    }
+
+    .nav-links-container {
+        position: relative;
+        inset: 0;
+    }
+
+    .nav-list,
+    .nav-item {
+        display: flex;
+        position: relative;
+        opacity: 1;
+        transform: none;
+        inset: 0;
+        background-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .nav-item {
+        width: auto;
+        justify-content: center;
+    }
+
+    #carousel {
+        margin-top: 4.5rem;
+    }
+
+    .tab {
+        width: calc(60vw / 3);
+    }
+
+    .carousel-slide {
+        width: 60vw;
+        height: 20rem;
+    }
+
+    .carousel-slide a {
+        width: 60%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background-size: 120%;
+    }
+
+    .slide-1::before,
+    .slide-2::before,
+    .slide-3::before {
+        height: 150%;
+    }
+
+    .carousel-slide h2 {
+        width: 90%;
+        font-size: 2.5rem;
+        top: 42.5%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #methodology {
+        width: 60vw;
+    }
+
+    #about-us {
+        width: 60vw;
+    }
+
+    .app-icons--container {
+        justify-content: center;
+    }
+
+    .app-icons--container>* {
+        width: 20%;
+        justify-content: space-evenly;
+    }
+
+    .classes-info--zoom {
+        margin-top: 1.6rem;
+    }
+
+    .contact-us li {
+        justify-content: center
+    }
+
+    .quiz-container {
+        display: flex;
+        padding: 5rem 0 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .quiz-start-box {
+        width: auto;
+    }
+
+    .quiz-start-box th {
+        padding-right: 2rem;
+    }
+
+    .score {
+        top: 15%;
+        left: 32.5%;
+        margin: 0;
+    }
+
+    .multiplier {
+        top: 15%;
+        left: 10%;
+        right: unset;
+    }
+
+    .timer {
+        top: 5%;
+        left: 50%;
+    }
+
+    .question-counter {
+        position: absolute;
+        bottom: 7.5%;
+        left: 25%;
+        margin: 0;
+    }
+
+    .question {
+        width: 40vw;
+        height: 50vh;
+        margin: 0;
+        margin-right: 2rem;
+        padding-left: 4rem;
+        font-size: 1.75rem;
+        background-size: 200%;
+    }
+
+    .answers {
+        width: 40vw;
+    }
+
+    .answer {
+        height: 4rem;
+        width: 24rem;
+    }
+
+    .answer span {
+        font-size: 2.5rem;
+        top: 10%;
+    }
+
+    #marketing {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #marketing img {
+        border-radius: 0;
+        border: none;
+        height: 55vh;
+        object-fit: cover;
+        object-position: 0 15%;
+        border-bottom: 2px solid var(--prm-clr);
+    }
+
+    .marketing-title {
+        max-width: 100%;
+        right: unset;
+        top: unset;
+        bottom: 2%;
+        left: 1%;
+    }
+
+    .marketing-title h2 {
+        font-size: 4.5rem;
+    }
+
+    .marketing-text {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30vw;
+        padding: 1.5rem 1rem;
+
+        background-color: rgba(255, 255, 255, 0.5 );
+        backdrop-filter: blur(20px);
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+    }
+
+    .marketing-text p {
+        font-size: 1.1rem;
+    }
+
+    .marketing-badge {
+        top: 5%;
+        left: 1%;
+    }
+
+    .logo-image img {
+        width: 11vw;
+    }
+
+    .logo-text span {
+        font-size: 1.75rem;
+    }
+
+    #legal {
+        justify-content: center;
+    }
+
+    #legal > * {
+        margin: 0 1rem;
     }
 }
