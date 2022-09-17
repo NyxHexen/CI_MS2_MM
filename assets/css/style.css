@@ -2037,7 +2037,28 @@ footer {
 
 /* ----------------------------------------------------- Tablet (Large Portrait) Devices */
 /* Smaller Tablets */
-@media (min-width: 500px) and (min-height: 700px) {
+@media (min-width: 500px) {
+    #logo {
+        left: 5%;
+    }
+
+    #logo img {
+        width: 4rem;
+    }
+
+    .hamburger-menu-button {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .nav-links-container {
+        right: 7.5%;
+    }
+    
+    .hamburger-menu-item a {
+        font-size: 1.3rem;
+    }
+
     .carousel-slide {
         width: 80vw;
     }
@@ -2050,8 +2071,62 @@ footer {
         width: 80vw;
     }
 
+    .method {
+        width: 90%;
+    }
+
     #about-us {
         width: 80vw;
+    }
+
+    .quiz-start-container {
+        height: calc(80vh + 2.5rem);
+    }
+
+    .quiz-container {
+        height: 80vh;
+    }
+    
+    .question {
+        width: 65vw;
+        height: 12rem;
+        margin-top: 3rem;
+        font-size: 1.25rem;
+    }
+
+    .answer span {
+        font-size: 2rem;
+    }
+
+    #marketing {
+        width: 80vw;
+    }
+
+    #newsletter-form-container {
+        width: 80vw;
+    }
+
+    #activity-cards {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .activity-card {
+        width: 50vw;
+        margin: 1rem;
+        justify-content: space-between;
+    }
+
+    .marketing-title {
+        top: 55%;
+    }
+
+    .marketing-title h2 {
+        font-size: 3rem;
+    }
+
+    .no-class-card {
+        width: 60vw;
     }
 
     .logo-image img {
