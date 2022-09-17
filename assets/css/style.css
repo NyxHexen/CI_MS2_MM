@@ -3012,6 +3012,10 @@ footer {
         height: 3rem;
     }
 
+    #logo img {
+        width: 6rem;
+    }
+
     .nav-item a {
         font-size: 1.5rem;
     }
@@ -3173,10 +3177,6 @@ footer {
 
     a, div, p, span, li, b, input, select {
         font-size: 1.5rem;
-    }
-
-    #logo img {
-        width: 5rem;
     }
 
     .nav-item a {
