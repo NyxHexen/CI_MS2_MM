@@ -198,7 +198,6 @@ function displayClasses(arr) {
                         addToCart(year.classes[i].activity, year.classes[i].price);
                     }
                 });
-                tempTemplateNode.style.display = 'flex';
                 delete tempTemplateNode.dataset.type;
                 docFrag.appendChild(tempTemplateNode);
             }
