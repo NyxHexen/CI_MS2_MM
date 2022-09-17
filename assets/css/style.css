@@ -520,6 +520,8 @@ header {
 
 .method-1 {
     background-image: var(--method-img-1);
+    background-size: 150%;
+    background-position: bottom right;
 }
 
 .method-2 {
@@ -2034,8 +2036,27 @@ footer {
 }
 
 /* ----------------------------------------------------- Tablet (Large Portrait) Devices */
+/* Smaller Tablets */
 @media (min-width: 500px) and (min-height: 700px) {
-    /* Surface Duo */
+    .carousel-slide {
+        width: 80vw;
+    }
+
+    .tab {
+        width: calc(80vw / 3);
+    }
+
+    #methodology {
+        width: 80vw;
+    }
+
+    #about-us {
+        width: 80vw;
+    }
+
+    .logo-image img {
+        width: 15vw;
+    }
 }
 
 @media (min-width: 700px) and (orientation: portrait) {
@@ -2135,11 +2156,6 @@ footer {
 
     #methodology>* {
         width: 90%;
-    }
-
-    .method-1 {
-        background-size: 100%;
-        background-position: bottom right;
     }
 
     #about-us {
