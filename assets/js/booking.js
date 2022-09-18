@@ -1,6 +1,5 @@
 const schoolLevelOption = document.querySelectorAll('.booking-radio');
 const schoolYearDropDown = document.querySelector('#school-year-select');
-const schoolYearButtons = document.querySelector('#school-year-btns');
 const schoolYearSelect = document.querySelector('.school-year select');
 const activityCardsDiv = document.querySelector('#activity-cards');
 const activityCardTemplate = document.querySelector("div[data-type='template']");
@@ -132,7 +131,6 @@ schoolLevelOption.forEach(radio => {
 function displaySchoolYearOptions(e) {
     const selectedOption = e.target;
     schoolYearDropDown.innerHTML = "";
-    schoolYearButtons.innerHTML = "";
     if (selectedOption.id === "sch_lvl1") {
         createSchoolYearOptions(primaryOptions);
     } else {
@@ -141,20 +139,10 @@ function displaySchoolYearOptions(e) {
 }
 
 function createSchoolYearOptions(arr) {
-    if (window.getComputedStyle(schoolYearDropDown).display !== 'none') {
-        schoolYearDropDown.innerHTML = `<option value="default">-- Pick Year --</option>`;
-        arr.forEach(item => {
-            schoolYearDropDown.innerHTML += `<option value="year-${item.name.charAt(item.name.length -1)}">${item.name}</option>`;
-        });
-    } else {
-        arr.forEach(item => {
-            schoolYearButtons.innerHTML += `
-                <div class="sch-yr-rd">
-                    <label for="sch_yr${item.name.charAt(item.name.length -1)}">${item.name}</label>
-                    <input type="radio" name="sch-yr" id="sch_yr${item.name.charAt(item.name.length -1)}">
-                </div>`;
-        });
-    }
+    schoolYearDropDown.innerHTML = `<option value="default">-- Pick Year --</option>`;
+    arr.forEach(item => {
+        schoolYearDropDown.innerHTML += `<option value="year-${item.name.charAt(item.name.length -1)}">${item.name}</option>`;
+    });
 }
 
 schoolYearSelect.addEventListener('change', () => {
@@ -186,12 +174,12 @@ function displayClasses(arr) {
                 if (!sessionStorage.getItem(year.classes[i].activity)) {
                     sessionStorage.setItem(year.classes[i].activity, 'enabled');
                 }
-                tempTemplateNode.querySelector('h4').textContent = year.classes[i].activity;
+                tempTemplateNode.querySelector('h3').textContent = year.classes[i].activity;
                 tempTemplateNode.querySelector('.level span').textContent = year.classes[i].level;
                 tempTemplateNode.querySelector('.schedule span').textContent = year.classes[i].schedule;
                 tempTemplateNode.querySelector('.price span').textContent = year.classes[i].price;
                 tempTemplateNode.querySelector('.tutor img').src = year.classes[i].tutor.image;
-                tempTemplateNode.querySelector('.tutor-info h5').textContent = year.classes[i].tutor.name;
+                tempTemplateNode.querySelector('.tutor-info h4').textContent = year.classes[i].tutor.name;
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
                 tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () => {
                     if (sessionStorage.getItem(year.classes[i].activity) == 'enabled' && !!sessionStorage.getItem('btnsDisabled') !== true) {
@@ -345,7 +333,7 @@ function isEmailValid(email) {
 }
 
 function reportInvalidEmail(insertAfterNode) {
-    if (!document.querySelector('.error') === false){
+    if (!document.querySelector('.error') === false) {
         document.querySelector('.error').remove();
     }
     const error = document.createElement('p');
