@@ -187,6 +187,7 @@ function displayClasses(arr) {
                     }
                 });
                 delete tempTemplateNode.dataset.type;
+                tempTemplateNode.removeAttribute('aria-hidden');
                 docFrag.appendChild(tempTemplateNode);
             }
         } else if (year.name == schoolYearSelect.options[schoolYearSelect.selectedIndex].text && year.classes.length == 0) {
