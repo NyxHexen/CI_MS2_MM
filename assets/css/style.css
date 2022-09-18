@@ -581,7 +581,7 @@ header {
     margin: .5rem 0;
 }
 
-.classes-info--zoom img {
+.app-icons--zoom img {
     width: 80%;
     height: 2.3rem;
     object-fit: contain;
@@ -1481,6 +1481,14 @@ footer {
     margin-bottom: 1rem;
 }
 
+#social-media ul {
+    display: flex;
+}
+
+#social-media li {
+    list-style: none;
+}
+
 .fa-brands {
     color: var(--accent-clr);
     font-size: 3rem;
@@ -1910,7 +1918,7 @@ footer {
         min-height: 3.25rem;
     }
 
-    .classes-info--zoom img {
+    .app-icons--zoom img {
         width: 90%;
     }
 
@@ -2319,7 +2327,7 @@ footer {
         min-height: 5rem;
     }
 
-    .classes-info--zoom img {
+    .app-icons--zoom img {
         height: 5rem;
     }
 
@@ -2794,7 +2802,7 @@ footer {
         justify-content: space-evenly;
     }
 
-    .classes-info--zoom {
+    .app-icons--zoom {
         margin-top: 1.6rem;
     }
 
