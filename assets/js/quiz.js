@@ -1,3 +1,4 @@
+//Constants
 const quizModalContainer = document.querySelector('.quiz-start-container');
 const quizModal = document.querySelector('.quiz-start-box');
 const quizInput = document.querySelector('#quiz-name');
@@ -11,18 +12,15 @@ const hudScoreSpan = document.querySelector('.score span');
 const hudMultiplierSpan = document.querySelector('.multiplier span');
 const hudQuestionCounter = document.querySelectorAll('.question-counter span')[0];
 const hudQuestionCounterTotal = document.querySelectorAll('.question-counter span')[1];
-
-//Constants
 const CORRECT_BONUS = 10;
 
 let timerMax = 30;
 let timerId, timeLeft;
-let shuffledQuestions, shuffledAnswers, currentQuestion;
+let shuffledQuestions, shuffledAnswers, currentQuestion, acceptingAnswers, isOnSpree;
 let answerSpree = [];
-let isOnSpree;
-let acceptingAnswers;
 let availQuestions = [];
 
+// Collects name and quiz progress.
 const player = {
     name: 0,
     score: 0,
@@ -31,6 +29,7 @@ const player = {
     answered: 0
 };
 
+// Holds information used to fill question-counter HUD.
 const quiz = {
     questionsTotal: 0,
     questionsCounter: 0
@@ -355,7 +354,7 @@ function resetTimer() {
 }
 
 /**
- * Replaces start modal content with quiz stats and shows modal after the last question.
+ * Replaces start modal content with collected quiz stats and shows modal after the last question.
  */
 function quizEnd() {
     quizModal.innerHTML = `
