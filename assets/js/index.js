@@ -122,10 +122,12 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
     carousel.addEventListener('mouseenter', () => {
         clearInterval(carouselInterval);
     });
+
+    // On mouse leave restart the timer
     carousel.addEventListener('mouseleave', () => {
         carouselInterval = setInterval(nextSlide, 5000);
     });
-
+    
     // On tab click - focus slide
     carouselTabs.forEach(tab => {
         tab.addEventListener('click', selectedState);
