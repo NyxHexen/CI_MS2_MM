@@ -85,10 +85,6 @@ button:disabled {
     background: rgb(125, 125, 125) !important;
 }
 
-.desktop-only {
-    display: none !important;
-}
-
 /* Accessibility */
 .visually-hidden {
     /* clip is deprecated, but still works and better than display: none; */
@@ -672,7 +668,7 @@ header {
     display: none;
 }
 
-.quiz-start-container.active~.quiz-container {
+.quiz-start-container.active~#quiz-container {
     filter: none;
 }
 
@@ -726,14 +722,14 @@ header {
     border-spacing: 10px;
 }
 
-.quiz-container {
+#quiz-container {
     position: relative;
     padding: 2.5rem 0 1rem;
     overflow: hidden;
 }
 
 /* ---------------------------------------------------- Quiz Countdown */
-
+/* Countdown inspired by https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css */
 #countdown {
     position: absolute;
     top: 33%;
@@ -1114,7 +1110,7 @@ header {
     margin: .25rem 0;
 }
 
-.activity-card h4 {
+.activity-card h3 {
     text-align: center;
 }
 
@@ -1948,7 +1944,7 @@ footer {
         font-size: 2rem;
     }
 
-    .quiz-container {
+    #quiz-container {
         padding: 2rem 0 .5rem;
     }
 
@@ -2032,7 +2028,7 @@ footer {
         margin-top: 2rem;
     }
 
-    .activity-card h4 {
+    .activity-card h3 {
         font-size: 1.5rem;
     }
 
@@ -2353,7 +2349,7 @@ footer {
         font-size: 2rem;
     }
 
-    .quiz-container {
+    #quiz-container {
         padding-top: 4.5rem;
     }
 
@@ -2413,7 +2409,7 @@ footer {
         justify-content: space-between
     }
 
-    .activity-card h4 {
+    .activity-card h3 {
         font-size: 1.75rem;
     }
 
@@ -2842,7 +2838,7 @@ footer {
         justify-content: center;
     }
 
-    .quiz-container {
+    #quiz-container {
         display: flex;
         padding: 5rem 0 1.5rem;
         justify-content: center;
@@ -3062,7 +3058,7 @@ footer {
         width: 60vw;
     }
 
-    .quiz-container {
+    #quiz-container {
         height: 70vh;
     }
 
@@ -3117,7 +3113,7 @@ footer {
         border: 3px solid var(--accent-clr);
     }
 
-    .activity-card h4 {
+    .activity-card h3 {
         font-size: 1.75rem;
     }
 
