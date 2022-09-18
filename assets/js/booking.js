@@ -182,7 +182,7 @@ function displayClasses(arr) {
                 tempTemplateNode.querySelector('.tutor-info h4').textContent = year.classes[i].tutor.name;
                 tempTemplateNode.querySelector('.tutor-info p').textContent = year.classes[i].tutor.title;
                 tempTemplateNode.querySelector('.activity-submit').addEventListener('click', () => {
-                    if (sessionStorage.getItem(year.classes[i].activity) == 'enabled' && !!sessionStorage.getItem('btnsDisabled') !== true) {
+                    if (sessionStorage.getItem(year.classes[i].activity) == 'enabled' && sessionStorage.getItem('btnsDisabled') !== 'true') {
                         addToCart(year.classes[i].activity, year.classes[i].price);
                     }
                 });
@@ -251,7 +251,7 @@ function removeFromCart(e) {
 }
 
 function updateAddBtn() {
-    if (sessionStorage.getItem('btnsDisabled') == true) {
+    if (sessionStorage.getItem('btnsDisabled') == 'true') {
         document.querySelectorAll('.activity-submit').forEach(btn => {
             btn.disabled = true;
         });
@@ -275,6 +275,7 @@ function updateAddBtn() {
 bookingCartSubmit.addEventListener('click', () => {
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
+        bookedClasses = [];
         bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
     });
     order.classes = bookedClasses.length <= 1 ? bookedClasses.join(' & ') : bookedClasses.length > 1 ? bookedClasses.join(', ') : false;
@@ -322,10 +323,12 @@ bookingCartContainer.querySelector('.send').addEventListener('click', () => {
 });
 
 bookingCartContainer.querySelector('.back').addEventListener('click', () => {
+    sessionStorage.setItem('btnsDisabled', 'false');
     bookingCartDiv.classList.remove('hidden');
     selectSiblings(bookingCartContainer.children, bookingCartDiv).forEach(div => {
         div.classList.add('hidden');
     });
+    updateAddBtn();
 });
 
 function isEmailValid(email) {
