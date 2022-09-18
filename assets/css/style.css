@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;600&family=Montserrat:wght@100;300;400;500;700&display=swap');
 
+/* CSS Variables */
 :root {
     --prm-clr: #fc590c;
     --accent-clr: #0056ff;
@@ -111,10 +112,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: "Lexend", sans-serif;
     font-weight: 600;
-
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(88, 88, 88, 0.459);
     z-index: 5;
@@ -131,29 +130,26 @@ header {
     width: 4rem;
 }
 
-/*  ----------------------------------------------------  Hamburger Menu */
+/*  ----------------------------------------------------  Nav */
 
 #nav {
     z-index: 9;
 }
 
 /* Hamburger Menu Button */
+/* Inspired by https://codepen.io/aybukeceylan/pen/zYNpWdj?editors=1100 */
 .hamburger-menu-button {
     position: relative;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 40px;
     height: 40px;
-
     color: #fff;
     background-color: var(--accent-clr);
     box-shadow: 0 0 0 4px rgba(0, 86, 255, .3);
     border: none;
     border-radius: 50%;
-
     transition: .2s ease-in;
     cursor: pointer;
     z-index: 2;
@@ -174,12 +170,9 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     width: 20px;
     height: 20px;
-
     border-radius: 2px;
-
     cursor: pointer;
     transition: transform 330ms ease-out;
 }
@@ -187,7 +180,6 @@ header {
 .menu-icon-line {
     width: 100%;
     height: 2px;
-
     background-color: #fff;
     border-radius: 2px;
 }
@@ -213,11 +205,14 @@ header {
     right: 1.1rem;
 }
 
+/* Nav Container in Mobile */
+
 .nav-links-container.active .nav-list {
     opacity: 1;
     transform: scale(1);
 }
 
+/* Make nav items show up one by one */
 .nav-links-container.active .nav-item {
     animation: fadeInItem .6s .2s forwards;
 }
@@ -250,15 +245,15 @@ header {
     transform: rotate(-90deg) translateX(-1px);
 }
 
+/* Nav items list */
+
 .nav-list {
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
-
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 2px 2px 8px 2px rgba(252, 88, 12, 0.4);
-
     opacity: 0;
     transform: scale(0);
     transform-origin: top right;
@@ -274,20 +269,16 @@ header {
 
 .nav-item {
     position: relative;
-
     width: 12rem;
     display: flex;
+    opacity: 0;
     align-items: center;
-
     padding: 10px;
     border-radius: 4px;
-
     color: var(--prm-clr);
-
-    cursor: pointer;
     transition: .2s ease-in;
     transform: translateX(-10px);
-    opacity: 0;
+    cursor: pointer;
 }
 
 .nav-item a {
@@ -375,9 +366,7 @@ header {
     display: none;
     width: 98vw;
     height: 15rem;
-
     color: white;
-
     border: 3px solid #fff;
     border-radius: 14px;
     background-size: cover;
@@ -477,18 +466,17 @@ header {
 
 #methodology {
     width: 96%;
-    background-color: var(--prm-clr);
-    margin: -1rem auto 1.25rem;
-    padding: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: -1rem auto 1.25rem;
+    padding: 1rem;
+    color: white;
+    background-color: var(--prm-clr);
     box-shadow: 0 -2px 5px rgba(88, 88, 88, 0.459),
         0 2px 5px rgba(88, 88, 88, 0.459);
     border-radius: 20px;
-
-    color: white;
 }
 
 #methodology h2 {
@@ -499,12 +487,11 @@ header {
     position: relative;
     height: 15rem;
     display: flex;
-    border-radius: 20px;
     margin: 1rem 0;
-
     background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: 20px;
 }
 
 .method-cover {
@@ -514,7 +501,6 @@ header {
     margin: 1rem -.5rem;
     padding: .5rem 2rem;
     border-radius: 0 20px 20px 0;
-
     background: var(--prm-clr);
 }
 
@@ -539,16 +525,19 @@ header {
     border-radius: 20px;
     opacity: 0;
     overflow-y: scroll;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .method.active .method-info {
     opacity: 1;
     /* z-index added due to issue with text above method-image-text getting darkened */
     z-index: 1;
+    pointer-events: initial;
 }
 
-.method.active .method-cover {
-    filter: blur(4px);
+.method.active .method-info {
+    backdrop-filter: blur(4px);
 }
 
 /* --------------------------------------------------------------------------------- Contact Info + Google Maps */
@@ -651,12 +640,10 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(5px);
@@ -673,12 +660,10 @@ header {
 .quiz-start-box {
     max-width: 90%;
     min-height: 60%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: white;
     box-shadow: 0px 2px 12px 4px rgba(0, 0, 0, 0.25),
         0px -2px 12px 4px rgba(0, 0, 0, 0.25);
@@ -725,7 +710,6 @@ header {
 .quiz-container {
     position: relative;
     padding: 2.5rem 0 1rem;
-
     overflow: hidden;
 }
 
@@ -733,9 +717,9 @@ header {
     position: absolute;
     top: 33%;
     width: 100%;
-    z-index: 2;
     margin: 0 auto;
     background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
+    z-index: 2;
 }
 
 .num {
@@ -744,7 +728,6 @@ header {
     font-size: 5.5rem;
     font-weight: bolder;
     text-align: center;
-
     animation: count 0.1s cubic-bezier(0.1, 0.1, 1, 1);
     text-shadow: -3px -3px var(--prm-clr), 3px 3px var(--accent-clr);
 }
@@ -761,14 +744,11 @@ header {
 .timer {
     position: absolute;
     right: 0;
-
     width: 3rem;
     height: auto;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 2rem;
     font-weight: bolder;
 }
@@ -792,60 +772,44 @@ header {
     position: relative;
     width: 90%;
     height: 10rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin: 2rem auto 1rem;
     padding: 0 1rem 0 1.5rem;
-
     font-size: 1.15rem;
-
     background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-position: 5% 45%;
     background-color: white;
-
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
-
     border: 1px solid rgb(125, 125, 125);
 }
 
 .question::after {
     content: '';
-
     position: absolute;
     top: -.25rem;
     left: .20rem;
-
     height: 100%;
     width: calc(100% + 1px);
-
     border: 1px solid rgb(125, 125, 125);
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
-
     background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-color: white;
-
     z-index: -1;
 }
 
 .question::before {
     content: '';
-
     position: absolute;
     top: -.455rem;
     left: .425rem;
-
     height: 100%;
     width: 100%;
-
     background-image: url(../images/printable-lined-paper-college-ruled.webp);
     background-color: white;
-
     border: 1px solid rgb(125, 125, 125);
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
-
     z-index: -1;
 }
 
@@ -853,7 +817,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
     width: 100%;
 }
 
@@ -861,9 +824,7 @@ header {
     position: relative;
     width: 21rem;
     height: 3.5rem;
-
     margin: .25rem -2.5rem .25rem 0;
-
     background: var(--prm-gradient);
     border: none;
     border-top-left-radius: 20px;
@@ -911,7 +872,6 @@ header {
     position: absolute;
     top: 17.5%;
     left: 7.5%;
-
     color: white;
     font: var(--h-font);
     text-align: center;
@@ -957,11 +917,9 @@ header {
     left: -.5rem;
     width: 5rem;
     height: 5rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     font: var(--h-font);
     background: var(--accent-clr);
@@ -1010,7 +968,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     margin: 1rem auto;
 }
 
@@ -1036,12 +993,11 @@ header {
 .sch-yr-rd label {
     padding: .5rem 1rem;
     margin: 0 1rem;
-
     font-weight: bold;
     letter-spacing: .1rem;
     color: white;
-
     background-color: var(--prm-clr);
+    /* Transparent border helps keep retain size instead of getting displaced */
     border: 2px solid transparent;
     border-radius: 20px;
     cursor: pointer;
@@ -1248,6 +1204,7 @@ header {
     overflow-y: scroll;
 }
 
+/* Styling for cart items added by JS*/
 .selected-class {
     display: flex;
     justify-content: space-between;
@@ -1442,11 +1399,9 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     padding-top: 1rem;
     font-family: "Lexend", sans-serif;
     font-weight: 600;
-
     background-color: #fff;
     box-shadow: 0 -2px 5px 1px rgba(88, 88, 88, 0.6);
     z-index: 1;
@@ -1530,7 +1485,6 @@ footer {
     position: relative;
     padding: 1rem;
     margin: 0 .5rem;
-
     border-radius: 20px;
     background: white;
 }
