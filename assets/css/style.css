@@ -1580,6 +1580,58 @@ footer {
     animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
+/* --------------------------------------------------------------------------------- Custom 404 Page */
+
+.div404 {
+    width: max(80%, 80vw);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: max(20%, 20vh) auto;
+    padding: 1rem;
+    background-color: var(--prm-clr);
+    color: white;
+    border-radius: 20px;
+}
+
+.div404 h2 {
+    font-size: 3rem;
+    margin: .5rem;
+}
+
+.div404 em,
+.div404 p {
+    width: min(90%, 60vw);
+    text-align: center;
+    background-color: white;
+    color: black;
+    padding: .5rem .75rem;
+}
+
+.div404 p {
+    font-size: 1.1rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.div404 em {
+    font-size: .9rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.button404 {
+    font: var(--h-font);
+    font-size: 1.25rem;
+    margin-top: .75rem;
+    padding: .5rem 1rem;
+    background-color: white;
+    color: var(--prm-clr);
+    border-radius: 20px;
+    text-decoration: none;
+}
+
 /* --------------------------------------------------------------------------------- Keyframes */
 @keyframes onePulse {
     0% {
@@ -2066,6 +2118,22 @@ footer {
         font-size: 1.6rem;
         font-weight: bolder;
     }
+
+    .div404 h2 {
+        font-size: 4rem;
+    }
+
+    .div404 p {
+        font-size: 1.3rem;
+    }
+
+    .div404 em {
+        font-size: 1.1rem;
+    }
+
+    .button404 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (min-width: 400px) {
@@ -2537,6 +2605,18 @@ footer {
     .quiz-start-box button {
         font-size: 3rem;
     }
+
+    .div404 p {
+        font-size: 1.7rem;
+    }
+
+    .div404 em {
+        font-size: 1.4rem;
+    }
+
+    .button404 {
+        font-size: 2rem;
+    }
 }
 
 @media (min-width: 900px) and (orientation: portrait) {
@@ -2643,6 +2723,19 @@ footer {
 
     footer {
         grid-row: 5;
+    }
+
+    .div404 h2 {
+        font-size: 6rem;
+    }
+
+    .div404 p {
+        font-size: 2rem;
+    }
+
+    .button404 {
+        font-size: 3rem;
+        margin-top: 1rem .5rem;
     }
 }
 
@@ -3115,6 +3208,22 @@ footer {
     }
 }
 
+@media (min-width: 1000px) {
+    .div404 {
+        margin: min(15vh, 15%) auto;
+        min-height: 50%;
+        max-width: min(60vw, 60%);
+    }
+
+    .div404 p {
+        padding: 2.5% 10%;
+    }
+
+    .div404 em {
+        padding: 2.5% 15%;
+    }
+}
+
 @media (min-width: 1400px) {
     h5 {
         font-size: 1.5rem;
@@ -3167,6 +3276,22 @@ footer {
 
     #newsletter-form-container button, #order-mailing-form button {
         font-size: 1.6rem;
+    }
+
+    .div404 h2 {
+        font-size: 8rem;
+    }
+
+    .div404 p {
+        font-size: 1.75rem;
+    }
+
+    .div404 em {
+        font-size: 1.5rem;
+    }
+
+    .button404 {
+        font-size: 2.5rem;
     }
 }
 
