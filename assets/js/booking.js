@@ -1,3 +1,4 @@
+// Constants
 const schoolLevelOption = document.querySelectorAll('.booking-radio');
 const schoolYearDropDown = document.querySelector('#school-year-select');
 const schoolYearSelect = document.querySelector('.school-year select');
@@ -14,7 +15,7 @@ const mailingInfoNameInput = document.querySelector('#order-name');
 const mailingInfoEmailInput = document.querySelector('#order-email');
 const bookingCompleteDiv = document.querySelector('.booking-complete-div');
 
-let subTotal = 0;
+let subTotal = 0; // Temporary total amount container
 let bookedClasses = [];
 let order = {
     name: "",
@@ -23,10 +24,12 @@ let order = {
     total: subTotal
 };
 
+// Clear sessionStorage before page loads.
 window.onbeforeunload = function () {
     sessionStorage.clear();
 };
 
+// Holds classes information per school year from Primary option. 
 const primaryOptions = [{
     name: "Year 1",
     classes: [{
@@ -96,6 +99,8 @@ const primaryOptions = [{
         }
     }]
 }];
+
+// Holds classes information per school year from Secondary option. 
 const secondaryOptions = [{
     name: "Year 7",
     classes: [{
@@ -124,10 +129,15 @@ const secondaryOptions = [{
     }]
 }];
 
+// Trigger displaySchoolYearOptions with the event as a parameter on click.
 schoolLevelOption.forEach(radio => {
-    radio.addEventListener('click', displaySchoolYearOptions);
+    radio.addEventListener('click', displaySchoolYearOptions(e));
 });
 
+/**
+ * Checks event target ID and populates select element with options accordingly.
+ * @param {event} e - click event from school level buttons. 
+ */
 function displaySchoolYearOptions(e) {
     const selectedOption = e.target;
     schoolYearDropDown.innerHTML = "";
@@ -138,6 +148,10 @@ function displaySchoolYearOptions(e) {
     }
 }
 
+/**
+ * Populates select element using each object.name from the array passed in the function.
+ * @param {array} arr - array of objects (primaryOptions or secondaryOptions).
+ */
 function createSchoolYearOptions(arr) {
     schoolYearDropDown.innerHTML = `<option value="default">-- Pick Year --</option>`;
     arr.forEach(item => {
@@ -145,7 +159,9 @@ function createSchoolYearOptions(arr) {
     });
 }
 
+// On change event (when a new select value is selected) display activity cards matching the selected value.
 schoolYearSelect.addEventListener('change', () => {
+    // Checks which school level option is selected and returns the name of the option as a string.
     // https://stackoverflow.com/questions/4602141/variable-name-as-a-string-in-javascript
     let selectedLevel = schoolLevelOption[0].checked ?
         Object.keys({
@@ -163,6 +179,16 @@ schoolYearSelect.addEventListener('change', () => {
     }
 }, false);
 
+/**
+ * Calls deleteOldCards to remove any cards currently displayed.
+ * Creates a new Document, then goes through each object in the array.
+ * If the object's name key matches the value in the select element -
+ * for each available class object creates a duplicate of the activity card template 
+ * and replaces the content with the class object key values, then appends 
+ * it to the page and calls updateAddBtn function.
+ * If there are no class objects available, shows No Classes image.
+ * @param {array} arr - array of objects.
+ */
 function displayClasses(arr) {
     deleteOldCards();
     let docFrag = document.createDocumentFragment();
@@ -199,6 +225,10 @@ function displayClasses(arr) {
     updateAddBtn();
 }
 
+/**
+ * Selects all activity cards, hides them 
+ * and then deletes them if they don't have a data-type property.
+ */
 function deleteOldCards() {
     let activityCards = document.querySelectorAll('.activity-card');
     activityNoClassCard.style.display = "none";
@@ -209,6 +239,13 @@ function deleteOldCards() {
     });
 }
 
+/**
+ * Uses parameters to create a new HTML div element and add it to the booking cart,
+ * then adds a click event listener to the X icon which calls removeFromCart function. Calls
+ * updateCartTotal and updateAddBtn functions.
+ * @param {string} className - name of class to be added to the booking cart.
+ * @param {number} classPrice - price of class to be added to the booking cart.
+ */
 function addToCart(className, classPrice) {
     let selectedClass = `<div class="selected-class"><i class="fa-solid fa-xmark"></i>${className} <span>${classPrice}</span></div>`;
     sessionStorage.setItem(className, 'disabled');
@@ -225,6 +262,9 @@ function addToCart(className, classPrice) {
     updateAddBtn();
 }
 
+/**
+ * Reset cart total value, then go through each cart div element, adds up the price, and returns and updates the total.
+ */
 function updateCartTotal() {
     subTotal = 0;
     bookingCartTotal.querySelector('span').innerHTML = "";
@@ -237,6 +277,13 @@ function updateCartTotal() {
     bookingCartTotal.querySelector('span').innerHTML = "£" + subTotal;
 }
 
+/**
+ * When called removes the element to which the 
+ * event target belongs, subtracts the price, and sets the storage key 
+ * to 'enabled' to re-enable the Add To Cart button.
+ * Calls updateCartTotal and updateAddBtn functions.
+ * @param {event} e - click event.
+ */
 function removeFromCart(e) {
     let classToRemove = e.target.parentNode;
     let className = classToRemove.innerHTML.slice(classToRemove.innerHTML.indexOf('</i>') + 4, classToRemove.innerHTML.indexOf('<span>') - 1);
@@ -250,6 +297,13 @@ function removeFromCart(e) {
     updateAddBtn();
 }
 
+/**
+ * Checks sessionStorage keys and updates button state of all cards accordingly.
+ * If btnsDisabled is true, disables all buttons.
+ * If button specific key is disabled adds 'disabled'
+ * property to button and changes content.
+ * If none of the above are true enables the button and resets the text content.
+ */
 function updateAddBtn() {
     if (sessionStorage.getItem('btnsDisabled') == 'true') {
         document.querySelectorAll('.activity-submit').forEach(btn => {
@@ -272,6 +326,10 @@ function updateAddBtn() {
     }
 }
 
+// On click sets btnsDisabled to true, collects
+// and stores names of classes and turns them into a string,
+// updates total of classes, then switches to mailing form
+// and updates all buttons.
 bookingCartSubmit.addEventListener('click', () => {
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
@@ -284,7 +342,14 @@ bookingCartSubmit.addEventListener('click', () => {
     updateAddBtn();
 });
 
-function selectSiblings(array, skipThis) {
+/**
+ * Selects all siblings of the skipThis element except the skipThis 
+ * element and returns a new array containing only skipThis' siblings.
+ * @param {array} array - array of HTML sibling elements.
+ * @param {HTMLElement} skipThis - HTML element to not select/skip.
+ * @returns new array containing only the second parameter's siblings.
+ */
+ function selectSiblings(array, skipThis) {
     let arr = [];
     for (let i = 0; i < array.length; i++) {
         if (array[i] != skipThis) {
@@ -294,6 +359,10 @@ function selectSiblings(array, skipThis) {
     return arr;
 }
 
+/**
+ * Switches to mailing form as the active div 
+ * in the booking cart and hides sibling.
+ */
 function showMailingForm() {
     mailingInfoDiv.classList.remove('hidden');
     selectSiblings(bookingCartContainer.children, mailingInfoDiv).forEach(div => {
@@ -301,6 +370,10 @@ function showMailingForm() {
     });
 }
 
+/**
+ * Switches to booking complete as the active div
+ * in the booking cart and hides siblings.
+ */
 function showBookingComplete() {
     bookingCompleteDiv.classList.remove('hidden');
     selectSiblings(bookingCartContainer.children, bookingCompleteDiv).forEach(div => {
@@ -308,6 +381,9 @@ function showBookingComplete() {
     });
 }
 
+// On Submit button click checks if the name and e-mail address are valid and displays an error if they aren't.
+// If valid - updates the order object name and email keys, and calls sendBookingConfirmation
+// and showBookingComplete functions.
 bookingCartContainer.querySelector('.send').addEventListener('click', () => {
     if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid) {
         mailingInfoEmailInput.reportValidity();
@@ -322,6 +398,7 @@ bookingCartContainer.querySelector('.send').addEventListener('click', () => {
     }
 });
 
+// On Back button click hides mailing info form and re-enables booking cart.
 bookingCartContainer.querySelector('.back').addEventListener('click', () => {
     sessionStorage.setItem('btnsDisabled', 'false');
     bookingCartDiv.classList.remove('hidden');
@@ -331,11 +408,22 @@ bookingCartContainer.querySelector('.back').addEventListener('click', () => {
     updateAddBtn();
 });
 
+/**
+ * Additional e-mail validation function. This function ensures the e-mail
+ * address contains an 'at' symbol and Top-Level Domain.
+ * @param {string} email - e-mail address as a string.
+ * @returns boolean value depending on whether the email param matches the RegExp.
+ */
 function isEmailValid(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 
+/**
+ * Insert an error paragraph to alert missing Top-Level Domain in the e-mail address added.
+ * Paragraph is inserted as the next sibling of the passed HTMLDivElement.
+ * @param {HTMLDivElement} insertAfterNode - element after which the error should be inserted.
+ */
 function reportInvalidEmail(insertAfterNode) {
     if (!document.querySelector('.error') === false) {
         document.querySelector('.error').remove();
@@ -346,15 +434,23 @@ function reportInvalidEmail(insertAfterNode) {
     insertAfterNode.parentElement.insertBefore(error, insertAfterNode.nextSibling);
 }
 
+/**
+ * Sends an e-mail using emailJS passing the values of the order object.
+ */
 function sendBookingConfirmation() {
     emailjs.send('service_sl1lvmo', 'template_0xcih7k', order, 'uwUMF7skPiFP9wOGF');
 }
 
+// Listener to prevent default behavior of Newsletter form submit button
+// and instead send an email using signUpConfirm function.
 document.getElementById('newsletter-form-container').addEventListener('submit', (e) => {
     e.preventDefault();
     signUpConfirm(e.target);
 });
 
+/**
+ * Sends an e-mail using emailJS passing the values of the newsletter form.
+ */
 function signUpConfirm(form) {
     emailjs.sendForm('service_sl1lvmo', 'template_zf090ar', form, 'uwUMF7skPiFP9wOGF');
 }
