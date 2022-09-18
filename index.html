@@ -17,11 +17,15 @@
 
 <body>
     <header>
+        <!-- Header Logo -->
         <div id="logo">
             <img src="assets/images/logo.webp" alt="M-squared logo">
+            <h1 class="visually-hidden">Main Page</h1>
         </div>
+        <!-- Nav -->
         <nav id="nav" class="nav-links-container" aria-label="Navigation links">
-            <div class="hamburger-menu-button" aria-label="Menu Button">
+            <!-- Hamburger Menu button uses JavaScript event listeners to control the menu state -->
+            <div class="hamburger-menu-button" aria-label="Menu Button" aria-expanded="false" aria-controls="nav-list">
                 <div class="menu-icon-wrapper">
                     <div class="menu-icon-line half first"></div>
                     <div class="menu-icon-line"></div>
@@ -29,41 +33,43 @@
                 </div>
             </div>
             <ul class="nav-list">
+                <!-- Onclick was added to make sure the list item itself behaves like a link -->
                 <li onclick="location.href='index.html'" class="nav-item active"><a href="index.html"
                         class="nav-button">Home</a></li>
-                <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html"
-                        class="nav-button">Take the Quiz</a></li>
-                <li onclick="location.href='booking.html'" class="nav-item"><a href="#"
-                        class="nav-button">Book an
+                <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html" class="nav-button">Take the
+                        Quiz</a></li>
+                <li onclick="location.href='booking.html'" class="nav-item"><a href="#" class="nav-button">Book an
                         Activity</a></li>
             </ul>
         </nav>
     </header>
+    <!-- Image Carousel -->
     <section id="carousel">
         <div class="carousel-tabs">
-            <div class="tab tab-1 active"></div>
-            <div class="tab tab-2"></div>
-            <div class="tab tab-3"></div>
+            <div class="tab tab-1 active" title="Slide 1"></div>
+            <div class="tab tab-2" title="Slide 2"></div>
+            <div class="tab tab-3" title="Slide 3"></div>
         </div>
         <div class="carousel-slides">
-            <div class="carousel-slide slide-1 active">
+            <div class="carousel-slide slide-1 active" title="Image of Math themed doodles on ruled paper">
                 <h2>Try Before You Buy!</h2>
                 <a href="/booking.html">Get 2 FREE trial classes!</a>
             </div>
-            <div class="carousel-slide slide-2">
+            <div class="carousel-slide slide-2" title="Image of graduate students throwing their hats in the air">
                 <h2>Our students receive offers from leading schools</h2>
                 <a href="/booking.html">Book an Activity</a>
             </div>
-            <div class="carousel-slide slide-3">
+            <div class="carousel-slide slide-3" title="Image of school lockers">
                 <h2>GCSE Maths Tuition</h2>
                 <a href="/quiz.html">Start FREE evaluation</a>
             </div>
         </div>
     </section>
+    <!-- Methodology Section -->
     <section id="methodology">
         <h2>"Fun and effective learning" methodology</h2>
         <div class="method method-1">
-            <div class="method-cover">
+            <div class="method-cover" title="Image of quiz answer sheet, pen and notepad">
                 <h3>Initial Evaluation</h3>
                 <p>More info >></p>
             </div>
@@ -74,7 +80,7 @@
             </div>
         </div>
         <div class="method method-2">
-            <div class="method-cover">
+            <div class="method-cover" title="Image of notepad, laptop, and backpack on a desk">
                 <h3>Individualized <br> learning plan</h3>
                 <p>More info >></p>
             </div>
@@ -86,7 +92,7 @@
             </div>
         </div>
         <div class="method method-3">
-            <div class="method-cover">
+            <div class="method-cover" title="Image of letter and number magnets on colorful background">
                 <h3>Learning sessions</h3>
                 <p>More info >></p>
             </div>
@@ -97,11 +103,12 @@
             </div>
         </div>
     </section>
+    <!-- About Us Section -->
     <section id="about-us">
         <div class="classes-info">
             <h2>All of our classes <br> are held online via:</h2>
             <div class="app-icons--container">
-                <div class="classes-info--teams">
+                <div class="app-icons--teams">
                     <a href="https://www.microsoft.com/en-gb/microsoft-teams/group-chat-software" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg"
                             alt="Microsoft Teams logo">
@@ -109,7 +116,7 @@
                     </a>
                     <p>Teams</p>
                 </div>
-                <div class="classes-info--zoom">
+                <div class="app-icons--zoom">
                     <a href="https://zoom.us/" target="_blank"><img
                             src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Zoom_Video_Communications_Company_Logo_updated.png"
                             alt="Zoom logo">
@@ -118,7 +125,7 @@
                     </a>
                     <p>Zoom</p>
                 </div>
-                <div class="classes-info--skype">
+                <div class="app-icons--skype">
                     <a href="https://www.skype.com/en/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Skype_logo_%282019%E2%80%93present%29.svg"
                             alt="Skype logo">
@@ -127,7 +134,7 @@
                     </a>
                     <p>Skype</p>
                 </div>
-                <div class="classes-info--slack">
+                <div class="app-icons--slack">
                     <a href="https://slack.com/intl/en-gb/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
                             alt="Slack logo">
@@ -141,8 +148,8 @@
         <div class="maps-iframe">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4248513434086!2d-0.1585557!3d51.523767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761acf33628211%3A0x445d7677a88322e1!2s221B%20Baker%20St%2C%20London%20NW1%206XE!5e0!3m2!1sen!2suk!4v1663266570534!5m2!1sen!2suk"
-                 allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" aria-label="A map showing the location of Math Masters Academy main offices"></iframe>
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                aria-label="A map showing the location of Math Masters Academy main offices"></iframe>
         </div>
         <div class="contact-us">
             <h2>Contact Us!</h2>
@@ -150,7 +157,8 @@
                 <span>221B Baker St, London NW1 6XE</span></p>
             <ul>
                 <li><i class="fa-solid fa-phone"></i><a href="tel:+442082123456">+44 2 082 123 456</a></li>
-                <li><i class="fa-solid fa-at"></i><a href="mailto:info@them2academy.co.uk">info@them2academy.co.uk</a></li>
+                <li><i class="fa-solid fa-at"></i><a href="mailto:info@them2academy.co.uk">info@them2academy.co.uk</a>
+                </li>
             </ul>
 
         </div>
@@ -158,8 +166,8 @@
     <footer>
         <div id="full-logo">
             <div class="logo-image">
-                <img src="assets/images/logo.webp" alt="M-squared logo">
-            </div>
+                <img src="assets/images/logo.webp" alt="Math Masters Academy logo">
+            </div>          
             <div class="logo-text">
                 <span>Math</span><br>
                 <span>Masters</span><br>
@@ -167,10 +175,19 @@
             </div>
         </div>
         <div id="social-media">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-youtube"></i>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"
+                            aria-hidden="true"></i><span class="visually-hidden">Open Facebook in a new
+                            tab</span></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"
+                            aria-hidden="true"></i><span class="visually-hidden">Open Twitter in a new
+                            tab</span></a></li>
+                <li><a href="http://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"
+                            aria-hidden="true"></i><span class="visually-hidden">Open YouTube in a new tab</span></a>
+                </li>
+            </ul>
         </div>
+        <!-- Depending on the button clicked JS changes the modal container -->
         <div id="legal">
             <div id="tnc" class="legal-button">Terms & Conditions</div>
             <span> | </span>
