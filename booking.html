@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,39 +13,41 @@
     <title>Math Masters Academy - The Best Online Math Courses</title>
     <script src="https://kit.fontawesome.com/f05b6615ad.js" crossorigin="anonymous"></script>
 </head>
-
 <body class="booking">
+    <!-- Header -->
     <header>
+        <!-- Header Logo -->
         <div id="logo">
-            <img src="assets/images/logo.webp" alt="M-squared logo">
+            <img src="assets/images/logo.webp" alt="Math Masters Academy Logo">
+            <h1 class="visually-hidden">Book An Activity</h1>
         </div>
-        <h1 class="desktop-only">Math Masters Academy</h1>
+        <!-- Nav -->
         <nav id="nav" class="nav-links-container" aria-label="Navigation links">
-            <div class="hamburger-menu-button" aria-label="Menu Button">
-                <div class="menu-icon-wrapper">
+            <!-- Hamburger Menu button uses JavaScript event listeners to control the menu state -->
+            <div class="hamburger-menu-button" aria-label="Menu Button" aria-expanded="false" aria-controls="nav-list">
+                <div class="menu-icon-wrapper" aria-hidden="true">
                     <div class="menu-icon-line half first"></div>
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line half last"></div>
                 </div>
             </div>
             <ul class="nav-list">
+                <!-- Onclick was added to make sure the list item itself behaves like a link -->
                 <li onclick="location.href='index.html'" class="nav-item"><a href="index.html"
                         class="nav-button">Home</a></li>
-                <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html"
-                        class="nav-button">Take the Quiz</a></li>
-                <li onclick="location.href='booking.html'" class="nav-item active"><a href="#"
-                        class="nav-button">Book an
+                <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html" class="nav-button">Take the
+                        Quiz</a></li>
+                <li onclick="location.href='booking.html'" class="nav-item active"><a href="booking.html" class="nav-button">Book an
                         Activity</a></li>
-                </li>
             </ul>
         </nav>
     </header>
-    <h1 class="visually-hidden">Book An Activity</h1>
+    <!-- Marketing Content -->
     <section id="marketing">
         <img src="assets/images/kenny-eliason-zFSo6bnZJTw-unsplash.webp"
             alt="A classroom with seated kids and a teacher by the blackboard" srcset="">
         <div class="marketing-title">
-            <h2>Book an Activity</h1>
+            <h2>Book an Activity</h2>
         </div>
         <div class="marketing-text">
             <p>Whether 5 or 65 we've got something for everyone! Discover interactive online maths tuition at its best and see how our unique and successful approach to tutoring is helping people excel in maths at school, and beyond!</p>
@@ -55,6 +56,7 @@
             Try 2 <br> FOR <br> FREE!
         </div>
     </section>
+    <!-- Booking Cart -->
     <section id="booking-container">
         <div class="school-level">
             <h2>Select school level to start!</h2>
@@ -70,47 +72,38 @@
             </div>
         </div>
         <div class="school-year">
-            <select class="mobile-only" name="school-year-select" id="school-year-select">
+            <select name="school-year-select" id="school-year-select">
                 <option value="default" disabled hidden selected>-- Pick A Level --</option>
             </select>
-            <div id="school-year-btns" class="desktop-only">
-                <div class="sch-yr-rd">
-                    <label class="active" for="sch_yr1">Year 1</label>
-                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr1">
-                </div>
-                <div class="sch-yr-rd">
-                    <label for="sch_yr2">Year 2</label>
-                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr2">
-                </div>
-                <div class="sch-yr-rd">
-                    <label for="sch_yr3">Year 3</label>
-                    <input type="radio" class="booking-button" name="sch-yr" id="sch_yr3">
-                </div>
             </div>
         </div>
+        <!-- Activity Cards -->
         <div id="activity-cards">
-            <div data-type="template" class="activity-card">
-                <h4>This is an Activity Card Template</h4>
+            <!-- Activity Card Template -->
+            <div data-type="template" class="activity-card" aria-hidden="true">
+                <h3>This is an Activity Card Template</h3>
                 <div class="activity-info level"><b>Level:</b> <span></span></div>
                 <div class="activity-info schedule"><b>Schedule:</b> <span></span></div>
                 <div class="activity-info price"><b>Price:</b> <span></span></div>
                 <div class="activity-info tutor">
                     <img src="" alt="Picture of a teacher" class="tutor-image">
                     <div class="tutor-info">
-                        <h5></h5>
+                        <h4></h4>
                         <p></p>
                     </div>
                 </div>
                 <button class="activity-submit" type="submit">Add to Cart</button>
             </div>
+            <!-- No Classes Available card -->
             <div class="no-class-card">
-                <img src="assets/images/3973477.png" alt="Picture of an empty open cardboard box"
+                <img src="assets/images/3973477.png" alt="Image of a cartoon character looking inside an empty folder"
                     class="no-class-card-image">
                 <a href="https://www.freepik.com/free-vector/no-data-concept-illustration_8961448.htm#query=empty%20box&position=18&from_view=search"
                     class="attribution">Image by storyset on Freepik</a>
                 <h5>Sorry, there are no courses under this category!</h5>
             </div>
         </div>
+        <!-- Booking Cart -->
         <div id="booking-cart-container">
             <div class="booking-cart-div">
                 <h3>Booking List</h3>
@@ -118,6 +111,7 @@
                 <div class="booking-cart-total"><b>Total:</b> <span>£0</span></div>
                 <button class="booking-cart-submit">Book Now</button>
             </div>
+            <!-- Mailing Info Form -->
             <div class="mailing-info-div hidden">
                 <form id="order-mailing-form">
                     <legend>Your Details</legend>
@@ -132,6 +126,7 @@
                     </div>
                 </form>
             </div>
+            <!-- Booking Complete Notification -->
             <div class="booking-complete-div hidden">
                 <div class="circle-complete">
                     <span class="checkmark-complete"></span>
@@ -143,10 +138,12 @@
             </div>
         </div>
     </section>
+    <!-- Newsletter Sign-Up -->
     <section id="newsletter-form-container">
         <h3>Can't find a time that suits you?</h3>
         <p>Want to be the first to hear about our new classes? Sign up for our newsletter to find out when more classes
             are available. We'll also send you free learning resources to help you make progress in maths. </p>
+            <!-- Newsletter Form -->
         <form id="newsletter-form">
             <legend class="visually-hidden">Your contact information:</legend>
             <label for="newsletter-name">Full Name:</label>
@@ -168,26 +165,39 @@
             </div>
         </form>
     </section>
+    <!-- Footer -->
     <footer>
+        <!-- Footer Logo -->
         <div id="full-logo">
             <div class="logo-image">
-                <img src="assets/images/logo.webp" alt="M-squared logo">
-            </div>
+                <img src="assets/images/logo.webp" alt="Math Masters Academy logo">
+            </div>          
             <div class="logo-text">
                 <span>Math</span><br>
                 <span>Masters</span><br>
                 <span>Academy</span>
             </div>
         </div>
+        <!-- Social Media Links -->
         <div id="social-media">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-youtube"></i>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"
+                            aria-hidden="true"></i><span class="visually-hidden">Open Facebook in a new
+                            tab</span></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter"
+                            aria-hidden="true"></i><span class="visually-hidden">Open Twitter in a new
+                            tab</span></a></li>
+                <li><a href="http://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"
+                            aria-hidden="true"></i><span class="visually-hidden">Open YouTube in a new tab</span></a>
+                </li>
+            </ul>
         </div>
+        <!-- Legal Modal -->
+        <!-- Depending on the button clicked JS changes the modal container content -->
         <div id="legal">
-            <div id="tnc" class="legal-button">Terms & Conditions</div>
+            <div id="tnc" class="legal-button" aria-label="Open Terms & Conditions Modal">Terms & Conditions</div>
             <span> | </span>
-            <div id="privacy" class="legal-button">Privacy Policy</div>
+            <div id="privacy" class="legal-button" aria-label="Open Privacy Policy Modal">Privacy Policy</div>
         </div>
         <div id="modal-container">
             <div class="modal-background">
@@ -205,5 +215,4 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/js/booking.js"></script>
 </body>
-
 </html>
