@@ -119,6 +119,8 @@ header {
     z-index: 5;
 }
 
+/*  ----------------------------------------------------  Logo */
+
 #logo {
     position: absolute;
     width: 4rem;
@@ -136,7 +138,8 @@ header {
     z-index: 9;
 }
 
-/* Hamburger Menu Button */
+/* ----------------------------Hamburger Menu Button */
+
 /* Inspired by https://codepen.io/aybukeceylan/pen/zYNpWdj?editors=1100 */
 .hamburger-menu-button {
     position: relative;
@@ -205,7 +208,7 @@ header {
     right: 1.1rem;
 }
 
-/* Nav Container in Mobile */
+/* ------------------------- Nav Container in Mobile */
 
 .nav-links-container.active .nav-list {
     opacity: 1;
@@ -245,7 +248,7 @@ header {
     transform: rotate(-90deg) translateX(-1px);
 }
 
-/* Nav items list */
+/* ------------------------------- Nav items list */
 
 .nav-list {
     position: absolute;
@@ -316,6 +319,8 @@ header {
     margin: 2.5rem 0;
 }
 
+/* ---------------------------------------------------- Carousel Tabs */
+
 .carousel-tabs {
     display: flex;
     flex-direction: row;
@@ -352,6 +357,8 @@ header {
 .tab-3 {
     background-color: var(--carousel-clr-3);
 }
+
+/* ---------------------------------------------------- Carousel Slides */
 
 .carousel-slides {
     position: relative;
@@ -483,6 +490,8 @@ header {
     text-align: center;
 }
 
+/* ---------------------------------------------------- Method Cover */
+
 .method {
     position: relative;
     height: 15rem;
@@ -517,6 +526,8 @@ header {
 .method-3 {
     background-image: var(--method-img-3);
 }
+
+/* ---------------------------------------------------- Method Text */
 
 .method-info {
     width: 100%;
@@ -555,6 +566,8 @@ header {
     box-shadow: 0 -2px 5px rgba(88, 88, 88, 0.5),
         0 2px 5px rgba(88, 88, 88, 0.5);
 }
+
+/* ---------------------------------------------------- Classes Information + App Icons */
 
 .classes-info,
 .contact-us {
@@ -596,6 +609,8 @@ header {
     text-align: center;
 }
 
+/* ---------------------------------------------------- Google Maps */
+
 .maps-iframe iframe {
     height: 100%;
     width: calc(100% + 2px);
@@ -603,6 +618,8 @@ header {
     border-top: 4px solid var(--accent-clr);
     border-bottom: 4px solid var(--accent-clr);
 }
+
+/* ---------------------------------------------------- Contact Information */
 
 .contact-us {
     padding: .5rem 0;
@@ -634,6 +651,8 @@ header {
 }
 
 /* ----------------------------------------------------------------------------------------------------- QUIZ */
+
+/* ---------------------------------------------------- Quiz Modal */
 .quiz-start-container {
     position: absolute;
     top: 0;
@@ -713,6 +732,8 @@ header {
     overflow: hidden;
 }
 
+/* ---------------------------------------------------- Quiz Countdown */
+
 #countdown {
     position: absolute;
     top: 33%;
@@ -736,6 +757,8 @@ header {
     transform-origin: 50% 50%;
     animation: hideCountdown .5s 1s ease-out forwards;
 }
+
+/* ---------------------------------------------------- Quiz HUD */
 
 .question-counter {
     margin-left: .5rem;
@@ -767,6 +790,8 @@ header {
     width: 10rem;
     text-align: center;
 }
+
+/* ---------------------------------------------------- Question Container */
 
 .question {
     position: relative;
@@ -812,6 +837,8 @@ header {
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
     z-index: -1;
 }
+
+/* ---------------------------------------------------- Answer Containers */
 
 .answers {
     display: flex;
@@ -905,11 +932,15 @@ header {
     margin: 2.5rem auto 0;
 }
 
+/* ---------------------------------------------------- Marketing Image */
+
 #marketing img {
     width: 100%;
     border-radius: 20px 20px 0 0;
     border: 2px solid var(--prm-clr);
 }
+
+/* ---------------------------------------------------- Marketing Badge */
 
 .marketing-badge {
     position: absolute;
@@ -933,6 +964,8 @@ header {
     line-height: 1.1rem;
     color: white;
 }
+
+/* ---------------------------------------------------- Marketing Content */
 
 .marketing-title {
     position: absolute;
@@ -975,6 +1008,8 @@ header {
     text-align: center;
 }
 
+/* ---------------------------------------------------- School Level Buttons */
+
 .school-level {
     display: flex;
     flex-direction: column;
@@ -1013,6 +1048,8 @@ header {
     color: black;
     border: 2px solid var(--prm-clr);
 }
+
+/* ---------------------------------------------------- School Year Select */
 
 .school-year {
     display: flex;
@@ -1057,6 +1094,7 @@ header {
     margin: .5rem auto;
 }
 
+/* ---------------------------------------------------- Activity Cards + Template */
 .activity-card[data-type="template"] {
     display: none;
 }
@@ -1125,6 +1163,8 @@ header {
     color: white;
 }
 
+/* ---------------------------------------------------- No Classes Available Card */
+
 .no-class-card {
     margin: 1rem auto;
     display: none;
@@ -1137,7 +1177,7 @@ header {
     font-size: 1.25rem;
 }
 
-/* Container holding items in cart. */
+/* ---------------------------------------------------- Booking Container */
 #booking-cart-container {
     opacity: 0;
     display: none;
@@ -1189,6 +1229,8 @@ header {
     background-color: var(--accent-clr);
 }
 
+/* ---------------------------------------------------- Booking Cart */
+
 .booking-cart-div {
     display: flex;
     flex-direction: column;
@@ -1239,6 +1281,7 @@ header {
     cursor: pointer;
 }
 
+/* ---------------------------------------------------- Mailing Information Form */
 .mailing-info-div {
     display: flex;
 }
@@ -1261,6 +1304,8 @@ header {
 .booking-complete-div button {
     margin: .5rem;
 }
+
+/* ---------------------------------------------------- Booking Confirmation */
 
 .circle-complete {
     position: relative;
@@ -1412,9 +1457,13 @@ footer {
     align-items: flex-start;
 }
 
+/* ---------------------------------------------------- Logo Image */
+
 .logo-image img {
     width: 25vw;
 }
+
+/* ---------------------------------------------------- Logo Content */
 
 .logo-text {
     margin-left: .5rem;
@@ -1427,6 +1476,7 @@ footer {
     font-weight: 700;
 }
 
+/* ---------------------------------------------------- Social Media Links */
 #social-media {
     margin-bottom: 1rem;
 }
@@ -1437,6 +1487,7 @@ footer {
     margin: 0 1rem;
 }
 
+/* ---------------------------------------------------- Legal Buttons & Modal */
 #legal {
     width: 100vw;
     padding: 1rem;
