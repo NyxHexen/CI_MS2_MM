@@ -1157,6 +1157,7 @@ header {
     border: none;
     background-color: var(--prm-clr);
     color: white;
+    cursor: pointer;
 }
 
 /* ---------------------------------------------------- No Classes Available Card */
