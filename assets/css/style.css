@@ -1405,7 +1405,6 @@ header {
 }
 
 #newsletter-form-container legend,
-#newsletter-form-container label,
 #newsletter-form-container option:first-child {
     display: none;
 }
