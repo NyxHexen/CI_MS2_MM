@@ -1493,6 +1493,16 @@ footer {
     color: var(--accent-clr);
     font-size: 3rem;
     margin: 0 1rem;
+    padding: .25rem;
+}
+
+#social-media li:hover .fa-brands {
+    color: white;
+    background: linear-gradient(-45deg, rgba(0,86,255,1) 0%, rgba(252,89,12,1) 100%);
+    transform: scale(1.1);
+    border-radius: 10px;
+    box-shadow: inset 0 2px 2px black;
+    text-shadow: 0 2px 2px black;
 }
 
 /* ---------------------------------------------------- Legal Buttons & Modal */
