@@ -1,3 +1,4 @@
+//Constants
 const quizModalContainer = document.querySelector('.quiz-start-container');
 const quizModal = document.querySelector('.quiz-start-box');
 const quizInput = document.querySelector('#quiz-name');
@@ -11,19 +12,15 @@ const hudScoreSpan = document.querySelector('.score span');
 const hudMultiplierSpan = document.querySelector('.multiplier span');
 const hudQuestionCounter = document.querySelectorAll('.question-counter span')[0];
 const hudQuestionCounterTotal = document.querySelectorAll('.question-counter span')[1];
-
-//Constants
 const CORRECT_BONUS = 10;
 
 let timerMax = 30;
 let timerId, timeLeft;
-let shuffledQuestions, shuffledAnswers, currentQuestion;
+let shuffledQuestions, shuffledAnswers, currentQuestion, acceptingAnswers, isOnSpree;
 let answerSpree = [];
-let isOnSpree;
-let acceptingAnswers;
-
 let availQuestions = [];
 
+// Collects name and quiz progress.
 const player = {
     name: 0,
     score: 0,
@@ -32,11 +29,13 @@ const player = {
     answered: 0
 };
 
+// Holds information used to fill question-counter HUD.
 const quiz = {
     questionsTotal: 0,
     questionsCounter: 0
 };
 
+// Imports hard-coded questions from JSON file.
 fetch("/CI_MS2_MM/assets/js/questions.json")
     .then(res => {
         return res.json();
@@ -57,6 +56,7 @@ fetch("assets/js/questions.json")
         availQuestions = loadedQuestions;
     });
 
+// Imports questions through TriviaDB API.
 fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
     .then(res => {
         return res.json();
@@ -83,12 +83,15 @@ fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=
         console.error(err);
     });
 
+// Each time a number/letter is added check if the input field value is longer than 3 characters.
+// If it is, enable the quiz start button.
 quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
         quizSubmit.disabled = false;
     }
 });
 
+// On button click start the quiz app.
 quizSubmit.addEventListener('click', () => {
     player.name = quizInput.value;
     quiz.questionsTotal = availQuestions.length;
@@ -96,6 +99,10 @@ quizSubmit.addEventListener('click', () => {
     setTimeout(quizStart, 1000);
 });
 
+/**
+ * Calls countdown function and after 1500 seconds scales down 
+ * the countdownDiv element and calls showQuestion function.
+ */
 function quizStart() {
     countdown(countdownDiv, function () {
         countdownDiv.innerHTML = '<p class="num">START!</p>';
@@ -107,7 +114,16 @@ function quizStart() {
 }
 
 //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
+/**
+ * countdown initiates a 3-2-1 countdown timer and once it reaches 0 calls the callback function.
+ * @param {HTMLElement} parent - div inside of which the 3-2-1 countdown will be inserted.
+ * @param {callback} callback - function to call after counter reaches 0.
+ */
 function countdown(parent, callback) {
+    let numbers = [3, 2, 1];
+    let numDiv = null;
+    var interval = setInterval(count, 1000);
+
     function count() {
         if (numDiv) {
             numDiv.remove();
@@ -126,16 +142,22 @@ function countdown(parent, callback) {
 
         parent.appendChild(numDiv);
     }
-    let numbers = [3, 2, 1];
-    let numDiv = null;
-    var interval = setInterval(count, 1000);
 }
 
+/**
+ * shuffle takes an array and shuffles it using array.sort and Math.random methods.
+ * @param {array} array
+ * @returns shuffled array
+ */
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
     return array;
 }
 
+/**
+ * clearStatusClass goes through each item in the HTML elements and removes all classes added by other functions.
+ * @param {array} array - array of HTML elements.
+ */
 function clearStatusClass(array) {
     array.forEach(item => {
         item.classList.remove('unset');
@@ -147,6 +169,13 @@ function clearStatusClass(array) {
     });
 }
 
+/**
+ * showQuestion shuffles the questions array, removes the last question 
+ * in the array and displays it on the page, calls clearStatusClass on the 
+ * answer buttons, loops through the answers array assigning 'set' class and dataset, 
+ * adds an event listener to each answer, sets acceptingAnswers to true to allow click,
+ * progresses the questions counter and starts the timer. After the last question calls quizEnd function.
+ */
 function showQuestion() {
     if (quiz.questionsCounter != quiz.questionsTotal) {
         shuffledQuestions = shuffle(availQuestions);
@@ -172,12 +201,23 @@ function showQuestion() {
     hudQuestionCounter.innerText = quiz.questionsCounter;
 }
 
+/**
+ * startTimer starts a timer for n seconds, depending on param passed
+ * by calling tickTock function every 1000ms.
+ * @param {seconds} seconds - how many seconds should the timer be?
+ */
 function startTimer(seconds) {
     hudTimer.innerText = timerMax;
 
     timeLeft = seconds;
     timerId = setInterval(tickTock, 1000);
 
+    /**
+     * tickTock function subtracts 1 from the amount of seconds 
+     * remaining in seconds parameter passed to startTimer function.
+     * If remaining seconds is 0 - stops timerId interval, resets the default timer to 30sec,
+     * resets the multiplier to 1 and answerSpree array to empty, and calls showQuestion.
+     */
     function tickTock() {
         if (timeLeft === -1) {
             stopTimer(timerId);
@@ -192,10 +232,21 @@ function startTimer(seconds) {
     }
 }
 
+/**
+ * stopTimer resets the interval or timeout depending on name passed as parameter.
+ * @param {interval} timer - name of active setInterval/setTimeout.
+ */
 function stopTimer(timer) {
     clearInterval(timer);
 }
 
+/**
+ * Selects all siblings of the skipThis element except the skipThis 
+ * element and returns a new array containing only skipThis' siblings.
+ * @param {array} array - array of HTML sibling elements.
+ * @param {HTMLElement} skipThis - HTML element to not select/skip.
+ * @returns new array containing only the second parameter's siblings.
+ */
 function selectSiblings(array, skipThis) {
     let arr = [];
     for (let i = 0; i < array.length; i++) {
@@ -206,6 +257,15 @@ function selectSiblings(array, skipThis) {
     return arr;
 }
 
+/**
+ * selectAnswer stops the quiz timer, sets acceptingAnswers to false,
+ * disables all buttons, adds class if answer is correct/incorrect 
+ * and increases correct answers value by 1, increases answered questions value by 1,
+ * calls updateScore using event target as param, after 1000ms adds 'unset' class to buttons, 
+ * then 1000ms later calls showQuestion function.
+ * @param {event} e - uses click event to target element.
+ * @returns if acceptingAnswers is false.
+ */
 function selectAnswer(e) {
     if (!acceptingAnswers) return;
     stopTimer(timerId);
@@ -230,6 +290,15 @@ function selectAnswer(e) {
     }, 1000);
 }
 
+/**
+ * If the passed parameter has data-correct value of true, 
+ * increases player score depending on multiplier and time remaining on timer.
+ * If the user has an even amount number of consecutive answers 
+ * increases multiplier and calls shortenTimer function.
+ * If data-correct is incorrect, calls resetTimer function, resets 
+ * multiplier to 1 and resets the answerSpree variable.
+ * @param {HTMLElement} selected - click event target.
+ */
 function updateScore(selected) {
     if (selected.dataset.correct) {
         player.score = player.score + ((CORRECT_BONUS * player.multiplier) + calcTimer());
@@ -248,6 +317,12 @@ function updateScore(selected) {
     hudScoreSpan.innerText = player.score;
 }
 
+/**
+ * Returns a calculation total depending on the time remaining 
+ * on the timer at the time this function is called.
+ * Used inside of updateScore to increase score after answer is selected.
+ * @returns calculation total.
+ */
 function calcTimer() {
     if (timerMax === 30) {
         return timeLeft;
@@ -258,6 +333,11 @@ function calcTimer() {
     }
 }
 
+/**
+ * Shortens timer depending on total timer time at the time the function is called.
+ * If > 10 reduces total timer time by 10 seconds, if between 10 and 
+ * 5 reduces total timer time by 5 seconds.
+ */
 function shortenTimer() {
     if (timerMax > 10) {
         timerMax -= 10;
@@ -266,10 +346,16 @@ function shortenTimer() {
     }
 }
 
+/**
+ * Reset total timer time to default value of 30 seconds.
+ */
 function resetTimer() {
     timerMax = 30;
 }
 
+/**
+ * Replaces start modal content with collected quiz stats and shows modal after the last question.
+ */
 function quizEnd() {
     quizModal.innerHTML = `
     <h2>Well done!</h2>
