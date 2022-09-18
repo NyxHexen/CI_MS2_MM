@@ -1020,16 +1020,14 @@ header {
     margin: 1rem .5rem;
 }
 
-.sch-lvl-rd label,
-.sch-yr-rd label {
+.sch-lvl-rd label {
     padding: .5rem 1rem;
     margin: 0 1rem;
     font-weight: bold;
     letter-spacing: .1rem;
-    color: white;
-    background-color: var(--prm-clr);
-    /* Transparent border helps keep retain size instead of getting displaced */
-    border: 2px solid transparent;
+    background-color: white;
+    color: black;
+    border: 2px solid var(--prm-clr);
     border-radius: 20px;
     cursor: pointer;
 }
@@ -1040,9 +1038,10 @@ header {
 }
 
 .sch-lvl-rd input[type=radio]:checked+label {
-    background-color: white;
-    color: black;
-    border: 2px solid var(--prm-clr);
+    color: white;
+    background-color: var(--prm-clr);
+    /* Transparent border helps keep retain size instead of getting displaced */
+    border: 2px solid transparent;
 }
 
 /* ---------------------------------------------------- School Year Select */
@@ -1064,20 +1063,6 @@ header {
     background-color: var(--accent-clr);
     color: white;
     outline-color: var(--accent-clr);
-}
-
-.sch-yr-rd {
-    margin: 1rem;
-}
-
-.sch-yr-rd label {
-    background-color: var(--accent-clr);
-}
-
-.sch-yr-rd input[type=radio]:checked+label {
-    background-color: white;
-    color: var(--prm-clr);
-    border: 2px solid var(--prm-clr);
 }
 
 /* --------------------------------------------------------------------------------- Booking Cards */
