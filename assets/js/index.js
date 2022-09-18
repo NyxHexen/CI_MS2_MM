@@ -79,6 +79,8 @@ const legalSwitch = [{
     <p>This Privacy Policy covers our treatment of personally identifiable information. Such  information may include name, mailing address, email address, telephone number, and other  information which identifies you as a specific individual ("Personal Information"). Please see  additional information below on the information we collect. For this Privacy Policy the definition  of “Personal Information” is the definition under the state, country, or other law applicable to the  person whose data is collected. For California residents only, “Personal Information” shall have  the definition as set forth in the California Consumer Privacy Act of 2018 (“CCPA”). Please see  the section below entitled “Privacy Notice for California Residents” for more information. If you  are a citizen or resident of the European Economic Area, United Kingdom, or Switzerland, the  definition of personal information ("personal data") is defined under GDPR and you have certain rights; therefore, please see the section below entitled "GDPR".</p>`
 }];
 
+
+// Depending on which button is clicked (Terms & Conditions or Privacy Policy) the content of the modal changes.
 legalButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (button.id === "tnc") {
@@ -106,7 +108,10 @@ const carouselTabs = document.querySelectorAll('.tab');
 
 let carouselIndex = 0;
 
+// As index.js is used on each of the pages of the website we make sure that the below runs only on index.html
 if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
+    // https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event
+    // Instead of reassigning the event handler we use addEvent to add to the event handlers chain.
     window.addEventListener ?
         window.addEventListener("load", nextSlide, false) :
         window.attachEvent && window.attachEvent("onload", nextSlide);
@@ -127,6 +132,12 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
     })
 }
 
+/**
+ * nextSlide starts and progresses the carousel to the next tab and slide.
+ * It first clears any active classes from the HTML elements using clearState func,
+ * adds 1 to the carouselIndex variable and calls activeState func with the variable as a parameter.
+ * This func takes no parameters.
+ */
 function nextSlide() {
     clearState();
     if (carouselIndex === carouselSlides.length - 1) {
@@ -137,6 +148,11 @@ function nextSlide() {
     activeState(carouselIndex);
 }
 
+
+/**
+ * clearState cycles through each tab and slide and removes the 'active' class.
+ * This function takes no parameters.
+ */
 function clearState() {
     carouselTabs.forEach(tab => {
         tab.classList.remove('active');
@@ -146,11 +162,21 @@ function clearState() {
     })
 }
 
+/**
+ * activeState takes an index and adds 'active' class to the corresponding HTML element.
+ * @param {number} index - corresponds to the index of the carousel tabs and slides arrays.
+ */
 function activeState(index) {
     carouselTabs[index].classList.add('active');
     carouselSlides[index].classList.add('active');
 }
 
+/**
+ * selectedState removes all classes from tabs and slides, uses a Regular Expression to 
+ * find the index of the the event target inside the carousel tabs array, 
+ * then calls activeState func using the index as parameter and reassigns the carouselIndex variable to the index.
+ * @param {event} e - takes on click event as parameter.
+ */
 function selectedState(e) {
     clearState();
     const selectedTab = e.target.classList.value;
