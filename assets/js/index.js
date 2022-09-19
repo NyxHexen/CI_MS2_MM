@@ -113,25 +113,27 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
     // https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event
     // Instead of reassigning the event handler we use addEvent to add to the event handlers chain.
     window.addEventListener ?
-        window.addEventListener("load", nextSlide, false) :
-        window.attachEvent && window.attachEvent("onload", nextSlide);
+        window.addEventListener("load", startCarousel, false) :
+        window.attachEvent && window.attachEvent("onload", startCarousel);
 
-    let carouselInterval = setInterval(nextSlide, 5000);
+    function startCarousel() {
+        let carouselInterval = setInterval(nextSlide, 5000);
 
-    // On hover stop the timers
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(carouselInterval);
-    });
+        // On hover stop the timers
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
 
-    // On mouse leave restart the timer
-    carousel.addEventListener('mouseleave', () => {
-        carouselInterval = setInterval(nextSlide, 5000);
-    });
-    
-    // On tab click - focus slide
-    carouselTabs.forEach(tab => {
-        tab.addEventListener('click', selectedState);
-    })
+        // On mouse leave restart the timer
+        carousel.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(nextSlide, 5000);
+        });
+
+        // On tab click - focus slide
+        carouselTabs.forEach(tab => {
+            tab.addEventListener('click', selectedState);
+        })
+    }
 }
 
 /**
@@ -148,6 +150,7 @@ function nextSlide() {
         carouselIndex++;
     }
     activeState(carouselIndex);
+    return carouselIndex;
 }
 
 
@@ -188,3 +191,15 @@ function selectedState(e) {
     activeState(activeIndex - 1);
     carouselIndex = activeIndex - 1;
 }
+
+function jestTest() {
+    return 12;
+}
+
+let modules = module.exports = {
+    jestTest,
+    nextSlide,
+    activeState,
+    selectedState,
+    clearState
+};
