@@ -382,3 +382,24 @@ function quizEnd() {
     `;
     quizModalContainer.classList.remove('active');
 }
+
+function jestTest() {
+    return 12;
+}
+
+let moduleExport = module.exports = {
+    jestTest,
+    quizStart,
+    countdown,
+    shuffle,
+    clearStatusClass,
+    showQuestion,
+    startTimer,
+    stopTimer,
+    selectSiblings,
+    selectAnswer,
+    updateScore,
+    calcTimer,
+    resetTimer,
+    quizEnd
+}
