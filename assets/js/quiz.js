@@ -246,6 +246,7 @@ function startTimer(seconds) {
  */
 function stopTimer(timer) {
     clearInterval(timer);
+    timer = null;
 }
 
 /**
@@ -396,7 +397,6 @@ module.exports = {
     countdown,
     shuffle,
     clearStatusClass,
-    showQuestion,
     startTimer,
     stopTimer,
     selectSiblings,
@@ -407,5 +407,6 @@ module.exports = {
     quizEnd,
     player,
     quiz,
-    callAPI
+    callAPI,
+    showQuestion,
 }
