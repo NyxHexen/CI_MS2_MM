@@ -14,6 +14,9 @@ const mailingInfoDiv = document.querySelector('.mailing-info-div');
 const mailingInfoNameInput = document.querySelector('#order-name');
 const mailingInfoEmailInput = document.querySelector('#order-email');
 const bookingCompleteDiv = document.querySelector('.booking-complete-div');
+const newsletterNameInput = document.querySelector('#newsletter-name');
+const newsletterEmailInput = document.querySelector('#newsletter-email');
+const newsletterSelect = document.querySelector('#newsletter-findus');
 
 let subTotal = 0; // Temporary total amount container
 let bookedClasses = [];
@@ -131,7 +134,7 @@ const secondaryOptions = [{
 
 // Trigger displaySchoolYearOptions with the event as a parameter on click.
 schoolLevelOption.forEach(radio => {
-    radio.addEventListener('click', displaySchoolYearOptions(e));
+    radio.addEventListener('click', displaySchoolYearOptions);
 });
 
 /**
@@ -349,7 +352,7 @@ bookingCartSubmit.addEventListener('click', () => {
  * @param {HTMLElement} skipThis - HTML element to not select/skip.
  * @returns new array containing only the second parameter's siblings.
  */
- function selectSiblings(array, skipThis) {
+function selectSiblings(array, skipThis) {
     let arr = [];
     for (let i = 0; i < array.length; i++) {
         if (array[i] != skipThis) {
@@ -388,8 +391,10 @@ bookingCartContainer.querySelector('.send').addEventListener('click', () => {
     if (!mailingInfoEmailInput.validity.valid || !mailingInfoNameInput.validity.valid) {
         mailingInfoEmailInput.reportValidity();
         mailingInfoNameInput.reportValidity();
+    } else if (isNameValid(mailingInfoNameInput.value)) {
+        reportInvalidInput(mailingInfoEmailInput, 'name');
     } else if (!isEmailValid(mailingInfoEmailInput.value)) {
-        reportInvalidEmail(mailingInfoEmailInput);
+        reportInvalidInput(mailingInfoEmailInput, 'email');
     } else {
         order.name = mailingInfoNameInput.value;
         order.email = mailingInfoEmailInput.value;
@@ -419,18 +424,34 @@ function isEmailValid(email) {
     return re.test(email);
 }
 
+
+//https://stackoverflow.com/questions/10261986/how-to-detect-string-which-contains-only-spaces
+/**
+ * Additional name validation function. This function ensures the name
+ * does not consist of space-only characters.
+ * @param {string} name - name as a string.
+ * @returns boolean value depending on whether the name contains only spaces.
+ */
+function isNameValid(name) {
+    return name.replace(/\s/g, '').length === 0;
+}
+
 /**
  * Insert an error paragraph to alert missing Top-Level Domain in the e-mail address added.
  * Paragraph is inserted as the next sibling of the passed HTMLDivElement.
  * @param {HTMLDivElement} insertAfterNode - element after which the error should be inserted.
  */
-function reportInvalidEmail(insertAfterNode) {
+function reportInvalidInput(insertAfterNode, input) {
     if (!document.querySelector('.error') === false) {
         document.querySelector('.error').remove();
     }
     const error = document.createElement('p');
     error.classList.add('error');
-    error.innerText = 'Your e-mail address is missing its TLD (.com, .co.uk, etc.)';
+    if (input == 'name') {
+        error.innerText = 'Your name cannot contain spaces only!';
+    } else if (input == 'email') {
+        error.innerText = 'Your e-mail address is missing its TLD (.com, .co.uk, etc.)';
+    }
     insertAfterNode.parentElement.insertBefore(error, insertAfterNode.nextSibling);
 }
 
@@ -445,7 +466,19 @@ function sendBookingConfirmation() {
 // and instead send an email using signUpConfirm function.
 document.getElementById('newsletter-form-container').addEventListener('submit', (e) => {
     e.preventDefault();
-    signUpConfirm(e.target);
+    if (!document.querySelector('.error') === false) {
+        document.querySelector('.error').remove();
+    }
+    if (!newsletterNameInput.validity.valid || !newsletterEmailInput.validity.valid) {
+        mailingInfoEmailInput.reportValidity();
+        mailingInfoNameInput.reportValidity();
+    } else if (isNameValid(newsletterNameInput.value)) {
+        reportInvalidInput(newsletterSelect, 'name');
+    } else if (!isEmailValid(newsletterEmailInput.value)) {
+        reportInvalidInput(newsletterSelect, 'email');
+    } else {
+        signUpConfirm(e.target);
+    }
 });
 
 /**
