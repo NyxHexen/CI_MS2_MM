@@ -50,7 +50,7 @@ describe("Test page functionality", () => {
     });
     test("selectedState correctly assigns clicked item as active", () => {
         const trigger = (el, etype) => {
-            const evt =  new Event( etype, { bubbles: true } );
+            const evt =  new Event(etype, { bubbles: true });
             el.dispatchEvent(evt);
             return evt;
           };
