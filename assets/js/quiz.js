@@ -36,7 +36,7 @@ const quiz = {
 };
 
 // Imports hard-coded questions from JSON file.
-fetch("/CI_MS2_MM/assets/js/questions.json")
+fetch("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
     .then(res => {
         return res.json();
     })
@@ -46,14 +46,6 @@ fetch("/CI_MS2_MM/assets/js/questions.json")
     })
     .catch(err => {
         console.error(err);
-    });
-
-// Second call added to use during development on localhost - to be removed
-fetch("assets/js/questions.json")
-    .then(res => {
-        return res.json();
-    }).then(loadedQuestions => {
-        availQuestions = loadedQuestions;
     });
 
 // Imports questions through TriviaDB API.
@@ -88,6 +80,8 @@ fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=
 quizInput.addEventListener('input', () => {
     if (quizInput.value.length > 2) {
         quizSubmit.disabled = false;
+    } else {
+        quizSubmit.disabled = true;
     }
 });
 
@@ -401,5 +395,8 @@ let moduleExport = module.exports = {
     updateScore,
     calcTimer,
     resetTimer,
-    quizEnd
+    quizEnd,
+    player,
+    quiz,
+    availQuestions
 }
