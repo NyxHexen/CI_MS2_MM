@@ -334,6 +334,7 @@ function updateAddBtn() {
 // updates total of classes, then switches to mailing form
 // and updates all buttons.
 bookingCartSubmit.addEventListener('click', () => {
+    if (bookingCart.childNodes.length == 0) return;
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
         bookedClasses = [];
