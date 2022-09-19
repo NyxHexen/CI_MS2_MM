@@ -35,24 +35,39 @@ const quiz = {
     questionsCounter: 0
 };
 
-// Imports hard-coded questions from JSON file.
-fetch("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
-    .then(res => {
-        return res.json();
-    })
-    .then(loadedQuestions => {
-        availQuestions = loadedQuestions;
-        quiz.questionsTotal = availQuestions.length;
-    })
-    .catch(err => {
-        console.error(err);
-    });
+/**
+ * 
+ * @param {url} api_url link to API.
+ * @returns a promise.
+ */
+async function callAPI(api_url) {
+    let data = {};
+    const response = await fetch(api_url);
+    // assign response to variable when promise resolves
+    if (response.status > 199 && response.status < 300) {
+        data = await response.json();
+        return data;
+    } else {
+        questionsAPIError();
+    }
+}
+
+function questionsAPIError() {
+    quizEnd();
+    quizModal.innerHTML = `
+        <h2>Uh oh!</h2>
+        <p> Something went wrong. Please refresh the page!</p>`
+}
+
+// // Imports hard-coded questions from JSON file.
+// callAPI("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
+//     .then(loadedQuestions => {
+//         availQuestions = [...loadedQuestions];
+//         quiz.questionsTotal = availQuestions.length;
+//     })
 
 // Imports questions through TriviaDB API.
-fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
-    .then(res => {
-        return res.json();
-    })
+callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
     .then(loadedQuestions => {
         loadedQuestions.results.forEach(entry => {
             const question = {
@@ -71,14 +86,13 @@ fetch("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=
             availQuestions.push(question);
         });
     })
-    .catch(err => {
-        console.error(err);
-    });
 
 // Each time a number/letter is added check if the input field value is longer than 3 characters.
 // If it is, enable the quiz start button.
 quizInput.addEventListener('input', () => {
-    if (quizInput.value.length > 2) {
+    if (quizInput.value.includes(" ")) {
+        quizSubmit.disabled = true;
+    } else if (quizInput.value.length > 2) {
         quizSubmit.disabled = false;
     } else {
         quizSubmit.disabled = true;
@@ -377,12 +391,7 @@ function quizEnd() {
     quizModalContainer.classList.remove('active');
 }
 
-function jestTest() {
-    return 12;
-}
-
-let moduleExport = module.exports = {
-    jestTest,
+module.exports = {
     quizStart,
     countdown,
     shuffle,
@@ -398,5 +407,5 @@ let moduleExport = module.exports = {
     quizEnd,
     player,
     quiz,
-    availQuestions
+    callAPI
 }
