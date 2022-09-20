@@ -630,6 +630,8 @@ header {
 
 .app-icons--container img {
     width: 50%;
+    height: 7rem;
+    object-fit: contain;
 }
 
 .app-icons--container a {
