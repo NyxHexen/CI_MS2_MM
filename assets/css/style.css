@@ -85,6 +85,30 @@ button:disabled {
     background: rgb(125, 125, 125) !important;
 }
 
+/* -------------------------------------------------- Scroll Bar Styles */
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 20px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    height: 8px;
+    background: var(--prm-gradient);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-clr);
+  }
+
 /* Accessibility */
 .visually-hidden {
     /* clip is deprecated, but still works and better than display: none; */
