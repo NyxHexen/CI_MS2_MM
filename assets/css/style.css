@@ -1181,11 +1181,6 @@ header {
     transition: display 2s linear;
 }
 
-#booking-cart-container .error {
-    font-size: .9rem;
-    margin-left: .7rem;
-}
-
 #booking-cart-container h3 {
     text-align: center;
     margin-bottom: .5rem;
@@ -1209,6 +1204,12 @@ header {
 
 #booking-cart-container .back {
     background-color: var(--accent-clr);
+}
+
+.error {
+    font-size: .9rem;
+    margin-left: .7rem;
+    color: black;
 }
 
 /* ---------------------------------------------------- Booking Cart */
@@ -2069,7 +2070,7 @@ footer {
         font-size: 1.5rem;
     }
 
-    #booking-cart-container .error {
+    .error {
         font-size: 1.15rem;
     }
 
