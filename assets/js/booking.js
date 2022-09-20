@@ -41,7 +41,7 @@ const primaryOptions = [{
         schedule: "Every Tuesday, 5:30pm - 6.10pm",
         price: "£" + 40,
         tutor: {
-            image: "assets/images/thefamouspeople-profiles-archimedes-422.webp",
+            image: "assets/images/tutor-img-archimedes.webp",
             name: "Archimedes of Syracuse",
             title: "Academy Director"
         }
@@ -54,7 +54,7 @@ const primaryOptions = [{
         schedule: "Fortnightly, Mondays 6pm - 7pm",
         price: "£" + 50,
         tutor: {
-            image: "assets/images/theempireoffilms-wordpress-2012-08-15-pythagoras.webp",
+            image: "assets/images/tutor-img-pythagoras.webp",
             name: "Pythagoras of Samos",
             title: "Tutor"
         }
@@ -73,7 +73,7 @@ const primaryOptions = [{
         schedule: "15/09/2022, 6pm - 7pm",
         price: "Free",
         tutor: {
-            image: "assets/images/wikipedia-Alan-Turing.jpg",
+            image: "assets/images/tutor-img-alan-turing.webp",
             name: "Alan Turing",
             title: "Tutor"
         }
@@ -83,7 +83,7 @@ const primaryOptions = [{
         schedule: "15/09/2022, 7:30pm - 8:30pm",
         price: "Free",
         tutor: {
-            image: "assets/images/wikipedia-Alan-Turing.jpg",
+            image: "assets/images/tutor-img-alan-turing.webp",
             name: "Alan Turing",
             title: "Tutor"
         }
@@ -96,7 +96,7 @@ const primaryOptions = [{
         schedule: "17/04/2022, 12pm - 2pm",
         price: "£149.99",
         tutor: {
-            image: "assets/images/wikipedia-Isaac-Newton.jpg",
+            image: "assets/images/tutor-img-isaac-newton.webp",
             name: "Isaac Newton",
             title: "Tutor"
         }
@@ -112,7 +112,7 @@ const secondaryOptions = [{
         schedule: "1/9/2022, 5:30pm - 6.15pm",
         price: "£" + 40,
         tutor: {
-            image: "assets/images/thefamouspeople-profiles-archimedes-422.webp",
+            image: "assets/images/tutor-img-archimedes.webp",
             name: "Archimedes of Syracuse",
             title: "Academy Director"
         }
@@ -125,7 +125,7 @@ const secondaryOptions = [{
         schedule: "8 weeks, every Tuesday, 5pm - 8pm",
         price: "£" + 350,
         tutor: {
-            image: "assets/images/thefamouspeople-profiles-archimedes-422.webp",
+            image: "assets/images/tutor-img-archimedes.webp",
             name: "Archimedes of Syracuse",
             title: "Academy Director"
         }
