@@ -122,9 +122,6 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
      * Assigns an interval to the carouselInterval variable 
      * which calls nextSlide() every 5 seconds.
      */
-    function startCarousel() {
-        carouselInterval = setInterval(nextSlide, 5000);
-    }
 
     // On hover stop the timers
     carousel.addEventListener('mouseenter', () => {
@@ -139,9 +136,17 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
     // On tab click - focus slide
     carouselTabs.forEach(tab => {
         tab.addEventListener('click', selectedState);
-    })
+    });
+}
 
-};
+/**
+ * Used to assign setInterval to carouselInterval variable 
+ * once the page loads to prevent the Interval from starting before that.
+ */
+function startCarousel() {
+    carouselInterval = setInterval(nextSlide, 5000);
+}
+
 /**
  * nextSlide starts and progresses the carousel to the next tab and slide.
  * It first clears any active classes from the HTML elements using clearState func,
@@ -166,10 +171,10 @@ function nextSlide() {
 function clearState() {
     carouselTabs.forEach(tab => {
         tab.classList.remove('active');
-    })
+    });
     carouselSlides.forEach(slide => {
         slide.classList.remove('active');
-    })
+    });
 }
 
 /**
