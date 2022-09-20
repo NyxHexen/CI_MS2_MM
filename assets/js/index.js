@@ -1,15 +1,15 @@
 // Hamburger Button
 document.querySelector('.hamburger-menu-button').addEventListener('click', function () {
-document.querySelector('.nav-links-container').classList.toggle('active');
+    document.querySelector('.nav-links-container').classList.toggle('active');
 });
 
 // Methodology - index.html
 const methods = document.querySelectorAll('.method');
 
 methods.forEach(method => {
-method.addEventListener('click', () => {
-    method.classList.toggle('active');
-});
+    method.addEventListener('click', () => {
+        method.classList.toggle('active');
+    });
 });
 
 //Modal #Legal
@@ -18,8 +18,8 @@ const modalHeading = document.querySelector('.modal').childNodes[1];
 const modalText = document.querySelector('.modal').childNodes[3];
 const legalButtons = document.querySelectorAll('.legal-button');
 const legalSwitch = [{
-"h2": "TERMS OF USE",
-"text": `
+    "h2": "TERMS OF USE",
+    "text": `
 <h3> 1. Right to Access </h3>
 <p> We grant you a limited, nonexclusive, nontransferable right to access this Site and its content for your
 personal, noncommercial use according to these Terms of Use.If you are under age 18, you may use this Site only
@@ -72,8 +72,8 @@ Privacy Policy, and which may be modified from time to time in our discretion, w
 as of the date posted on our Site.Your continued access or use of the Site or purchase or use of our Services
 indicates that you agree with such modifications.</p>`
 }, {
-"h2": "PRIVACY POLICY",
-"text": `
+    "h2": "PRIVACY POLICY",
+    "text": `
 <h3>What Information Does This Privacy Policy Cover?</h3>
 <br>
 <p>This Privacy Policy covers our treatment of personally identifiable information. Such  information may include name, mailing address, email address, telephone number, and other  information which identifies you as a specific individual ("Personal Information"). Please see  additional information below on the information we collect. For this Privacy Policy the definition  of “Personal Information” is the definition under the state, country, or other law applicable to the  person whose data is collected. For California residents only, “Personal Information” shall have  the definition as set forth in the California Consumer Privacy Act of 2018 (“CCPA”). Please see  the section below entitled “Privacy Notice for California Residents” for more information. If you  are a citizen or resident of the European Economic Area, United Kingdom, or Switzerland, the  definition of personal information ("personal data") is defined under GDPR and you have certain rights; therefore, please see the section below entitled "GDPR".</p>`
@@ -81,23 +81,23 @@ indicates that you agree with such modifications.</p>`
 
 // Depending on which button is clicked (Terms & Conditions or Privacy Policy) the content of the modal changes.
 legalButtons.forEach(button => {
-button.addEventListener('click', () => {
-    if (button.id === "tnc") {
-        modalHeading.innerHTML = legalSwitch[0].h2;
-        modalText.innerHTML = legalSwitch[0].text;
-        modalContainer.removeAttribute('class');
-        modalContainer.classList.toggle('active');
-    } else {
-        modalHeading.innerHTML = legalSwitch[1].h2;
-        modalText.innerHTML = legalSwitch[1].text;
-        modalContainer.removeAttribute('class');
-        modalContainer.classList.toggle('active');
-    }
-});
+    button.addEventListener('click', () => {
+        if (button.id === "tnc") {
+            modalHeading.innerHTML = legalSwitch[0].h2;
+            modalText.innerHTML = legalSwitch[0].text;
+            modalContainer.removeAttribute('class');
+            modalContainer.classList.toggle('active');
+        } else {
+            modalHeading.innerHTML = legalSwitch[1].h2;
+            modalText.innerHTML = legalSwitch[1].text;
+            modalContainer.removeAttribute('class');
+            modalContainer.classList.toggle('active');
+        }
+    });
 });
 
 modalContainer.addEventListener('click', () => {
-modalContainer.classList.toggle('out');
+    modalContainer.classList.toggle('out');
 });
 
 // Carousel - index.html
@@ -106,17 +106,19 @@ const carouselSlides = document.querySelectorAll('.carousel-slide');
 const carouselTabs = document.querySelectorAll('.tab');
 
 let carouselIndex = 0;
+let carouselInterval;
 
 // As index.js is used on each of the pages of the website we make sure that the below runs only on index.html
 if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
-// https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event
-// Instead of reassigning the event handler we use addEvent to add to the event handlers chain.
-window.addEventListener ?
-    window.addEventListener("load", startCarousel, false) :
-    window.attachEvent && window.attachEvent("onload", startCarousel);
+    // https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event
+    // Instead of reassigning the event handler we use addEvent to add to the event handlers chain.
+    window.addEventListener ?
+        window.addEventListener("load", startCarousel(), false) :
+        window.attachEvent && window.attachEvent("onload", startCarousel());
 
-function startCarousel() {
-    let carouselInterval = setInterval(nextSlide, 5000);
+    function startCarousel() {
+        carouselInterval = setInterval(nextSlide, 5000);
+    }
 
     // On hover stop the timers
     carousel.addEventListener('mouseenter', () => {
@@ -132,8 +134,8 @@ function startCarousel() {
     carouselTabs.forEach(tab => {
         tab.addEventListener('click', selectedState);
     })
-}};
 
+};
 /**
  * nextSlide starts and progresses the carousel to the next tab and slide.
  * It first clears any active classes from the HTML elements using clearState func,
@@ -148,7 +150,6 @@ function nextSlide() {
         carouselIndex++;
     }
     activeState(carouselIndex);
-    return carouselIndex;
 }
 
 
@@ -190,14 +191,11 @@ function selectedState(e) {
     carouselIndex = activeIndex - 1;
 }
 
-function jestTest() {
-    return 12;
-}
-
-let modules = module.exports = {
-    jestTest,
-    nextSlide,
-    activeState,
-    selectedState,
-    clearState
-}
+// Module exports has been commented out to prevent Reference Error
+// module.exports = {
+//     jestTest,
+//     nextSlide,
+//     activeState,
+//     selectedState,
+//     clearState
+// }
