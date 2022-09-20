@@ -341,8 +341,10 @@ function calcTimer() {
         return timeLeft;
     } else if (timerMax === 20) {
         return timeLeft * 3;
-    } else if (timerMax <= 10) {
-        return timeLeft * 8;
+    } else if (timerMax === 10) {
+        return timeLeft * 5;
+    } else if (timerMax === 5) {
+        return (timeLeft * 100)
     }
 }
 
