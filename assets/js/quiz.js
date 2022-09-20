@@ -57,14 +57,14 @@ function questionsAPIError() {
     quizEnd();
     quizModal.innerHTML = `
         <h2>Uh oh!</h2>
-        <p> Something went wrong. Please refresh the page!</p>`
+        <p> Something went wrong. Please refresh the page!</p>`;
 }
 
 // Imports hard-coded questions from JSON file.
 callAPI("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
     .then(loadedQuestions => {
         availQuestions = [...loadedQuestions];
-    })
+    });
 
 // Imports questions through TriviaDB API.
 callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
@@ -85,7 +85,7 @@ callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&typ
             });
             availQuestions.push(question);
         });
-    })
+    });
 
 // Each time a number/letter is added check if the input field value is longer than 3 characters.
 // If it is, enable the quiz start button.
