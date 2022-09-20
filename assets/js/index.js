@@ -1,18 +1,10 @@
-// Hamburger Button
-document.querySelector('.hamburger-menu-button').addEventListener('click', function () {
-    document.querySelector('.nav-links-container').classList.toggle('active');
-});
-
-// Methodology - index.html
+// Carousel
+const carousel = document.getElementById('carousel');
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const carouselTabs = document.querySelectorAll('.tab');
+// Methodology
 const methods = document.querySelectorAll('.method');
-
-methods.forEach(method => {
-    method.addEventListener('click', () => {
-        method.classList.toggle('active');
-    });
-});
-
-//Modal #Legal
+// Legal Modal
 const modalContainer = document.querySelector('#modal-container');
 const modalHeading = document.querySelector('.modal').childNodes[1];
 const modalText = document.querySelector('.modal').childNodes[3];
@@ -79,6 +71,23 @@ indicates that you agree with such modifications.</p>`
 <p>This Privacy Policy covers our treatment of personally identifiable information. Such  information may include name, mailing address, email address, telephone number, and other  information which identifies you as a specific individual ("Personal Information"). Please see  additional information below on the information we collect. For this Privacy Policy the definition  of “Personal Information” is the definition under the state, country, or other law applicable to the  person whose data is collected. For California residents only, “Personal Information” shall have  the definition as set forth in the California Consumer Privacy Act of 2018 (“CCPA”). Please see  the section below entitled “Privacy Notice for California Residents” for more information. If you  are a citizen or resident of the European Economic Area, United Kingdom, or Switzerland, the  definition of personal information ("personal data") is defined under GDPR and you have certain rights; therefore, please see the section below entitled "GDPR".</p>`
 }];
 
+let carouselIndex = 0;
+let carouselInterval;
+
+
+// Hamburger Button
+document.querySelector('.hamburger-menu-button').addEventListener('click', function () {
+    document.querySelector('.nav-links-container').classList.toggle('active');
+});
+
+// Methodology
+methods.forEach(method => {
+    method.addEventListener('click', () => {
+        method.classList.toggle('active');
+    });
+});
+
+//Modal #Legal
 // Depending on which button is clicked (Terms & Conditions or Privacy Policy) the content of the modal changes.
 legalButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -100,13 +109,6 @@ modalContainer.addEventListener('click', () => {
     modalContainer.classList.toggle('out');
 });
 
-// Carousel - index.html
-const carousel = document.getElementById('carousel');
-const carouselSlides = document.querySelectorAll('.carousel-slide');
-const carouselTabs = document.querySelectorAll('.tab');
-
-let carouselIndex = 0;
-let carouselInterval;
 
 // As index.js is used on each of the pages of the website we make sure that the below runs only on index.html
 if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html') {
@@ -116,6 +118,10 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
         window.addEventListener("load", startCarousel(), false) :
         window.attachEvent && window.attachEvent("onload", startCarousel());
 
+    /**
+     * Assigns an interval to the carouselInterval variable 
+     * which calls nextSlide() every 5 seconds.
+     */
     function startCarousel() {
         carouselInterval = setInterval(nextSlide, 5000);
     }
