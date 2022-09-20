@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <title>Book an Activity | Math Masters Academy - The Best Online Math Courses</title>
     <script src="https://kit.fontawesome.com/f05b6615ad.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="booking">
     <!-- Header -->
     <header>
@@ -24,33 +26,35 @@
         <!-- Nav -->
         <nav id="nav" class="nav-links-container" aria-label="Navigation links">
             <!-- Hamburger Menu button uses JavaScript event listeners to control the menu state -->
-            <div class="hamburger-menu-button" aria-label="Menu Button" aria-expanded="false" aria-controls="nav-list">
+            <div class="hamburger-menu-button" role="button" aria-expanded="false" aria-controls="nav-list">
                 <div class="menu-icon-wrapper" aria-hidden="true">
                     <div class="menu-icon-line half first"></div>
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line half last"></div>
                 </div>
             </div>
-            <ul class="nav-list">
+            <ul id="nav-list">
                 <!-- Onclick was added to make sure the list item itself behaves like a link -->
                 <li onclick="location.href='index.html'" class="nav-item"><a href="index.html"
                         class="nav-button">Home</a></li>
                 <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html" class="nav-button">Take the
                         Quiz</a></li>
-                <li onclick="location.href='booking.html'" class="nav-item active"><a href="booking.html" class="nav-button">Book an
+                <li onclick="location.href='booking.html'" class="nav-item active"><a href="booking.html"
+                        class="nav-button">Book an
                         Activity</a></li>
             </ul>
         </nav>
     </header>
     <!-- Marketing Content -->
     <section id="marketing">
-        <img src="assets/images/kenny-eliason-zFSo6bnZJTw-unsplash.webp"
-            alt="A classroom with seated kids and a teacher by the blackboard" srcset="">
+        <img src="assets/images/marketing-img.webp" alt="A classroom with seated kids and a teacher by the blackboard">
         <div class="marketing-title">
             <h2>Book an Activity</h2>
         </div>
         <div class="marketing-text">
-            <p>Whether 5 or 65 we've got something for everyone! Discover interactive online maths tuition at its best and see how our unique and successful approach to tutoring is helping people excel in maths at school, and beyond!</p>
+            <p>Whether 5 or 65 we've got something for everyone! Discover interactive online maths tuition at its best
+                and see how our unique and successful approach to tutoring is helping people excel in maths at school,
+                and beyond!</p>
         </div>
         <div class="marketing-badge">
             Try 2 <br> FOR <br> FREE!
@@ -75,7 +79,6 @@
             <select name="school-year-select" id="school-year-select">
                 <option value="default" disabled hidden selected>-- Pick A Level --</option>
             </select>
-            </div>
         </div>
         <!-- Activity Cards -->
         <div id="activity-cards">
@@ -86,7 +89,7 @@
                 <div class="activity-info schedule"><b>Schedule:</b> <span></span></div>
                 <div class="activity-info price"><b>Price:</b> <span></span></div>
                 <div class="activity-info tutor">
-                    <img src="" alt="Picture of a teacher" class="tutor-image">
+                    <img src="#" alt="Picture of a teacher" class="tutor-image">
                     <div class="tutor-info">
                         <h4>Placeholder Heading</h4>
                         <p></p>
@@ -114,16 +117,19 @@
             <!-- Mailing Info Form -->
             <div class="mailing-info-div hidden">
                 <form id="order-mailing-form">
-                    <legend>Your Details</legend>
-                    <input type="text" name="order_name" id="order-name" placeholder="Full Name" required>
-                    <label for="order-name" class="visually-hidden">Your Name:</label>
-                    <input type="email" name="order_email" id="order-email" placeholder="Email Address" required>
-                    <label for="order-email" class="visually-hidden">Email Address:</label>
-                    <div class="form-buttons">
-                        <button type="button" form="order-mailing-form" class="send">Submit</button>
-                        <button type="reset"><i class="fa-solid fa-rotate-left"><span class="visually-hidden">Reset Form</span></i></button>
-                        <button type="button" class="back">Back</button>
-                    </div>
+                    <fieldset>
+                        <legend>Your Details</legend>
+                        <input type="text" name="order_name" id="order-name" placeholder="Full Name" required>
+                        <label for="order-name" class="visually-hidden">Your Name:</label>
+                        <input type="email" name="order_email" id="order-email" placeholder="Email Address" required>
+                        <label for="order-email" class="visually-hidden">Email Address:</label>
+                        <div class="form-buttons">
+                            <button type="button" form="order-mailing-form" class="send">Submit</button>
+                            <button type="reset"><i class="fa-solid fa-rotate-left"><span class="visually-hidden">Reset
+                                        Form</span></i></button>
+                            <button type="button" class="back">Back</button>
+                        </div>
+                    </fieldset>
                 </form>
             </div>
             <!-- Booking Complete Notification -->
@@ -143,22 +149,24 @@
         <h3>Can't find a time that suits you?</h3>
         <p>Want to be the first to hear about our new classes? Sign up for our newsletter to find out when more classes
             are available. We'll also send you free learning resources to help you make progress in maths. </p>
-            <!-- Newsletter Form -->
+        <!-- Newsletter Form -->
         <form id="newsletter-form">
-            <legend class="visually-hidden">Your contact information:</legend>
-            <label for="newsletter-name" class="visually-hidden">Full Name:</label>
-            <input type="text" name="newsletter_name" id="newsletter-name" placeholder="What's your name?" required>
-            <label for="newsletter-email" class="visually-hidden">Email Address:</label>
-            <input type="newsletter-email" name="newsletter_email" id="newsletter-email"
-                placeholder="Your e-mail goes here!" required>
-            <label for="newsletter-findus" class="visually-hidden">How did you find out about us?</label>
-            <select name="newsletter_findus" id="newsletter-findus" required>
-                <option value="" disabled selected>-- select an option --</option>
-                <option value="option--one">Google</option>
-                <option value="option--two">Facebook</option>
-                <option value="option--three">Twitter</option>
-                <option value="option--four">Recommended By Friend</option>
-            </select>
+            <fieldset>
+                <legend class="visually-hidden">Your contact information:</legend>
+                <label for="newsletter-name" class="visually-hidden">Full Name:</label>
+                <input type="text" name="newsletter_name" id="newsletter-name" placeholder="What's your name?" required>
+                <label for="newsletter-email" class="visually-hidden">Email Address:</label>
+                <input type="email" name="newsletter_email" id="newsletter-email" placeholder="Your e-mail goes here!"
+                    required>
+                <label for="newsletter-findus" class="visually-hidden">How did you find out about us?</label>
+                <select name="newsletter_findus" id="newsletter-findus" required>
+                    <option value="" disabled selected>-- select an option --</option>
+                    <option value="option--one">Google</option>
+                    <option value="option--two">Facebook</option>
+                    <option value="option--three">Twitter</option>
+                    <option value="option--four">Recommended By Friend</option>
+                </select>
+            </fieldset>
             <div class="form-buttons">
                 <button type="submit" form="newsletter-form" class="newsletter-form--submit">Submit</button>
                 <button type="reset" class="newsletter-form--reset">Reset</button>
@@ -171,7 +179,7 @@
         <div id="full-logo">
             <div class="logo-image">
                 <img src="assets/images/logo.webp" alt="Math Masters Academy logo">
-            </div>          
+            </div>
             <div class="logo-text">
                 <span>Math</span><br>
                 <span>Masters</span><br>
@@ -195,9 +203,9 @@
         <!-- Legal Modal -->
         <!-- Depending on the button clicked JS changes the modal container content -->
         <div id="legal">
-            <div id="tnc" class="legal-button" aria-label="Open Terms & Conditions Modal">Terms & Conditions</div>
+            <div id="tnc" class="legal-button" role="button" aria-controls="modal-container">Terms & Conditions</div>
             <span> | </span>
-            <div id="privacy" class="legal-button" aria-label="Open Privacy Policy Modal">Privacy Policy</div>
+            <div id="privacy" class="legal-button" role="button" aria-controls="modal-container">Privacy Policy</div>
         </div>
         <div id="modal-container">
             <div class="modal-background">
@@ -210,8 +218,9 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="module" src="assets/js/index.js"></script>
     <script type="module" src="assets/js/booking.js"></script>
 </body>
+
 </html>

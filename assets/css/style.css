@@ -85,6 +85,10 @@ button:disabled {
     background: rgb(125, 125, 125) !important;
 }
 
+fieldset {
+    border: none;
+}
+
 /* -------------------------------------------------- Scroll Bar Styles */
 /* width */
 ::-webkit-scrollbar {
@@ -230,7 +234,7 @@ header {
 
 /* ------------------------- Nav Container in Mobile */
 
-.nav-links-container.active .nav-list {
+.nav-links-container.active #nav-list {
     opacity: 1;
     transform: scale(1);
 }
@@ -270,7 +274,7 @@ header {
 
 /* ------------------------------- Nav items list */
 
-.nav-list {
+#nav-list {
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
@@ -285,7 +289,7 @@ header {
     overflow: hidden;
 }
 
-.nav-list a {
+#nav-list a {
     text-decoration: none;
     color: unset;
 }
@@ -1373,8 +1377,8 @@ header {
 }
 
 #newsletter-form-container,
-#newsletter-form-container form,
-#booking-cart-container form {
+#newsletter-form-container form fieldset,
+#booking-cart-container form fieldset {
     display: flex;
     flex-direction: column;
 }
@@ -2800,7 +2804,7 @@ footer {
         inset: 0;
     }
 
-    .nav-list,
+    #nav-list,
     .nav-item {
         display: flex;
         align-items: center;
