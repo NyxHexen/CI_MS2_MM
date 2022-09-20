@@ -13,6 +13,7 @@ const hudMultiplierSpan = document.querySelector('.multiplier span');
 const hudQuestionCounter = document.querySelectorAll('.question-counter span')[0];
 const hudQuestionCounterTotal = document.querySelectorAll('.question-counter span')[1];
 const CORRECT_BONUS = 10;
+const MAX_QUESTIONS = 20;
 
 let timerMax = 30;
 let timerId, timeLeft;
@@ -59,12 +60,11 @@ function questionsAPIError() {
         <p> Something went wrong. Please refresh the page!</p>`
 }
 
-// // Imports hard-coded questions from JSON file.
-// callAPI("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
-//     .then(loadedQuestions => {
-//         availQuestions = [...loadedQuestions];
-//         quiz.questionsTotal = availQuestions.length;
-//     })
+// Imports hard-coded questions from JSON file.
+callAPI("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
+    .then(loadedQuestions => {
+        availQuestions = [...loadedQuestions];
+    })
 
 // Imports questions through TriviaDB API.
 callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
@@ -187,6 +187,10 @@ function clearStatusClass(array) {
 function showQuestion() {
     if (quiz.questionsCounter != quiz.questionsTotal) {
         shuffledQuestions = shuffle(availQuestions);
+        if (shuffledQuestions.length > MAX_QUESTIONS){
+            shuffledQuestions = shuffledQuestions.slice(0, 20);
+            quiz.questionsTotal = shuffledQuestions.length;
+        }
         currentQuestion = shuffledQuestions.shift();
         quizQuestion.innerHTML = currentQuestion.question;
         shuffledAnswers = shuffle(currentQuestion.answers);
