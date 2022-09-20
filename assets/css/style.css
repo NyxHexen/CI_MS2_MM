@@ -2853,7 +2853,7 @@ footer {
     .slide-1::before,
     .slide-2::before,
     .slide-3::before {
-        height: 150%;
+        height: 200%;
     }
 
     .carousel-slide h2 {
