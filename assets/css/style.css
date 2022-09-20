@@ -1406,7 +1406,7 @@ header {
 #booking-cart-container input,
 #newsletter-form-container select {
     border: none;
-    background-color: #0084ff;
+    background-color: var(--accent-clr);
     color: white;
     margin: .5rem;
     padding: .5rem;
