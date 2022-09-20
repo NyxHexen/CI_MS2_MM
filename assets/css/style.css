@@ -1006,7 +1006,6 @@ header {
 
 .marketing-title h2 {
     width: 98%;
-    padding: 0 .5rem;
     margin: 0 auto;
     color: white;
     text-align: center;
@@ -1876,6 +1875,10 @@ footer {
         height: 17rem;
     }
 
+    .marketing-title {
+        top: 20%;
+    }
+
     .quiz-start-box {
         width: 90%;
     }
@@ -2137,10 +2140,6 @@ footer {
     .fa-brands {
         font-size: 3.5rem;
     }
-
-    #legal div {
-        font-size: 1rem;
-    }
 }
 
 @media (min-width: 375px) {
@@ -2304,7 +2303,7 @@ footer {
     }
 
     .marketing-title {
-        top: 45%;
+        top: 30%;
     }
 
     .marketing-title h2 {
@@ -2337,7 +2336,7 @@ footer {
     }
 }
 
-@media (min-width: 700px) and (orientation: portrait) {
+@media (min-width: 700px) {
     h2 {
         font-size: 2.25rem;
     }
@@ -2549,7 +2548,7 @@ footer {
     }
 
     .marketing-title {
-        top: 50%;
+        top: 30%;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -2767,7 +2766,6 @@ footer {
 
     .marketing-title h2 {
         font-size: 5rem;
-        width: 46rem;
     }
 
     .marketing-badge {
