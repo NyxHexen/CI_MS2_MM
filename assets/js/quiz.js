@@ -186,11 +186,11 @@ function clearStatusClass(array) {
  */
 function showQuestion() {
     if (quiz.questionsCounter != quiz.questionsTotal) {
-        shuffledQuestions = shuffle(availQuestions);
-        if (shuffledQuestions.length > MAX_QUESTIONS){
-            shuffledQuestions = shuffledQuestions.slice(0, 20);
-            quiz.questionsTotal = shuffledQuestions.length;
+        if (availQuestions.length > MAX_QUESTIONS){
+            availQuestions = availQuestions.slice(0, 21);
+            quiz.questionsTotal = availQuestions.length - 1;
         }
+        shuffledQuestions = shuffle(availQuestions);
         currentQuestion = shuffledQuestions.shift();
         quizQuestion.innerHTML = currentQuestion.question;
         shuffledAnswers = shuffle(currentQuestion.answers);
@@ -396,21 +396,21 @@ function quizEnd() {
     quizModalContainer.classList.remove('active');
 }
 
-module.exports = {
-    quizStart,
-    countdown,
-    shuffle,
-    clearStatusClass,
-    startTimer,
-    stopTimer,
-    selectSiblings,
-    selectAnswer,
-    updateScore,
-    calcTimer,
-    resetTimer,
-    quizEnd,
-    player,
-    quiz,
-    callAPI,
-    showQuestion,
-}
+// module.exports = {
+//     quizStart,
+//     countdown,
+//     shuffle,
+//     clearStatusClass,
+//     startTimer,
+//     stopTimer,
+//     selectSiblings,
+//     selectAnswer,
+//     updateScore,
+//     calcTimer,
+//     resetTimer,
+//     quizEnd,
+//     player,
+//     quiz,
+//     callAPI,
+//     showQuestion,
+// }
