@@ -23,18 +23,18 @@
         <!-- Nav -->
         <nav id="nav" class="nav-links-container" aria-label="Navigation links">
             <!-- Hamburger Menu button uses JavaScript event listeners to control the menu state -->
-            <div class="hamburger-menu-button" aria-label="Menu Button" aria-expanded="false" aria-controls="nav-list">
+            <div class="hamburger-menu-button" role="button" aria-expanded="false" aria-controls="nav-list">
                 <div class="menu-icon-wrapper" aria-hidden="true">
                     <div class="menu-icon-line half first"></div>
                     <div class="menu-icon-line"></div>
                     <div class="menu-icon-line half last"></div>
                 </div>
             </div>
-            <ul class="nav-list">
+            <ul id="nav-list">
                 <!-- Onclick was added to make sure the list item itself behaves like a link -->
-                <li onclick="location.href='index.html'" class="nav-item"><a href="index.html"
+                <li onclick="location.href='index.html'" class="nav-item active"><a href="index.html"
                         class="nav-button">Home</a></li>
-                <li onclick="location.href='quiz.html'" class="nav-item active"><a href="quiz.html" class="nav-button">Take the
+                <li onclick="location.href='quiz.html'" class="nav-item"><a href="quiz.html" class="nav-button">Take the
                         Quiz</a></li>
                 <li onclick="location.href='booking.html'" class="nav-item"><a href="booking.html" class="nav-button">Book an
                         Activity</a></li>
@@ -99,9 +99,9 @@
         <!-- Legal Modal -->
         <!-- Depending on the button clicked JS changes the modal container -->
         <div id="legal">
-            <div id="tnc" class="legal-button" aria-label="Open Terms & Conditions Modal">Terms & Conditions</div>
+            <div id="tnc" class="legal-button" role="button" aria-controls="modal-container">Terms & Conditions</div>
             <span> | </span>
-            <div id="privacy" class="legal-button" aria-label="Open Privacy Policy Modal">Privacy Policy</div>
+            <div id="privacy" class="legal-button" role="button" aria-controls="modal-container">Privacy Policy</div>
         </div>
         <div id="modal-container">
             <div class="modal-background">
