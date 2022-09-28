@@ -492,24 +492,102 @@ _ User Stories Covered - 16, 24_
 
 [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website. 
 
+<details>
+<summary>Home Page - index.html</summary>
+
+<img src="docs/validation/w3-html-validator-index.png">
+</details>
+
+<details>
+<summary>Quiz Page - quiz.html</summary>
+
+<img src="docs/validation/w3-html-validator-quiz.png">
+</details>
+
+<details>
+<summary>Booking Pager - booking.html</summary>
+
+<img src="docs/validation/w3-html-validator-booking.png">
+</details>
 
 ### CSS Validation
 
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS of the website.
 
+<details>
+<summary>style.css</summary>
+
+<img src="docs/validation/w3-css-validator-style.png">
+</details>
 
 ### JavaScript Validation
 
 [JS Hint](https://jshint.com/) was used to validate the JavaScript of the website.
 
+<details>
+<summary>Home Page - index.html</summary>
+
+Warning due to conditional statement used to attach `onLoad` event listener.
+<img src="docs/validation/jshint-index.png">
+</details>
+
+<details>
+<summary>Quiz Page - quiz.html</summary>
+
+Warnings due to use of `!` to get boolean value by checking if property exists.
+<img src="docs/validation/jshint-quiz.png">
+</details>
+
+<details>
+<summary>Booking Pager - booking.html</summary>
+
+Warnings due to use of `!` to get boolean value by checking if property exists, and event listener calling an anonymous function within a loop statement.
+<img src="docs/validation/jshint-booking.png">
+</details>
+
 ### Accessibility
 
 [WAVE WebAIM Web Accessibility (Chrome Plugin)](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) was used to check that the code meets accessibility standards.
+
+<details>
+<summary>Home Page - index.html</summary>
+
+<img src="docs/validation/wave-accessibility-index.png">
+</details>
+
+<details>
+<summary>Quiz Page - quiz.html</summary>
+
+<img src="docs/validation/wave-accessibility-quiz.png">
+</details>
+
+<details>
+<summary>Booking Pager - booking.html</summary>
+
+<img src="docs/validation/wave-accessibility-booking.png">
+</details>
 
 ### Performance
 
 [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to measure the website's speed and performance. 
 
+<details>
+<summary>Home Page - index.html</summary>
+
+<img src="docs/validation/lighthouse-index.png">
+</details>
+
+<details>
+<summary>Quiz Page - quiz.html</summary>
+
+<img src="docs/validation/lighthouse-quiz.png">
+</details>
+
+<details>
+<summary>Booking Pager - booking.html</summary>
+
+<img src="docs/validation/lighthouse-booking.png">
+</details>
 
 ### Browser compatibility:
 
