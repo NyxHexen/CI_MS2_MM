@@ -350,7 +350,7 @@ _User Stories Covered - 5, 19_
 <img src="docs/features/math-masters-academy-contact-us.png">
 </details>
 
-_User Stories Covered - 6, 26, 7_
+_User Stories Covered - 2, 3, 6, 26, 7_
 
 #### Quiz Page - quiz.html 
 
@@ -372,7 +372,7 @@ The first thing the user is greeted is by the instructions/details, an input fie
 
 As the game starts, a timer is set to 30 seconds, the question is displayed and the answers are loaded. Each question has only one correct answer. 
 
-The scoring of the game is based on picking correct answer, how many correct answers the user has answered, if the user is on a spree, and how long it takes for the user to answer. For every two correct answers the user hits a spree. Every time the user hits a spree the timer is reduced by 10 seconds, until it hits 10 seconds total, then further reduced down to 5; the multiplier is also increased by 1, up to a maximum of 10. The default points for answered questions is 10, which is multiplier by the multiplier value at the time of answering the question, for a maximum of `100` points The score is further increased by how short the timer is at the time of calculation and how much time left when the answer was clicked. If the timer maximum duration is 30, there is no additional multiplier, it returns 30 points. If the maximum duration is 20, the time left is multiplier by 3. If 10 - multiplied by 5. If 5 - multiplied by 100; for a total maximum of `500` points from the timer scoring. The maximum total score at the end of the game is `8760` points.
+The scoring of the game is based on picking correct answer, how many correct answers the user has answered, if the user is on a spree, and how long it takes for the user to answer. For every two correct answers the user hits a spree. Every time the user hits a spree the timer is reduced by 10 seconds, until it hits 10 seconds total, then further reduced down to 5; the multiplier is also increased by 1, up to a maximum of 10. The default points for answered questions is 10, which is multiplier by the multiplier value at the time of answering the question, for a maximum of `100` points The score is further increased by how short the timer is at the time of calculation and how much time left when the answer was clicked. If the timer maximum duration is 30, there is no additional multiplier, it returns 30 points. If the maximum duration is 20, the time left is multiplied by 3. If 10 - multiplied by 5. If 5 - multiplied by 100; for a total maximum of `500` points from the timer scoring. The maximum total score at the end of the game is `8760` points.
 
 At the end of the game the modal re-appears with the results from the game.
 
@@ -386,7 +386,84 @@ _User Stories Covered - 13, 14, 15, 18_
 
 #### Booking Page - booking.html 
 
+Booking page is comprised of 3 features.
 
+1. Marketing Section - consists of 4 parts.
+- Image of a school classroom.
+- Title, same as the name of the page on the Nav bar.
+- Badge, alerting the users that the first two courses booked through the website are free.
+- Text, inviting the users to book an online course.
+
+This feature does not have any functionality, however as the rest of the website is fully responsive. It is purely used as a way to motivate the user to book classes with the academy.
+
+<details>
+<summary> Supporting Image</summary>
+
+<img src="docs/features/math-masters-academy-marketing.png">
+</details>
+
+_User Stories Covered - 1, 4, 17_
+
+2. Booking Section - a highly interactive and reactive mock booking system containing 4 parts.
+- School Level buttons, the trigger buttons of this feature. In order for the booking system to be initiated the user will first need to pick between Primary and Secondary school.
+- School Year drop-down menu, step two of the booking process. Once the school level has been selected the contents of the drop-down menu changes according to the choice. 
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-booking-buttons.png">
+    </details>
+- Activity Cards - once the user has selected an option from the dropdown menu, if there are any cards available for the specific options they will be displayed. Alternatively, if no classes are available a special no-class card will be shown which contains an image and a title informing the user there are no classes available. The cards contain all the class information, including a picture and name of the tutor, and an "Add to Cart" button. When pressed the button changes text content and becomes disabled.
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-booking-activity-cards.png">
+    <img src="docs/features/math-masters-academy-booking-no-class-card.png">
+    </details>
+- Booking Cart, containing the last two steps to complete before the booking is completed.
+    1. The cart itself, step 1 of 2, fades in once the user has clicked on the "Add to Cart" button on the classes cards.
+        - The item added to the cart has three areas of focus - a "remove from cart" X icon, the name of the class, and the price of the class.
+            - Each added class is stored as a key within the `sessionStorage` of the browser. Each time the page is refreshed any keys stored until that moment are deleted.
+            - When the X icon is clicked the the class it belongs to is removed from the cart and the button of the card is enabled and the text content reverts to the initial value. If a storage key exists it is also updated accordingly.
+        - Below the cart itself is shown the total of the cart, with the amount being, as expected, updated each time a class is added or removed.
+        - The "Book Now" button takes us to step 2 of the booking process. The button will not do anything if the cart is left empty. Once the button is clicked, all card buttons are changed to disabled to prevent accidental changes to the cart. At time of release this button does not show any errors to the user to signal that it is empty, but will be added in future.
+
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-booking-cart.png">
+    </details>
+
+    2. Once the user is happy with their selection they proceed to a form where they need to add their name and e-mail address, as it would be recorded in the system in order to finalize their order.
+        - This form has additional name and e-mail validation to ensure that all fields are correctly completed.
+        - Reset button, self-explanatory.
+        - User also has the option to go back to their cart if they would like to add additional items.
+        
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-booking-form.png">
+    </details>
+
+    3. Once form is submitted the user is shown a booking confirmation and instructions to check their inbox where they will receive an e-mail confirming the classes and total amount due.
+        - The user is also given the option to restart the booking process by clicking a button which refreshes the page.
+        
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-booking-confirmation.png">
+    </details>
+
+_ User Stories Covered - 4, 11, 12, 25_
+
+3. A sign-up form via which the user can subscribe to the academy's newsletter where they will be kept notified when new classes and promotions are made available. The form has inputs for name, e-mail, and a drop-down menu, which is optional, via which the user can specify how they heard about the academy.
+
+    <details>
+    <summary> Supporting Image</summary>
+
+    <img src="docs/features/math-masters-academy-newsletter.png">
+    </details>
+
+_ User Stories Covered - 16, 24_
 
 ---
 
@@ -400,11 +477,11 @@ _User Stories Covered - 13, 14, 15, 18_
 |Version Control| Git |
 |Deployment | GitHub Pages |
 |Languages | HTML5, CSS3 & JavaScript |
-|Font - Headings & Buttons | https://fonts.google.com/specimen/Lexend |
-|Font - Other | https://fonts.google.com/specimen/Montserrat?query=montser |
+|Font - Headings & Buttons | [Lexend](https://fonts.google.com/specimen/Lexend) |
+|Font - Other | [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montser) |
 |Font - Fallback | sans-serif |
-|Responsive Mockup | https://ui.dev/amiresponsive |
-|Image Converter | https://www.freeconvert.com/png-to-webp |
+|Responsive Mockup | [Am I Responsive](https://ui.dev/amiresponsive) |
+|Image Converter | [FreeConvert](https://www.freeconvert.com/png-to-webp) |
 
 ---
 
