@@ -119,7 +119,7 @@ describe("Test shuffle() function", () => {
     });
 })
 
-describe("Test shuffle() function", () => {
+describe("Test clearStatus() function", () => {
     test("clearStatus class correctly removes all addl classes", () => {
         document.querySelectorAll('.answer')[0].classList.add('disabled');
         document.querySelectorAll('.answer')[1].classList.add('unset');
@@ -133,9 +133,9 @@ describe("Test shuffle() function", () => {
     });
 })
 
-describe("Test shuffle() function", () => {
-    showQuestion();
+describe("Test showQuestion() function", () => {
     test("showQuestion correctly loads question and answers", () => {
+        showQuestion();
         expect(document.querySelector('.question').length).not.toBe(0);
         expect(document.querySelectorAll('.answer')[0].length).not.toBe(0);
         expect(document.querySelectorAll('.answer')[1].length).not.toBe(0);
@@ -168,11 +168,21 @@ describe('callAPI', () => {
     })
 })
 
+describe("Test startTimer() function", () => {
+    test("Starts a timer and updates the quiz timer with time remaining", () => {
+        jest.useFakeTimers();
+        jest.spyOn(global, 'setInterval');
+        startTimer(30);
+        expect(setInterval).toHaveBeenCalledTimes(1);
+        expect(document.querySelector('.timer').innerHTML).not.toBe(0);
+    })
+})
+
 describe("Test stopTimer() function", () => {
-    let mockInterval = setInterval(jest.fn(), 10000);
-    let mockTimeout = setTimeout(jest.fn(), 10000);
-    test("Functions stops any timer that has been passed as callback", () => {
-        stopTimer(mockTimeout);
-        expect(mockTimeout).toBe(null);
+    test("Function stops any interval or timeout that has been passed as parameter", () => {
+        let tempTimeout = setTimeout(() => {return}, 1000);
+        let tempInterval = setInterval(() => {return}, 1000);
+        expect(stopTimer(tempTimeout)).toBe(null);
+        expect(stopTimer(tempInterval)).toBe(null);
     })
 })
