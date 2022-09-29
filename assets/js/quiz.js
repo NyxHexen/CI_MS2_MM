@@ -283,7 +283,7 @@ function selectSiblings(array, skipThis) {
  * @returns if acceptingAnswers is false.
  */
 function selectAnswer(e) {
-    if (!acceptingAnswers) return;
+    if (!acceptingAnswers) return false;
     stopTimer(timerId);
     acceptingAnswers = false;
     const selectedAnswer = e.target;
