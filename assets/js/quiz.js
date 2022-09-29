@@ -63,12 +63,13 @@ function questionsAPIError() {
 // Imports hard-coded questions from JSON file.
 callAPI("https://nyxhexen.github.io/CI_MS2_MM/assets/js/questions.json")
     .then(loadedQuestions => {
-        availQuestions = [...loadedQuestions];
+        availQuestions = Array.from(loadedQuestions);
     });
 
 // Imports questions through TriviaDB API.
 callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&type=multiple")
     .then(loadedQuestions => {
+        let tempArr = [];
         loadedQuestions.results.forEach(entry => {
             const question = {
                 question: entry.question,
@@ -83,8 +84,9 @@ callAPI("https://opentdb.com/api.php?amount=14&category=19&difficulty=medium&typ
                 };
                 question.answers.push(answer);
             });
-            availQuestions.push(question);
+            tempArr.push(question);
         });
+        availQuestions = availQuestions.concat(tempArr);
     });
 
 // Each time a number/letter is added check if the input field value is longer than 3 characters.
@@ -251,6 +253,7 @@ function startTimer(seconds) {
 function stopTimer(timer) {
     clearInterval(timer);
     timer = null;
+    return timer;
 }
 
 /**
@@ -398,21 +401,21 @@ function quizEnd() {
     quizModalContainer.classList.remove('active');
 }
 
-// module.exports = {
-//     quizStart,
-//     countdown,
-//     shuffle,
-//     clearStatusClass,
-//     startTimer,
-//     stopTimer,
-//     selectSiblings,
-//     selectAnswer,
-//     updateScore,
-//     calcTimer,
-//     resetTimer,
-//     quizEnd,
-//     player,
-//     quiz,
-//     callAPI,
-//     showQuestion,
-// }
+module.exports = {
+    quizStart,
+    countdown,
+    shuffle,
+    clearStatusClass,
+    startTimer,
+    stopTimer,
+    selectSiblings,
+    selectAnswer,
+    updateScore,
+    calcTimer,
+    resetTimer,
+    quizEnd,
+    player,
+    quiz,
+    callAPI,
+    showQuestion,
+}
