@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-let jestTest, nextSlide, activeState, selectedState, clearState;
+let nextSlide, activeState, selectedState, clearState;
 
 beforeAll(() => {
     let fs = require("fs");
@@ -17,12 +17,6 @@ beforeAll(() => {
     selectedState = require("../index.js").selectedState;
     clearState = require("../index.js").clearState;
 })
-
-describe("Test that Jest is working correctly", () => {
-    test("should return 12", () => {
-        expect(jestTest()).toBe(12);
-    });
-});
 
 describe("Test page functionality", () => {
     test("nextSlide() should return 1 after 1st call", () => {
