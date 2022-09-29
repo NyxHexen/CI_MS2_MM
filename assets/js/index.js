@@ -162,6 +162,7 @@ function nextSlide() {
         carouselIndex++;
     }
     activeState(carouselIndex);
+    return carouselIndex;
 }
 
 
@@ -203,11 +204,9 @@ function selectedState(e) {
     carouselIndex = activeIndex - 1;
 }
 
-// Module exports has been commented out to prevent Reference Error
-// module.exports = {
-//     jestTest,
-//     nextSlide,
-//     activeState,
-//     selectedState,
-//     clearState
-// }
+module.exports = {
+    nextSlide,
+    activeState,
+    selectedState,
+    clearState
+}
