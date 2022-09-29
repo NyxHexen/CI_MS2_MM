@@ -1,9 +1,12 @@
+const { expect } = require('expect');
+const { beforeEach, afterEach } = require('jest-circus');
+
 /**
  * @jest-environment jsdom
  */
 require('jest-fetch-mock').enableMocks();
 
-let callAPI, tickTock, player, quiz, quizStart, countdown, shuffle, clearStatusClass, showQuestion, startTimer, stopTimer, selectSiblings, selectAnswer, updateScore, calcTimer, resetTimer, quizEnd;
+let callAPI, player, quiz, quizStart, countdown, shuffle, clearStatusClass, showQuestion, startTimer, stopTimer, selectSiblings, selectAnswer, updateScore, calcTimer, resetTimer, quizEnd;
 
 const mockResponseData = {
     "response_code": 200,
@@ -74,6 +77,10 @@ beforeAll(() => {
     quizEnd = require("../quiz.js").quizEnd;
 })
 
+afterEach(() => {
+    global.mockClear();
+})
+
 describe("Objects exist and have correct value", () => {
     test("Player object exists and has correct key value pairs", () => {
         expect(player.name).toBe(0);
@@ -119,8 +126,8 @@ describe("Test shuffle() function", () => {
     });
 })
 
-describe("Test clearStatus() function", () => {
-    test("clearStatus class correctly removes all addl classes", () => {
+describe("Test clearStatusClass() function", () => {
+    test("clearStatusClass correctly removes all addl classes", () => {
         document.querySelectorAll('.answer')[0].classList.add('disabled');
         document.querySelectorAll('.answer')[1].classList.add('unset');
         document.querySelectorAll('.answer')[2].classList.add('set');
@@ -170,7 +177,6 @@ describe('callAPI', () => {
 
 describe("Test startTimer() function", () => {
     test("Starts a timer and updates the quiz timer with time remaining", () => {
-        jest.useFakeTimers();
         jest.spyOn(global, 'setInterval');
         startTimer(30);
         expect(setInterval).toHaveBeenCalledTimes(1);
@@ -180,9 +186,30 @@ describe("Test startTimer() function", () => {
 
 describe("Test stopTimer() function", () => {
     test("Function stops any interval or timeout that has been passed as parameter", () => {
-        let tempTimeout = setTimeout(() => {return}, 1000);
-        let tempInterval = setInterval(() => {return}, 1000);
+        let tempTimeout = setTimeout(() => {
+            return
+        }, 1000);
+        let tempInterval = setInterval(() => {
+            return
+        }, 1000);
         expect(stopTimer(tempTimeout)).toBe(null);
         expect(stopTimer(tempInterval)).toBe(null);
+    })
+})
+
+describe("Test selectSiblings() function", () => {
+    test("selectSiblings creates an array of siblings to skipThis parameter", () => {
+        let tempArr = [1, 2, 3, 4];
+        expect(selectSiblings(tempArr, 2)).toStrictEqual([1, 3, 4]);
+    })
+})
+
+describe("Test selectAnswer() function", () => {
+    test("selectAnswer runs as intended", () => {
+        jest.spyOn(global, 'setTimeout');
+        selectAnswer(trigger(document.querySelectorAll('.answer')[1], 'click'));
+        expect(setTimeout).toHaveBeenCalledTimes(1);
+        expect(document.querySelectorAll('.answer')[2].classList).toContain('disabled');
+        expect(player.answered).toBe(1);
     })
 })
