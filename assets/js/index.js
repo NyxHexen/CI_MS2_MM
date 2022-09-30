@@ -119,11 +119,6 @@ if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.path
         window.addEventListener("load", startCarousel(), false) :
         window.attachEvent && window.attachEvent("onload", startCarousel());
 
-    /**
-     * Assigns an interval to the carouselInterval variable 
-     * which calls nextSlide() every 5 seconds.
-     */
-
     // On hover stop the timers
     carousel.addEventListener('mouseenter', () => {
         clearInterval(carouselInterval);
