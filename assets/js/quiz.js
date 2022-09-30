@@ -235,7 +235,7 @@ function startTimer(seconds) {
     function tickTock() {
         if (timeLeft === -1) {
             stopTimer(timerId);
-            resetTimer();
+            resetTimer(timerMax);
             player.multiplier = 1;
             answerSpree = [];
             showQuestion();
@@ -325,7 +325,7 @@ function updateScore(selected) {
             player.multiplier++;
         }
     } else if (!selected.dataset.correct == true) {
-        resetTimer();
+        resetTimer(timerMax);
         player.multiplier = 1;
         answerSpree = [];
     }
@@ -366,9 +366,10 @@ function shortenTimer() {
 
 /**
  * Reset total timer time to default value of 30 seconds.
+ * @param {var} total sets variable to 30.
  */
-function resetTimer() {
-    timerMax = 30;
+function resetTimer(total) {
+    total = 30;
 }
 
 /**
