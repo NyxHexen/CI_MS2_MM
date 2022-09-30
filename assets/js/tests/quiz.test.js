@@ -213,3 +213,21 @@ describe("Test selectAnswer() function", () => {
         expect(player.answered).toBe(1);
     })
 })
+
+describe("Test calcTimer() function", () => {
+    test("Timer at 20, multiply by 3", () => {
+        let timerMax = 20;
+        let timeLeft = 20;
+        expect(calcTimer(timerMax, timeLeft)).toBe(60);
+    })
+    test("Timer at 10, multiply by 12", () => {
+        let timerMax = 10;
+        let timeLeft = 10;
+        expect(calcTimer(timerMax, timeLeft)).toBe(120);
+    })
+    test("Timer at 5, multiply by 48", () => {
+        let timerMax = 5;
+        let timeLeft = 5;
+        expect(calcTimer(timerMax, timeLeft)).toBe(240);
+    })
+})
