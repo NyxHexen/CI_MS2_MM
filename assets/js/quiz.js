@@ -53,6 +53,9 @@ async function callAPI(api_url) {
     }
 }
 
+/**
+ * Calls quizEnd() and shows modal if callAPI() function fails.
+ */
 function questionsAPIError() {
     quizEnd();
     quizModal.innerHTML = `
