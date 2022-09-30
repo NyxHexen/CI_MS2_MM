@@ -317,7 +317,7 @@ function selectAnswer(e) {
  */
 function updateScore(selected) {
     if (selected.dataset.correct) {
-        player.score = player.score + ((CORRECT_BONUS * player.multiplier) + calcTimer());
+        player.score = player.score + ((CORRECT_BONUS * player.multiplier) + calcTimer(timerMax, timeLeft));
         answerSpree.push(true);
         isOnSpree = answerSpree.reduce((i, a) => i + a, 0);
         if (isOnSpree > 0 && isOnSpree % 2 == 0) {
@@ -334,20 +334,20 @@ function updateScore(selected) {
 }
 
 /**
- * Returns a calculation total depending on the time remaining 
- * on the timer at the time this function is called.
- * Used inside of updateScore to increase score after answer is selected.
- * @returns calculation total.
+ * Returns a calculation total depending on two parameters.
+ * @param {number} total - Maximum timer value.
+ * @param {number} remaining - Time remaining on timer.
+ * @returns 
  */
-function calcTimer() {
-    if (timerMax === 30) {
-        return timeLeft;
-    } else if (timerMax === 20) {
-        return timeLeft * 3;
-    } else if (timerMax === 10) {
-        return timeLeft * 5;
-    } else if (timerMax === 5) {
-        return (timeLeft * 100)
+function calcTimer(total, remaining) {
+    if (total === 30) {
+        return remaining;
+    } else if (total === 20) {
+        return remaining * 3;
+    } else if (total === 10) {
+        return remaining * 12;
+    } else if (total === 5) {
+        return remaining * 48
     }
 }
 
