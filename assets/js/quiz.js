@@ -405,21 +405,22 @@ function quizEnd() {
     quizModalContainer.classList.remove('active');
 }
 
-module.exports = {
-    quizStart,
-    countdown,
-    shuffle,
-    clearStatusClass,
-    startTimer,
-    stopTimer,
-    selectSiblings,
-    selectAnswer,
-    updateScore,
-    calcTimer,
-    resetTimer,
-    quizEnd,
-    player,
-    quiz,
-    callAPI,
-    showQuestion,
-}
+// Commented out module exports to prevent ReferenceError from being thrown.
+// module.exports = {
+//     quizStart,
+//     countdown,
+//     shuffle,
+//     clearStatusClass,
+//     startTimer,
+//     stopTimer,
+//     selectSiblings,
+//     selectAnswer,
+//     updateScore,
+//     calcTimer,
+//     resetTimer,
+//     quizEnd,
+//     player,
+//     quiz,
+//     callAPI,
+//     showQuestion,
+// }

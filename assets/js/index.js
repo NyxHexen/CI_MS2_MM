@@ -74,7 +74,6 @@ indicates that you agree with such modifications.</p>`
 let carouselIndex = 0;
 let carouselInterval;
 
-
 // Hamburger Button
 ['click', 'keydown'].forEach(ev => {
     document.querySelector('.hamburger-menu-button').addEventListener(ev, function () {
@@ -205,9 +204,10 @@ function selectedState(e) {
     carouselIndex = activeIndex - 1;
 }
 
-module.exports = {
-    nextSlide,
-    activeState,
-    selectedState,
-    clearState
-}
+// Commented out module exports to prevent ReferenceError from being thrown.
+// module.exports = {
+//     nextSlide,
+//     activeState,
+//     selectedState,
+//     clearState
+// }
