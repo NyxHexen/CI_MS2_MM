@@ -164,7 +164,7 @@ Source: [Unsplash - Moren Hsu](https://unsplash.com/photos/VLaKsTkmVhk)
 Source: [Unsplash - Nguyen Dang Hoang Nhu](https://unsplash.com/photos/FrzGKG2Yvpw)
 <img src="assets/images/methodology-img-1.webp">
 
-Source: [Matt Ragland](https://unsplash.com/photos/02z1I7gv4ao)
+Source: [Unsplashed - Matt Ragland](https://unsplash.com/photos/02z1I7gv4ao)
 <img src="assets/images/methodology-img-2.webp">
 
 Source: [Unsplashed - Towfiqu barbhuiya](https://unsplash.com/photos/5u6bz2tYhX8)
@@ -619,10 +619,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer Full Logo -
 <img src="docs/testing/user-story-1a.png">
-
-- Marketing Text -
 <img src="docs/testing/user-story-1b.png">
 </details>
 
@@ -635,7 +632,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- About Us section -
 <img src="docs/testing/user-story-2.png">
 </details>
 
@@ -648,7 +644,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- About Us section -
 <img src="docs/testing/user-story-3.png">
 </details>
 
@@ -662,10 +657,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Marketing section - Badge -
 <img src="docs/testing/user-story-4a.png">
-
-- Marketing section - Text Box -
 <img src="docs/testing/user-story-4b.png">
 </details>
 
@@ -678,9 +670,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Methodology section -
 <img src="docs/testing/user-story-5.png">
-
 </details>
 
 6. As a new user, I want to find out where the classes are held.
@@ -692,7 +682,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- About Us section -
 <img src="docs/testing/user-story-6.png">
 </details>
 
@@ -705,7 +694,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Google Maps iframe -
 <img src="docs/testing/user-story-7.png">
 </details>
 
@@ -718,7 +706,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Legal Buttons -
 <img src="docs/testing/user-story-8a.png">
 <img src="docs/testing/user-story-8b.png">
 </details>
@@ -732,7 +719,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Legal Buttons -
 <img src="docs/testing/user-story-9a.png">
 <img src="docs/testing/user-story-9b.png">
 </details>
@@ -746,7 +732,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Social Media links -
 <img src="docs/testing/user-story-10.png">
 </details>
 
@@ -759,7 +744,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Booking section - Classes -
 <img src="docs/testing/user-story-11.png">
 </details>
 
@@ -772,9 +756,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Booking section - Classes - Step 1 -
 <img src="docs/testing/user-story-11.png">
-- Booking section - Classes - Step 2 through 4 - 
 <img src="docs/testing/user-story-12.png">
 </details>
 
@@ -787,7 +769,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Quiz Page - Modal -
 <img src="docs/testing/user-story-13.png">
 </details>
 
@@ -800,7 +781,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Quiz Page -
 <img src="docs/testing/user-story-14.png">
 </details>
 
@@ -813,7 +793,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Quiz Page -
 <img src="docs/testing/user-story-15.png">
 </details>
 
@@ -826,11 +805,9 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Booking Page - Newsletter Form -
 <img src="docs/testing/user-story-16.png">
 </details>
 
-#### Site Owner
 17. As a site owner, I want users to play the quiz.
 
 | Feature | Action | Expected Result | Actual Result
@@ -842,7 +819,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Quiz Page -
 <img src="docs/testing/user-story-13.png">
 <img src="docs/testing/user-story-14.png">
 <img src="docs/testing/user-story-15.png">
@@ -861,15 +837,10 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Home Page - Carousel -
 <img src="docs/testing/user-story-18a.png">
-- Home Page - Methodology section -
 <img src="docs/testing/user-story-5.png">
-- Home Page - Classes Info -
 <img src="docs/testing/user-story-11.png">
-- Booking Page - Marketing section -
 <img src="docs/testing/user-story-18b.png">
-- Booking Page - Newsletter Form -
 <img src="docs/testing/user-story-16.png">
 </details>
 
@@ -885,13 +856,9 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Home Page - Carousel -
 <img src="docs/testing/user-story-18a.png">
-- Home Page - Classes Info -
 <img src="docs/testing/user-story-11.png">
-- Booking Page - Marketing section -
 <img src="docs/testing/user-story-18b.png">
-- Booking Page - Newsletter Form -
 <img src="docs/testing/user-story-16.png">
 </details>
 
@@ -904,7 +871,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Social Media links -
 <img src="docs/testing/user-story-10.png">
 </details>
 
@@ -917,7 +883,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Legal Buttons -
 <img src="docs/testing/user-story-8a.png">
 <img src="docs/testing/user-story-8b.png">
 </details>
@@ -931,7 +896,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Footer - Legal Buttons -
 <img src="docs/testing/user-story-9a.png">
 <img src="docs/testing/user-story-9b.png">
 </details>
@@ -945,7 +909,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Booking Page - Newsletter Form -
 <img src="docs/testing/user-story-16.png">
 </details>
 
@@ -958,9 +921,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- Booking section - Classes - Step 1 -
 <img src="docs/testing/user-story-11.png">
-- Booking section - Classes - Step 2 through 4 - 
 <img src="docs/testing/user-story-12.png">
 </details>
 
@@ -974,7 +935,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <details>
 <summary> Supporting Images </summary>
 
-- About Us section -
 <img src="docs/testing/user-story-2.png">
 <img src="docs/testing/user-story-3.png">
 </details>
@@ -1040,9 +1000,31 @@ This website was deployed using GitHub Pages.
 [`Back To Top`](#table-of-contents)
 
 ### Code
-
+1. [Biteblocks](https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event) - Attach event listener to event handler chain instead of replacing it.
+2. [Stack Overflow](https://stackoverflow.com/questions/41515234/extract-a-specific-word-from-string-in-javascript) - Search for specific text in string using RegExp.
+3. [Stack Overflow](https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css) - Creating an animated 3-2-1 countdown for Quiz page.
+4. [Stack Overflow](https://stackoverflow.com/questions/4602141/variable-name-as-a-string-in-javascript) - Getting variable name as a string.
+5. [Stack Overflow](https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript) - Get selected value in dropdown list.
+6. [Stack Overflow](https://stackoverflow.com/questions/10261986/how-to-detect-string-which-contains-only-spaces) - Check if a string contains only spaced.
+7. [Stack Overflow](https://stackoverflow.com/questions/12941161/javascript-isemailvalid) - Additional forms input validation using RegExp.
+8. [Codepen (Aybuke Ceylan)](https://codepen.io/aybukeceylan/pen/zYNpWdj?editors=1100) - Inspiration for hamburger menu.
+9. [YouTube (Pixel Rocket)](https://www.youtube.com/watch?v=IuN8oRbLjC0&ab_channel=PixelRocket) - Animated CSS Checkmark, booking confirmation.
 
 ### Media
-
+1. [Unsplash](https://unsplash.com/) - High resolution images across website.
+2. [Wikipedia](https://wikipedia.com/) - Tutor images used in class cards.
+3. [PNGTree.com](https://pngtree.com/) - Background image of carousel slide 1.
+4. [Vertex42](https://www.verterx42/WordTemplates/) - Background image of questions container.
+5. [The Empire of Films](https://theempireoffilms.files.wordpress.com/) - Tutor images used in class cards.
+6. [The Famous People](https://www.thefamouspeople.com/) - Tutor images used in class cards.
+7. [Freepik](https://freepik.com/) - Vector image used in the "No classes" card.
+8. [The Math Academy](https://themathacademy.online/) - Text content in Methodology section.
+9. [Think Academy UK](https://www.thinkacademy.uk/home) - Text content used in Carousel and inspiration for Booking page functionality.
+10. [Google Fonts](https://fonts.google.com/) - Fonts used in project.
+11. [Font Awesome](https://fontawesome.com/) - Icons used in project.
+12. [Favicon](https://favicon.io/) - Used to generate webpage favicon.
 
 ### Acknowledgements
+- Mentor Mo Shami for his advice and support.
+
+### PS - If you find any 'R's where they shouldn't be - my 'R' key has bertraryed me...
