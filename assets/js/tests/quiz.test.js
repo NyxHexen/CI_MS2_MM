@@ -1,4 +1,3 @@
-const { count } = require('console');
 const {
     beforeEach,
     afterEach,
