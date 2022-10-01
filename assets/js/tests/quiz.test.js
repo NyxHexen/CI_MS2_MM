@@ -1,3 +1,4 @@
+const { count } = require('console');
 const {
     beforeEach,
     afterEach,
@@ -81,7 +82,8 @@ beforeAll(() => {
 })
 
 afterEach(() => {
-    global.mockClear();
+    jest.clearAllMocks();
+    jest.resetModules();
 })
 
 describe("Objects exist and have correct value", () => {
@@ -323,5 +325,19 @@ describe("Test quizStart() functionality", () => {
     })
     test("quizStart() returns true if scaleY was successful", () => {
         expect(quizStart()).toEqual(true);
+    })
+})
+
+describe("Test countdown() functionality", () => {
+    const tempDiv = document.createElement('div');
+    const spy = jest.fn(() => {return true});
+    beforeAll(() => {
+        countdown(tempDiv, spy());
+    })
+    test("Callback function is called once at end", () => {
+        expect(spy.mock.calls.length).toBe(1);
+    })
+    test("Inner function clears any children from parent", () => {
+        expect(tempDiv.hasChildNodes()).toBe(false);
     })
 })
