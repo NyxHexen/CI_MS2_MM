@@ -940,6 +940,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 </details>
 
 ## 6. Bug/Fix Log
+[`Back To Top`](#table-of-contents)
 
 | ID | Bug | Fix
 |--- |--- |---
