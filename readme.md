@@ -59,7 +59,7 @@ An online based mathematics academy. Whether 5 or 65 we have got something for e
 - Increase brand awareness;
 - Create traffic by designing a fun quiz;
 - Provide clients with an easy way to book classes;
-- Provide customers contact details and location;
+- Provide users with contact details and location;
 - Market online courses;
 
 ---
@@ -83,37 +83,36 @@ An online based mathematics academy. Whether 5 or 65 we have got something for e
 
 ### User Stories
 
-#### New Customers
-1. As a new customer, I want to know what Math Masters Academy is.
-2. As a new customer, I want to find out how to contact the academy via phone.
-3. As a new customer, I want to find out how to contact the academy via email.
-4. As a new customer, I want to learn about the products offered.
-5. As a new customer, I want to find out what to expect if I purchase a class.
-6. As a new customer, I want to find out where the classes are held.
-7. As a new customer, I want to find out where the main offices are.
-8. As a new customer, I want to read the terms and conditions.
-9. As a new customer, I want to read the privacy policy.
+#### New Users
+1. As a new user, I want to know what Math Masters Academy is.
+2. As a new user, I want to find out how to contact the academy via phone.
+3. As a new user, I want to find out how to contact the academy via email.
+4. As a new user, I want to learn about the products offered.
+5. As a new user, I want to find out what to expect if I purchase a class.
+6. As a new user, I want to find out where the classes are held.
+7. As a new user, I want to find out where the main offices are.
+8. As a new user, I want to read the terms and conditions.
+9. As a new user, I want to read the privacy policy.
 
-#### Returning customers
-10. As a returning customer, I want to visit the company's social media websites.
+#### Returning users
+10. As a returning user, I want to visit the company's social media websites.
 11. As a returning user, I want to view the classes available.
 12. As a returning user, I want to book a class.
 13. As a returning user, I want to find out how to play the quiz.
 14. As a returning user, I want to play the quiz.
 15. As a returning user, I want to see my quiz score.
 16. As a returning user, I want to sign up to the newsletter.
-17. As a returning user, I want to find out if the classes are suitable for my age.
 
 #### Site Owner
-18. As a site owner, I want users to play the quiz.
-19. As a site owner, I want users to learn about our products.
-20. As a site owner, I want users to market our products.
-21. As a site owner, I want users to visit our social media pages.
-22. As a site owner, I want users to have access to our Terms and Conditions.
-23. As a site owner, I want users to have access to our Privacy Policy.
-24. As a site owner, I want users to subscribe to our newsletter.
-25. As a site owner, I want users to book classes easily.
-26. As a site owner, I want users to be able to contact us.
+17. As a site owner, I want users to play the quiz.
+18. As a site owner, I want users to learn about our products.
+19. As a site owner, I want to market our products.
+20. As a site owner, I want users to visit our social media pages.
+21. As a site owner, I want users to have access to our Terms and Conditions.
+22. As a site owner, I want users to have access to our Privacy Policy.
+23. As a site owner, I want users to subscribe to our newsletter.
+24. As a site owner, I want users to book classes easily.
+25. As a site owner, I want users to be able to contact us.
 
 ### Scope
 
@@ -265,7 +264,6 @@ The header consists of 2 sections.
 <img src="docs/features/math-masters-academy-nav-handhelds.png">
 </details>
 
-
 Footer contains the full logo of the company, social media links and buttons which control a modal. Just like the header has been kept minimalist, with all of the content being centered.
 
 <details>
@@ -274,7 +272,11 @@ Footer contains the full logo of the company, social media links and buttons whi
 <img src="docs/features/math-masters-academy-footer.png">
 </details>
 
-1. Social Media Links  - Used Fontawesome's icons within an anchor element.
+1. Full Logo - Full version of the academy's logo.
+
+_User Story Covered - 1_
+
+2. Social Media Links  - Used Fontawesome's icons within an anchor element.
 
 <details>
 <summary> Supporting Image</summary>
@@ -284,7 +286,7 @@ Footer contains the full logo of the company, social media links and buttons whi
 
 _User Story Covered - 10, 21_
 
-2. Modal Buttons - An event listener attached to divs with a `role="button"`. Upon click brings a modal on top of the page content. There is only one modal being used by both buttons, so depending on which one is clicked the content is being changed in the background. The modal by default contain an error message, so in the event that only the event listener loads - we still have content to advise the user something has gone wrong.
+3. Modal Buttons - An event listener attached to divs with a `role="button"`. Upon click brings a modal on top of the page content. There is only one modal being used by both buttons, so depending on which one is clicked the content is being changed in the background. The modal by default contain an error message, so in the event that only the event listener loads - we still have content to advise the user something has gone wrong.
 
 <details>
 <summary> Supporting Image</summary>
@@ -311,7 +313,7 @@ If Privacy Policy is clicked:
 
 _User Story Covered - 8, 9, 22, 23_
 
-#### index.html - Home Page 
+### index.html - Home Page 
 Home page consists of 3 features. 
 
 The home page is relatively busy, using various content to grab the user's attention. 
@@ -336,7 +338,7 @@ _User Stories Covered - 20_
 
 _User Stories Covered - 5, 19_ 
 
-3. Contact Us Section - Contains classes information section, a Google Maps `iframe`, and the academy's contact information and address.
+3. About Us Section - Contains classes information section, a Google Maps `iframe`, and the academy's contact information and address.
 
     Each of the app icons navigates to the app's home page in a new tab.
 
@@ -352,7 +354,7 @@ _User Stories Covered - 5, 19_
 
 _User Stories Covered - 2, 3, 6, 26, 7_
 
-#### Quiz Page - quiz.html 
+### Quiz Page - quiz.html 
 
 The quiz page contains only 1 feature, the quiz itself.
 
@@ -384,7 +386,7 @@ At the end of the game the modal re-appears with the results from the game.
 
 _User Stories Covered - 13, 14, 15, 18_
 
-#### Booking Page - booking.html 
+### Booking Page - booking.html 
 
 Booking page is comprised of 3 features.
 
@@ -591,10 +593,10 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 
 ### Browser compatibility:
 
-- Microsoft Edge: 
-- Google Chrome: 
-- Firefox: 
-- Opera/Opera GX: 
+- Microsoft Edge: Functionality and styles as expected.
+- Google Chrome: Functionality and styles as expected.
+- Firefox: Functionality and styles as expected.
+- Opera/Opera GX: Functionality and styles as expected.
 - Safari: 
 
 ### Devices tested on:
@@ -607,6 +609,375 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 
 ### Testing User Stories
 
+1. As a new user, I want to know what Math Masters Academy is.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Full Logo | Scroll to the bottom of Home page | User is able to locate full logo in footer | As expected.
+| Booking page - Marketing Text  | Navigate to Booking page | User is able to locate and read text at top of page | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer Full Logo -
+<img src="docs/testing/user-story-1a.png">
+
+- Marketing Text -
+<img src="docs/testing/user-story-1b.png">
+</details>
+
+2. As a new user, I want to find out how to contact the academy via phone.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - About Us section | From Home page, scroll down | User is able to contact the academy via phone | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- About Us section -
+<img src="docs/testing/user-story-2.png">
+</details>
+
+3. As a new user, I want to find out how to contact the academy via email.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - About Us section | From Home page, scroll down | User is able to contact the academy via email | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- About Us section -
+<img src="docs/testing/user-story-3.png">
+</details>
+
+4. As a new user, I want to learn about the products offered.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking page - Marketing Badge | Navigate to Booking page | User is able to locate Marketing Badge | As expected.
+| Booking page - Marketing Text Box | Navigate to Booking page | User is able to locate text box | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Marketing section - Badge -
+<img src="docs/testing/user-story-4a.png">
+
+- Marketing section - Text Box -
+<img src="docs/testing/user-story-4b.png">
+</details>
+
+5. As a new user, I want to find out what to expect if I purchase a class.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - Methodology section | From Home Page, scroll down to Methodology section and click the pictures | User is able to locate Methodology section and click on each picture | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Methodology section -
+<img src="docs/testing/user-story-5.png">
+
+</details>
+
+6. As a new user, I want to find out where the classes are held.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - About Us section | From Home Page, scroll down to About Us section | User is able to locate classes information | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- About Us section -
+<img src="docs/testing/user-story-6.png">
+</details>
+
+7. As a new user, I want to find out where the main offices are.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - About Us section | From Home Page, scroll down to About Us section | User is able to locate map | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Google Maps iframe -
+<img src="docs/testing/user-story-7.png">
+</details>
+
+8. As a new user, I want to read the terms and conditions.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Legal Buttons | From any page, scroll down to footer | User is able to locate and bring up Terms and Conditions modal by clicking appropriate button | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Legal Buttons -
+<img src="docs/testing/user-story-8a.png">
+<img src="docs/testing/user-story-8b.png">
+</details>
+
+9. As a new user, I want to read the privacy policy.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Legal Buttons | From any page, scroll down to footer | User is able to locate and bring up Privacy Policy modal by clicking appropriate button | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Legal Buttons -
+<img src="docs/testing/user-story-9a.png">
+<img src="docs/testing/user-story-9b.png">
+</details>
+
+10. As a returning user, I want to visit the company's social media websites.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Social Media links | From any page, scroll down to footer | User locates social media links, they all open in new tabs | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Social Media links -
+<img src="docs/testing/user-story-10.png">
+</details>
+
+11. As a returning user, I want to view the classes available.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking page - Booking section | Navigate to Booking page, scroll down and select class level and year to view class cards. | User is able to successfully view class cards using booking system. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Booking section - Classes -
+<img src="docs/testing/user-story-11.png">
+</details>
+
+12. As a returning user, I want to book a class.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking page - Booking section | <b>Step</b> 1. Navigate to Booking page, scroll down and select class level and year to view class cards.  <b>Step 2.</b> Choose a class card and click on the "Add to Cart" button. <b>Step 3.</b> Click on Book Now button <b>Step 4. </b> Enter name and e-mail address and click on "Submit" button. | User is able to successfully book a class | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Booking section - Classes - Step 1 -
+<img src="docs/testing/user-story-11.png">
+- Booking section - Classes - Step 2 through 4 - 
+<img src="docs/testing/user-story-12.png">
+</details>
+
+13. As a returning user, I want to find out how to play the quiz.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Quiz Page - Modal | Navigate to Quiz page | User is able to learn how to play the game | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Quiz Page - Modal -
+<img src="docs/testing/user-story-13.png">
+</details>
+
+14. As a returning user, I want to play the quiz.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Quiz Page | Enter name to unlock the button, then press the button. | User is able to start quiz by entering name and pressing button. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Quiz Page -
+<img src="docs/testing/user-story-14.png">
+</details>
+
+15. As a returning user, I want to see my quiz score.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Quiz Page | Play quiz game and answer 20 questions to see result/score. | After completing quiz, the app shows the user their final score. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Quiz Page -
+<img src="docs/testing/user-story-15.png">
+</details>
+
+16. As a returning user, I want to sign up to the newsletter.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking Page - Newsletter Form | Navigate to "Book an Activity" page, scroll down to locate the form. | User is able to find and submit form. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Booking Page - Newsletter Form -
+<img src="docs/testing/user-story-16.png">
+</details>
+
+#### Site Owner
+17. As a site owner, I want users to play the quiz.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Quiz Page | Navigate to Quiz page | User is able to learn how to play the game | As expected.
+| Quiz Page | Enter name to unlock the button, then press the button. | User is able to start quiz by entering name and pressing button. | As expected.
+| Quiz Page | Play quiz game and answer 20 questions to see result/score. | After completing quiz, the app shows the user their final score. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Quiz Page -
+<img src="docs/testing/user-story-13.png">
+<img src="docs/testing/user-story-14.png">
+<img src="docs/testing/user-story-15.png">
+</details>
+
+18. As a site owner, I want users to learn about our products.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - Carousel | Navigate to Home page. | User is able to view and interact with carousel. | As expected.
+| Home Page - Methodology section | Navigate to Home page and scroll down. | User is able to view and interact with Methodology section. | As expected.
+| Home Page - Classes Info | Navigate to Home page and scroll down. | User is able to view and learn where classes are held. | As expected.
+| Booking Page - Marketing section | Navigate to Book an Activity page. | User is able to view Marketing section | As expected.
+| Booking Page - Newsletter Form | Navigate to Book an Activity page and scroll down. | User is able to locate and complete Newsletter sign-up form. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Home Page - Carousel -
+<img src="docs/testing/user-story-18a.png">
+- Home Page - Methodology section -
+<img src="docs/testing/user-story-5.png">
+- Home Page - Classes Info -
+<img src="docs/testing/user-story-11.png">
+- Booking Page - Marketing section -
+<img src="docs/testing/user-story-18b.png">
+- Booking Page - Newsletter Form -
+<img src="docs/testing/user-story-16.png">
+</details>
+
+19. As a site owner, I want to market our products.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - Carousel | Navigate to Home page. | User is able to view and interact with carousel. | As expected.
+| Home Page - Classes Info | Navigate to Home page and scroll down. | User is able to view and learn where classes are held. | As expected.
+| Booking Page - Marketing section | Navigate to Book an Activity page. | User is able to view Marketing section | As expected.
+| Booking Page - Newsletter Form | Navigate to Book an Activity page and scroll down. | User is able to locate and complete Newsletter sign-up form. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Home Page - Carousel -
+<img src="docs/testing/user-story-18a.png">
+- Home Page - Classes Info -
+<img src="docs/testing/user-story-11.png">
+- Booking Page - Marketing section -
+<img src="docs/testing/user-story-18b.png">
+- Booking Page - Newsletter Form -
+<img src="docs/testing/user-story-16.png">
+</details>
+
+20. As a site owner, I want users to visit our social media pages.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Social Media links | From any page, scroll down to footer | User locates social media links, they all open in new tabs | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Social Media links -
+<img src="docs/testing/user-story-10.png">
+</details>
+
+21. As a site owner, I want users to have access to our Terms and Conditions.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Legal Buttons | From any page, scroll down to footer | User is able to locate and bring up Terms and Conditions modal by clicking appropriate button | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Legal Buttons -
+<img src="docs/testing/user-story-8a.png">
+<img src="docs/testing/user-story-8b.png">
+</details>
+
+22. As a site owner, I want users to have access to our Privacy Policy.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Footer - Legal Buttons | From any page, scroll down to footer | User is able to locate and bring up Privacy Policy modal by clicking appropriate button | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Footer - Legal Buttons -
+<img src="docs/testing/user-story-9a.png">
+<img src="docs/testing/user-story-9b.png">
+</details>
+
+23. As a site owner, I want users to subscribe to our newsletter.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking Page - Newsletter Form | Navigate to "Book an Activity" page, scroll down to locate the form. | User is able to find and submit form. | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Booking Page - Newsletter Form -
+<img src="docs/testing/user-story-16.png">
+</details>
+
+24. As a site owner, I want users to book classes easily.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Booking page - Booking section | <b>Step</b> 1. Navigate to Booking page, scroll down and select class level and year to view class cards.  <b>Step 2.</b> Choose a class card and click on the "Add to Cart" button. <b>Step 3.</b> Click on Book Now button <b>Step 4. </b> Enter name and e-mail address and click on "Submit" button. | User is able to successfully book a class | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- Booking section - Classes - Step 1 -
+<img src="docs/testing/user-story-11.png">
+- Booking section - Classes - Step 2 through 4 - 
+<img src="docs/testing/user-story-12.png">
+</details>
+
+25. As a site owner, I want users to be able to contact us.
+
+| Feature | Action | Expected Result | Actual Result
+|--- |--- |--- |---
+| Home Page - About Us section | From Home page, scroll down | User is able to contact the academy via phone | As expected.
+| Home Page - About Us section | From Home page, scroll down | User is able to contact the academy via email | As expected.
+
+<details>
+<summary> Supporting Images </summary>
+
+- About Us section -
+<img src="docs/testing/user-story-2.png">
+<img src="docs/testing/user-story-3.png">
+</details>
 
 ## 6. Bug/Fix Log
 
