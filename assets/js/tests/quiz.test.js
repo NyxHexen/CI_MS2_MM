@@ -1,4 +1,3 @@
-const { expect } = require('expect');
 const {
     beforeEach,
     afterEach,
@@ -155,7 +154,7 @@ describe("Test showQuestion() function", () => {
     });
 });
 
-describe('callAPI', () => {
+describe('callAPI & questionsAPIError', () => {
     const mockAPI = 'https://dummy-site.dev/restapi';
     test('Resolved promise should be defined', async () => {
         const results = await callAPI(mockAPI);
@@ -164,7 +163,7 @@ describe('callAPI', () => {
     test('Should return any available response data', () => {
         expect(callAPI(mockAPI)).resolves.toEqual(mockResponseData);
     })
-    test('Should call quizEnd and change quiz modal text  if status of response is not 200-299', async () => {
+    test('Should call quizEnd and call questionsAPIError if status of response is not 200-299', async () => {
         fetch.mockImplementationOnce((url, options) => {
             return new Promise((resolve, reject) => {
                 const testResponse = {
@@ -301,3 +300,28 @@ describe("Test updateScore() function when answer is incorrect", () => {
         expect(document.querySelector('.multiplier span').innerText).toEqual(player.multiplier);
     })
 });
+
+describe("Test quizEnd() functionality", () => {
+    beforeAll(() => {
+        quizEnd();
+    })
+    test("Quiz Modal is updated with new content", () => {
+        expect(document.querySelector('.quiz-start-box').firstElementChild.innerHTML).toBe("Well done!");
+        expect(document.querySelectorAll('td')[0].innerHTML).toEqual(player.name);
+        expect(parseInt(document.querySelectorAll('td')[1].innerHTML)).toEqual(player.correct);
+        expect(document.querySelectorAll('td')[2].innerHTML).toEqual(player.answered + ' out of ' + quiz.questionsTotal);
+        expect(parseInt(document.querySelectorAll('td')[3].innerHTML)).toEqual(player.score);
+    })
+    test("Active class is removed from modal container", () => {
+        expect(document.querySelector('.quiz-start-container').classList).not.toContain("active");
+    })
+})
+
+describe("Test quizStart() functionality", () => {
+    beforeAll(() => {
+        quizStart();
+    })
+    test("quizStart() returns true if scaleY was successful", () => {
+        expect(quizStart()).toEqual(true);
+    })
+})
