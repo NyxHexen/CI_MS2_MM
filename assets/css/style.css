@@ -2403,7 +2403,7 @@ footer {
     }
 
     .nav-item a {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: bolder;
     }
 
@@ -2436,6 +2436,7 @@ footer {
     #methodology {
         width: 80vw;
     }
+
 
     #about-us {
         width: 80vw;
