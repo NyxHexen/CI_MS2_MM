@@ -77,9 +77,10 @@ let carouselInterval;
 
 // Hamburger Button
 ['click', 'keydown'].forEach(ev => {
-document.querySelector('.hamburger-menu-button').addEventListener(ev, function () {
-    document.querySelector('.nav-links-container').classList.toggle('active');
-})});
+    document.querySelector('.hamburger-menu-button').addEventListener(ev, function () {
+        document.querySelector('.nav-links-container').classList.toggle('active');
+    })
+});
 
 // Methodology
 methods.forEach(method => {
@@ -112,7 +113,12 @@ modalContainer.addEventListener('click', () => {
 
 
 // As index.js is used on each of the pages of the website we make sure that the below runs only on index.html
-if (window.location.pathname === '/CI_MS2_MM/index.html' || window.location.pathname === '/index.html' || window.location.pathname === '/') {
+if (
+    window.location.pathname === '/CI_MS2_MM/' ||
+    window.location.pathname === '/CI_MS2_MM/index.html' ||
+    window.location.pathname === '/' ||
+    window.location.pathname === '/index.html'
+) {
     // https://www.byteblocks.com/Post/Use-addEventListener-or-attachEvent-for-windowonload-event
     // Instead of reassigning the event handler we use addEvent to add to the event handlers chain.
     window.addEventListener ?
