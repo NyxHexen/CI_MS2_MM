@@ -2596,7 +2596,7 @@ footer {
     }
 
     #newsletter-form-container {
-        width: 80%;
+        width: 95%;
     }
 
     .logo-image img {
@@ -3100,7 +3100,6 @@ footer {
     #newsletter-form-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1.5fr;
     }
 
     #newsletter-form-container h2 {
