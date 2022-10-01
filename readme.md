@@ -983,7 +983,27 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 
 | ID | Bug | Fix
 |--- |--- |---
-| 1 | |
+| 1 | Default form behavior allows for submit even when name and e-mail are incorrect | Added additional validation to forms by creating functions.
+| 2 | Microsoft Teams icon now showing up when using % width and no height. | Added height property with rem value. 
+| 3 | 404 error for 192x192 favicon image | Deleted old files and re-added favicon
+| 4 | Multiplier not resetting on timer timeout and no answer selected | Ongoing.
+| 5 | Newsletter form not sizing correctly from 900px width to 1200px | Adjusted width to 95% for 900+px.
+| 6 | Carousel and Methodology event listeners throwing errors when page is not index.html | Added conditional statement to allow for the event listeners to be attached to elements only when page is '/', '/CI_MS2_MM/', or '/index.html'.
+| 7 | WAVE shows contrast issue for Carousel slide titles as WAVE does not see backdrop created by `::before` pseudo-class | Added semi-transparent black background with backdrop blur to titles.
+| 8 | Quiz start modal allows for three space characters as a valid name | Added additional name validation to input.
+| 9 | Quiz answers can be clicked over and over again which ramps up points | Added conditional statement to button which does not allow the answer to be clicked more than once until next question is loaded.
+| 10 | Class cards being generated with `aria-hidden` due to template having the property. | Added code to remove `aria-hidden` from each generated class card.
+| 11 | SVG font breaks on Chrome Mobile and goes to fallback font. | Replaced SVG with webp image.
+| 12 | `tickTock()` continues to run to next question timer causing new timer to tick twice or more as fast. | Added `stopTimer()` to tickTock when time left is 0 and to `selectAnswer()` function.
+| 13 | `document.addEventListener('onload')` not working on index.js | Replaced with ternary operator expression; instead of reassigning the event onload handler we use `addEvent` to add to the windows's event handlers chain.
+| 14 | `scoreTotal` variable returning NaN on Chrome Mobile | Wrapped calculation in template literals so the number is passed as a string.
+| 15 | Answer animation flickering on load in and out | Added `transform:` to "unset" animation so it makes it a default value rather than a result of animation.
+| 16 | `sessionStorage` does not clear on refresh | Added `onbeforeload` event to the page which scrubs the `sessionStorage` every time the page is opened.
+| 17 | JavaScript Validator shows emailjs as undefined. | Ongoing.
+| 18 | `startCarousel()` does not work if defined within conditional statement block scope | Moved function to global scope.
+| 19 | Booking cart submits even if empty | Added validation to ensure cart does not submit if there are no classes added.
+| 20 | Booking cart form "Back" button does not work as intended. When the booking cart is shown again through the "Back" button none of the event listeners work. | Changed the way each booking cart step is shown/hidden to ensure items are not deleted from the page.
+| 21 | Form validation adds a new element when new error is thrown but does not delete previous error. | Added conditional statement to ensure that if an error exists already it is deleted first, before a new one is added.
 
 ---
 
