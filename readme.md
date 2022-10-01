@@ -25,7 +25,7 @@ An online based mathematics academy. Whether 5 or 65 we have got something for e
 ### 3. [Features](#3-features-1)
 
 ### 4. [Technology](#4-technology-1)
-
+ 
 ### 5. [Testing](#5-testing-1)
 1. [HTML Validation](#html-validation)
 2. [CSS Validation](#css-validation)
@@ -372,7 +372,7 @@ The first thing the user is greeted is by the instructions/details, an input fie
 
 As the game starts, a timer is set to 30 seconds, the question is displayed and the answers are loaded. Each question has only one correct answer. 
 
-The scoring of the game is based on picking correct answer, how many correct answers the user has answered, if the user is on a spree, and how long it takes for the user to answer. For every two correct answers the user hits a spree. Every time the user hits a spree the timer is reduced by 10 seconds, until it hits 10 seconds total, then further reduced down to 5; the multiplier is also increased by 1, up to a maximum of 10. The default points for answered questions is 10, which is multiplied by the multiplier value at the time of answering the question, for a maximum of `100` points The score is further increased by how short the timer is at the time of calculation and how much time left when the answer was clicked. If the timer maximum duration is 30, there is no additional multiplier, it returns 30 points. If the maximum duration is 20, the time left is multiplied by 3. If 10 - multiplied by 12. If 5 - multiplied by 48; for a total maximum of `240` points from the timer scoring.
+The scoring of the game is based on picking correct answer, how many correct answers the user has answered, if the user is on a spree, and how long it takes for the user to answer. For every two correct answers the user hits a spree. Every time the user hits a spree the timer is reduced by 10 seconds, until it hits 10 seconds total, then further reduced down to 5; the multiplier is also increased by 1, up to a maximum of 10. The default points for answered questions is 10, which is multiplied by the multiplier value at the time of answering the question, for a maximum of `100` points The score is further increased by how short the timer is at the time of calculation and how much time left when the answer was clicked. If the timer maximum duration is 30, there is no additional multiplier, it returns 30 points. If the maximum duration is 20, the time left is multiplied by 3. If 10 - multiplied by 12. If 5 - multiplied by 48; for a total maximum of `240` points from the timer scoring. 
 
 At the end of the game the modal re-appears with the results from the game.
 
@@ -539,7 +539,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists.
 </details>
 
 <details>
-<summary>Booking Pager - booking.html</summary>
+<summary>Booking Page - booking.html</summary>
 
 Warnings due to use of `!` to get boolean value by checking if property exists, and event listener calling an anonymous function within a loop statement.
 <img src="docs/validation/jshint-booking.png">
@@ -562,7 +562,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 </details>
 
 <details>
-<summary>Booking Pager - booking.html</summary>
+<summary>Booking Page - booking.html</summary>
 
 <img src="docs/validation/wave-accessibility-booking.png">
 </details>
@@ -584,7 +584,7 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 </details>
 
 <details>
-<summary>Booking Pager - booking.html</summary>
+<summary>Booking Page - booking.html</summary>
 
 <img src="docs/validation/lighthouse-booking.png">
 </details>
