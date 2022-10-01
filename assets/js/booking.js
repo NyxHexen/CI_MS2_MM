@@ -479,6 +479,7 @@ document.getElementById('newsletter-form-container').addEventListener('submit', 
         reportInvalidInput(newsletterSelect, 'email');
     } else {
         signUpConfirm(e.target);
+        e.target.submit();
     }
 });
 
