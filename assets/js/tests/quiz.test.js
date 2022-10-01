@@ -1,12 +1,15 @@
 const { expect } = require('expect');
-const { beforeEach, afterEach } = require('jest-circus');
+const {
+    beforeEach,
+    afterEach,
+} = require('jest-circus');
 
 /**
  * @jest-environment jsdom
  */
 require('jest-fetch-mock').enableMocks();
 
-let callAPI, player, quiz, quizStart, countdown, shuffle, clearStatusClass, showQuestion, startTimer, stopTimer, selectSiblings, selectAnswer, updateScore, calcTimer, resetTimer, quizEnd;
+let callAPI, player, quiz, quizStart, countdown, shuffle, clearStatusClass, showQuestion, startTimer, stopTimer, shortenTimer, selectSiblings, selectAnswer, updateScore, calcTimer, resetTimer, quizEnd;
 
 const mockResponseData = {
     "response_code": 200,
@@ -69,6 +72,7 @@ beforeAll(() => {
     startTimer = require("../quiz.js").startTimer;
     tickTock = require("../quiz.js").tickTock;
     stopTimer = require("../quiz.js").stopTimer;
+    shortenTimer = require("../quiz.js").shortenTimer;
     selectSiblings = require("../quiz.js").selectSiblings;
     selectAnswer = require("../quiz.js").selectAnswer;
     updateScore = require("../quiz.js").updateScore;
@@ -231,3 +235,69 @@ describe("Test calcTimer() function", () => {
         expect(calcTimer(timerMax, timeLeft)).toBe(240);
     })
 })
+
+describe("Test resetTimer() function", () => {
+    test("Each time function is called resets variable to 30", () => {
+        expect(resetTimer()).toBe(30);
+        expect(typeof resetTimer()).toBe('number');
+    })
+})
+
+describe("Test updateScore() function when answer is correct", () => {
+    beforeAll(() => {
+        let tempArr = document.querySelectorAll('.answer');
+        let correctTemp;
+        player.score = 0;
+        showQuestion();
+        tempArr.forEach(el => {
+            if (el.innerHTML.startsWith('<span>Correct Answer')) {
+                correctTemp = el;
+            }
+        })
+        updateScore(correctTemp);
+        updateScore(correctTemp);
+    })
+    test("Player score updates correctly", () => {
+        expect(player.score).toBe(80);
+    })
+    test("Player Multiplier + 1 when two correct consecutive answers", () => {
+        expect(player.multiplier).toBe(2);
+    })
+    test("Timer shortened per spree", () => {
+        expect(shortenTimer()).toBe(10);
+    })
+    test("DOM Elements are updated appropriately", () => {
+        expect(document.querySelector('.score span').innerText).toEqual(player.score);
+        expect(document.querySelector('.multiplier span').innerText).toEqual(player.multiplier);
+    })
+});
+
+describe("Test updateScore() function when answer is incorrect", () => {
+    beforeAll(() => {
+        let tempArr = document.querySelectorAll('.answer');
+        let incorrectTemp;
+        player.score = 0;
+        showQuestion();
+        tempArr.forEach(el => {
+            if (el.innerHTML.startsWith('<span>Answer')) {
+                incorrectTemp = el;
+                return;
+            }
+        })
+        updateScore(incorrectTemp);
+        updateScore(incorrectTemp);
+    })
+    test("Player score updates correctly", () => {
+        expect(player.score).toBe(0);
+    })
+    test("Player Multiplier remains at 1", () => {
+        expect(player.multiplier).toBe(1);
+    })
+    test("Timer is reset to 30", () => {
+        expect(resetTimer()).toBe(30);
+    })
+    test("DOM Elements are updated appropriately", () => {
+        expect(document.querySelector('.score span').innerText).toEqual(player.score);
+        expect(document.querySelector('.multiplier span').innerText).toEqual(player.multiplier);
+    })
+});
