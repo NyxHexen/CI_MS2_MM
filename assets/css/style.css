@@ -1304,6 +1304,7 @@ header {
 }
 
 /* ---------------------------------------------------- Mailing Information Form */
+
 .mailing-info-div {
     display: flex;
 }
@@ -1458,6 +1459,7 @@ header {
 }
 
 /* --------------------------------------------------------------------------------- Footer */
+
 footer {
     position: relative;
     bottom: 0;
@@ -1473,12 +1475,12 @@ footer {
     z-index: 1;
 }
 
+/* ---------------------------------------------------- Logo Image */
+
 #full-logo {
     display: flex;
     align-items: flex-start;
 }
-
-/* ---------------------------------------------------- Logo Image */
 
 .logo-image img {
     width: 25vw;
@@ -1538,7 +1540,7 @@ footer {
     align-items: center;
 }
 
-#legal span{
+#legal span {
     display: none;
 }
 
@@ -2320,8 +2322,8 @@ footer {
     #legal {
         flex-direction: row;
     }
-    
-    #legal span{
+
+    #legal span {
         display: initial;
         color: white;
     }
