@@ -124,6 +124,7 @@ function quizStart() {
             showQuestion();
         }, 1500);
     });
+    return countdownDiv.getBoundingClientRect().top === countdownDiv.getBoundingClientRect().bottom;
 }
 
 //https://stackoverflow.com/questions/50190639/trying-to-create-a-numeric-3-2-1-countdown-with-javascript-and-css
@@ -365,6 +366,7 @@ function shortenTimer() {
     } else if (timerMax <= 10 && timerMax > 5) {
         timerMax -= 5;
     }
+    return timerMax;
 }
 
 /**
