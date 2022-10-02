@@ -78,7 +78,7 @@ let carouselInterval;
 ['click', 'keydown'].forEach(ev => {
     document.querySelector('.hamburger-menu-button').addEventListener(ev, function () {
         document.querySelector('.nav-links-container').classList.toggle('active');
-    })
+    });
 });
 
 // Methodology
