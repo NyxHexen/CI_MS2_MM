@@ -1613,11 +1613,10 @@ footer {
     animation: modalFadeIn 0.6s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-#modal-container.active h2,
-#modal-container.active p {
+#modal-container.active .modal * {
     opacity: 0;
     position: relative;
-    animation: modalContentFadeIn 0.5s .4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation: modalContentFadeIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 #modal-container.active.out {
@@ -1629,11 +1628,10 @@ footer {
 }
 
 #modal-container.active.out .modal {
-    animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation: modalFadeOut 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-#modal-container.active.out .modal h2,
-#modal-container.active.out .modal p {
+#modal-container.active.out .modal * {
     animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
