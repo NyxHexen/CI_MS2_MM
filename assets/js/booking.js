@@ -144,6 +144,7 @@ schoolLevelOption.forEach(radio => {
 function displaySchoolYearOptions(e) {
     const selectedOption = e.target;
     schoolYearDropDown.innerHTML = "";
+    schoolYearDropDown.disabled = false;
     if (selectedOption.id === "sch_lvl1") {
         createSchoolYearOptions(primaryOptions);
     } else {
