@@ -464,7 +464,7 @@ function sendBookingConfirmation() {
     emailjs.send('service_sl1lvmo', 'template_0xcih7k', order, 'uwUMF7skPiFP9wOGF')
     .then(response => {
         return response.status;
-    })
+    });
 }
 
 // Listener to prevent default behavior of Newsletter form submit button
@@ -491,7 +491,7 @@ function signUpConfirm(form) {
     emailjs.sendForm('service_sl1lvmo', 'template_zf090ar', form, 'uwUMF7skPiFP9wOGF')
     .then(response => {
         return response.status;
-    })
+    });
 }
 
 // Commented out module exports to prevent ReferenceError from being thrown.
