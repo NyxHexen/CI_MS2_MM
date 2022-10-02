@@ -114,6 +114,8 @@ An online based mathematics academy. Whether 5 or 65 we have got something for e
 24. As a site owner, I want users to book classes easily.
 25. As a site owner, I want users to be able to contact us.
 
+---
+
 ### Scope
 
 #### The scope of the project at release is defined as below:
@@ -128,6 +130,8 @@ An online based mathematics academy. Whether 5 or 65 we have got something for e
 - Newsletter form.
 - Contact Us section.
 - Mathematics-themed quiz.
+
+---
 
 ### Design
 The design revolves around a school theme. The idea was to create a simple, but highly interactive website.
@@ -230,6 +234,7 @@ Source: [Freepik - Storyset](https://img.freepik.com/free-vector/no-data-concept
 
 ## 3. Features
 [`Back To Top`](#table-of-contents)
+
 The website consists of 3 responsive pages with 1 to 3 features per page.
 
 Each page has 2 general layout shifts between handheld devices and desktop devices.
@@ -313,6 +318,8 @@ If Privacy Policy is clicked:
 
 _User Story Covered - 8, 9, 22, 23_
 
+---
+
 ### index.html - Home Page 
 Home page consists of 3 features. 
 
@@ -354,6 +361,8 @@ _User Stories Covered - 5, 19_
 
 _User Stories Covered - 2, 3, 6, 26, 7_
 
+---
+
 ### Quiz Page - quiz.html 
 
 The quiz page contains only 1 feature, the quiz itself.
@@ -385,6 +394,8 @@ At the end of the game the modal re-appears with the results from the game.
 </details>
 
 _User Stories Covered - 13, 14, 15, 18_
+
+---
 
 ### Booking Page - booking.html 
 
@@ -547,6 +558,14 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <img src="docs/validation/jshint-booking.png">
 </details>
 
+[Jest](https://jest.com/) was used for automated jest testing.
+
+<details>
+<summary>JEST Testing - All Pages</summary>
+
+<img src="docs/validation/javascript-validation-jest.png">
+</details>
+
 ### Accessibility
 
 [WAVE WebAIM Web Accessibility (Chrome Plugin)](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) was used to check that the code meets accessibility standards.
@@ -605,7 +624,6 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 - OnePlus 9 Pro.
 
 ### Test Performed
-
 
 ### Testing User Stories
 
@@ -938,6 +956,8 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <img src="docs/testing/user-story-2.png">
 <img src="docs/testing/user-story-3.png">
 </details>
+
+---
 
 ## 6. Bug/Fix Log
 [`Back To Top`](#table-of-contents)
