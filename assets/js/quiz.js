@@ -351,7 +351,7 @@ function calcTimer(total, remaining) {
     } else if (total === 10) {
         return remaining * 12;
     } else if (total === 5) {
-        return remaining * 48
+        return remaining * 48;
     }
 }
 
