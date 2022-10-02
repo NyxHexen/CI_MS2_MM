@@ -494,21 +494,21 @@ function signUpConfirm(form) {
 }
 
 // Commented out module exports to prevent ReferenceError from being thrown.
-export default {
-    order,
-    displaySchoolYearOptions,
-    createSchoolYearOptions,
-    displayClasses,
-    deleteOldCards,
-    addToCart,
-    updateCartTotal,
-    removeFromCart,
-    updateAddBtn,
-    showMailingForm,
-    showBookingComplete,
-    isEmailValid,
-    isNameValid,
-    reportInvalidInput, 
-    sendBookingConfirmation, 
-    signUpConfirm
-}
+// module.exports = {
+//     order,
+//     displaySchoolYearOptions,
+//     createSchoolYearOptions,
+//     displayClasses,
+//     deleteOldCards,
+//     addToCart,
+//     updateCartTotal,
+//     removeFromCart,
+//     updateAddBtn,
+//     showMailingForm,
+//     showBookingComplete,
+//     isEmailValid,
+//     isNameValid,
+//     reportInvalidInput, 
+//     sendBookingConfirmation, 
+//     signUpConfirm
+// }
