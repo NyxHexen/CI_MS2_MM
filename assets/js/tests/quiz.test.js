@@ -260,7 +260,7 @@ describe("Test updateScore() function when answer is correct", () => {
     test("Player score updates correctly", () => {
         expect(player.score).toBe(80);
     })
-    test("Player Multiplier + 1 when two correct consecutive answers", () => {
+    test("Player Multiplier +1 when two correct consecutive answers", () => {
         expect(player.multiplier).toBe(2);
     })
     test("Timer shortened per spree", () => {
