@@ -335,13 +335,20 @@ function updateAddBtn() {
 // updates total of classes, then switches to mailing form
 // and updates all buttons.
 bookingCartSubmit.addEventListener('click', () => {
+    bookedClasses = [];
     if (bookingCart.childNodes.length == 0) return;
     sessionStorage.setItem('btnsDisabled', 'true');
     bookingCart.querySelectorAll('.selected-class').forEach(item => {
-        bookedClasses = [];
         bookedClasses.push(item.innerHTML.slice(item.innerHTML.indexOf('</i>') + 4, item.innerHTML.indexOf('<span>') - 1));
     });
-    order.classes = bookedClasses.length <= 1 ? bookedClasses.join(' & ') : bookedClasses.length > 1 ? bookedClasses.join(', ') : false;
+    if (bookedClasses.length <=1){
+        order.classes = bookedClasses.join(' & ');
+    } else {
+        let lastItem = bookedClasses.splice(bookedClasses.length - 1, 1);
+        order.classes = bookedClasses.join(', ');
+        order.classes += ` & ${lastItem}`;
+    }
+    console.log(order.classes);
     order.total = '£' + subTotal;
     showMailingForm();
     updateAddBtn();
