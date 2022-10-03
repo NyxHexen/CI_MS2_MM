@@ -18,7 +18,13 @@ beforeAll(() => {
     clearState = require("../index.js").clearState;
 })
 
-describe("Test page functionality", () => {
+const trigger = (el, etype) => {
+    const evt =  new Event(etype, { bubbles: true });
+    el.dispatchEvent(evt);
+    return evt;
+  };
+
+describe("Test nextSlide() functionality", () => {
     test("nextSlide() should return 1 after 1st call", () => {
         expect(nextSlide()).toBe(1);
     });
@@ -28,6 +34,9 @@ describe("Test page functionality", () => {
     test("nextSlide() should return 0 after 3rd call", () => {
         expect(nextSlide()).toBe(0);
     });
+});
+
+describe("Test state changing functions", () => {
     test("clearState removes 'active' class from all tabs and slides", () => {
         clearState();
         expect(document.querySelectorAll('.tab')[0].classList.contains('active')).toBe(false);
@@ -43,11 +52,6 @@ describe("Test page functionality", () => {
         expect(document.querySelectorAll('.carousel-slide')[1].classList.contains('active')).toBe(true);
     });
     test("selectedState correctly assigns clicked item as active", () => {
-        const trigger = (el, etype) => {
-            const evt =  new Event(etype, { bubbles: true });
-            el.dispatchEvent(evt);
-            return evt;
-          };
         selectedState(trigger(document.querySelectorAll('.tab')[2], 'click'));
         expect(document.querySelectorAll('.tab')[2].classList.contains('active')).toBe(true);
         expect(document.querySelectorAll('.carousel-slide')[2].classList.contains('active')).toBe(true);
