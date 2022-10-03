@@ -11,9 +11,9 @@
     --carousel-img-1: url("../images/carousel-img-1.webp");
     --carousel-img-2: url("../images/carousel-img-2.webp");
     --carousel-img-3: url("../images/carousel-img-3.webp");
-    --method-img-1: url(../images/methodology-img-1.webp);
-    --method-img-2: url(../images/methodology-img-2.webp);
-    --method-img-3: url(../images/methodology-img-3.webp);
+    --method-img-1: url("../images/methodology-img-1.webp");
+    --method-img-2: url("../images/methodology-img-2.webp");
+    --method-img-3: url("../images/methodology-img-3.webp");
     --h-font: 600 1rem "Lexend", sans-serif;
     --t-font: 500 1rem "Montserrat", sans-serif;
     --check-size: 5rem;
@@ -488,7 +488,7 @@ header {
     text-decoration: none;
     text-align: center;
     background-color: white;
-    background-image: url(../images/quiz-question-img.webp);
+    background-image: url("../images/quiz-question-img.webp");
     background-size: 200%;
     background-position: 26% 54%;
     color: black;
@@ -833,7 +833,7 @@ header {
     margin: 2rem auto 1rem;
     padding: 0 1rem 0 1.5rem;
     font-size: 1.15rem;
-    background-image: url(../images/quiz-question-img.webp);
+    background-image: url("../images/quiz-question-img.webp");
     background-position: 5% 45%;
     background-color: white;
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
@@ -849,7 +849,7 @@ header {
     width: calc(100% + 1px);
     border: 1px solid rgb(125, 125, 125);
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
-    background-image: url(../images/quiz-question-img.webp);
+    background-image: url("../images/quiz-question-img.webp");
     background-color: white;
     z-index: -1;
 }
@@ -861,7 +861,7 @@ header {
     left: .425rem;
     height: 100%;
     width: 100%;
-    background-image: url(../images/quiz-question-img.webp);
+    background-image: url("../images/quiz-question-img.webp");
     background-color: white;
     border: 1px solid rgb(125, 125, 125);
     box-shadow: 1px 1px 2px rgb(105, 105, 105);
