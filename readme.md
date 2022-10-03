@@ -8,7 +8,7 @@
 ---
 
 ## Introduction
-An online based mathematics academy. Whether 5 or 65 we have got something for everyone! Discover interactive online maths tuition at it's best!
+A school of mathematics with a web presence. Whether you're 5 or 65, we have something for you! Discover the best interactive math tutoring available online!
 
 ---
 
@@ -554,16 +554,9 @@ Warnings due to use of `!` to get boolean value by checking if property exists.
 <details>
 <summary>Booking Page - booking.html</summary>
 
-Warnings due to use of `!` to get boolean value by checking if property exists, and event listener calling an anonymous function within a loop statement.
+- Warnings due to use of `!` to get boolean value by checking if property exists, and event listener calling an anonymous function within a loop statement.
+- I couldn't define emailjs as variable because it is injected through the HTML file.
 <img src="docs/validation/jshint-booking.png">
-</details>
-
-[Jest](https://jest.com/) was used for automated jest testing.
-
-<details>
-<summary>JEST Testing - All Pages</summary>
-
-<img src="docs/validation/javascript-validation-jest.png">
 </details>
 
 ### Accessibility
@@ -610,22 +603,63 @@ Warnings due to use of `!` to get boolean value by checking if property exists, 
 <img src="docs/validation/lighthouse-booking.png">
 </details>
 
-### Browser compatibility:
+---
+
+### Automated testing:
+
+[Jest](https://jest.com/) was used for automated jest testing. To run the tests - install Jest using `npm install --save-dev jest`, uncomment the module.exports from each JavaScript file and run `jest` in the CLI.
+
+Every function has its own `describe` method, while objects are tested at the start under one general `describe`.
+
+The most commonly used matchers are `toBe()` for any numbers and truthy values, and `toContain` for any arrays or strings.
+
+Since many aspects of the website are controlled by events, I was able to evaluate the functionality of the event listeners linked to each element using the function `trigger(element, eventType)`. In essence, parameter one specifies the element on which you want to invoke the event, and parameter two specifies the kind of event you want to invoke.
+
+<details>
+<summary>Supporting Image - trigger Function</summary>
+
+<img src="docs/validation/javascript-validation-jest-function-1.png">
+</details>
+
+For Quiz page I used a mock implementation of the fetch API function, which allowed me to set the output on both outcomes (resolve and reject). The mock function was essential for testing the page's functions that relied on the API call's output.
+
+
+<details>
+<summary>JEST - index.js</summary>
+
+<img src="docs/validation/javascript-validation-jest-index.png">
+</details>
+
+<details>
+<summary>JEST - quiz.js</summary>
+
+<img src="docs/validation/javascript-validation-jest-quiz-1.png">
+<img src="docs/validation/javascript-validation-jest-quiz-2.png">
+</details>
+
+<details>
+<summary>JEST - booking.js</summary>
+
+<img src="docs/validation/javascript-validation-jest-booking.png">
+</details>
+
+---
+
+### Manual Testing:
+
+#### Browser compatibility:
 
 - Microsoft Edge: Functionality and styles as expected.
 - Google Chrome: Functionality and styles as expected.
 - Firefox: Functionality and styles as expected.
 - Opera/Opera GX: Functionality and styles as expected.
-- Safari: 
 
-### Devices tested on:
+#### Devices tested on:
 
 - Tower desktop with 27" monitor;
 - OnePlus 9 Pro.
 
-### Test Performed
-
-### Testing User Stories
+#### Testing User Stories
 
 1. As a new user, I want to know what Math Masters Academy is.
 
