@@ -348,7 +348,6 @@ bookingCartSubmit.addEventListener('click', () => {
         order.classes = bookedClasses.join(', ');
         order.classes += ` & ${lastItem}`;
     }
-    console.log(order.classes);
     order.total = '£' + subTotal;
     showMailingForm();
     updateAddBtn();
