@@ -343,7 +343,7 @@ _User Stories Covered - 20_
 <img src="docs/features/math-masters-academy-methodology.png">
 </details>
 
-_User Stories Covered - 5, 19_ 
+_User Stories Covered - 5, 19_
 
 3. About Us Section - Contains classes information section, a Google Maps `iframe`, and the academy's contact information and address.
 
@@ -466,7 +466,7 @@ _User Stories Covered - 1, 4, 17_
     <img src="docs/features/math-masters-academy-booking-confirmation.png">
     </details>
 
-_ User Stories Covered - 4, 11, 12, 25_
+_User Stories Covered - 4, 11, 12, 25_
 
 3. A sign-up form via which the user can subscribe to the academy's newsletter where they will be kept notified when new classes and promotions are made available. The form has inputs for name, e-mail, and a drop-down menu, which is optional, via which the user can specify how they heard about the academy.
 
@@ -476,7 +476,7 @@ _ User Stories Covered - 4, 11, 12, 25_
     <img src="docs/features/math-masters-academy-newsletter.png">
     </details>
 
-_ User Stories Covered - 16, 24_
+_User Stories Covered - 16, 24_
 
 ---
 
