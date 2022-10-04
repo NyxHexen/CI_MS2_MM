@@ -32,8 +32,8 @@ A school of mathematics with a web presence. Whether you're 5 or 65, we have som
 3. [Accessibility](#accessibility)
 4. [Performance](#performance)
 5. [Browser Compatibility](#browser-compatibility)
-6. [Device Testing](#devices-tested-on)
-7. [Testing User Stories](#testing-user-stories)
+6. [Automated Testing](#automated-testing)
+7. [Manual Testing](#manual-testing)
 
 ### 6. [Bug/Fix Log](#6-bugfix-log-1)
 
