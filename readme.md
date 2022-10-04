@@ -478,6 +478,17 @@ _User Stories Covered - 4, 11, 12, 25_
 
 _User Stories Covered - 16, 24_
 
+### 404.html
+
+404 Page Not Found error page provides users with helpful instructions if they find themselves on a broken link/missing page.
+
+The button on the page redirects the user to the landing page (index.html), or they can use the navigation links to return.
+
+<details>
+<summary> Supporting Image </summary>
+<img src="docs/features/math-masters-academy-404.png">
+</details>
+
 ---
 
 ## 4. Technology
@@ -518,9 +529,15 @@ _User Stories Covered - 16, 24_
 </details>
 
 <details>
-<summary>Booking Pager - booking.html</summary>
+<summary>Booking Page - booking.html</summary>
 
 <img src="docs/validation/w3-html-validator-booking.png">
+</details>
+
+<details>
+<summary>404 Page - 404.html</summary>
+
+<img src="docs/validation/w3-html-validator-404.png">
 </details>
 
 ### CSS Validation
@@ -581,6 +598,12 @@ Warnings due to use of `!` to get boolean value by checking if property exists.
 <img src="docs/validation/wave-accessibility-booking.png">
 </details>
 
+<details>
+<summary>404 Page - 404.html</summary>
+
+<img src="docs/validation/wave-accessibility-404.png">
+</details>
+
 ### Performance
 
 [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to measure the website's speed and performance. 
@@ -601,6 +624,12 @@ Warnings due to use of `!` to get boolean value by checking if property exists.
 <summary>Booking Page - booking.html</summary>
 
 <img src="docs/validation/lighthouse-booking.png">
+</details>
+
+<details>
+<summary>404 Page - 404.html</summary>
+
+<img src="docs/validation/lighthouse-404.png">
 </details>
 
 ---
